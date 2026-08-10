@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="从聊天机器人到 AI Worker：Agentic AI 的演化、工程范式与 AI-native 教育系统。">
+  <meta name="theme-color" content="#08152d">
+  <title>从聊天机器人到 AI Worker · 在线演讲</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#slide-1">跳到幻灯片</a>
+
+  <header class="deck-header">
+    <a class="deck-brand" href="https://cocorobo.com" target="_blank" rel="noreferrer" aria-label="CocoRobo 官网">COCOROBO</a>
+    <div class="deck-context"><span>AGENTIC AI</span><i></i><span>AI-NATIVE EDUCATION</span></div>
+    <div class="header-actions">
+      <button type="button" data-action="overview" title="总览（O）">总览</button>
+      <button type="button" data-action="fullscreen" title="全屏（F）">全屏</button>
+    </div>
+  </header>
+
+  <main class="deck" id="deck" aria-live="polite">
+    <section class="slide theme-midnight is-active" id="slide-1" data-title="从聊天机器人到 AI Worker" aria-hidden="false">
+      <div class="slide-inner title-composition">
+        <div class="brand-lockup">可可乐博 <span>COCOROBO</span></div>
+        <div class="superline">AGENTIC AI · ENGINEERING · EDUCATION</div>
+        <h1>从聊天机器人<br><em>到 AI Worker</em></h1>
+        <p class="title-dek">Agentic AI 的演化、工程范式与下一代工作系统——以及它将如何重构学校、教师与学习。</p>
+        <div class="title-meta"><span>辛海洋 · CocoRobo</span><span>21 张</span><span>约 35 分钟</span><span>2026 年 8 月</span></div>
+      </div>
+      <aside class="speaker-note">开场从一个变化讲起：核心问题已经从“模型会什么”，转向“我们怎样让模型长期、可靠地完成工作”。这不是一次功能升级，而是从对话界面走向工作系统。</aside>
+    </section>
+
+    <section class="slide theme-paper" id="slide-2" data-title="一则新闻：OpenAI 宣布将收购 Ona" aria-hidden="true">
+      <div class="slide-inner news-composition">
+        <div class="chapter-mark">01 · THE SIGNAL</div>
+        <h2>一则新闻：OpenAI<br><strong>宣布将收购 Ona</strong></h2>
+        <div class="news-grid">
+          <article><span>ONA</span><h3>安全、持久的执行环境</h3><p>把 workspace、storage、runtime 与 background agent 组织起来。</p></article>
+          <article><span>OPENAI</span><h3>模型需要“工作的地方”</h3><p>Codex 不只生成代码，还需要环境、权限、状态与验证。</p></article>
+          <article><span>THE QUESTION</span><h3>价值究竟在哪一层？</h3><p>当模型、工具和云都已存在，为什么还要收购一家 Agent 工作环境公司？</p></article>
+        </div>
+        <p class="takeaway">这笔收购的关键词不是“更强模型”，而是 persistent workspace、secure execution 与 orchestration。</p>
+      </div>
+      <aside class="speaker-note">Ona 是这场演讲的入口，而不是主角。新闻真正暴露的是：Agent 竞争正在从模型本身，迁移到模型之外的工作环境与执行系统。</aside>
+    </section>
+
+    <section class="slide theme-sand" id="slide-3" data-title="Agent 的瓶颈正在向模型外部迁移" aria-hidden="true">
+      <div class="slide-inner migration-composition">
+        <div class="chapter-mark">02 · THE SHIFT</div>
+        <h2>Agent 的瓶颈，正在持续<br><strong>向模型外部迁移</strong></h2>
+        <div class="shift-line">
+          <div><b>Prompt</b><span>怎样问</span></div><i>→</i>
+          <div><b>Context</b><span>看到什么</span></div><i>→</i>
+          <div><b>Harness</b><span>如何行动</span></div><i>→</i>
+          <div><b>Loop</b><span>怎样持续</span></div><i>→</i>
+          <div><b>Organization</b><span>如何治理</span></div>
+        </div>
+        <p class="takeaway">模型能力仍然重要，但可靠性、执行环境与组织设计越来越决定最终价值。</p>
+      </div>
+      <aside class="speaker-note">这条主线贯穿整场演讲。Prompt 没有消失，只是被更大的工程问题包围：情境、工具、反馈、持续执行、权限和治理。</aside>
+    </section>
+
+    <section class="slide theme-midnight" id="slide-4" data-title="五年演化：从内容生成走向工作系统" aria-hidden="true">
+      <div class="slide-inner timeline-composition">
+        <div class="chapter-mark light">03 · THE EVOLUTION</div>
+        <h2>五年演化：从内容生成<br><strong>走向工作系统</strong></h2>
+        <div class="timeline">
+          <article><span>2021</span><b>行动</b><p>WebGPT 开始点击与浏览</p></article>
+          <article><span>2022</span><b>循环</b><p>ReAct：思考—行动—观察</p></article>
+          <article><span>2023</span><b>自治</b><p>AutoGPT / MetaGPT 探索自主 Agent</p></article>
+          <article><span>2024</span><b>界面</b><p>Computer Use 与工具调度</p></article>
+          <article><span>2025–26</span><b>系统</b><p>远程、异步、并行与持久环境</p></article>
+        </div>
+        <p class="timeline-foot">历史主线不是产品越来越多，而是模型获得行动能力后，工程边界不断外扩。</p>
+      </div>
+      <aside class="speaker-note">不要把时间线讲成公司列表。真正的演化是：模型先能行动，再能循环，再尝试自治，随后获得可用界面，最后进入可持续的工作系统。</aside>
+    </section>
+
+    <section class="slide theme-blue" id="slide-5" data-title="ReAct 把回答改造成行动—观察循环" aria-hidden="true">
+      <div class="slide-inner loop-composition">
+        <div class="chapter-mark light">04 · THE LOOP</div>
+        <h2>现代 Agent 的核心不是更长回答，<br>而是<strong>行动—观察循环</strong></h2>
+        <div class="loop-line">
+          <div><b>R</b><span>Reason</span><small>形成下一步判断</small></div><i>→</i>
+          <div><b>A</b><span>Act</span><small>调用工具改变状态</small></div><i>→</i>
+          <div><b>O</b><span>Observe</span><small>读取真实反馈</small></div><i>→</i>
+          <div><b>R</b><span>Reason</span><small>更新计划</small></div><i>↺</i>
+        </div>
+        <div class="loop-gates"><span>验证</span><span>重试</span><span>停止</span><span>升级给人</span></div>
+        <p class="takeaway light-copy">没有可验证反馈，Agent 只是把一次生成延长成多次生成。</p>
+      </div>
+      <aside class="speaker-note">ReAct 的关键不是让推理可见，而是让模型通过工具改变环境，再读取环境反馈。真正的工程问题是：什么时候继续、验证、重试、停止，什么时候交还给人。</aside>
+    </section>
+
+    <section class="slide theme-warning" id="slide-6" data-title="2023 年的自主 Agent 为什么没有真正跑通" aria-hidden="true">
+      <div class="slide-inner reliability-composition">
+        <div class="chapter-mark">05 · RELIABILITY</div>
+        <h2>2023 年的自主 Agent，<br><strong>为什么没有真正跑通？</strong></h2>
+        <div class="probability-visual">
+          <div class="formula"><span>0.95</span><sup>30</sup><b>≈ 21%</b></div>
+          <p>如果 30 个关键步骤每一步只有 95% 成功率，长程任务的联合成功率会迅速坍塌。</p>
+        </div>
+        <div class="failure-reasons"><span>模型准确率不足</span><span>工具接口不成熟</span><span>缺少状态验证</span><span>失败后无法恢复</span><span>成本高、产出低</span></div>
+        <p class="takeaway">有 loop 不等于能自治；每一步必须可验证、可恢复、可回滚。</p>
+      </div>
+      <aside class="speaker-note">这是 MetaGPT、AutoGPT 等早期系统的共同困境。它们证明了可能性，但当时模型、MCP、工具调用和运行环境都不足以支撑长程任务。</aside>
+    </section>
+
+    <section class="slide theme-paper" id="slide-7" data-title="MetaGPT 的真正启示是先强化一个 Agent" aria-hidden="true">
+      <div class="slide-inner contrast-composition">
+        <div class="chapter-mark">06 · MULTI-AGENT LESSON</div>
+        <h2>MetaGPT 的真正启示：<br><strong>先强化一个 Agent</strong></h2>
+        <div class="contrast-grid">
+          <article class="negative"><span>弱 Agent × 多角色</span><h3>复制岗位名称</h3><p>交接、压缩与共享偏差不断叠加；很多协作只发生在 Markdown 文档里。</p></article>
+          <article class="positive"><span>强 Agent × 责任边界</span><h3>围绕产出物拆分</h3><p>只有 Context、权限、工具或独立验证责任不同，拆分才产生净价值。</p></article>
+        </div>
+        <p class="takeaway">多 Agent 的单位不是“角色”，而是需要被独立管理的责任。</p>
+      </div>
+      <aside class="speaker-note">不是否定多 Agent，而是改变拆分原则。先让单体拥有强工具、强 Context 和验证能力，再根据责任边界拆分，避免机械照搬人类组织结构。</aside>
+    </section>
+
+    <section class="slide theme-green" id="slide-8" data-title="软件工程率先跑通 Agent" aria-hidden="true">
+      <div class="slide-inner compiler-composition">
+        <div class="chapter-mark light">07 · WHY CODING FIRST</div>
+        <h2>软件工程率先跑通 Agent，<br>因为环境<strong>能够机器验证</strong></h2>
+        <div class="compiler-loop">
+          <span>Write</span><i>→</i><span>Compile</span><i>→</i><span>Test</span><i>→</i><span>Error</span><i>→</i><span>Diagnose</span><i>→</i><span>Fix</span><i>↺</i>
+        </div>
+        <div class="verification-grid">
+          <article><b>确定性反馈</b><p>compiler、tests、CI 与 runtime errors 直接暴露失败。</p></article>
+          <article><b>行动可恢复</b><p>文件、版本控制、sandbox 与回滚构成安全执行边界。</p></article>
+          <article><b>目标可分解</b><p>规格、代码、测试、审查形成天然的长程任务结构。</p></article>
+        </div>
+        <p class="takeaway light-copy">Coding Agent 的领先，本质上是 Harness 领先。</p>
+      </div>
+      <aside class="speaker-note">Claude Code 这个名字具有误导性：它不只是写代码的工具，而是一种率先在可验证环境中跑通的超级 Agent 架构。</aside>
+    </section>
+
+    <section class="slide theme-violet" id="slide-9" data-title="远程、异步与并行把协作变成任务委派" aria-hidden="true">
+      <div class="slide-inner delegation-composition">
+        <div class="chapter-mark light">08 · DELEGATION</div>
+        <h2>远程、异步与并行，<br>把协作变成<strong>任务委派</strong></h2>
+        <div class="delegation-grid">
+          <article><span>01</span><h3>本地同步</h3><p>人守在电脑前，逐轮给指令。</p></article>
+          <article><span>02</span><h3>异步远程</h3><p>从手机或 iPad 发任务，完成后返回。</p></article>
+          <article><span>03</span><h3>并行执行</h3><p>多个工作流同时运行，人的时间与执行时间解耦。</p></article>
+        </div>
+        <p class="takeaway light-copy">真正改变格局的，不只是能力存在，而是产品替普通用户消除了配置、联通与运行障碍。</p>
+      </div>
+      <aside class="speaker-note">Manus 的出圈与 Claude/Codex 后来的远程能力说明：程序员可以自己搭远程，但普通用户不会。产品价值往往来自把所有阻力打包消除。</aside>
+    </section>
+
+    <section class="slide theme-paper" id="slide-10" data-title="Manus 把 General Agent 变成可理解的 AI Worker" aria-hidden="true">
+      <div class="slide-inner worker-composition">
+        <div class="chapter-mark">09 · PRODUCT EXPERIENCE</div>
+        <h2>Manus 把 General Agent<br>转化为普通用户理解的<strong>AI Worker</strong></h2>
+        <div class="worker-split">
+          <article><span>AI PROGRAMMER</span><h3>能力存在</h3><p>Prompt、工具、代码、环境、远程连接需要用户自己理解和配置。</p></article>
+          <div class="worker-arrow">→</div>
+          <article><span>AI WORKER</span><h3>任务完成</h3><p>用户给目标；系统组织环境、工具、文件、执行与结果返回。</p></article>
+        </div>
+        <p class="takeaway">竞争焦点从“模型能不能做”，转向“用户能不能放心把任务交出去”。</p>
+      </div>
+      <aside class="speaker-note">Manus 未必拥有最强底层能力，但它证明了 Agent 已经能干活。它把技术能力翻译成了任务委派体验，这是产品层的重要突破。</aside>
+    </section>
+
+    <section class="slide theme-midnight" id="slide-11" data-title="Context、Harness 与 Loop 是三层工程" aria-hidden="true">
+      <div class="slide-inner triad-composition">
+        <div class="chapter-mark light">10 · THE ENGINEERING TRIAD</div>
+        <h2>Context、Harness 与 Loop<br>构成<strong>三层工程</strong></h2>
+        <div class="triad-grid">
+          <article><span>CONTEXT</span><h3>认知环境</h3><p>任务、知识、记忆、状态、历史与当前意图。</p></article>
+          <article><span>HARNESS</span><h3>行动环境</h3><p>工具、权限、runtime、tests、反馈与恢复机制。</p></article>
+          <article><span>LOOP</span><h3>持续执行</h3><p>继续、验证、重试、停止、升级与长期改进。</p></article>
+        </div>
+        <div class="triad-equation">Prompt ⊂ Context · Context + Harness + Loop = Agent Work System</div>
+      </div>
+      <aside class="speaker-note">三者不是并列功能，而是嵌套系统：Context 决定它理解什么，Harness 决定它能做什么，Loop 决定它如何持续到完成。</aside>
+    </section>
+
+    <section class="slide theme-paper" id="slide-12" data-title="模型越强，工程重心越向外移动" aria-hidden="true">
+      <div class="slide-inner outward-composition">
+        <div class="chapter-mark">11 · ENGINEERING MOVES OUTWARD</div>
+        <h2>模型越强，<br><strong>工程重心越向外移动</strong></h2>
+        <div class="outward-rings" role="img" aria-label="从 Prompt 到 Governance 的五层同心结构">
+          <div class="ring r5"><span>Governance</span><div class="ring r4"><span>Loop</span><div class="ring r3"><span>Harness</span><div class="ring r2"><span>Context</span><div class="ring r1"><span>Prompt</span></div></div></div></div></div>
+        </div>
+        <div class="outward-copy"><p>模型能力商品化后，差异来自组织知识、执行环境、验证数据、权限设计与改进机制。</p><strong>下一轮竞争，不只是“谁的模型更强”。</strong></div>
+      </div>
+      <aside class="speaker-note">这页把技术与战略连接起来。越靠外的层越接近真实业务，也越依赖领域知识、流程、数据和组织责任，因此更难被通用模型直接替代。</aside>
+    </section>
+
+    <section class="slide theme-blue" id="slide-13" data-title="下一阶段是 Agent Organization 与 Governance" aria-hidden="true">
+      <div class="slide-inner governance-composition">
+        <div class="chapter-mark light">12 · ORGANIZATION</div>
+        <h2>下一阶段的系统问题：<br><strong>Agent Organization & Governance</strong></h2>
+        <div class="governance-board">
+          <article><b>Goals</b><p>谁定义目标？如何处理目标漂移？</p></article>
+          <article><b>Authority</b><p>Agent 能读什么、改什么、花多少钱？</p></article>
+          <article><b>Resources</b><p>时间、token、工具与并发如何分配？</p></article>
+          <article><b>Verification</b><p>谁独立验收？证据如何保留？</p></article>
+          <article><b>Conflict</b><p>多个 Agent 的冲突如何裁决？</p></article>
+          <article><b>Escalation</b><p>什么情况下必须交还给人？</p></article>
+        </div>
+        <p class="takeaway light-copy">多 Agent 的下一步不是增加角色，而是建立可治理的组织机制。</p>
+      </div>
+      <aside class="speaker-note">当 Agent 从单点工具进入团队，目标、权限、资源、验证、冲突和升级机制都会变成一级设计对象。这是 Agent Engineering 走向 Agent Organization Design 的分界。</aside>
+    </section>
+
+    <section class="slide theme-paper" id="slide-14" data-title="Agentic AI Stack：竞争从模型层扩展到系统层" aria-hidden="true">
+      <div class="slide-inner stack-composition">
+        <div class="chapter-mark">13 · THE STACK</div>
+        <h2>Agentic AI Stack：<br>竞争从模型层<strong>扩展到系统层</strong></h2>
+        <div class="stack-layers">
+          <div><b>Human / Organization</b><span>Goals · Policies · Strategy</span></div>
+          <div class="focus"><b>Agent Organization</b><span>Orchestration · Governance · Roles</span></div>
+          <div class="focus"><b>Loop Engineering</b><span>Plan · Act · Verify · Retry · Stop</span></div>
+          <div class="focus"><b>Harness Engineering</b><span>Tools · Runtime · Tests · Permissions</span></div>
+          <div class="focus"><b>Context Engineering</b><span>Memory · RAG · State · Instruction</span></div>
+          <div><b>Foundation Models</b><span>Reasoning · Multimodal · Code</span></div>
+          <div><b>Compute / Devices</b><span>Cloud · Edge · Browser · Robotics</span></div>
+        </div>
+      </div>
+      <aside class="speaker-note">评价一个 Agent 产品，不能只看模型 benchmark。必须向上看它如何组织 Context、工具、验证、循环和责任，向下看它如何使用算力与设备。</aside>
+    </section>
+
+    <section class="slide theme-sand" id="slide-15" data-title="企业采用的下一步是重新设计工作系统" aria-hidden="true">
+      <div class="slide-inner enterprise-composition">
+        <div class="chapter-mark">14 · AI-NATIVE ORGANIZATION</div>
+        <h2>企业采用的下一步，<br>是<strong>重新设计工作系统</strong></h2>
+        <div class="enterprise-shift">
+          <article><span>旧问题</span><h3>哪个岗位可以被 AI 替代？</h3><p>围绕职位和单点效率优化。</p></article>
+          <i>→</i>
+          <article><span>新问题</span><h3>人、Agent 与系统如何共同交付？</h3><p>重构流程、责任边界、验证与决策机制。</p></article>
+        </div>
+        <div class="human-roles"><span>定义目标</span><span>设计边界</span><span>处理例外</span><span>解释证据</span><span>承担责任</span></div>
+        <p class="takeaway">AI-native organization 的核心不是“更多 AI”，而是新的工作分配与治理结构。</p>
+      </div>
+      <aside class="speaker-note">不要把 AI-native 理解成采购更多工具。真正变化的是工作如何被分解、委派、验证、升级与持续改进，以及人在哪些节点重新取得控制。</aside>
+    </section>
+
+    <section class="slide theme-violet" id="slide-16" data-title="教育中的 Agentic AI 是学习环境编排" aria-hidden="true">
+      <div class="slide-inner learning-composition">
+        <div class="chapter-mark light">15 · EDUCATION</div>
+        <h2>教育中的 Agentic AI，<br>本质是<strong>学习环境编排</strong></h2>
+        <div class="learning-loop">
+          <span>教学目标</span><i>→</i><span>学习活动</span><i>→</i><span>Agent 支持</span><i>→</i><span>证据采集</span><i>→</i><span>教师判断</span><i>↺</i>
+        </div>
+        <div class="education-triad">
+          <article><b>Context</b><p>课程目标、学生画像、进度、作品与教师意图。</p></article>
+          <article><b>Harness</b><p>教学脚本、Rubric、权限、数据边界与教师复核。</p></article>
+          <article><b>Loop</b><p>诊断、干预、产出、证据解释、反思与再设计。</p></article>
+        </div>
+        <p class="takeaway light-copy">教师不是工具使用者，而是 Human–AI Learning Orchestration 的设计者与治理者。</p>
+      </div>
+      <aside class="speaker-note">教育中的 Agent 不应只是聊天机器人。价值来自 AI 何时出现、提供什么支架、什么时候停止、学生何时独立完成、教师何时介入，以及过程留下什么证据。</aside>
+    </section>
+
+    <section class="slide theme-paper" id="slide-17" data-title="AI 教育正在进入制度化实施期" aria-hidden="true">
+      <div class="slide-inner policy-composition">
+        <div class="chapter-mark">16 · MARKET SHIFT</div>
+        <h2>AI 教育正在从“工具试用期”<br>进入<strong>制度化实施期</strong></h2>
+        <div class="policy-grid">
+          <article><span>香港</span><h3>P-I-E 校本规划</h3><p>AI 被写入 School Development Plan、Annual School Plan、success criteria 与学校自评。</p></article>
+          <article><span>广东</span><h3>全域场景应用</h3><p>从一节 AI 课，扩展到整个教育系统的助教、助学、助研、助管与助评。</p></article>
+          <article><span>深圳</span><h3>未来学校</h3><p>智能学伴、智能教师、智能孪生教室与全链条应用进入长期规划。</p></article>
+        </div>
+        <div class="institution-loop"><span>规划</span><i>→</i><span>实施</span><i>→</i><span>评价</span><i>→</i><span>改进</span><i>↺</i></div>
+      </div>
+      <aside class="speaker-note">市场问题已经从“你们有什么 AI 产品”，转向“学校今年应该做什么、怎样写进计划、怎样证明做出了效果”。这会改变销售语言、产品架构与交付方式。</aside>
+    </section>
+
+    <section class="slide theme-midnight" id="slide-18" data-title="五个平台应统一为 AI-native School Operating Layer" aria-hidden="true">
+      <div class="slide-inner school-stack-composition">
+        <div class="chapter-mark light">17 · SCHOOL OPERATING LAYER</div>
+        <h2>五个平台应统一为<br><strong>AI-native School Operating Layer</strong></h2>
+        <div class="school-stack">
+          <article><span>01</span><b>Design</b><p>CocoFlow · lesson · activity · workflow</p></article>
+          <article><span>02</span><b>Orchestration</b><p>CocoFlow + CocoClass · timing · override</p></article>
+          <article><span>03</span><b>Learning</b><p>CocoStudy + CocoNote · individual · PBL</p></article>
+          <article><span>04</span><b>Evidence</b><p>CocoView · logs · actions · artifacts</p></article>
+          <article><span>05</span><b>Improvement</b><p>reflection · school evaluation · redesign</p></article>
+        </div>
+        <p class="takeaway light-copy">连接 AI、教师、学生、课程、课堂与评价——不是新增一个学校 ERP，也不是继续增加第六个平台。</p>
+      </div>
+      <aside class="speaker-note">过去五个平台看起来分散；在全域场景与学校实施逻辑下，它们正好可以组成教学运行层。第五层 Improvement 是下一步需要产品化的关键缺口。</aside>
+    </section>
+
+    <section class="slide theme-blue" id="slide-19" data-title="未来产品：每位教师拥有配置好的教育 AI Worker" aria-hidden="true">
+      <div class="slide-inner teacher-worker-composition">
+        <div class="chapter-mark light">18 · FUTURE PRODUCT</div>
+        <h2>未来产品：每位教师都拥有<br><strong>配置好的教育 AI Worker</strong></h2>
+        <div class="teacher-flow"><span>教师目标与约束</span><i>→</i><span>课程与学生 Context</span><i>→</i><span>AI Worker 设计·生成·调用</span><i>→</i><span>课堂·学习·证据系统</span></div>
+        <div class="teacher-contract">
+          <article><b>教师不再被要求</b><p>学习更多 Prompt、PPT/H5、Agent builder 与复杂工具切换。</p></article>
+          <article><b>系统承担</b><p>收集散落数据、生成活动材料、调用工具、连接 CocoClass / CocoStudy。</p></article>
+          <article><b>教师始终保留</b><p>目标、教学判断、边界权限、介入时机、结果验证与最终责任。</p></article>
+        </div>
+      </div>
+      <aside class="speaker-note">会议中的核心展望是“ClassCode”：老师不需要成为 Agent 工程师。CocoRobo 要把强 Agent 预配置成能进入课堂、可验证、可持续改进的教育工作系统。</aside>
+    </section>
+
+    <section class="slide theme-green" id="slide-20" data-title="未来交付：从 SaaS 走向 FDE 式学校实施" aria-hidden="true">
+      <div class="slide-inner fde-composition">
+        <div class="chapter-mark light">19 · FUTURE DELIVERY</div>
+        <h2>未来交付：从 SaaS<br>走向<strong>FDE 式学校实施</strong></h2>
+        <div class="fde-grid">
+          <article><span>BEST-OF-BREED</span><h3>通用能力生态</h3><p>选择最好的模型、Agent、内容与协作工具，不重复制造底座。</p></article>
+          <article><span>COCOROBO</span><h3>教育运行层</h3><p>教学法 × 编排 × 系统连接 × 过程证据，成为教育场景不可绕开的能力。</p></article>
+          <article><span>FDE DELIVERY</span><h3>学校实施服务</h3><p>规划、配置、集成、教师发展、评价与持续优化，让多种产品运转成系统。</p></article>
+        </div>
+        <div class="business-shift"><span>过去 · SaaS 授权</span><i>→</i><span>现在 · Usage / Token</span><i>→</i><strong>未来 · 实施服务 + 持续改进</strong></div>
+      </div>
+      <aside class="speaker-note">CocoRobo 不必拥有所有产品，但要成为学校 AI 系统不可绕开的教育运行层。未来收入结构可能从纯 SaaS 转向 usage/token 加实施服务与持续改进。</aside>
+    </section>
+
+    <section class="slide theme-midnight" id="slide-21" data-title="下一阶段的竞争是更好的学校实施系统" aria-hidden="true">
+      <div class="slide-inner closing-composition">
+        <div class="chapter-mark light">20 · CLOSING</div>
+        <h2>帮助学校管理</h2>
+        <div class="closing-words"><span>人</span><i>+</i><span>AI</span><i>+</i><span>同伴</span><i>+</i><span>任务</span><i>+</i><span>证据</span></div>
+        <p>之间的关系，而不只是“让 AI 进入课堂”。</p>
+        <div class="closing-moat"><b>orchestration</b><i>×</i><b>evidence</b><i>×</i><b>institutional implementation</b></div>
+      </div>
+      <aside class="speaker-note">最后回到公司的战略位置：模型、内容和通用 builder 会持续商品化。真正值得建立的护城河，是更好的教学编排、更好的过程证据，以及更好的学校制度化实施。</aside>
+    </section>
+  </main>
+
+  <div class="progress-track" aria-hidden="true"><span id="progress"></span></div>
+  <nav class="deck-controls" aria-label="幻灯片控制">
+    <button type="button" data-action="prev" aria-label="上一张">←</button>
+    <button type="button" data-action="next" aria-label="下一张">→</button>
+    <div class="slide-counter"><strong id="current-number">01</strong><span>/</span><span id="total-number">21</span></div>
+    <div class="control-spacer"></div>
+    <button type="button" data-action="notes" title="演讲者备注（N）">备注</button>
+    <button type="button" data-action="help" title="快捷键（?）">?</button>
+  </nav>
+
+  <footer class="publication-footer">
+    <div class="byline">作者：<b>辛海洋</b></div>
+    <div class="pubdate">CocoRobo · <time datetime="2026-08-10">2026-08-10</time></div>
+  </footer>
+
+  <div class="overview" id="overview" hidden>
+    <div class="overlay-head"><div><span>DECK OVERVIEW</span><h2>选择一张幻灯片</h2></div><button type="button" data-action="overview-close">关闭 ×</button></div>
+    <div class="overview-grid" id="overview-grid"></div>
+  </div>
+
+  <aside class="notes-drawer" id="notes" hidden aria-label="演讲者备注">
+    <div><span>演讲者备注</span><button type="button" data-action="notes-close">关闭 ×</button></div>
+    <p id="notes-content"></p>
+  </aside>
+
+  <dialog id="help-dialog">
+    <form method="dialog">
+      <div class="dialog-head"><h2>快捷键</h2><button value="close" aria-label="关闭">×</button></div>
+      <dl><div><dt>→ / Space</dt><dd>下一张</dd></div><div><dt>←</dt><dd>上一张</dd></div><div><dt>O</dt><dd>总览</dd></div><div><dt>F</dt><dd>全屏</dd></div><div><dt>N</dt><dd>演讲者备注</dd></div><div><dt>Home / End</dt><dd>首张 / 末张</dd></div></dl>
+    </form>
+  </dialog>
+
+  <script src="./slides.js"></script>
+</body>
+</html>
