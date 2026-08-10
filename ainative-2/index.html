@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="世界变了：从证据驱动到 Agentic 组织——CocoRobo 下一阶段完整内部思考在线演示。">
-  <meta name="theme-color" content="#08111f">
+  <meta name="theme-color" content="#07111f">
   <title>世界变了 · CocoRobo AI-native 组织</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
@@ -13,7 +13,7 @@
   <a class="skip-link" href="#slide-1">跳到幻灯片</a>
   <header class="deck-header">
     <a class="deck-brand" href="../" aria-label="返回在线演示首页">COCOROBO</a>
-    <div class="deck-context"><span>COCOROBO</span><i></i><span>AI-NATIVE</span></div>
+    <div class="deck-context"><span>INTERNAL STRATEGY</span><i></i><span>AI-NATIVE</span></div>
     <div class="header-actions">
       <button type="button" data-action="overview" title="总览（O）">总览</button>
       <button type="button" data-action="fullscreen" title="全屏（F）">全屏</button>
@@ -27,279 +27,386 @@
         <h1>世界变了</h1>
         <p class="title-dek">从证据驱动到 Agentic 组织</p>
         <div class="title-orbit" aria-hidden="true"><span>CONTEXT</span><span>EVIDENCE</span><span>WORKFLOW</span><i>AI</i></div>
-        <div class="title-meta"><span>20 张</span><span>约 30 分钟</span><span>面向全体同事</span></div>
+        <div class="title-meta"><span>25 张</span><span>约 40 分钟</span><span>面向全体同事</span></div>
       </div>
-      <aside class="speaker-note">开场只提出一个问题：当课程、网页、原型、PRD 和代码都能快速生成时，客户为什么还需要 CocoRobo？三次会议的共同答案不是“再多做几个 AI 功能”，而是把公司的价值移向真实问题、证据与持续运行的系统。来源：综合报告“写在前面”“核心结论”。</aside>
+      <aside class="speaker-note">开场只提出一个问题：当课程、网页、原型、PRD、研究草稿和代码都能快速生成时，客户为什么还需要 CocoRobo？三次讨论的共同答案不是“多做几个 AI 功能”，而是把价值迁移到真实问题、可信证据与持续运行的系统。来源：综合报告“写在前面”“核心结论”。</aside>
     </section>
 
-    <section class="slide theme-paper" id="slide-2" data-title="生成正在失去稀缺性" aria-hidden="true">
-      <div class="slide-inner verdict-composition">
-        <p class="chapter-mark">01 · THE TENSION</p>
-        <h2>生成正在失去<strong>稀缺性</strong></h2>
-        <div class="compression-visual" aria-label="内容、原型、文档和代码生产时间被压缩">
-          <div><span>课程 / 网页</span><i style="--w:88%"></i></div>
-          <div><span>原型 / PRD</span><i style="--w:63%"></i></div>
-          <div><span>数据 / 研究草稿</span><i style="--w:42%"></i></div>
-          <div><span>代码 / 测试</span><i style="--w:24%"></i></div>
+    <section class="slide theme-blue" id="slide-2" data-title="三次讨论最终指向五层重构" aria-hidden="true">
+      <div class="slide-inner five-shifts-composition">
+        <p class="chapter-mark light">01 · ONE ARGUMENT</p>
+        <h2>三次讨论，最终指向<strong>五层重构</strong></h2>
+        <div class="five-shifts">
+          <article><b>01</b><h3>供给变了</h3><p>一般数字产出快速商品化</p></article>
+          <article><b>02</b><h3>价值变了</h3><p>问题、现场与证据重新稀缺</p></article>
+          <article><b>03</b><h3>产品变了</h3><p>从单点 SaaS 走向工作系统</p></article>
+          <article><b>04</b><h3>组织变了</h3><p>从岗位交接走向结果闭环</p></article>
+          <article><b>05</b><h3>能力变了</h3><p>从会用 AI 到运行 Agent 团队</p></article>
         </div>
-        <p class="takeaway">一般质量的中间产出，正在从“交付成果”变成“随时可生成的材料”。</p>
-        <p class="caveat">示意图表达方向，不代表定量测量。</p>
+        <p class="takeaway light-copy">AI 提效只是起点；真正的变化，是公司如何创造、证明并持续交付价值。</p>
       </div>
-      <aside class="speaker-note">这一页建立张力，不声称具体效率倍数。重点是供给曲线改变：达到“可用门槛”更容易，单份内容和单点功能的差异化下降。来源：综合报告第二节。图形为分析示意，不是实测数据。</aside>
+      <aside class="speaker-note">这一页把三次讨论压缩成同一条因果链，而不是按会议时间复述。供给变化触发价值迁移，价值迁移要求产品闭环，产品闭环进一步要求组织与能力重构。来源：综合报告“写在前面”。</aside>
     </section>
 
-    <section class="slide theme-blue" id="slide-3" data-title="三次讨论是一条递进链" aria-hidden="true">
-      <div class="slide-inner progression-composition">
-        <p class="chapter-mark light">02 · ONE ARGUMENT</p>
-        <h2>三次讨论，<br>其实是一条<strong>递进链</strong></h2>
-        <div class="progression-line">
-          <article><b>01</b><h3>供给变了</h3><p>一般产出商品化</p></article><i>→</i>
-          <article><b>02</b><h3>价值变了</h3><p>证据与闭环稀缺</p></article><i>→</i>
-          <article><b>03</b><h3>组织变了</h3><p>Agentic system 承载</p></article>
-        </div>
-        <p class="takeaway light-copy">AI 提效 → 证据驱动 → 闭环型 AI-native 组织。</p>
-      </div>
-      <aside class="speaker-note">不要按会议顺序复述内容，用一条因果链解释它们：供给商品化迫使价值迁移；新的价值需要完整闭环；持续运行闭环又要求新的组织方式。来源：综合报告“写在前面”。</aside>
-    </section>
-
-    <section class="slide theme-sand" id="slide-4" data-title="可交付文件正在变成中间件" aria-hidden="true">
+    <section class="slide theme-paper" id="slide-3" data-title="可生成不等于有价值" aria-hidden="true">
       <div class="slide-inner artifact-composition">
-        <p class="chapter-mark">03 · COMMODITIZATION</p>
-        <h2>越来越多“可交付文件”<br>正在变成<strong>中间件</strong></h2>
-        <div class="artifact-field">
+        <p class="chapter-mark">02 · THE TENSION</p>
+        <h2><strong>可生成</strong>，<br class="mobile-break">不等于有价值</h2>
+        <div class="artifact-field dense-artifacts">
           <span>课程框架</span><span>互动网页</span><span>演示文稿</span><span>用户旅程</span>
           <span>PRD</span><span>界面原型</span><span>模拟数据</span><span>研究综述</span>
           <span>代码骨架</span><span>测试用例</span><span>传播文案</span><span>分析草稿</span>
         </div>
-        <p class="takeaway">文档完整、原型精美、功能上线，不再自动等于价值成立。</p>
+        <div class="question-strip"><span>问题真实吗？</span><span>机制可信吗？</span><span>数据可验证吗？</span><span>结果改善了吗？</span><span>经验能复用吗？</span></div>
       </div>
-      <aside class="speaker-note">“商品化”不等于质量完全相同，而是达到一般可用门槛的成本下降。专业判断仍重要，但不能只靠产出形式收费。来源：综合报告第二节。</aside>
+      <aside class="speaker-note">商品化不等于所有质量都相同，而是达到一般可用门槛的成本显著下降。文档完整、原型精美、功能上线不再自动等于价值成立，必须继续追问真实问题、研究依据、数据证据、用户结果与复用能力。来源：综合报告第二节。</aside>
     </section>
 
-    <section class="slide theme-paper" id="slide-5" data-title="价值必须跨越生成" aria-hidden="true">
-      <div class="slide-inner migration-composition">
-        <p class="chapter-mark">04 · VALUE MIGRATION</p>
-        <h2>公司的价值必须<strong>跨越生成</strong></h2>
-        <div class="migration-axis">
-          <div class="old-value"><span>旧重心</span><b>内容 · 页面 · 功能</b><small>可替代性持续上升</small></div>
-          <div class="bridge"><i></i><em>价值迁移</em><i></i></div>
-          <div class="new-value"><span>新重心</span><b>问题 · 证据 · 系统</b><small>依赖真实场景与长期积累</small></div>
+    <section class="slide theme-sand" id="slide-4" data-title="商品化迫使价值向两端移动" aria-hidden="true">
+      <div class="slide-inner spectrum-composition">
+        <p class="chapter-mark">03 · VALUE MIGRATION</p>
+        <h2>商品化迫使价值向<br class="mobile-break"><strong>两端移动</strong></h2>
+        <div class="value-spectrum">
+          <article class="upstream"><span>上游</span><h3>理解与定义</h3><p>真实问题 · 用户情境 · 教育目标 · 研究设计 · 成功标准</p></article>
+          <article class="middle"><span>被压缩的中间层</span><h3>生成与制作</h3><p>内容 · 页面 · 文档 · 原型 · 一般实现</p></article>
+          <article class="downstream"><span>下游</span><h3>运行与验证</h3><p>系统连接 · 现场采用 · 数据证据 · 治理服务 · 责任承担</p></article>
         </div>
-        <div class="rare-list"><span>理解现场</span><span>建立标准</span><span>连接数据</span><span>验证结果</span><span>承担责任</span></div>
+        <p class="takeaway">不要把 AI 节省的时间重新填满更多低价值产出。</p>
       </div>
-      <aside class="speaker-note">核心判断：不要把 AI 节省的时间重新填满更多低价值产出，而要投入问题定义、研究、现场验证与系统服务。来源：综合报告第一、二节。这里是战略推论，不是外部市场规模测算。</aside>
+      <aside class="speaker-note">商品化不是坏消息，它释放了团队向价值链上游和下游移动的机会。上游决定问题是否值得解决，下游决定系统是否真的产生结果。来源：综合报告第二节“商品化不是坏消息”。</aside>
     </section>
 
-    <section class="slide theme-midnight" id="slide-6" data-title="真正的产品是一条证据链" aria-hidden="true">
+    <section class="slide theme-midnight" id="slide-5" data-title="CocoRobo 的价值必须跨越生成" aria-hidden="true">
+      <div class="slide-inner rare-composition">
+        <p class="chapter-mark light">04 · WHAT REMAINS SCARCE</p>
+        <h2>CocoRobo 的价值<br class="mobile-break">必须<strong>跨越生成</strong></h2>
+        <div class="rare-capabilities">
+          <article><b>01</b><p>找到值得解决、真实存在的问题</p></article>
+          <article><b>02</b><p>理解学校、教师与学生的具体情境</p></article>
+          <article><b>03</b><p>把教育目标转为可执行、可记录的系统</p></article>
+          <article><b>04</b><p>让研究方法进入产品架构</p></article>
+          <article><b>05</b><p>连接数据、工具、人员与现场</p></article>
+          <article><b>06</b><p>持续验证、修正并证明结果</p></article>
+          <article><b>07</b><p>把一次项目沉淀为可复用能力</p></article>
+        </div>
+      </div>
+      <aside class="speaker-note">这七项能力共同定义新的价值重心。核心任务不再是生产更多 AI 内容，而是为教育场景设计、运行和验证能够持续产生结果的 AI-native 工作系统。来源：综合报告第一节。</aside>
+    </section>
+
+    <section class="slide theme-ink" id="slide-6" data-title="真正的产品是一条证据链" aria-hidden="true">
       <div class="slide-inner chain-composition">
         <p class="chapter-mark light">05 · THE EVIDENCE CHAIN</p>
-        <h2>真正的产品，<br>是一条<strong>证据链</strong></h2>
+        <h2>真正的产品，是一条<strong>证据链</strong></h2>
         <div class="evidence-chain" aria-label="从真实问题到市场扩张的九步闭环">
           <span>真实问题</span><i>→</i><span>价值假设</span><i>→</i><span>严谨研究</span><i>→</i><span>PRD / 原型</span><i>→</i><span>模拟 / 工程</span><i>→</i><span>现场使用</span><i>→</i><span>数据证据</span><i>→</i><span>产品沉淀</span><i>→</i><span>市场扩张</span>
         </div>
-        <div class="chain-return"><b>↺</b><p>市场与现场反馈，持续回到研究和产品。</p></div>
+        <div class="fact-loop">
+          <b>同一条事实链</b>
+          <span>研究定义证据</span><i>·</i><span>产品记录过程</span><i>·</i><span>市场表达边界</span><i>·</i><span>现场反馈回流</span>
+        </div>
       </div>
-      <aside class="speaker-note">这是三次讨论的第一条共同骨架。市场不是末端，研究也不是上线后的证明环节；所有角色共享同一条事实链。来源：综合报告第三节。</aside>
+      <aside class="speaker-note">市场不是闭环末端，而是证据回流入口；研究也不是上线后负责证明有效的部门。市场主张、产品机制和研究证据必须共享同一条事实链。来源：综合报告第三节。</aside>
     </section>
 
-    <section class="slide theme-paper" id="slide-7" data-title="研究必须进入产品上游" aria-hidden="true">
+    <section class="slide theme-paper" id="slide-7" data-title="研究不是证明部门而是产品定义者" aria-hidden="true">
       <div class="slide-inner upstream-composition">
         <p class="chapter-mark">06 · RESEARCH UPSTREAM</p>
-        <h2>研究必须进入<strong>产品上游</strong></h2>
-        <div class="upstream-layout">
-          <div class="research-input"><span>研究问题</span><span>基线 / 对照</span><span>评价量表</span><span>证据标准</span></div>
-          <i>→</i>
-          <div class="product-schema"><strong>产品架构</strong><p>字段 · 行为记录 · 埋点 · 界面反馈 · 追踪周期</p></div>
-          <i>→</i>
-          <div class="claim-output"><strong>可信主张</strong><p>我们能证明什么，以及不能证明什么</p></div>
+        <h2>研究不是<br class="mobile-break">“证明部门”，<br>而是<strong>产品定义者</strong></h2>
+        <div class="research-decisions">
+          <article><span>产品保存什么</span><b>字段与身份</b><p>定义对象、关系与追踪周期</p></article>
+          <article><span>过程记录什么</span><b>行为与埋点</b><p>留下足以解释结果的过程数据</p></article>
+          <article><span>界面反馈什么</span><b>评价与反馈</b><p>让用户看见依据、差距与下一步</p></article>
+          <article><span>主张能说什么</span><b>基线与证据</b><p>明确能证明什么、不能证明什么</p></article>
         </div>
-        <p class="takeaway">上线后才想如何验证，往往已经错过最关键的数据。</p>
+        <p class="takeaway">上线后才思考如何验证，往往已经错过最关键的数据。</p>
       </div>
-      <aside class="speaker-note">研究前置不是增加流程，而是减少无证据开发。它直接决定产品字段、埋点、评价机制和可支持的市场主张。来源：综合报告第三节“研究必须进入产品上游”。</aside>
+      <aside class="speaker-note">研究前置不是增加流程，而是减少无证据开发。研究计划应直接定义字段、行为记录、埋点、评价量表、基线、对照和追踪，最终约束市场主张。来源：综合报告第三节“研究必须进入产品上游”。</aside>
     </section>
 
-    <section class="slide theme-violet" id="slide-8" data-title="模拟加快学习，现场决定真伪" aria-hidden="true">
-      <div class="slide-inner split-composition">
-        <p class="chapter-mark light">07 · SIMULATION ≠ REALITY</p>
-        <div class="split-half"><div><span>模拟可以回答</span><h2>系统是否<br><strong>可能工作</strong></h2><p>提前验证字段、界面、流程和分析逻辑。</p></div><div><span>现场才能回答</span><h2>用户是否<br><strong>真的这样用</strong></h2><p>真实采用、行为变化、教育效果与责任边界。</p></div></div>
-        <p class="takeaway light-copy">快速原型用于更早获得反馈，不用于绕过工程质量。</p>
+    <section class="slide theme-violet" id="slide-8" data-title="模拟缩短反馈但现场决定真伪" aria-hidden="true">
+      <div class="slide-inner maturity-composition">
+        <p class="chapter-mark light">07 · SIMULATION, ENGINEERING, REALITY</p>
+        <h2>模拟缩短反馈，<strong>现场决定真伪</strong></h2>
+        <div class="maturity-ladder">
+          <article><span>概念验证</span><b>机制可能成立吗？</b><p>模拟字段、界面、流程与分析逻辑</p></article>
+          <article><span>内部工具</span><b>团队可以稳定使用吗？</b><p>加入测试、日志与基础恢复</p></article>
+          <article><span>受控试点</span><b>真实用户会这样用吗？</b><p>观察采用、行为变化与场景断点</p></article>
+          <article><span>正式系统</span><b>能够承担责任吗？</b><p>权限、审计、回滚、人工接管同步提高</p></article>
+        </div>
+        <p class="takeaway light-copy">工程强度由风险、规模与责任决定；快速原型不等于绕过工程质量。</p>
       </div>
-      <aside class="speaker-note">这是一页重要边界。模拟数据降低试错成本，但不能替代真实场景。工程化强度由用户规模、数据敏感度和责任决定。来源：综合报告第三节“模拟数据”“工程化边界”。</aside>
+      <aside class="speaker-note">模拟只能回答系统是否可能工作，不能替代真实用户、真实行为和真实结果。原型进入生产前必须根据用户规模、数据敏感度和业务责任提高稳定性与治理。来源：综合报告第三节“模拟数据”“工程化边界”。</aside>
     </section>
 
     <section class="slide theme-paper" id="slide-9" data-title="Agentic system 改变工作的基本单位" aria-hidden="true">
-      <div class="slide-inner unit-composition">
-        <p class="chapter-mark">08 · FROM TOOL TO SYSTEM</p>
-        <h2>Agentic system 改变了<br><strong>工作的基本单位</strong></h2>
-        <div class="unit-compare">
-          <article class="one-shot"><span>过去</span><b>人 → 工具 → 一次输出</b><p>完成一个动作</p></article>
-          <article class="agentic"><span>下一阶段</span><b>目标 → 多步骤 → 状态 → 反馈 → 再执行</b><p>持续完成一项真实工作</p></article>
+      <div class="slide-inner paradigm-composition">
+        <p class="chapter-mark">08 · FROM CHAT TO SYSTEM</p>
+        <h2>Agentic system<br class="mobile-break">改变了<strong>工作的<br class="mobile-break">基本单位</strong></h2>
+        <div class="paradigm-cards">
+          <article><span>聊天机器人</span><h3>回答一个问题</h3><p>输入 → 回复</p><small>价值单位：一次对话</small></article>
+          <article><span>单一工具</span><h3>完成一个动作</h3><p>调用 → 输出</p><small>价值单位：一个步骤</small></article>
+          <article class="active"><span>Agentic system</span><h3>持续完成一项工作</h3><p>目标 → 多步执行 → 状态 → 检查 → 再执行</p><small>价值单位：可验证的结果</small></article>
         </div>
-        <div class="system-criteria"><span>任务拆解</span><span>角色分工</span><span>工具调用</span><span>状态恢复</span><span>评审反馈</span><span>能力沉淀</span></div>
+        <div class="system-criteria"><span>任务拆解</span><span>角色分工</span><span>真实工具</span><span>状态恢复</span><span>评审反馈</span><span>能力沉淀</span></div>
       </div>
-      <aside class="speaker-note">真正的分水岭不在产品是否叫 Agent，而在系统是否能围绕目标组织多步执行、保存状态、根据检查结果继续，并沉淀经验。来源：综合报告第四节。</aside>
+      <aside class="speaker-note">真正的分水岭不在产品是否使用 Agent 名称，而在系统是否围绕目标组织多步执行、调用真实工具、保存状态、根据检查继续，并将有效方法沉淀为 Skill。来源：综合报告第四节。</aside>
     </section>
 
-    <section class="slide theme-blue" id="slide-10" data-title="Context、Harness、Loop 缺一不可" aria-hidden="true">
+    <section class="slide theme-green" id="slide-10" data-title="周末实践改变的是工作想象" aria-hidden="true">
+      <div class="slide-inner weekend-composition">
+        <p class="chapter-mark light">09 · WHAT THE PRACTICE CHANGED</p>
+        <h2>周末实践改变的，不只是效率，<br>而是<strong>工作想象</strong></h2>
+        <div class="weekend-loop">
+          <article><b>生产 Agent</b><p>开发、生成、修改</p></article><i>→</i>
+          <article><b>Review Agent</b><p>审查依据与边界</p></article><i>→</i>
+          <article><b>测试 Agent</b><p>验证结果与回归</p></article><i>→</i>
+          <article><b>部署 Agent</b><p>远程发布与检查</p></article><i>↺</i>
+        </div>
+        <div class="practice-findings">
+          <span><b>并行</b> 多个分支同时推进</span>
+          <span><b>异步</b> 不依赖人全程守候</span>
+          <span><b>远程</b> 执行存在于不同环境</span>
+          <span><b>沉淀</b> 问题解决过程转成 Skill</span>
+        </div>
+      </div>
+      <aside class="speaker-note">这不是把一次实践当成规模化效果证明，而是说明新的节奏已具备现实条件：生产与检查可以由不同 Agent 分工，远程任务可持续运行，失败后继续修正，经验可以沉淀为 Skill。来源：综合报告第四节及周末实践归纳。</aside>
+    </section>
+
+    <section class="slide theme-blue" id="slide-11" data-title="Context Harness Loop 缺一不可" aria-hidden="true">
       <div class="slide-inner three-layer-composition">
-        <p class="chapter-mark light">09 · THREE ENGINEERING LAYERS</p>
+        <p class="chapter-mark light">10 · THREE ENGINEERING LAYERS</p>
         <h2>Context、Harness、Loop<br><strong>缺一不可</strong></h2>
-        <div class="three-layer">
-          <article><b>C</b><h3>Context</h3><p>系统知道什么</p><small>背景 · 数据 · 规则 · 状态</small></article>
-          <article><b>H</b><h3>Harness</h3><p>系统能做什么</p><small>工具 · 权限 · 测试 · 回滚</small></article>
-          <article><b>L</b><h3>Loop</h3><p>系统如何变好</p><small>检查 · 反馈 · 修正 · 沉淀</small></article>
+        <div class="three-layer detailed">
+          <article><b>C</b><h3>Context</h3><p>系统知道什么</p><small>背景 · 目标 · 业务数据 · 规则 · 历史决策 · 当前状态</small></article>
+          <article><b>H</b><h3>Harness</h3><p>系统如何行动并受约束</p><small>模型路由 · 数据接口 · 工具 · 权限 · 测试 · 日志 · 回滚</small></article>
+          <article><b>L</b><h3>Loop</h3><p>系统如何通过反馈变好</p><small>执行 · 检查 · 反思 · 修正 · 验证 · 沉淀 · 再执行</small></article>
         </div>
-        <p class="takeaway light-copy">认知基础 + 行动边界 + 进化机制 = 可承担责任的生产系统。</p>
+        <p class="takeaway light-copy">认知基础 + 行动边界 + 进化机制 = 可以承担责任的生产系统。</p>
       </div>
-      <aside class="speaker-note">Context 不是把材料塞得更多；Harness 同时提供能力与边界；Loop 不是自动放任修改，而是受评估、可审批的改进。来源：综合报告第五节。</aside>
+      <aside class="speaker-note">Context 不是把所有材料一次塞给模型，而是按步骤提供可信、更新的一致信息；Harness 同时提供行动能力和安全边界；Loop 把一次执行变成可评估的持续改进。来源：综合报告第五节。</aside>
     </section>
 
-    <section class="slide theme-paper" id="slide-11" data-title="新的组织工程由五个组件构成" aria-hidden="true">
+    <section class="slide theme-paper" id="slide-12" data-title="新的组织工程由五个组件构成" aria-hidden="true">
       <div class="slide-inner equation-composition">
-        <p class="chapter-mark">10 · ORGANIZATION ENGINEERING</p>
-        <h2>新的组织工程，<br>由<strong>五个组件</strong>构成</h2>
-        <div class="org-equation">
-          <span><b>Agent Team</b><small>并行分工</small></span><i>+</i>
-          <span><b>Skill</b><small>能力复用</small></span><i>+</i>
-          <span><b>Workflow</b><small>协同顺序</small></span><i>+</i>
-          <span><b>State</b><small>过程可见</small></span><i>+</i>
-          <span><b>Evidence</b><small>可信与责任</small></span>
+        <p class="chapter-mark">11 · ORGANIZATION ENGINEERING</p>
+        <h2>新的组织工程，<br class="mobile-break">由<strong>五个组件</strong>构成</h2>
+        <div class="org-equation expanded">
+          <span><b>Agent Team</b><small>生产、研究、审查、测试、发布的角色分工</small></span><i>+</i>
+          <span><b>Skill</b><small>把专业方法封装成可复用、可测试的能力</small></span><i>+</i>
+          <span><b>Workflow</b><small>定义依赖、检查点、审批与停止条件</small></span><i>+</i>
+          <span><b>State / Dashboard</b><small>记录目标、责任、进度、成本、异常与下一步</small></span><i>+</i>
+          <span><b>Evidence</b><small>保存结果为何可信、经过什么验证、支持什么结论</small></span>
         </div>
-        <p class="takeaway">组织知识不仅要“写下来”，还要能够被执行、测试、版本化和复用。</p>
       </div>
-      <aside class="speaker-note">这五项是未来最小组织骨架。Skill 必须有输入边界、样例、负责人、失败处理和评估；State 让长任务可接续；Evidence 说明为什么可信。来源：综合报告第六节。</aside>
+      <aside class="speaker-note">Agent Team 解决并行分工，Skill 解决能力复用，Workflow 解决协同顺序，State 解决长周期可见性，Evidence 解决可信度与责任。来源：综合报告第六节。</aside>
     </section>
 
-    <section class="slide theme-green" id="slide-12" data-title="新的默认节奏是持续异步运行" aria-hidden="true">
+    <section class="slide theme-sand" id="slide-13" data-title="组织知识必须成为可执行资产" aria-hidden="true">
+      <div class="slide-inner skill-composition">
+        <p class="chapter-mark">12 · EXECUTABLE KNOWLEDGE</p>
+        <h2>组织知识必须从<br class="mobile-break">“文档”<br>变成<strong>可执行资产</strong></h2>
+        <div class="skill-contract">
+          <article><span>输入边界</span><p>什么时候适用，接受什么材料</p></article>
+          <article><span>专业方法</span><p>规则、步骤、工具与关键判断</p></article>
+          <article><span>样例与版本</span><p>参考结果、负责人、变更记录</p></article>
+          <article><span>失败处理</span><p>何时停止、重试、降级或交给人</p></article>
+          <article><span>评估方法</span><p>测试集、检查器、证据与验收标准</p></article>
+        </div>
+        <p class="takeaway">写得清楚，不等于能够被 Agent 稳定调用；成功一次，也不等于形成组织能力。</p>
+      </div>
+      <aside class="speaker-note">未来更高价值的组织知识不仅要能被阅读，还要能被执行、验证、版本化和维护。每个关键 Skill 都需要输入边界、样例、负责人、失败处理与评估方法。来源：综合报告第六节及实施原则第七条。</aside>
+    </section>
+
+    <section class="slide theme-ink" id="slide-14" data-title="新的默认节奏是并行异步远程持续循环" aria-hidden="true">
       <div class="slide-inner rhythm-composition">
-        <p class="chapter-mark light">11 · A NEW WORK RHYTHM</p>
+        <p class="chapter-mark light">13 · A NEW WORK RHYTHM</p>
         <h2>并行 · 异步 · 远程 ·<br><strong>持续循环</strong></h2>
         <div class="rhythm-track">
-          <div class="human-node"><b>人</b><span>目标与判断</span></div>
-          <div class="agent-lanes"><i></i><span>调研</span><span>原型</span><span>数据</span><span>测试</span><i></i></div>
-          <div class="human-node"><b>人</b><span>检查与取舍</span></div>
+          <div class="human-node"><b>人</b><span>目标、边界、验收</span></div>
+          <div class="agent-lanes"><i></i><span>调研</span><span>方案</span><span>原型</span><span>数据</span><i></i></div>
+          <div class="human-node"><b>人</b><span>检查、冲突、取舍</span></div>
           <div class="agent-lanes short"><i></i><span>修正</span><span>验证</span><span>归档</span><i></i></div>
-          <div class="human-node"><b>人</b><span>最终责任</span></div>
+          <div class="human-node"><b>人</b><span>发布与最终责任</span></div>
         </div>
-        <p class="takeaway light-copy">人集中在判断点，Agent 在判断点之间持续执行。</p>
+        <div class="rhythm-rules"><span>状态通过系统交接</span><span>关键节点才唤醒人</span><span>失败可暂停、重试与恢复</span><span>完成后自动进入评估与沉淀</span></div>
       </div>
-      <aside class="speaker-note">异步不是晚一点回消息，而是系统在无人看守时仍受控推进；远程是执行能力可存在于不同环境。失败要可暂停、重试、回滚和接管。来源：综合报告第七节。</aside>
+      <aside class="speaker-note">异步不只是晚一点回复消息，而是系统在无人持续看守时仍受控工作；远程不只是员工异地，而是执行能力可以存在于不同设备、环境和服务。来源：综合报告第七节。</aside>
     </section>
 
-    <section class="slide theme-paper" id="slide-13" data-title="组织应形成两层结构和一个底座" aria-hidden="true">
+    <section class="slide theme-paper" id="slide-15" data-title="人 Agent 与系统必须重新分工" aria-hidden="true">
+      <div class="slide-inner responsibility-composition">
+        <p class="chapter-mark">14 · RESPONSIBILITY, NOT AUTONOMY</p>
+        <h2>AI-native 不是<br class="mobile-break">无人化，<br>而是<strong>重新分工</strong></h2>
+        <div class="responsibility-map">
+          <article class="human"><span>人负责</span><h3>目标与最终责任</h3><p>问题选择 · 教育判断 · 价值取舍 · 关系建立 · 高风险批准</p></article>
+          <article class="agent"><span>Agent 负责</span><h3>可规模化执行</h3><p>搜索 · 生成 · 调用工具 · 检查 · 记录 · 反馈驱动修正</p></article>
+          <article class="system"><span>系统负责</span><h3>运行秩序与边界</h3><p>状态 · 权限 · 成本 · 证据 · 审计 · 故障恢复</p></article>
+        </div>
+        <p class="takeaway">判断什么不自动化、什么必须由人决定，本身就是 AI-native 能力。</p>
+      </div>
+      <aside class="speaker-note">CocoRobo 不追求“全自动组织”。教育是高信任、高情境、高责任行业。低频、模糊、难验证或缺少稳定输入的任务，可能不适合进入自动循环。来源：综合报告第十五节“需要保持的清醒”。</aside>
+    </section>
+
+    <section class="slide theme-paper" id="slide-16" data-title="组织应形成两层结构和一个底座" aria-hidden="true">
       <div class="slide-inner org-map-composition">
-        <p class="chapter-mark">12 · THE ORGANIZATION</p>
-        <h2>两层组织，<br>一个<strong>共同底座</strong></h2>
+        <p class="chapter-mark">15 · THE ORGANIZATION</p>
+        <h2>两层组织，一个<br class="mobile-break"><strong>共同底座</strong></h2>
         <div class="org-map">
-          <div class="business-layer"><b>业务闭环单元</b><span>教师工作</span><span>学生学习</span><span>学校 AI 建设</span><span>区域教研</span></div>
-          <div class="platform-layer"><b>平台与专业审查</b><span>模型网关</span><span>Agent Runtime</span><span>Skill Registry</span><span>研究 / 安全 / 品牌</span></div>
-          <div class="memory-base"><b>组织记忆与证据系统</b><p>Context · 数据 · 决策 · Workflow · 评估集 · 成本 · 真实效果</p></div>
+          <div class="business-layer"><b>业务闭环单元</b><span>教师备课与授课</span><span>学生项目学习</span><span>学校 AI 课程建设</span><span>区域教研评价</span></div>
+          <div class="platform-layer"><b>平台与专业审查</b><span>模型 / Runtime</span><span>数据 / Workflow</span><span>研究 / 工程质量</span><span>品牌 / 隐私安全</span></div>
+          <div class="memory-base"><b>组织记忆与证据系统</b><p>用户 Context · 产品决策 · Skill · Workflow 版本 · 评估集 · 项目状态 · 成本 · 真实效果</p></div>
         </div>
+        <p class="takeaway">闭环单元对结果负责；平台与审查体系提供复用能力和专业约束。</p>
       </div>
-      <aside class="speaker-note">业务闭环单元对真实结果负责；平台和审查体系提供复用与约束；共同底座让经验跨团队累积。这里是组织图景，不是已经批准的组织调整方案。来源：综合报告第八节。</aside>
+      <aside class="speaker-note">第一层围绕明确教育场景形成业务闭环，第二层提供共享能力与专业审查，共同底座让经验、证据和状态跨团队积累。这是待试点验证的组织图景，不是已批准的组织调整。来源：综合报告第八节。</aside>
     </section>
 
-    <section class="slide theme-sand" id="slide-14" data-title="人才杠杆来自能否建设系统" aria-hidden="true">
+    <section class="slide theme-blue" id="slide-17" data-title="三类角色重新定义责任" aria-hidden="true">
+      <div class="slide-inner roles-management-composition">
+        <p class="chapter-mark light">16 · ROLES & MANAGEMENT</p>
+        <h2>三类角色，重新定义<strong>责任</strong></h2>
+        <div class="role-triad contrast">
+          <article><span>结果</span><h3>闭环负责人</h3><p>对一个真实用户问题或业务结果负责，跨研究、产品、交付与验证组织资源。</p></article>
+          <article><span>系统</span><h3>Agent 系统设计者</h3><p>把目标转为 Context、Agent Team、Skill、Workflow、State 与治理规则。</p></article>
+          <article><span>标准</span><h3>专业审查者</h3><p>建立教育、研究、工程、品牌与安全标准，决定结果能否进入真实场景。</p></article>
+        </div>
+        <div class="management-shift"><b>管理也要变化</b><span>从催进度与人工同步</span><i>→</i><span>管理目标、优先级、预算、状态、约束与验收</span></div>
+      </div>
+      <aside class="speaker-note">一个人可以兼任两种角色，但三类责任必须明确：谁负责结果、谁负责系统、谁负责专业判断。会议应更多用于决策、冲突解决与复盘，而不是人工同步全部事实。来源：综合报告第八节。</aside>
+    </section>
+
+    <section class="slide theme-sand" id="slide-18" data-title="从会用 AI 到建设可复用系统" aria-hidden="true">
       <div class="slide-inner talent-composition">
-        <p class="chapter-mark">13 · PEOPLE & ROLES</p>
-        <h2>未来的人才杠杆，<br>来自能否<strong>建设系统</strong></h2>
-        <div class="role-triad">
-          <article><span>结果</span><h3>闭环负责人</h3><p>对用户问题与业务结果负责</p></article>
-          <article><span>系统</span><h3>Agent 系统设计者</h3><p>设计 Context、Workflow 与治理</p></article>
-          <article><span>标准</span><h3>专业审查者</h3><p>决定结果能否进入真实场景</p></article>
+        <p class="chapter-mark">17 · THE CAPABILITY UPGRADE</p>
+        <h2>从“会用 AI”，升级到<br><strong>建设可复用系统</strong></h2>
+        <div class="talent-grid">
+          <article><b>目标</b><p>定义清晰目标、边界与验收标准</p></article>
+          <article><b>拆解</b><p>把复杂任务分配给人和 Agent</p></article>
+          <article><b>配置</b><p>配置 Context、工具、权限与检查器</p></article>
+          <article><b>观察</b><p>通过 State 识别阻塞、偏航与成本异常</p></article>
+          <article><b>沉淀</b><p>把成功与失败写入 Skill、Workflow、评估集</p></article>
+          <article><b>责任</b><p>对真实结果、证据边界与最终影响负责</p></article>
         </div>
-        <p class="takeaway">绩效不仅看本次交付，也看是否形成可复用 Skill、评估集、连接器和证据。</p>
+        <p class="takeaway">人才杠杆不只来自个人速度，更来自能否让多人和 Agent 反复复用。</p>
       </div>
-      <aside class="speaker-note">岗位不会立即消失，但责任边界会重写。三类角色可能由同一人兼任，三类责任必须清楚：谁负责结果、谁负责系统、谁负责专业判断。来源：综合报告第八节。</aside>
+      <aside class="speaker-note">“会写 Prompt”“会用某个模型”会成为基础能力。真正拉开差距的是能否设计系统、观察状态、沉淀资产并对最终结果负责。来源：综合报告第八节“人才标准”。</aside>
     </section>
 
-    <section class="slide theme-midnight" id="slide-15" data-title="四个产品应共享一个教育运行底座" aria-hidden="true">
+    <section class="slide theme-midnight" id="slide-19" data-title="四个产品必须共享教育运行底座" aria-hidden="true">
       <div class="slide-inner product-composition">
-        <p class="chapter-mark light">14 · PRODUCT SYSTEM</p>
-        <h2>四个产品，<br>共享一个<strong>教育运行底座</strong></h2>
-        <div class="product-grid">
-          <article><b>CocoClass</b><p>教师工作系统</p></article>
-          <article><b>CocoStudy</b><p>学生侧 Agent 环境</p></article>
-          <article><b>CocoFlow</b><p>编排与治理层</p></article>
-          <article><b>CocoView</b><p>状态、证据与决策层</p></article>
+        <p class="chapter-mark light">18 · ONE EDUCATION RUNTIME</p>
+        <h2>四个产品，必须共享一个<strong>教育运行底座</strong></h2>
+        <div class="shared-platform">
+          <div class="product-row"><span>CocoClass</span><span>CocoStudy</span><span>CocoFlow</span><span>CocoView</span></div>
+          <div class="platform-stack">
+            <p><b>Evidence Layer</b><span>状态、依据、效果与可追溯证据</span></p>
+            <p><b>Workflow / Skill</b><span>跨产品的流程编排与专业能力复用</span></p>
+            <p><b>Agent Runtime</b><span>Agent Team、模型路由、工具调用与评估</span></p>
+            <p><b>Identity / Data / Permission</b><span>统一身份、教育 Context、数据语义与权限</span></p>
+          </div>
         </div>
-        <div class="shared-runtime"><span>身份 / 权限</span><span>教育 Context</span><span>模型路由</span><span>Skill Registry</span><span>Workflow State</span><span>Evidence Layer</span></div>
       </div>
-      <aside class="speaker-note">不是四个产品各自增加孤立 AI 层，而是场景和交互有差异、运行底座共享。完整系统提供闭环，生态插件扩大连接面。来源：综合报告第九节。</aside>
+      <aside class="speaker-note">四个产品不应各自增加孤立 AI 功能，而应共享身份权限、教育 Context、Agent Runtime、Skill、Workflow State 与 Evidence Layer。来源：综合报告第九节。</aside>
     </section>
 
-    <section class="slide theme-paper" id="slide-16" data-title="商业价值迁移到五种系统能力" aria-hidden="true">
-      <div class="slide-inner business-composition">
-        <p class="chapter-mark">15 · BUSINESS MODEL</p>
-        <h2>商业价值迁移到<br><strong>五种系统能力</strong></h2>
-        <div class="value-pentagon">
-          <article><b>数据汇聚</b><p>身份与语义一致</p></article>
-          <article><b>系统编排</b><p>模型、工具与人工节点</p></article>
-          <article><b>效果验证</b><p>过程与结果可追溯</p></article>
-          <article><b>治理服务</b><p>权限、隐私、成本与审计</p></article>
-          <article><b>驻场工程</b><p>现场调试与能力沉淀</p></article>
+    <section class="slide theme-paper" id="slide-20" data-title="四个产品承担不同系统角色" aria-hidden="true">
+      <div class="slide-inner product-detail-composition">
+        <p class="chapter-mark">19 · PRODUCT ROLES</p>
+        <h2>四个产品，<br class="mobile-break">承担不同的<br class="mobile-break"><strong>系统角色</strong></h2>
+        <div class="product-detail-grid">
+          <article><b>CocoClass</b><h3>教师工作系统</h3><p>连接教学目标、课程设计、内容生产、课堂执行、学习证据与课后改进。</p></article>
+          <article><b>CocoStudy</b><h3>学生侧 Agent 环境</h3><p>围绕学习目标持续规划、陪伴、诊断和调整，连接作品、过程数据与反馈。</p></article>
+          <article><b>CocoFlow</b><h3>编排与治理层</h3><p>连接跨产品、跨模型、跨数据源的流程、权限、状态与人工节点。</p></article>
+          <article><b>CocoView</b><h3>状态与证据层</h3><p>让教师和学校看见目标、进度、异常、成本、依据，以及哪里需要人介入。</p></article>
         </div>
-        <p class="takeaway">产品订阅 + 数据连接 + Workflow 服务 + 证据服务 + 驻场系统工程。</p>
       </div>
-      <aside class="speaker-note">商业模式组合是方向性假设，需通过试点验证。驻场的关键不是长期人工救火，而是把经验沉淀为连接器、Skill、评估集和模板。来源：综合报告第十一节。</aside>
+      <aside class="speaker-note">四个产品的差异不只是界面和用户群，而是它们在完整教育工作系统中承担不同角色。来源：综合报告第九节产品图景。</aside>
     </section>
 
-    <section class="slide theme-blue" id="slide-17" data-title="所有部门都可以在 Workflow 下重构" aria-hidden="true">
+    <section class="slide theme-violet" id="slide-21" data-title="完整系统与生态插件必须同时成立" aria-hidden="true">
+      <div class="slide-inner ecosystem-composition">
+        <p class="chapter-mark light">20 · SYSTEM + ECOSYSTEM</p>
+        <h2>完整系统与<br class="mobile-break"><strong>生态插件</strong>，<br class="mobile-break">必须同时成立</h2>
+        <div class="ecosystem-map">
+          <div class="external-side"><span>外部模型</span><span>内容平台</span><span>校园系统</span><span>开发环境</span><span>专业工具</span></div>
+          <i>↔</i>
+          <div class="cocorobo-core"><b>CocoRobo</b><p>可信编排层<br>教育证据层</p><small>身份 · 权限 · 数据 · Workflow · Evidence</small></div>
+          <i>↔</i>
+          <div class="scene-side"><span>课堂</span><span>学习</span><span>教研</span><span>评价</span><span>学校运营</span></div>
+        </div>
+        <p class="takeaway light-copy">完整系统提供闭环，插件扩大连接面；我们不必自建所有模型和工具。</p>
+      </div>
+      <aside class="speaker-note">CocoRobo 的关键不在自建所有模型，而在成为教育场景可信的编排层和证据层。完整系统与生态插件通过统一身份、权限、数据、工作流和证据标准相互支撑。来源：综合报告第九节。</aside>
+    </section>
+
+    <section class="slide theme-blue" id="slide-22" data-title="所有部门都要在 Workflow 下重构" aria-hidden="true">
       <div class="slide-inner workflow-composition">
-        <p class="chapter-mark light">16 · WORKFLOW REWRITE</p>
-        <h2>研究、产品、课程、市场<br>都可以在<strong>Workflow</strong>下重构</h2>
+        <p class="chapter-mark light">21 · WORKFLOW REWRITE</p>
+        <h2>研究、产品、课程、市场与驻场<br>都要在<strong>Workflow</strong>下重构</h2>
         <div class="workflow-lanes">
-          <div><b>研究</b><p>问题 → 设计 → 数据 → 反证 → 沉淀</p></div>
-          <div><b>产品</b><p>假设 → 原型 → 模拟 → 实现 → 验证</p></div>
-          <div><b>课程</b><p>目标 → 活动 → 执行 → 证据 → 迭代</p></div>
-          <div><b>市场</b><p>信号 → 主张 → 分发 → 反馈 → 修正</p></div>
-          <div><b>驻场</b><p>诊断 → 连接 → 运行 → 验证 → 标准化</p></div>
+          <div><b>研究</b><p>问题定义 → 研究设计 → 数据采集 → 分析反证 → 结论沉淀</p></div>
+          <div><b>产品</b><p>用户问题 → 价值假设 → 原型模拟 → 工程测试 → 真实验证</p></div>
+          <div><b>课程</b><p>标准学情 → 目标活动 → 课堂执行 → 作品证据 → 评价迭代</p></div>
+          <div><b>市场</b><p>行业信号 → 价值主张 → 渠道分发 → 现场反馈 → 主张修正</p></div>
+          <div><b>驻场</b><p>场景诊断 → 系统连接 → 运行观察 → 效果验证 → 标准化沉淀</p></div>
         </div>
-        <p class="takeaway light-copy">共同元素：目标、输入、状态、负责人、工具、检查点、证据与回流。</p>
+        <p class="takeaway light-copy">所有流程共享：输入、目标、状态、负责人、工具、检查点、证据与回流。</p>
       </div>
-      <aside class="speaker-note">Agentic workflow 不是工程方法，而是通用组织方式。每次执行都应为下一次留下资产。来源：综合报告第十节。</aside>
+      <aside class="speaker-note">Agentic workflow 不是工程部门专属方法，而是通用组织方式。研究结果要转成产品字段和评估集，市场反馈要回到研究和产品，驻场经验要沉淀为连接器与模板。来源：综合报告第十节。</aside>
     </section>
 
-    <section class="slide theme-warning" id="slide-18" data-title="治理必须从第一天进入架构" aria-hidden="true">
-      <div class="slide-inner governance-composition">
-        <p class="chapter-mark">17 · GOVERNANCE BY DESIGN</p>
-        <h2>成本、权限与治理<br>必须从<strong>第一天</strong>进入架构</h2>
-        <div class="governance-stack">
-          <span><b>模型分层</b><small>复杂度 / 风险 / 时效</small></span>
-          <span><b>预算约束</b><small>阈值 / 告警 / 停止</small></span>
-          <span><b>最小权限</b><small>读 / 写 / 发 / 删</small></span>
-          <span><b>全程追溯</b><small>来源 / 调用 / 版本</small></span>
-          <span><b>分级验证</b><small>自动检查 / 人工签署</small></span>
-          <span><b>故障恢复</b><small>暂停 / 重试 / 回滚</small></span>
+    <section class="slide theme-paper" id="slide-23" data-title="商业价值迁移到五种系统能力" aria-hidden="true">
+      <div class="slide-inner business-composition">
+        <p class="chapter-mark">22 · BUSINESS MODEL</p>
+        <h2>商业价值迁移到<strong>五种系统能力</strong></h2>
+        <div class="value-pentagon">
+          <article><b>数据汇聚</b><p>连接教学、学习、内容、评价和运营数据，保持身份与语义一致。</p></article>
+          <article><b>系统编排</b><p>为不同学校选择模型、工具、流程和人工节点。</p></article>
+          <article><b>效果验证</b><p>让教学过程、产品效果与学习结果形成可追溯证据。</p></article>
+          <article><b>治理服务</b><p>处理权限、隐私、安全、成本、审计和模型变化。</p></article>
+          <article><b>驻场工程</b><p>进入现场调试流程、训练人员、修正 Skill 并验证价值。</p></article>
         </div>
-        <p class="takeaway">治理不是附加成本，而是进入学校与真实业务的前提。</p>
+        <p class="takeaway">产品订阅 + 数据连接 + Workflow 服务 + 证据服务 + 驻场式系统工程。</p>
       </div>
-      <aside class="speaker-note">Agent 会放大调用量、数据访问和错误传播。效率与治理必须一起设计。来源：综合报告第十二节。</aside>
+      <aside class="speaker-note">商业模式组合是方向性假设，需要试点验证。驻场不是低价值实施，前提是每次现场工作都沉淀为连接器、Skill、评估集、工作流模板和可复制方法。来源：综合报告第十一节。</aside>
     </section>
 
-    <section class="slide theme-paper" id="slide-19" data-title="未来 90 天只验证三件事" aria-hidden="true">
-      <div class="slide-inner roadmap-composition">
-        <p class="chapter-mark">18 · THE NEXT 90 DAYS</p>
-        <h2>未来 90 天，<br>只验证<strong>三件事</strong></h2>
+    <section class="slide theme-warning" id="slide-24" data-title="治理和十条原则必须从第一天进入系统" aria-hidden="true">
+      <div class="slide-inner principles-composition">
+        <p class="chapter-mark">23 · GOVERNANCE & OPERATING PRINCIPLES</p>
+        <h2>治理与原则，必须从<strong>第一天</strong>进入系统</h2>
+        <div class="governance-strip">
+          <span><b>模型分层</b>复杂度 / 风险 / 时效</span>
+          <span><b>预算约束</b>阈值 / 告警 / 停止</span>
+          <span><b>最小权限</b>读 / 写 / 发 / 删</span>
+          <span><b>全程追溯</b>来源 / 调用 / 版本</span>
+          <span><b>分级验证</b>自动检查 / 人工签署</span>
+          <span><b>故障恢复</b>暂停 / 重试 / 回滚</span>
+        </div>
+        <div class="principles-grid">
+          <p><b>01</b> 从高价值真实任务出发</p><p><b>02</b> 先定义验收，再设计流程</p>
+          <p><b>03</b> 先单闭环，再扩规模</p><p><b>04</b> 研究与证据前置</p>
+          <p><b>05</b> 默认保留人工责任</p><p><b>06</b> 状态先于界面</p>
+          <p><b>07</b> Skill 必须可测试</p><p><b>08</b> 让失败也形成资产</p>
+          <p><b>09</b> 模型可替换，流程可持续</p><p><b>10</b> 以真实效果而非生成数量衡量</p>
+        </div>
+      </div>
+      <aside class="speaker-note">治理不是附加成本，而是 Agent 系统进入学校与真实业务的前提。模型分层、预算、权限、追溯、验证和恢复要进入架构；十条原则用于避免平台冲动、自动化冲动和结果不可判断。来源：综合报告第十二、十三节。</aside>
+    </section>
+
+    <section class="slide theme-midnight" id="slide-25" data-title="未来 90 天让三条真实闭环开始运行" aria-hidden="true">
+      <div class="slide-inner roadmap-composition final-roadmap">
+        <p class="chapter-mark light">24 · THE NEXT 90 DAYS</p>
+        <h2>未来 90 天，让<strong>三条真实闭环</strong>开始运行</h2>
         <div class="roadmap">
-          <article><span>01—30</span><h3>三条真实闭环</h3><p>选任务 · 定责任 · 记基线</p><small>可运行、可观察、可比较</small></article>
-          <article><span>31—60</span><h3>两轮反馈循环</h3><p>建 State · 沉淀 Skill · 进现场</p><small>质量与成本进入下一轮</small></article>
-          <article><span>61—90</span><h3>一个底座雏形</h3><p>共享 Runtime · 治理 · 商业试点</p><small>可演示、可验证、可接管</small></article>
+          <article><span>01—30</span><h3>三条真实闭环</h3><p>选任务 · 定责任 · 定验收 · 记基线 · 建最小 Skill 模板</p><small>可运行、可观察、可比较</small></article>
+          <article><span>31—60</span><h3>两轮反馈循环</h3><p>建 State · 配审查与测试 · 进真实现场 · 沉淀成功与失败</p><small>质量与成本进入下一轮</small></article>
+          <article><span>61—90</span><h3>一个底座雏形</h3><p>共享 Runtime · 模型路由 · Registry · 审计 · 商业试点</p><small>可演示、可验证、可接管</small></article>
         </div>
-        <p class="takeaway">先跑通单闭环，再决定什么值得平台化。</p>
+        <div class="metrics-strip"><span>端到端周期</span><span>等待与交接</span><span>一次通过率</span><span>人工接管率</span><span>Skill 复用</span><span>单位成本</span><span>真实采用与效果</span></div>
+        <p class="closing-thesis">不要再问“我们能生成什么”，而要回答：解决什么真实问题、形成什么可信证据、运行什么持续系统。</p>
       </div>
-      <aside class="speaker-note">90 天不是建成完整平台，而是用三条真实 Workflow 验证组织、产品与商业假设。关键指标：端到端周期、等待与交接、一次通过率、人工接管率、Skill 复用、单位成本、真实采用与效果。来源：综合报告第十四节。</aside>
-    </section>
-
-    <section class="slide theme-midnight" id="slide-20" data-title="现在要做的是让三条闭环开始运行" aria-hidden="true">
-      <div class="slide-inner closing-composition">
-        <p class="chapter-mark light">CLOSING · THE COMMITMENT</p>
-        <h2>不要再问“我们能生成什么”</h2>
-        <div class="closing-shift"><span>解决什么真实问题</span><i>→</i><span>形成什么可信证据</span><i>→</i><span>运行什么持续系统</span></div>
-        <p class="closing-thesis">CocoRobo 要成为一家为教育行业设计、运行、验证和治理 AI-native 工作系统的公司。</p>
-        <div class="closing-action"><b>下一步</b><p>选出三条真实 Workflow，让共识开始运行。</p></div>
-      </div>
-      <aside class="speaker-note">结尾回扣第一页：客户仍然需要 CocoRobo，不是因为我们能生成更多，而是因为我们能把真实问题、研究、产品、现场、证据和治理组织成持续系统。不要以“谢谢”结束，直接邀请团队选择三条试点闭环。来源：综合报告第十六节及 90 天建议。</aside>
+      <aside class="speaker-note">90 天不是建设庞大平台，而是通过三条真实 Workflow 验证组织、产品和商业假设。先跑通单闭环，再决定什么值得平台化。请团队在会后选出三条任务，明确闭环负责人、专业审查者、成功标准与基线。来源：综合报告第十四、十六节。</aside>
     </section>
   </main>
 
@@ -307,14 +414,14 @@
   <footer class="deck-controls">
     <button data-action="prev" type="button" aria-label="上一张">←</button>
     <button data-action="next" type="button" aria-label="下一张">→</button>
-    <div class="slide-counter"><strong id="current-number">01</strong><span>/</span><span id="total-number">20</span></div>
+    <div class="slide-counter"><strong id="current-number">01</strong><span>/</span><span id="total-number">25</span></div>
     <span class="control-spacer"></span>
     <button data-action="notes" type="button">备注</button>
     <button data-action="help" type="button" aria-label="快捷键帮助">?</button>
   </footer>
 
   <div class="overview" id="overview" hidden>
-    <div class="overlay-head"><div><span>20-SLIDE TALK</span><h2>选择一张幻灯片</h2></div><button data-action="overview-close" type="button">关闭 ×</button></div>
+    <div class="overlay-head"><div><span>25-SLIDE TALK</span><h2>选择一张幻灯片</h2></div><button data-action="overview-close" type="button">关闭 ×</button></div>
     <div class="overview-grid" id="overview-grid"></div>
   </div>
   <aside class="notes" id="notes" hidden><div><strong>演讲者备注</strong><button data-action="notes-close" type="button">关闭 ×</button></div><p id="notes-content"></p></aside>
