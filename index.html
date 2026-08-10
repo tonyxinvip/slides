@@ -3,74 +3,99 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="CocoRobo 在线幻灯片：AI-native 教育、Agentic AI 与组织战略。">
-  <meta name="theme-color" content="#07111f">
-  <title>CocoRobo Slides</title>
-  <style>
-    :root { color-scheme: dark; --bg:#07111f; --panel:#0d1d2f; --line:#29445f; --text:#f7f8fb; --muted:#9daabc; --cyan:#60f1eb; font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif; }
-    * { box-sizing:border-box; }
-    body { margin:0; min-height:100vh; color:var(--text); background:radial-gradient(circle at 82% 8%,#17366b 0,transparent 28%),var(--bg); }
-    header,main,footer { width:min(92vw,1180px); margin:auto; }
-    header { padding:72px 0 46px; border-bottom:1px solid rgba(255,255,255,.12); }
-    .brand { color:var(--cyan); font:900 12px ui-monospace,monospace; letter-spacing:.2em; }
-    h1 { margin:18px 0 12px; font-size:clamp(50px,8vw,92px); line-height:.94; letter-spacing:-.06em; }
-    header p { max-width:720px; margin:0; color:var(--muted); font-size:18px; line-height:1.65; }
-    main { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; padding:46px 0 72px; }
-    article { min-width:0; background:rgba(13,29,47,.82); border:1px solid var(--line); transition:transform .2s ease,border-color .2s ease; }
-    article:hover { transform:translateY(-4px); border-color:var(--cyan); }
-    article a { display:block; color:inherit; text-decoration:none; }
-    .cover { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; border-bottom:1px solid var(--line); background:#0b1830; }
-    .card-body { padding:26px 26px 28px; }
-    .meta { display:flex; flex-wrap:wrap; gap:8px 16px; color:var(--cyan); font:800 11px ui-monospace,monospace; letter-spacing:.07em; }
-    h2 { margin:18px 0 10px; font-size:clamp(25px,3vw,35px); line-height:1.18; letter-spacing:-.035em; }
-    .summary { min-height:78px; margin:0; color:var(--muted); line-height:1.65; }
-    .open { display:inline-flex; margin-top:22px; color:var(--text); font-weight:800; }
-    .open::after { content:"→"; margin-left:10px; color:var(--cyan); }
-    footer { padding:24px 0 42px; border-top:1px solid rgba(255,255,255,.1); color:#728197; font:12px ui-monospace,monospace; }
-    @media (max-width:760px) { header { padding-top:50px; } main { grid-template-columns:1fr; } .summary { min-height:0; } }
-  </style>
+  <meta name="description" content="关于 Agent 工程、AI-native 产品与组织转型的在线演讲档案。每一套幻灯片都围绕一个值得被讲清楚的问题。">
+  <meta name="theme-color" content="#071428">
+  <title>辛海洋 · Online Slides</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <header>
-    <div class="brand">COCOROBO · ONLINE SLIDES</div>
-    <h1>Slides</h1>
-    <p>关于 Agentic AI、AI-native 教育系统、产品战略与组织转型的公开演示与内部思考。</p>
+  <canvas class="sky" id="sky" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="identity" href="./" aria-label="返回 Online Slides 首页">
+      <span class="identity-mark">X</span>
+      <span><b>辛海洋</b><small>ONLINE SLIDES</small></span>
+    </a>
+    <nav aria-label="页面导航">
+      <a href="#collection">演讲档案</a>
+      <a href="https://github.com/tonyxinvip/slides" rel="noreferrer">GitHub</a>
+    </nav>
   </header>
+
   <main>
-    <article>
-      <a href="./ainative-1/">
-        <img class="cover" src="./ainative-1/cover.svg" alt="从聊天机器人到 AI Worker 封面">
-        <div class="card-body">
-          <div class="meta"><span>辛海洋</span><time datetime="2026-08-10T19:24:00+08:00">2026-08-10 19:24</time><span>29页</span></div>
-          <h2>从聊天机器人到 AI Worker</h2>
-          <p class="summary">梳理 Agentic AI 从行动循环到工作系统的演化，并提出 CocoRobo 面向学校的教学编排、证据闭环与制度化实施战略。</p>
-          <span class="open">打开在线演示</span>
-        </div>
-      </a>
-    </article>
-    <article>
-      <a href="./ainative-2/">
-        <img class="cover" src="./ainative-2/cover.svg" alt="世界变了：从证据驱动到 Agentic 组织封面">
-        <div class="card-body">
-          <div class="meta"><span>辛海洋</span><time datetime="2026-08-10T18:46:00+08:00">2026-08-10 18:46</time><span>25页</span></div>
-          <h2>世界变了：从证据驱动到 Agentic 组织</h2>
-          <p class="summary">讨论一般数字产出的商品化、价值向真实问题与可信证据迁移，以及 CocoRobo 从单点 SaaS 走向 AI-native 工作系统的组织选择。</p>
-          <span class="open">打开在线演示</span>
-        </div>
-      </a>
-    </article>
-    <article>
-      <a href="./stem/">
-        <img class="cover" src="./stem/cover.svg" alt="AI 赋能跨学科教育平台及应用场景封面">
-        <div class="card-body">
-          <div class="meta"><span>辛海洋</span><time datetime="2026-06-27">2026-06-27</time><span>13页</span></div>
-          <h2>AI 赋能跨学科教育平台及应用场景</h2>
-          <p class="summary">介绍如何把课件升级为互动课堂，并以智能体、H5、课堂互动和智能总结连接备课、课中与课后，让老师始终掌握教学主导权。</p>
-          <span class="open">打开在线演示</span>
-        </div>
-      </a>
-    </article>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="kicker"><span></span> IDEAS, EVIDENCE, ACTION</p>
+        <h1 id="hero-title">让复杂的思想，<br><em>在一场演讲里发生。</em></h1>
+        <p class="hero-intro">关于 Agent 工程、AI-native 产品与组织转型的在线演讲档案。每一套幻灯片都围绕一个值得被讲清楚的问题。</p>
+        <a class="primary-action" href="#collection"><span>浏览全部演讲</span><i>↘</i></a>
+      </div>
+      <div class="hero-orbit" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="signal-card signal-a"><small>RESEARCH</small><b>证据</b><span>Evidence before adjectives.</span></div>
+        <div class="signal-card signal-b"><small>SYSTEMS</small><b>结构</b><span>Architecture before scale.</span></div>
+        <div class="signal-card signal-c"><small>ACTION</small><b>决策</b><span>A clear next move.</span></div>
+        <div class="pulse-core"><span>SLIDES</span></div>
+      </div>
+      <div class="hero-index"><span>01</span><i></i><span>CURATED TALKS</span></div>
+    </section>
+
+    <section class="collection" id="collection" aria-labelledby="collection-title">
+      <div class="section-heading">
+        <div><p class="kicker"><span></span> THE COLLECTION</p><h2 id="collection-title">演讲档案</h2></div>
+        <p>每张卡片对应一个稳定链接。封面、简介、时长与访问方式由同一份发布清单生成。</p>
+      </div>
+      <div class="filter-bar" role="group" aria-label="筛选演讲">
+        <div class="filters" id="filters"><button class="filter-button" type="button" data-tag="all" aria-pressed="true">全部</button><button class="filter-button" type="button" data-tag="agentic ai" aria-pressed="false">Agentic AI</button><button class="filter-button" type="button" data-tag="ai worker" aria-pressed="false">AI Worker</button><button class="filter-button" type="button" data-tag="ai-native" aria-pressed="false">AI-native</button><button class="filter-button" type="button" data-tag="education" aria-pressed="false">Education</button><button class="filter-button" type="button" data-tag="organization" aria-pressed="false">Organization</button><button class="filter-button" type="button" data-tag="strategy" aria-pressed="false">Strategy</button></div>
+        <label class="search"><span class="sr-only">搜索演讲</span><input id="search" type="search" placeholder="搜索标题或标签" autocomplete="off"><i>⌕</i></label>
+      </div>
+      <div class="deck-grid" id="deck-grid"><article class="deck-card" data-tags="agentic ai|ai worker|education" data-search="从聊天机器人到 ai worker 梳理 agentic ai 从对话界面走向工作系统的演化，并说明 context、harness 与 loop 如何重塑 ai-native 教育产品。 agentic ai ai worker education">
+  <a class="deck-cover" href="./ainative-1/" aria-label="打开 从聊天机器人到 AI Worker">
+    <img src="./assets/covers/ainative-1.svg" alt="从聊天机器人到 AI Worker 封面" width="1600" height="900">
+    <span class="deck-number">01 / 02</span>
+    <span class="access-badge">公开</span>
+  </a>
+  <div class="deck-content">
+    <p class="deck-eyebrow">AGENTIC AI · SYSTEM EVOLUTION</p>
+    <div class="deck-title-row"><h3>从聊天机器人到 AI Worker</h3><i aria-hidden="true">↗</i></div>
+    <p class="deck-summary">梳理 Agentic AI 从对话界面走向工作系统的演化，并说明 Context、Harness 与 Loop 如何重塑 AI-native 教育产品。</p>
+    <div class="deck-meta"><span><b>29</b> 张</span><span><b>45</b> 分钟</span><time datetime="2026-08-10">2026-08-10</time><span>辛海洋</span></div>
+    <div class="deck-tags"><span>Agentic AI</span><span>AI Worker</span><span>Education</span></div>
+  </div>
+</article>
+<article class="deck-card" data-tags="ai-native|organization|strategy" data-search="世界变了：从 agent 工具到 ai-native 组织 从生成能力商品化出发，提出以真实问题、可信证据和持续运行系统为核心的 cocorobo 产品与组织转型路线。 ai-native organization strategy">
+  <a class="deck-cover" href="./ainative-2/" aria-label="打开 世界变了：从 Agent 工具到 AI-native 组织">
+    <img src="./assets/covers/ainative-2.svg" alt="世界变了：从 Agent 工具到 AI-native 组织 封面" width="1600" height="900">
+    <span class="deck-number">02 / 02</span>
+    <span class="access-badge">公开</span>
+  </a>
+  <div class="deck-content">
+    <p class="deck-eyebrow">COCOROBO · ORGANIZATION STRATEGY</p>
+    <div class="deck-title-row"><h3>世界变了：从 Agent 工具到 AI-native 组织</h3><i aria-hidden="true">↗</i></div>
+    <p class="deck-summary">从生成能力商品化出发，提出以真实问题、可信证据和持续运行系统为核心的 CocoRobo 产品与组织转型路线。</p>
+    <div class="deck-meta"><span><b>25</b> 张</span><span><b>40</b> 分钟</span><time datetime="2026-08-10">2026-08-10</time><span>辛海洋</span></div>
+    <div class="deck-tags"><span>AI-native</span><span>Organization</span><span>Strategy</span></div>
+  </div>
+</article></div>
+      <p class="empty-state" id="empty-state" hidden>没有匹配的演讲，换一个关键词试试。</p>
+    </section>
+
+    <section class="manifesto" aria-label="内容原则">
+      <p>NOT A DOCUMENT WITH TRANSITIONS.</p>
+      <h2>不是把报告切成十六页，<br>而是让证据形成一条<strong>能被记住的路径。</strong></h2>
+      <div class="principles"><span>一页一个判断</span><span>证据与推断分开</span><span>主动承认边界</span><span>最后给出行动</span></div>
+    </section>
   </main>
-  <footer>CocoRobo · Online Slides · Singapore / Hong Kong</footer>
+
+  <footer class="publication-footer">
+    <div>作者：<b>辛海洋</b></div>
+    <div>发布日期：<time datetime="2026-08-10">2026-08-10</time></div>
+  </footer>
+
+  <script type="application/json" id="slides-data">[{"slug":"ainative-1","title":"从聊天机器人到 AI Worker","eyebrow":"AGENTIC AI · SYSTEM EVOLUTION","summary":"梳理 Agentic AI 从对话界面走向工作系统的演化，并说明 Context、Harness 与 Loop 如何重塑 AI-native 教育产品。","cover":"assets/covers/ainative-1.svg","author":"辛海洋","publishedAt":"2026-08-10","tags":["Agentic AI","AI Worker","Education"],"slideCount":29,"durationMinutes":45,"access":"public","featured":true},{"slug":"ainative-2","title":"世界变了：从 Agent 工具到 AI-native 组织","eyebrow":"COCOROBO · ORGANIZATION STRATEGY","summary":"从生成能力商品化出发，提出以真实问题、可信证据和持续运行系统为核心的 CocoRobo 产品与组织转型路线。","cover":"assets/covers/ainative-2.svg","author":"辛海洋","publishedAt":"2026-08-10","tags":["AI-native","Organization","Strategy"],"slideCount":25,"durationMinutes":40,"access":"public","featured":true}]</script>
+  <script src="./app.js" defer></script>
 </body>
 </html>
