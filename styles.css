@@ -101,14 +101,6 @@ button, input { font: inherit; }
 .collection-note div { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,.38); letter-spacing: .18em; }
 .collection-note div i { width: 8px; height: 8px; border-radius: 50%; background: var(--rust); box-shadow: 0 0 20px rgba(194,85,47,.8); }
 .collection-note div small { font-size: 8px; }
-.manifesto { padding: 120px 7vw 130px; background: var(--navy); position: relative; overflow: hidden; }
-.manifesto::after { content: ""; position: absolute; width: 430px; height: 430px; right: -120px; bottom: -220px; border-radius: 50%; background: var(--rust); filter: blur(110px); opacity: .26; }
-.manifesto > p { color: var(--cyan); letter-spacing: .24em; font-size: 10px; }
-.manifesto h2 { max-width: 1050px; margin: 27px 0 56px; font-size: clamp(40px, 5.2vw, 78px); line-height: 1.12; letter-spacing: -.05em; }
-.manifesto h2 strong { color: var(--cyan); font-weight: inherit; }
-.principles { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
-.principles span { padding: 25px 18px 0 0; color: rgba(255,255,255,.65); font-size: 13px; border-right: 1px solid var(--line); }
-.principles span + span { padding-left: 18px; }
 .publication-footer { display: flex; justify-content: space-between; gap: 20px; padding: 26px 4.5vw; background: #040b17; color: rgba(255,255,255,.52); font-size: 11px; letter-spacing: .06em; }
 .publication-footer b { color: #fff; }
 
@@ -119,8 +111,6 @@ button, input { font: inherit; }
   .hero-orbit { max-width: 580px; justify-self: center; }
   .section-heading { align-items: start; flex-direction: column; }
   .deck-card, .collection-note { grid-column: span 12; }
-  .principles { grid-template-columns: 1fr 1fr; }
-  .principles span { padding-bottom: 18px; }
 }
 @media (max-width: 620px) {
   .site-header { height: 76px; padding-inline: 20px; }
@@ -141,9 +131,6 @@ button, input { font: inherit; }
   .deck-grid { gap: 20px; }
   .deck-content { padding: 22px; }
   .deck-summary { min-height: 0; }
-  .manifesto { padding: 88px 20px 94px; }
-  .principles { grid-template-columns: 1fr; }
-  .principles span { border-right: 0; padding-left: 0 !important; border-bottom: 1px solid var(--line); }
   .publication-footer { flex-direction: column; padding: 22px 20px; }
 }
 @media (prefers-reduced-motion: reduce) {
