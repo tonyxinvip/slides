@@ -1,0 +1,29 @@
+@media (max-width: 900px) {
+  .slide {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .slide-inner {
+    position: relative;
+    inset: auto;
+    min-height: 100%;
+    padding-bottom: calc(var(--safe-bottom) + 22px);
+  }
+
+  .points article:nth-child(n + 5) {
+    display: grid;
+  }
+
+  .kind-metrics .points article:nth-child(n + 5),
+  .kind-triad .points article:nth-child(n + 5),
+  .kind-modes .points article:nth-child(n + 5),
+  .kind-effect .points article:nth-child(n + 5) {
+    display: block;
+  }
+
+  .foot {
+    max-height: none;
+    overflow: visible;
+  }
+}
