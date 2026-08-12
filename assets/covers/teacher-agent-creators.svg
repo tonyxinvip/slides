@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">From AI Tool Users to AI Agent Creators</title>
+  <desc id="desc">A dark blue editorial cover with a boundary line separating AI action from human responsibility.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071428"/><stop offset="1" stop-color="#123c74"/></linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#5be3d5"/><stop offset="1" stop-color="#1769e0"/></linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1420" cy="80" r="430" fill="#1769e0" opacity=".19"/>
+  <circle cx="1420" cy="80" r="280" fill="none" stroke="#5be3d5" stroke-opacity=".28" stroke-width="2"/>
+  <text x="110" y="110" fill="#5be3d5" font-family="Arial, sans-serif" font-weight="700" font-size="24" letter-spacing="5">COCOROBO · TEACHER AI COMPETENCIES</text>
+  <text x="110" y="320" fill="#ffffff" font-family="Arial, sans-serif" font-weight="800" font-size="94" letter-spacing="-4">From AI Tool Users</text>
+  <text x="110" y="430" fill="#ffffff" font-family="Arial, sans-serif" font-weight="800" font-size="94" letter-spacing="-4">to <tspan fill="#5be3d5">AI Agent Creators</tspan></text>
+  <text x="110" y="510" fill="#ffffff" fill-opacity=".7" font-family="Arial, sans-serif" font-size="31">Boundary Learning for teacher agency in AI-mediated classrooms</text>
+  <rect x="110" y="650" width="1380" height="6" fill="url(#line)"/>
+  <text x="110" y="713" fill="#ffffff" font-family="Arial, sans-serif" font-weight="700" font-size="23" letter-spacing="3">ACT</text>
+  <text x="515" y="713" fill="#ffffff" font-family="Arial, sans-serif" font-weight="700" font-size="23" letter-spacing="3">CONSTRAIN</text>
+  <text x="960" y="713" fill="#ffffff" font-family="Arial, sans-serif" font-weight="700" font-size="23" letter-spacing="3">RECLAIM</text>
+  <text x="1360" y="713" fill="#ffffff" font-family="Arial, sans-serif" font-weight="700" font-size="23" letter-spacing="3">ABSENT</text>
+  <text x="110" y="815" fill="#ffffff" fill-opacity=".52" font-family="Arial, sans-serif" font-size="24">Haiyang Xin · Shenzhen · 2026</text>
+</svg>
