@@ -4,7 +4,7 @@
   const zhSlides = [
     slide('从 AI 工具使用者到 AI 智能体创设者', `
       <div class="cover-logos">
-        <img class="cocorobo-logo" src="./assets/cocorobo-white.svg" alt="CocoRobo">
+        <img class="cocorobo-logo" src="./assets/cocorobo-brand-white.png" alt="CocoRobo 标志">
         <div class="event-lockup" aria-label="为 UNESCO 2026 数字学习周准备">
           <span>为此活动准备</span><strong>UNESCO</strong><small>2026 数字学习周</small>
         </div>
@@ -15,7 +15,7 @@
         <p class="lead">教师如何创设并治理教学 AI 智能体，同时在 AI 介导的课堂中始终掌握教学决策权。</p>
         <a class="cover-url" href="https://cocorobo.hk/unesco2026/teacher/" target="_blank" rel="noopener">cocorobo.hk/unesco2026/teacher/ ↗</a>
       </div>
-      <div class="cover-meta"><span>辛海洋 · CocoRobo 有限公司</span><span>深圳 · 2026</span></div>`,
+      <div class="cover-meta"><span>辛海洋 · CocoRobo 有限公司</span><span>巴黎 · 2026</span></div>`,
       '以一个问题开场：当 AI 开始在课堂中行动、评价、引导和生成时，谁继续对教学负责？这是一项由 CocoRobo 主导的研究—实践项目，本次汇报旨在交流讨论；活动标识不代表 UNESCO 对本项目的认可或背书。[来源] 辅助页面“概览”；PDF 第 1–3 页。'),
 
     slide('问题已不再是教师是否使用 AI', `
@@ -193,7 +193,7 @@
 
     slide('能动性，而非自动化', `
       <div class="closing-copy">
-        <img class="closing-logo" src="./assets/cocorobo-white.svg" alt="CocoRobo">
+        <img class="closing-logo" src="./assets/cocorobo-brand-white.png" alt="CocoRobo 标志">
         <p class="kicker">最后的检验</p>
         <h2>能动性，<br>而非自动化。</h2>
         <p class="closing-line">教师能否决定 AI 何时向前一步——以及何时退后一步？</p>
@@ -209,7 +209,7 @@
   const frSlides = [
     slide('Des utilisateurs d’outils d’IA aux créateurs d’agents d’IA', `
       <div class="cover-logos">
-        <img class="cocorobo-logo" src="./assets/cocorobo-white.svg" alt="CocoRobo">
+        <img class="cocorobo-logo" src="./assets/cocorobo-brand-white.png" alt="Logo CocoRobo">
         <div class="event-lockup" aria-label="Préparé pour la Semaine de l’apprentissage numérique 2026 de l’UNESCO">
           <span>PRÉPARÉ POUR</span><strong>UNESCO</strong><small>SEMAINE DE L’APPRENTISSAGE NUMÉRIQUE 2026</small>
         </div>
@@ -220,7 +220,7 @@
         <p class="lead">Comment les enseignants peuvent créer et gouverner des agents pédagogiques d’IA tout en gardant la maîtrise des décisions dans les classes où l’IA intervient.</p>
         <a class="cover-url" href="https://cocorobo.hk/unesco2026/teacher/" target="_blank" rel="noopener">cocorobo.hk/unesco2026/teacher/ ↗</a>
       </div>
-      <div class="cover-meta"><span>Haiyang Xin · CocoRobo Ltd.</span><span>Shenzhen · 2026</span></div>`,
+      <div class="cover-meta"><span>Haiyang Xin · CocoRobo Ltd.</span><span>Paris · 2026</span></div>`,
       'Ouvrir par une question : lorsque l’IA commence à agir, évaluer, guider et générer dans la classe, qui reste responsable de la pédagogie ? Ce programme de recherche-pratique piloté par CocoRobo est présenté pour discussion ; la mention de l’événement n’implique aucune approbation de l’UNESCO. [Sources] Page d’accompagnement, section « Overview » ; PDF, p. 1–3.'),
 
     slide('La question n’est plus de savoir si les enseignants utilisent l’IA', `
@@ -374,7 +374,7 @@
 
     slide('Le pouvoir d’agir enseignant, pas l’automatisation', `
       <div class="closing-copy">
-        <img class="closing-logo" src="./assets/cocorobo-white.svg" alt="CocoRobo"><p class="kicker">LE TEST FINAL</p>
+        <img class="closing-logo" src="./assets/cocorobo-brand-white.png" alt="Logo CocoRobo"><p class="kicker">LE TEST FINAL</p>
         <h2>Le pouvoir d’agir enseignant,<br>pas l’automatisation.</h2>
         <p class="closing-line">Les enseignants peuvent-ils décider quand l’IA doit intervenir — et quand elle doit s’effacer ?</p>
         <div class="contact"><b>Haiyang Xin</b><span>Fondateur et PDG · CocoRobo Ltd.</span><a href="mailto:tony@cocorobo.cc">tony@cocorobo.cc</a></div>
