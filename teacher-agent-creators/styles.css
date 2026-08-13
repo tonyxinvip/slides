@@ -49,7 +49,9 @@ h1 em,h2 em{font-style:normal;color:var(--cyan)}
 .cover-wash{position:absolute;inset:0;background:linear-gradient(90deg,#071428 0%,#071428 48%,rgba(7,20,40,.88) 62%,rgba(7,20,40,.24) 100%),linear-gradient(0deg,rgba(7,20,40,.7),transparent 45%)}
 .cover-layout{justify-content:space-between;align-items:flex-start}
 .cover-logos{width:100%;display:flex;align-items:center;justify-content:space-between}
-.cocorobo-logo{width:clamp(230px,22vw,340px);height:auto;object-fit:contain}
+.cocorobo-brand{display:flex;align-items:center;gap:10px;width:max-content}
+.cocorobo-symbol{width:42px;height:42px;flex:none}
+.cocorobo-wordmark{width:168px;height:auto;flex:none}
 .event-lockup{min-width:250px;padding:10px 14px 11px;border-left:2px solid rgba(255,255,255,.62);display:grid;text-align:left;color:#fff}
 .event-lockup span{font-size:.58rem;letter-spacing:.18em;font-weight:800;opacity:.7}
 .event-lockup strong{font-size:1.55rem;line-height:1.05;letter-spacing:.04em}
@@ -215,7 +217,9 @@ h1 em,h2 em{font-style:normal;color:var(--cyan)}
 
 /* 18 — close */
 .closing-layout{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:clamp(50px,8vw,130px)}
-.closing-logo{width:280px;height:auto;margin-bottom:34px}
+.closing-brand{margin-bottom:34px}
+.closing-brand .cocorobo-symbol{width:42px;height:42px}
+.closing-brand .cocorobo-wordmark{width:168px}
 .closing-slide h2{margin-bottom:20px;font-size:clamp(4rem,7vw,7rem)}
 .closing-line{max-width:660px;margin-bottom:32px;font-size:clamp(1.1rem,1.55vw,1.4rem);line-height:1.5;color:rgba(255,255,255,.78)}
 .contact{display:grid;gap:4px;font-size:.78rem}.contact b{font-size:1rem}.contact span{color:rgba(255,255,255,.62)}.contact a{text-decoration:none;color:var(--cyan)}
@@ -266,7 +270,7 @@ dialog{width:min(520px,calc(100vw - 32px));padding:24px;border:0;border-radius:1
 @media(max-width:620px){
   .deck-header{height:58px;padding:0 14px}.brand{display:none}.header-actions{width:100%;justify-content:flex-end;gap:8px}.header-actions button{font-size:.66rem}.header-actions button[data-action="fullscreen"]{display:none}.header-actions .language-button{min-width:31px;padding:3px 5px;font-size:.56rem}
   .slide-inner{padding:74px 20px 68px}h1{font-size:clamp(3.2rem,15.5vw,4.8rem)}h2{font-size:clamp(2.35rem,11vw,3.6rem)}
-  .cover-logos{align-items:flex-start}.cocorobo-logo{width:185px}.event-lockup{min-width:auto;padding:5px 0 5px 10px}.event-lockup strong{font-size:1rem}.event-lockup small{font-size:.47rem}.event-lockup span{font-size:.43rem}
+  .cover-logos{align-items:flex-start}.cocorobo-brand{gap:7px}.cocorobo-symbol{width:30px;height:30px}.cocorobo-wordmark{width:118px}.event-lockup{min-width:auto;padding:5px 0 5px 10px}.event-lockup strong{font-size:1rem}.event-lockup small{font-size:.47rem}.event-lockup span{font-size:.43rem}
   .cover-copy{margin:54px 0 34px}.cover-url{font-size:.78rem}.cover-meta{font-size:.65rem}
   .boundary-spectrum{grid-template-columns:1fr 1fr;gap:10px}.boundary-spectrum i{display:none}.boundary-spectrum span{padding:10px 0;border-top:1px solid rgba(255,255,255,.35);font-size:.65rem;letter-spacing:.07em}
   .fact-strip{grid-template-columns:1fr}.fact-strip span{margin-bottom:8px}.big-fact strong{font-size:5rem}
@@ -277,7 +281,7 @@ dialog{width:min(520px,calc(100vw - 32px));padding:24px;border:0;border-radius:1
   .trace-left{grid-template-columns:1fr}.trace-left strong{grid-column:auto}
   .capacity-map article{grid-template-columns:45px 1fr}.capacity-map b{font-size:2rem}
   .friction-table div{min-height:auto}.record-slide .slide-inner{min-height:900px}
-  .closing-logo{width:210px}.closing-slide h2{font-size:4.2rem}.closing-layout{gap:38px}.qr-panel{padding:20px}.qr-panel span{max-width:100%;overflow-wrap:anywhere}
+  .closing-brand .cocorobo-symbol{width:32px;height:32px}.closing-brand .cocorobo-wordmark{width:128px}.closing-slide h2{font-size:4.2rem}.closing-layout{gap:38px}.qr-panel{padding:20px}.qr-panel span{max-width:100%;overflow-wrap:anywhere}
   html[lang="fr"] .closing-slide h2{font-size:clamp(2.75rem,12vw,3.65rem)}
   .overview-grid{grid-template-columns:1fr}.controls button[data-action="notes"]{display:none}.controls{inset:auto 18px 12px}
 }

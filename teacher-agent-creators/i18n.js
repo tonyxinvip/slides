@@ -4,7 +4,7 @@
   const zhSlides = [
     slide('从 AI 工具使用者到 AI 智能体创设者', `
       <div class="cover-logos">
-        <img class="cocorobo-logo" src="./assets/cocorobo-brand-white.png" alt="CocoRobo 标志">
+        <div class="cocorobo-brand" role="img" aria-label="CocoRobo 标志"><img class="cocorobo-symbol" src="./assets/cocorobo-icon-white.svg" alt=""><img class="cocorobo-wordmark" src="./assets/cocorobo-white.svg" alt=""></div>
         <div class="event-lockup" aria-label="为 UNESCO 2026 数字学习周准备">
           <span>为此活动准备</span><strong>UNESCO</strong><small>2026 数字学习周</small>
         </div>
@@ -193,7 +193,7 @@
 
     slide('能动性，而非自动化', `
       <div class="closing-copy">
-        <img class="closing-logo" src="./assets/cocorobo-brand-white.png" alt="CocoRobo 标志">
+        <div class="cocorobo-brand closing-brand" role="img" aria-label="CocoRobo 标志"><img class="cocorobo-symbol" src="./assets/cocorobo-icon-white.svg" alt=""><img class="cocorobo-wordmark" src="./assets/cocorobo-white.svg" alt=""></div>
         <p class="kicker">最后的检验</p>
         <h2>能动性，<br>而非自动化。</h2>
         <p class="closing-line">教师能否决定 AI 何时向前一步——以及何时退后一步？</p>
@@ -209,7 +209,7 @@
   const frSlides = [
     slide('Des utilisateurs d’outils d’IA aux créateurs d’agents d’IA', `
       <div class="cover-logos">
-        <img class="cocorobo-logo" src="./assets/cocorobo-brand-white.png" alt="Logo CocoRobo">
+        <div class="cocorobo-brand" role="img" aria-label="Logo CocoRobo"><img class="cocorobo-symbol" src="./assets/cocorobo-icon-white.svg" alt=""><img class="cocorobo-wordmark" src="./assets/cocorobo-white.svg" alt=""></div>
         <div class="event-lockup" aria-label="Préparé pour la Semaine de l’apprentissage numérique 2026 de l’UNESCO">
           <span>PRÉPARÉ POUR</span><strong>UNESCO</strong><small>SEMAINE DE L’APPRENTISSAGE NUMÉRIQUE 2026</small>
         </div>
@@ -374,7 +374,7 @@
 
     slide('Le pouvoir d’agir enseignant, pas l’automatisation', `
       <div class="closing-copy">
-        <img class="closing-logo" src="./assets/cocorobo-brand-white.png" alt="Logo CocoRobo"><p class="kicker">LE TEST FINAL</p>
+        <div class="cocorobo-brand closing-brand" role="img" aria-label="Logo CocoRobo"><img class="cocorobo-symbol" src="./assets/cocorobo-icon-white.svg" alt=""><img class="cocorobo-wordmark" src="./assets/cocorobo-white.svg" alt=""></div><p class="kicker">LE TEST FINAL</p>
         <h2>Le pouvoir d’agir enseignant,<br>pas l’automatisation.</h2>
         <p class="closing-line">Les enseignants peuvent-ils décider quand l’IA doit intervenir — et quand elle doit s’effacer ?</p>
         <div class="contact"><b>Haiyang Xin</b><span>Fondateur et PDG · CocoRobo Ltd.</span><a href="mailto:tony@cocorobo.cc">tony@cocorobo.cc</a></div>
