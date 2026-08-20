@@ -26,7 +26,7 @@
   <iframe
     id="deck"
     title="AI赋能小学科学——人机协同，素养共生"
-    src="../ai4science/?edition=troscience-20260525-v2"
+    src="../ai4science/?edition=troscience-20260525-v3"
     allow="fullscreen; autoplay"
     allowfullscreen
   ></iframe>
@@ -35,6 +35,8 @@
   (() => {
     const frame = document.getElementById('deck');
     const status = document.getElementById('status');
+    const desiredTitle = 'AI赋能小学科学 · troscience';
+    const desiredDescription = '辛海洋在深圳教育科学研究院（大鹏基地）分享《AI赋能小学科学——人机协同，素养共生》，2026年5月25日。';
     const replacements = [
       ['深圳教育科学研究院（大鹏培训基地）', '深圳教育科学研究院（大鹏基地）'],
       ['深圳技术大学', '深圳教育科学研究院（大鹏基地）'],
@@ -51,8 +53,26 @@
       return value;
     };
 
-    let observer;
+    let observer = null;
+    let observedDocument = null;
     let patching = false;
+
+    function observeDocument(doc) {
+      if (observedDocument === doc) return;
+      if (observer) observer.disconnect();
+      observedDocument = doc;
+      const Observer = doc.defaultView && doc.defaultView.MutationObserver;
+      if (!Observer || !doc.documentElement) return;
+      observer = new Observer(() => {
+        doc.defaultView.requestAnimationFrame(patchDocument);
+      });
+      observer.observe(doc.documentElement, {
+        subtree: true,
+        childList: true,
+        characterData: true,
+        attributes: true
+      });
+    }
 
     function patchDocument() {
       if (patching) return false;
@@ -62,13 +82,14 @@
       } catch (error) {
         return false;
       }
-      if (!doc || !doc.documentElement) return false;
+      if (!doc || !doc.documentElement || !doc.defaultView) return false;
 
       patching = true;
       try {
-        doc.title = 'AI赋能小学科学 · troscience';
+        if (doc.title !== desiredTitle) doc.title = desiredTitle;
 
-        const walker = doc.createTreeWalker(doc.documentElement, NodeFilter.SHOW_TEXT);
+        const filter = doc.defaultView.NodeFilter ? doc.defaultView.NodeFilter.SHOW_TEXT : 4;
+        const walker = doc.createTreeWalker(doc.documentElement, filter);
         let node;
         while ((node = walker.nextNode())) {
           const next = replaceText(node.nodeValue);
@@ -91,23 +112,12 @@
           description.name = 'description';
           doc.head.appendChild(description);
         }
-        if (description) {
-          description.content = '辛海洋在深圳教育科学研究院（大鹏基地）分享《AI赋能小学科学——人机协同，素养共生》，2026年5月25日。';
+        if (description && description.getAttribute('content') !== desiredDescription) {
+          description.setAttribute('content', desiredDescription);
         }
 
+        observeDocument(doc);
         status.hidden = true;
-
-        if (!observer && doc.documentElement) {
-          observer = new MutationObserver(() => {
-            window.requestAnimationFrame(patchDocument);
-          });
-          observer.observe(doc.documentElement, {
-            subtree: true,
-            childList: true,
-            characterData: true,
-            attributes: true
-          });
-        }
         return true;
       } finally {
         patching = false;
