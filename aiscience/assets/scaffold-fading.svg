@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" role="img" aria-labelledby="title desc">
+  <title id="title">AI支架撤除与学生独立性发展</title>
+  <desc id="desc">概念图显示AI支架强度逐步降低，学生独立性逐步提高</desc>
+  <rect width="900" height="600" rx="24" fill="#f4f0e7"/>
+  <text x="66" y="72" fill="#071a2d" font-size="25" font-family="Arial, 'PingFang SC', sans-serif" font-weight="700">支架撤除的概念路径</text>
+  <text x="66" y="108" fill="#61707d" font-size="17" font-family="Arial, 'PingFang SC', sans-serif">示意关系，不代表量化测量</text>
+  <line x1="92" y1="470" x2="836" y2="470" stroke="#9aabb2" stroke-width="2"/>
+  <line x1="92" y1="158" x2="92" y2="470" stroke="#9aabb2" stroke-width="2"/>
+  <path d="M112 198 C285 210 330 286 450 324 C570 362 690 412 814 438" fill="none" stroke="#197c9b" stroke-width="8" stroke-linecap="round"/>
+  <path d="M112 432 C250 414 340 355 450 316 C570 272 685 214 814 188" fill="none" stroke="#dc6b3d" stroke-width="8" stroke-linecap="round"/>
+  <g fill="#197c9b" font-size="18" font-family="Arial, 'PingFang SC', sans-serif" font-weight="700">
+    <text x="116" y="181">AI支架强度</text>
+  </g>
+  <g fill="#dc6b3d" font-size="18" font-family="Arial, 'PingFang SC', sans-serif" font-weight="700">
+    <text x="676" y="167">学生独立性</text>
+  </g>
+  <g fill="#071a2d" font-size="16" font-family="Arial, 'PingFang SC', sans-serif" text-anchor="middle">
+    <text x="126" y="516">完整示范</text>
+    <text x="350" y="516">证据提醒</text>
+    <text x="574" y="516">按需追问</text>
+    <text x="798" y="516">独立完成</text>
+  </g>
+  <g fill="#071a2d">
+    <circle cx="126" cy="470" r="6"/>
+    <circle cx="350" cy="470" r="6"/>
+    <circle cx="574" cy="470" r="6"/>
+    <circle cx="798" cy="470" r="6"/>
+  </g>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600" role="img" aria-labelledby="title desc">
+  <title id="title">课堂过程证据定位与复核</title>
+  <desc id="desc">示意图展示课堂记录经过时间定位后返回原始语境，由教师进行复核</desc>
+  <rect width="900" height="600" rx="24" fill="#f4f0e7"/>
+  <text x="62" y="68" fill="#071a2d" font-size="25" font-family="Arial, 'PingFang SC', sans-serif" font-weight="700">课堂过程证据的定位与复核</text>
+  <text x="62" y="104" fill="#61707d" font-size="17" font-family="Arial, 'PingFang SC', sans-serif">AI辅助定位不构成评价结论</text>
+  <rect x="62" y="148" width="776" height="82" rx="12" fill="#ffffff" stroke="#c6d4d8"/>
+  <g font-family="Arial, 'PingFang SC', sans-serif" font-size="15" fill="#071a2d">
+    <text x="82" y="178">09:12  学生形成初始预测</text>
+    <text x="82" y="204">09:18  实验记录出现差异</text>
+    <text x="478" y="178">09:25  小组讨论替代解释</text>
+    <text x="478" y="204">09:31  学生修订原有判断</text>
+  </g>
+  <line x1="86" y1="302" x2="814" y2="302" stroke="#8299a2" stroke-width="6" stroke-linecap="round"/>
+  <g>
+    <circle cx="160" cy="302" r="13" fill="#197c9b"/>
+    <circle cx="382" cy="302" r="13" fill="#197c9b"/>
+    <circle cx="598" cy="302" r="18" fill="#dc6b3d"/>
+    <circle cx="760" cy="302" r="13" fill="#197c9b"/>
+  </g>
+  <path d="M598 332 L598 372" stroke="#dc6b3d" stroke-width="3"/>
+  <rect x="418" y="372" width="360" height="128" rx="14" fill="#071a2d"/>
+  <text x="446" y="408" fill="#6ee7e7" font-size="16" font-family="Arial, 'PingFang SC', sans-serif" font-weight="700">定位片段 09:24–09:27</text>
+  <text x="446" y="442" fill="#f5fbff" font-size="18" font-family="Arial, 'PingFang SC', sans-serif">返回发言前后语境、实验记录</text>
+  <text x="446" y="472" fill="#f5fbff" font-size="18" font-family="Arial, 'PingFang SC', sans-serif">与学生修订文本，由教师复核</text>
+  <g fill="#61707d" font-size="15" font-family="Arial, 'PingFang SC', sans-serif" text-anchor="middle">
+    <text x="160" y="344">预测</text>
+    <text x="382" y="344">记录</text>
+    <text x="598" y="344">讨论</text>
+    <text x="760" y="344">修订</text>
+  </g>
+</svg>
