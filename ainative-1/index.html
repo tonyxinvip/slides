@@ -20,12 +20,12 @@
   <main class="deck" id="deck" aria-live="polite">
     <section class="slide theme-midnight is-active" id="slide-1" data-title="从聊天机器人到 AI Worker" aria-hidden="false">
       <div class="slide-inner title-composition"><img class="title-logo" src="./cocorobo-logo-white.png" alt="可可乐博"><div class="superline">LLM AGENTS · 2020—2026</div><h1>从聊天机器人<br><em>到 AI Worker</em></h1><p class="title-dek">模型怎样学会查资料、用工具、读结果，并在做错时停下来。</p><div class="title-meta"><span>辛海洋 · CocoRobo</span><span>30 张</span><span>约 50 分钟</span><span>2026 年 8 月</span></div></div>
-      <aside class="speaker-note">这一部分只讲外部技术演化。开场不要先抛概念，可以问听众：同样是大模型，为什么 2023 年的 AutoGPT 更像玩具，而今天的 Coding Agent 已经能接下一整件工作？后面三十页回答的就是这件事。</aside>
+      <aside class="speaker-note">同样是大模型，为什么 2023 年的 AutoGPT 更像一个让人兴奋的玩具，而今天的 Coding Agent 已经能接下一整件工作？我想先把 CocoRobo 放在一边，回头看看别人这几年到底解决了什么。等这段技术史讲完，我们再谈自己的选择。</aside>
     </section>
 
-    <section class="slide theme-paper" id="slide-2" data-title="这段历史其实在回答六个问题" aria-hidden="true">
-      <div class="slide-inner route-composition"><div class="chapter-mark">01 · LLM AGENTS · 2020—2026</div><h2>Agent 为什么从实验玩具，<br>走向<strong>可委派的工作系统</strong>？</h2><div class="route-map"><article><span>01</span><b>如何理解任务？</b><small>Context</small></article><article><span>02</span><b>如何获得事实？</b><small>Retrieval</small></article><article><span>03</span><b>如何采取行动？</b><small>Tools</small></article><article><span>04</span><b>如何读懂反馈？</b><small>Observation</small></article><article><span>05</span><b>如何持续到完成？</b><small>Loop</small></article><article><span>06</span><b>如何安全地委派？</b><small>Governance</small></article></div><p class="takeaway">答案不只在模型变强，而在六个工程缺口被逐步补齐。</p></div>
-      <aside class="speaker-note">Agent 概念远早于大语言模型；本场聚焦 2020—2026 年 LLM Agent 的重新形成。用六个工程问题做全场导航：后面的论文和产品不是孤立节点，每个节点都解决了上一代系统的一类具体缺口；最后再把六个问题收敛为 Context、Harness、Loop 与 Governance。</aside>
+    <section class="slide theme-paper" id="slide-2" data-title="三个问题带我们回到 Agent 的技术史" aria-hidden="true">
+      <div class="slide-inner route-composition"><div class="chapter-mark">01 · THREE QUESTIONS</div><h2>同样是大模型，<br>为什么<strong>今天的 Agent 更像在工作</strong>？</h2><div class="opening-questions"><article><span>2023</span><b>为什么 AutoGPT 看起来很忙，事情却经常做不完？</b></article><article><span>2024—2025</span><b>为什么最先跑通的，偏偏是写代码的 Agent？</b></article><article><span>今天</span><b>为什么大家开始谈工作环境，而不只谈模型？</b></article></div><p class="takeaway">沿着这三个问题回看历史，会发现变化发生在模型周围。</p></div>
+      <aside class="speaker-note">2023 年，AutoGPT 会自己列任务、不断往下跑，但常常越跑越偏。两年以后，Coding Agent 已经能接下一整件工程任务。模型当然变强了，可只用“模型升级”解释不完这段变化。接下来我想沿着三个问题，把真正改变的部分找出来。</aside>
     </section>
 
     <section class="slide theme-sand" id="slide-3" data-title="2020 两块地基上下文学习与 RAG" aria-hidden="true">
@@ -35,7 +35,7 @@
 
     <section class="slide theme-paper" id="slide-4" data-title="2021 WebGPT 让模型进入浏览器并带回证据" aria-hidden="true">
       <div class="slide-inner event-composition"><div class="chapter-mark">03 · 17 DEC 2021 · WEBGPT</div><h2>研究者给 GPT-3 做了一个<br><strong>只有文字命令的浏览器</strong></h2><div class="event-flow"><span>收到问题</span><i>→</i><span>搜索</span><i>→</i><span>打开网页</span><i>→</i><span>留下引用</span><i>→</i><strong>组织回答</strong></div><div class="event-caption"><b>Reiichiro Nakano 与 17 位合作者</b><p>模型边浏览边收集引用；人类因此可以顺着证据检查它有没有说错。</p></div><p class="takeaway">这一步很小，却第一次把“找资料”和“留下证据”放进同一条工作链。</p><div class="source-strip"><span>一手资料</span><a href="https://arxiv.org/abs/2112.09332" target="_blank" rel="noreferrer">WebGPT · submitted 17 Dec 2021</a></div></div>
-      <aside class="speaker-note">WebGPT 的故事很好讲：研究者没有让模型直接操作完整浏览器，而是把搜索、打开页面、翻页等动作变成文字命令。模型必须在浏览时收集引用，方便人类检查事实。论文由 Reiichiro Nakano 领衔，2021 年 12 月 17 日提交。它已经出现后来 Agent 的四个要素：环境、动作、观察和证据。</aside>
+      <aside class="speaker-note">研究者没有让 WebGPT 直接操作完整浏览器，而是把搜索、打开页面、翻页等动作变成文字命令。模型浏览时还必须收集引用，方便人类沿着证据检查。论文由 Reiichiro Nakano 领衔，2021 年 12 月 17 日提交。后来 Agent 常见的环境、动作、观察和证据，在这里已经能看到雏形。</aside>
     </section>
 
     <section class="slide theme-blue" id="slide-5" data-title="2022 ReAct 把推理与行动交错起来" aria-hidden="true">
@@ -50,12 +50,12 @@
 
     <section class="slide theme-warning" id="slide-7" data-title="2023 自主 Agent 热潮把目标改写成连续执行" aria-hidden="true">
       <div class="slide-inner history-composition"><div class="chapter-mark">06 · 2023 · THE AUTONOMY FEVER</div><h2>2023 年春天，大家第一次看见<br><strong>Agent 自己列任务清单</strong></h2><div class="history-split"><article><span>AUTOGPT</span><h3>给一个目标，让它自己往下做</h3><p>拆任务、用工具、保存结果，再根据结果安排下一步。</p><b>Significant Gravitas</b></article><article><span>BABYAGI · 28 MAR 2023</span><h3>一个只有一页逻辑的“小主管”</h3><p>取出第一项任务、执行、生成新任务，再把队列重新排序。</p><b>Yohei Nakajima</b></article></div><p class="takeaway">它们没有解决可靠自治，却把“连续工作”从论文概念变成了人人能看懂的产品想象。</p><div class="source-strip"><span>项目档案</span><a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" rel="noreferrer">AutoGPT</a><a href="https://github.com/yoheinakajima/babyagi_archive" target="_blank" rel="noreferrer">BabyAGI archive</a></div></div>
-      <aside class="speaker-note">把这页讲成一个周末项目的故事。投资人 Yohei Nakajima 用很短的 Python 脚本做出 Task-Driven Autonomous Agent，并在 2023 年 3 月 28 日公开；后来它被称为 BabyAGI。它每次只拿队首任务，做完后生成新任务、重排队列。与此同时，AutoGPT 把“给目标、让系统自己往下跑”的想象推向大众。它们的历史价值不是已经可靠，而是第一次让大量普通人直观看见连续执行。</aside>
+      <aside class="speaker-note">这个故事很像 2023 年的气氛。投资人 Yohei Nakajima 用一个很短的 Python 脚本做出 Task-Driven Autonomous Agent，3 月 28 日把它公开，后来大家叫它 BabyAGI。它做完队首任务，再生成新任务、重排队列。与此同时，AutoGPT 把“给一个目标，让系统自己往下跑”的想象推向大众。可靠自治还没有出现，但很多人第一次看懂了连续执行。</aside>
     </section>
 
     <section class="slide theme-warning" id="slide-8" data-title="长程任务为什么会坍塌" aria-hidden="true">
       <div class="slide-inner reliability-composition"><div class="chapter-mark">07 · THE RELIABILITY WALL</div><h2>每一步只错一点，<br><strong>走三十步也可能完全跑偏</strong></h2><div class="probability-visual"><div class="formula"><span>0.95</span><sup>30</sup><b>≈ 21%</b></div><p>只作风险示意：假设每一步都有 95% 的把握，而且彼此独立，连续 30 步全部做对的机会也只剩约 21%。现实中，前一步的错还会带偏后一步。</p></div><div class="failure-reasons"><span>理解错目标</span><span>选错工具</span><span>记错进度</span><span>不会恢复</span><span>不知何时停</span></div><p class="takeaway">让 Agent 循环起来并不难；难的是每一步都有检查，出错能退回，危险时会停手。</p></div>
-      <aside class="speaker-note">先提醒听众：这个公式不是任何产品的实测，只是帮助理解“误差会累积”。AutoGPT 时代最直观的问题就是：系统看起来一直很忙，却可能在错误方向上不断加速。长任务因此需要检查点、重试、回滚和交还给人。</aside>
+      <aside class="speaker-note">这个公式不是任何产品的实测，只是一个风险示意。它想说明一件很朴素的事：单步看起来很准，不代表三十步以后还在正确方向。AutoGPT 时代最直观的问题就是，系统一直很忙，却可能把一个小错误越滚越大。所以长任务一定要有检查点、重试、回滚，也要能交还给人。</aside>
     </section>
 
     <section class="slide theme-green" id="slide-9" data-title="反馈与分层记忆成为两条修复路径" aria-hidden="true">
@@ -69,28 +69,28 @@
     </section>
 
     <section class="slide theme-paper" id="slide-11" data-title="2023 留下的教训角色不等于可靠组织" aria-hidden="true">
-      <div class="slide-inner contrast-composition"><div class="chapter-mark">10 · THE MULTI-AGENT LESSON</div><h2>多放几个 Agent，<br><strong>不会自动变成好团队</strong></h2><div class="contrast-grid"><article class="negative"><span>只有角色名</span><h3>大家都在转述</h3><p>每个 Agent 都说一点相似的话，交接越多，信息损失和错误传播越严重。</p></article><article class="positive"><span>有不同责任</span><h3>每一棒都有凭据</h3><p>资料、权限、工具、产物或验收责任不同，分工才可能带来额外价值。</p></article></div><p class="takeaway">可复用的不是一张“虚拟公司”名单，而是清楚的交接规则和中间产物。</p></div>
-      <aside class="speaker-note">这里给出综合判断，不把它冒充成某篇论文的原话。多 Agent 常见误区是给相似模型贴上不同职位，再让它们反复讨论。真正有用的分工，必须让每个 Agent 拿到不同资料、拥有不同权限、使用不同工具，或者承担独立验收责任。</aside>
+      <div class="slide-inner contrast-composition"><div class="chapter-mark">10 · THE MULTI-AGENT LESSON</div><h2>多放几个 Agent，<br><strong>不会自动变成好团队</strong></h2><div class="contrast-grid"><article class="negative"><span>只有角色名</span><h3>大家都在转述</h3><p>每个 Agent 都说一点相似的话，交接越多，信息损失和错误传播越严重。</p></article><article class="positive"><span>有不同责任</span><h3>每一棒都有凭据</h3><p>资料、权限、工具、产物或验收责任不同，分工才可能带来额外价值。</p></article></div><p class="takeaway">最后能留下来的，是清楚的交接规则和可以检查的中间产物。</p></div>
+      <aside class="speaker-note">我自己的判断是，多 Agent 最容易做成角色扮演：给几个相似模型贴上不同职位，再让它们反复讨论。名字不同，不等于责任不同。只有资料、权限、工具、产物或者验收责任真的分开，多个 Agent 才可能比一个 Agent 更有价值。</aside>
     </section>
 
     <section class="slide theme-green" id="slide-12" data-title="为什么软件工程成为第一块高地" aria-hidden="true">
       <div class="slide-inner compiler-composition"><div class="chapter-mark light">11 · WHY CODING FIRST</div><h2>代码世界为什么最早跑通？<br><strong>做错了会立刻报错</strong></h2><div class="compiler-loop"><span>写代码</span><i>→</i><span>编译</span><i>→</i><span>测试</span><i>→</i><span>读错误</span><i>→</i><span>修复</span><i>↺</i></div><div class="verification-grid"><article><b>结果容易判断</b><p>编译器、测试、lint、CI 会直接暴露失败。</p></article><article><b>过程留有痕迹</b><p>文件、差异、提交和日志都可以复查。</p></article><article><b>出错能够退回</b><p>沙箱、分支和回滚把影响限制在小范围。</p></article></div><p class="takeaway light-copy">Coding Agent 领先，不只因为模型会写代码，更因为它身边有一整套现成的检查工具。</p></div>
-      <aside class="speaker-note">把它讲成一个简单对比：文章“写得好不好”很难自动判断，但代码能不能编译、测试能不能通过，机器马上就知道。Agent 能把错误信息读回来，再修下一轮；文件、diff、commit 又让每次动作都留痕。这套环境比模型本身更早成熟。</aside>
+      <aside class="speaker-note">为什么最先跑通的是代码？文章写得好不好，很难让机器当场判断；代码能不能编译、测试能不能通过，结果马上就出来。Agent 可以读回错误，再修下一轮；文件、diff 和 commit 又把每次动作都留下来。代码世界早就准备好了一套能行动、能检查、能退回的环境。</aside>
     </section>
 
     <section class="slide theme-blue" id="slide-13" data-title="SWE-agent 证明接口设计会改变 Agent 表现" aria-hidden="true">
       <div class="slide-inner event-composition"><div class="chapter-mark light">12 · 2024 · SWE-AGENT / ACI</div><h2>给人好用的 IDE，<br><strong>不一定给 Agent 好用</strong></h2><div class="aci-grid"><article><span>给人的界面</span><b>信息很多，操作自由</b><p>人能靠视觉和经验补足没有明说的状态。</p></article><i>≠</i><article><span>给 Agent 的行动接口</span><b>动作少而明确，反馈短而可读</b><p>每次做了什么、哪里出错、怎样恢复都说清楚。</p></article></div><div class="event-caption inverse"><b>John Yang 等 · 6 May 2024</b><p>SWE-agent 把 Agent-Computer Interface 提成独立设计对象：改接口，也会改表现。</p></div><div class="source-strip inverse"><span>论文</span><a href="https://arxiv.org/abs/2405.15793" target="_blank" rel="noreferrer">SWE-agent</a></div></div>
-      <aside class="speaker-note">ACI 可以大白话解释为“给 Agent 用的键盘、屏幕和操作规程”。人能在复杂 IDE 里凭经验找路；Agent 更需要少量明确动作，以及压缩后的可读反馈。SWE-agent 的重要性在于说明：同一个模型，换一套行动接口，表现就可能明显不同。</aside>
+      <aside class="speaker-note">ACI 就是给 Agent 用的键盘、屏幕和操作规程。人能在复杂 IDE 里凭经验找路；Agent 更需要少量明确动作，以及压缩后的可读反馈。SWE-agent 说明了一件重要的事：同一个模型，换一套行动接口，表现就可能明显不同。</aside>
     </section>
 
     <section class="slide theme-warning" id="slide-14" data-title="Computer Use 把行动面扩展到图形界面" aria-hidden="true">
       <div class="slide-inner event-composition"><div class="chapter-mark">13 · 2024 · COMPUTER USE</div><h2>从 API 与终端，<br>扩展到<strong>看屏幕、移动、点击、输入</strong></h2><div class="gui-actions"><span>👁 看</span><span>↗ 移动</span><span>● 点击</span><span>⌨ 输入</span><span>↺ 再观察</span></div><div class="event-caption"><b>Anthropic · 22 Oct 2024</b><p>Claude 3.5 Sonnet 的 computer use 以公开测试形式发布；原厂同时明确称其仍具实验性、可能笨拙且易错。</p></div><p class="takeaway">行动范围扩大，也同步扩大了错误、权限与安全边界。</p><div class="source-strip"><span>官方公告</span><a href="https://www.anthropic.com/news/3-5-models-and-computer-use" target="_blank" rel="noreferrer">Anthropic</a></div></div>
-      <aside class="speaker-note">事实审查要保留限制条件：Anthropic 的一手公告说这是公开测试，并明确 experimental、cumbersome、error-prone。不能只讲“会点鼠标”，还要讲权限和安全边界。</aside>
+      <aside class="speaker-note">2024 年 10 月，Claude 的 computer use 进入公开测试。它终于能看屏幕、移动鼠标、点击和输入，但 Anthropic 当时也很坦率：这项能力仍然笨拙、容易出错。能操作图形界面，意味着行动范围更大，也意味着权限和安全问题一起变大。</aside>
     </section>
 
     <section class="slide theme-paper" id="slide-15" data-title="Cursor 把 Agent 放进开发者原有工作现场" aria-hidden="true">
       <div class="slide-inner event-composition"><div class="chapter-mark">14 · 2024 · CURSOR</div><h2>Agent 进入 IDE，<br>开始接管<strong>上下文选择与终端行动</strong></h2><div class="product-frame"><div><span>编辑器</span><b>读取 / 修改</b></div><div class="focus"><span>Composer 里的 Agent</span><b>自己找上下文 / 使用终端</b></div><div><span>人工复查</span><b>逐行查看修改</b></div></div><div class="event-caption"><b>Cursor 0.43 · 24 Nov 2024</b><p>官方更新日志把“能选择自己的上下文并使用终端”的早期 Agent 带入 Composer。</p></div><p class="takeaway">产品突破常发生在：新能力被放进用户已经工作的界面。</p><div class="source-strip"><span>更新日志</span><a href="https://cursor.com/changelog/0-43-x" target="_blank" rel="noreferrer">Cursor 0.43</a></div></div>
-      <aside class="speaker-note">这里不写“Cursor 发明了 Coding Agent”，只陈述可核实的产品节点：2024 年 11 月 24 日，Cursor 0.43 的 Composer 出现早期 Agent，可自行选择上下文并使用终端。</aside>
+      <aside class="speaker-note">2024 年 11 月 24 日，Cursor 0.43 在 Composer 里加入早期 Agent：它能自己选择上下文，也能使用终端。这并不等于 Cursor 发明了 Coding Agent，但它说明一个新能力只有进入开发者原来的工作现场，才会真正改变产品体验。</aside>
     </section>
 
     <section class="slide theme-violet" id="slide-16" data-title="MCP 让连接从定制集成走向开放协议" aria-hidden="true">
@@ -103,9 +103,9 @@
       <aside class="speaker-note">这段历史有一个很有意思的连续节点：2024 年 11 月 24 日，Cursor 0.43 把能选上下文、用终端的 Agent 放进 Composer；第二天，Anthropic 公布 MCP，试图统一 AI 应用与工具的连接。到 12 月 19 日，Anthropic 又把常见做法总结成分流、并行、总协调加分工、做完再检查等模式。产品、协议与工程方法在一个月内迅速接合。</aside>
     </section>
 
-    <section class="slide theme-sand" id="slide-18" data-title="三十年里不同人物接力补齐 Agent 能力" aria-hidden="true">
-      <div class="slide-inner people-composition"><div class="chapter-mark">17 · PEOPLE & IDEAS · 1995—2024</div><h2>这不是一个人的发明，<br>而是<strong>三代研究与产品团队的接力</strong></h2><div class="people-stories"><article><span>1995—2017 · 打底</span><p><b>Stuart Russell、Peter Norvig</b> 用“感知—行动”组织人工智能；<b>Demis Hassabis、David Silver 团队</b>让 AlphaGo 在封闭世界里规划；<b>Ashish Vaswani 等</b>提出 Transformer。</p></article><article><span>2020—2022 · 模型走出聊天框</span><p><b>Tom B. Brown</b>展示上下文学习，<b>Patrick Lewis</b>把检索接入生成，<b>Reiichiro Nakano</b>让模型浏览并引用，<b>Shunyu Yao</b>把推理与行动交错起来。</p></article><article><span>2023—2024 · 补齐工作系统</span><p><b>Yohei Nakajima</b>做任务循环，<b>Noah Shinn、Charles Packer</b>补反思与记忆，<b>Sirui Hong、John Yang</b>补协作流程与行动接口，<b>Soria Parra、Spahr-Summers</b>补开放连接。</p></article></div><p class="takeaway">人物值得记住，但更重要的是看清接力关系：语言、行动、反馈、记忆、接口和协作逐步拼在一起。</p></div>
-      <aside class="speaker-note">这页不是英雄榜。每个成果都有大型合著团队，页面只选代表人物帮助听众记住线索。第一代回答“智能体是什么、怎样规划”；第二代让语言模型学会查、做、看结果；第三代开始补上长程工作需要的记忆、接口、协作和连接协议。</aside>
+    <section class="slide theme-sand" id="slide-18" data-title="五个故事锚点串起 Agent 技术史" aria-hidden="true">
+      <div class="slide-inner people-composition"><div class="chapter-mark">17 · FIVE STORY ANCHORS</div><h2>如果只记五个故事，<br><strong>记住这五次转弯</strong></h2><div class="story-anchors"><article><span>1995</span><b>Russell & Norvig</b><p>先定义“感知以后再行动”的智能体。</p></article><article><span>2016</span><b>AlphaGo 团队</b><p>在封闭世界里规划、试错、赢下比赛。</p></article><article><span>2021</span><b>Reiichiro Nakano</b><p>让模型浏览网页，还要把引用带回来。</p></article><article><span>2022</span><b>Shunyu Yao</b><p>把“想一步、做一步、看结果”连成循环。</p></article><article><span>2023</span><b>Yohei Nakajima</b><p>用一个小脚本，让大众看懂连续执行。</p></article></div><p class="takeaway">没有哪一刻凭空发明了 Agent；每一代只把上一代缺的那一块补上。</p></div>
+      <aside class="speaker-note">一长串人名很难记，五个转弯更容易留下来：1995 年先把智能体说清楚；2016 年看见机器在环境里规划；2021 年模型学会浏览并留下证据；2022 年推理和行动接成循环；2023 年，一个很小的 BabyAGI 脚本让全世界看懂了“连续工作”的想象。</aside>
     </section>
 
     <section class="slide theme-green" id="slide-19" data-title="Claude Code 把终端变成可委派的工作空间" aria-hidden="true">
@@ -120,52 +120,52 @@
 
     <section class="slide theme-paper" id="slide-21" data-title="Agent 从编程扩展到知识工作" aria-hidden="true">
       <div class="slide-inner worker-composition"><div class="chapter-mark">20 · BEYOND CODING</div><h2>这套工作方式，<br>开始从编程<strong>走向普通知识工作</strong></h2><div class="history-split product-paths"><article><span>MANUS · 2025</span><h3>像交代同事一样交代任务</h3><p>浏览网页、处理文件、写代码、分析数据，再把结果做成可查看的成品。</p><b>通用任务入口</b></article><article><span>COWORK · 12 JAN 2026</span><h3>把 Claude Code 带出代码仓库</h3><p>在隔离的桌面环境中访问本地文件与 MCP，处理研究、文档和其他知识工作。</p><b>从编码走向办公</b></article></div><p class="takeaway">两个入口正在接近同一形态：先读材料，再用工具，记住进度，最后交付可以复查的成品。</p><div class="source-strip"><span>官方资料</span><a href="https://manus.im/blog/manus-100m-arr" target="_blank" rel="noreferrer">Manus</a><a href="https://support.claude.com/en/articles/12138966-release-notes" target="_blank" rel="noreferrer">Claude release notes</a></div></div>
-      <aside class="speaker-note">不要争论谁“发明了通用 Agent”。更值得看的是产品语言发生了变化：普通用户不必先理解代码或 API，而是直接交付一个目标；系统自己浏览、处理文件、调用工具，最后交成品。Cowork 的官方发布说明则明确把 Claude Code 的能力带到编码之外。</aside>
+      <aside class="speaker-note">到了 Manus 和 Cowork，产品语言变了。普通用户不用先理解代码和 API，可以直接交代一个目标；系统自己浏览、处理文件、调用工具，再把成品交回来。Cowork 的官方发布说明也很直接：把 Claude Code 的这套能力带到编码之外。谁是“第一个”并不重要，重要的是任务委派开始进入普通人的工作。</aside>
     </section>
 
     <section class="slide theme-sand" id="slide-22" data-title="Agent 也需要能长期工作的办公室" aria-hidden="true">
       <div class="slide-inner event-composition"><div class="chapter-mark">21 · 2026 · EXECUTION INFRASTRUCTURE</div><h2>Agent 也需要一间<br><strong>能长期工作的办公室</strong></h2><div class="news-grid acquisition-grid"><article><span>持续</span><h3>工作几小时或几天</h3><p>换设备、关掉当前会话，任务仍能保留进度。</p></article><article><span>可控</span><h3>在客户控制的环境运行</h3><p>运行位置、访问范围、凭据和日志都能管理。</p></article><article><span>可查</span><h3>每次行动留有记录</h3><p>生产工作可以被审查、协作、暂停和恢复。</p></article></div><div class="deal-status"><b>市场信号 · 11 JUN 2026</b><i>·</i><span>OpenAI 与 Ona 宣布收购协议；仍受常规交割条件与监管批准约束，交割前保持独立</span></div><p class="takeaway">模型像员工的头脑；长期运行环境更像办公室、门禁、档案和工作台。</p><div class="source-strip"><span>双方公告</span><a href="https://openai.com/index/openai-to-acquire-ona/" target="_blank" rel="noreferrer">OpenAI</a><a href="https://ona.com/stories/ona-joins-openai" target="_blank" rel="noreferrer">Ona</a></div></div>
-      <aside class="speaker-note">2026 年 6 月 11 日，OpenAI 与 Ona 双方公告确认已达成收购协议。必须保留法律边界：交易仍需满足常规交割条件和监管批准；在完成交割前，两家公司保持独立。OpenAI 强调的是 secure, persistent, customer-controlled execution environments，而不是更强模型。</aside>
+      <aside class="speaker-note">2026 年 6 月 11 日，OpenAI 与 Ona 宣布达成收购协议。公告谈的重点不是再训练一个更强模型，而是安全、持久、由客户控制的执行环境。换句话说，Agent 也需要办公室、门禁、档案和工作台。交易仍受常规交割条件和监管批准约束，完成前两家公司保持独立。</aside>
     </section>
 
     <section class="slide theme-midnight" id="slide-23" data-title="典型产品形态经历六次跃迁" aria-hidden="true">
-      <div class="slide-inner ladder-composition"><div class="chapter-mark light">22 · PRODUCT EVOLUTION</div><h2>产品每往前一步，<br><strong>人就多交出一层执行责任</strong></h2><div class="product-ladder"><article><span>01</span><b>聊天机器人</b><small>回答问题</small></article><article><span>02</span><b>副驾驶</b><small>给出建议</small></article><article><span>03</span><b>IDE Agent</b><small>编辑 + 终端</small></article><article><span>04</span><b>终端 Agent</b><small>连续完成</small></article><article><span>05</span><b>云端 Agent</b><small>远程 + 并行</small></article><article><span>06</span><b>AI Worker</b><small>接下目标</small></article></div><p class="timeline-foot">从“告诉我答案”到“把事情做完”，中间增加的不是一个按钮，而是上下文、行动、检查和责任。</p></div>
-      <aside class="speaker-note">这是产品形态的分析框架，不是严格互斥分类。一个产品可能跨越多层。判断标准是：系统承担了多少上下文组织、行动选择、验证和持续运行责任。</aside>
+      <div class="slide-inner ladder-composition"><div class="chapter-mark light">22 · PRODUCT EVOLUTION</div><h2>产品每往前一步，<br><strong>人就多交出一层执行责任</strong></h2><div class="product-ladder"><article><span>01</span><b>聊天机器人</b><small>回答问题</small></article><article><span>02</span><b>副驾驶</b><small>给出建议</small></article><article><span>03</span><b>IDE Agent</b><small>编辑 + 终端</small></article><article><span>04</span><b>终端 Agent</b><small>连续完成</small></article><article><span>05</span><b>云端 Agent</b><small>远程 + 并行</small></article><article><span>06</span><b>AI Worker</b><small>接下目标</small></article></div><p class="timeline-foot">从“告诉我答案”到“把事情做完”，中间多出来的是上下文、行动、检查和责任。</p></div>
+      <aside class="speaker-note">这六层不是严格的产品分类，一个产品可能同时站在几层。我要强调的是，产品每往前一步，人就多交出一层责任：先是答案，再是建议、编辑、连续执行、远程并行，最后是一个完整目标。判断它走到哪一层，要看系统替人承担了多少组织、行动、检查和持续运行。</aside>
     </section>
 
-    <section class="slide theme-paper" id="slide-24" data-title="Context Engineering 是认知环境工程" aria-hidden="true">
-      <div class="slide-inner system-composition"><div class="chapter-mark">23 · CONTEXT ENGINEERING · SYSTEMATIZED 2025</div><h2>Context Engineering：<br><strong>开工前，桌面上摆着什么</strong></h2><div class="context-map"><span>任务目标</span><span>工作说明</span><span>参考范例</span><span>可信资料</span><strong>当前工作桌面</strong><span>长期记忆</span><span>当前进度</span><span>历史记录</span><span>用户意图</span></div><div class="principle-line"><b>资料多，不等于准备充分</b><i>→</i><b>有限窗口里，要留下此刻最相关、可信、可用的信息</b></div><p class="takeaway">它把提示词扩展成一张动态工作桌：该看的及时出现，不该看的暂时收起，来源和进度都说清楚。</p><div class="source-strip"><span>工程文章</span><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noreferrer">Anthropic · 29 Sep 2025</a></div></div>
-      <aside class="speaker-note">Context Engineering 可以大白话解释成“给 Agent 收拾开工桌面”。桌上要有任务、规则、参考资料和当前进度；资料太多也会挡路，所以旧信息要收起，需要时再取。它的历史根系是 2020 年的上下文学习和 RAG，后来又吸收了长期记忆、IDE 上下文选择和仓库说明。</aside>
+    <section class="slide theme-warning" id="slide-24" data-title="同一个模型也会因为工作环境不同而走向不同结果" aria-hidden="true">
+      <div class="slide-inner failure-case-composition"><div class="chapter-mark">23 · A FAILURE CASE · ILLUSTRATIVE</div><h2>同一个模型，上午能干活，<br><strong>下午也可能闯祸</strong></h2><div class="failure-story"><article><span>第一步</span><b>拿到旧版制度文件</b><p>它引用了已经失效的规则。</p></article><i>→</i><article><span>第二步</span><b>拥有直接发送权限</b><p>错误内容没有经过复核。</p></article><i>→</i><article><span>第三步</span><b>失败后继续重试</b><p>一次错误变成多次错误。</p></article></div><div class="failure-verdict"><b>模型没有换</b><span>换掉的是它看到的资料、能做的动作，以及什么时候停。</span></div><p class="takeaway">这是示意案例，不指向某个产品；它说明为什么“模型够强”仍不等于“可以放心委派”。</p></div>
+      <aside class="speaker-note">设想一个很普通的任务：让 Agent 按公司制度回复客户。上午它拿到最新版文件，只能生成草稿，发出前还要人确认；下午它读到旧版制度，却获得了直接发送权限，失败以后还不断重试。同一个模型，结果可以完全不同。问题不在一句提示词，而在它开工时看到了什么、能做什么、什么时候必须停。</aside>
     </section>
 
-    <section class="slide theme-blue" id="slide-25" data-title="Harness Engineering 是行动环境工程" aria-hidden="true">
-      <div class="slide-inner system-composition"><div class="chapter-mark light">24 · HARNESS ENGINEERING · NAMED 2026</div><h2>Harness Engineering：<br><strong>给 Agent 一间合格的工作间</strong></h2><div class="harness-grid"><article><b>工具</b><p>动作明确、数量有限、可以组合</p></article><article><b>运行环境</b><p>隔离、可复现，不影响真实系统</p></article><article><b>门禁</b><p>最小权限，越界前先审批</p></article><article><b>反馈</b><p>结果和错误能被机器读懂</p></article><article><b>验收</b><p>独立测试，不让自己给自己打分</p></article><article><b>恢复</b><p>有检查点，能重试，也能回滚</p></article></div><p class="takeaway light-copy">工具只是工作间里的一样东西；运行环境、门禁、反馈、验收和恢复缺一不可。</p><div class="source-strip inverse"><span>工程文章</span><a href="https://openai.com/index/harness-engineering/" target="_blank" rel="noreferrer">OpenAI · 11 Feb 2026</a></div></div>
-      <aside class="speaker-note">Harness 原意接近“把能力约束并连接起来的一整套装置”。可以把它讲成 Agent 的工作间：有什么工具，在哪运行，能进哪些门，做完看到什么反馈，谁来验收，出错怎样退回。SWE-agent、MCP、沙箱和测试都是它的前史，2026 年 OpenAI 的工程文章把这套做法进一步系统化。</aside>
+    <section class="slide theme-paper" id="slide-25" data-title="Context Engineering 是给 Agent 收拾工作桌面" aria-hidden="true">
+      <div class="slide-inner system-composition"><div class="chapter-mark">24 · CONTEXT ENGINEERING · SYSTEMATIZED 2025</div><h2>Context Engineering：<br><strong>先把工作桌面收拾对</strong></h2><div class="context-map"><span>任务目标</span><span>工作说明</span><span>参考范例</span><span>可信资料</span><strong>眼前这张桌</strong><span>长期记忆</span><span>当前进度</span><span>历史记录</span><span>用户意图</span></div><div class="principle-line"><b>资料太少，会瞎猜</b><i>·</i><b>资料太多，也会找错重点</b></div><p class="takeaway">该看的及时出现，不该看的暂时收起；来源、版本和当前进度都要说清楚。</p><div class="source-strip"><span>工程文章</span><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noreferrer">Anthropic · 29 Sep 2025</a></div></div>
+      <aside class="speaker-note">先看刚才案例的第一步：Agent 为什么读到了旧制度？Context Engineering 管的就是这张开工桌面。任务、规则、范例、可信资料和当前进度，哪些应该摆在眼前，哪些应该暂时收起来。资料不是越多越好；版本错了、重点埋了，同样会误导判断。</aside>
     </section>
 
-    <section class="slide theme-green" id="slide-26" data-title="Loop Engineering 是持续执行工程" aria-hidden="true">
-      <div class="slide-inner system-composition"><div class="chapter-mark light">25 · LOOP ENGINEERING · AN EMERGING LABEL</div><h2>Loop Engineering：<br><strong>别让它在错误方向上傻跑</strong></h2><div class="loop-orbit"><strong>目标</strong><span>计划</span><span>行动</span><span>看结果</span><span>检查</span><span>总结</span><span>重试</span><b>停止 / 叫人</b></div><div class="loop-gates large-gates"><span>做对了吗</span><span>预算够吗</span><span>还要试几次</span><span>需要审批吗</span><span>异常交给谁</span><span>经验写到哪里</span></div><p class="takeaway light-copy">循环的目的不是一直运行，而是每一轮都回答：做对了吗？还要继续吗？该不该叫人？</p><div class="source-strip inverse"><span>方法前史</span><a href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noreferrer">ReAct · 2022</a><a href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noreferrer">Reflexion · 2023</a></div></div>
-      <aside class="speaker-note">Loop Engineering 还是一个正在形成的工程标签，不要把它说成已经定型的学科。它的构成很早就出现了：ReAct 是想一步、做一步、看结果；Reflexion 增加失败后的文字总结；生产系统再加成功标准、预算、最大重试、审批和异常升级。</aside>
+    <section class="slide theme-blue" id="slide-26" data-title="Harness Engineering 是给 Agent 配好工作间和门禁" aria-hidden="true">
+      <div class="slide-inner system-composition"><div class="chapter-mark light">25 · HARNESS ENGINEERING · NAMED 2026</div><h2>Harness Engineering：<br><strong>工具要好用，门也不能乱开</strong></h2><div class="harness-grid"><article><b>工具</b><p>每个动作说得清楚</p></article><article><b>运行环境</b><p>先在隔离空间里做</p></article><article><b>门禁</b><p>越重要的动作，越要审批</p></article><article><b>反馈</b><p>结果和错误都能读懂</p></article><article><b>验收</b><p>别让它自己给自己打分</p></article><article><b>恢复</b><p>做错了能退回上一步</p></article></div><p class="takeaway light-copy">刚才案例里的直接发送权限，就是工作间的门开得太大。</p><div class="source-strip inverse"><span>工程文章</span><a href="https://openai.com/index/harness-engineering/" target="_blank" rel="noreferrer">OpenAI · 11 Feb 2026</a></div></div>
+      <aside class="speaker-note">再看第二步：为什么一条错误回复能直接发出去？Harness 管的是行动环境。Agent 有哪些工具，在哪运行，能进哪些门，做完以后看到什么反馈，谁来验收，出错怎样退回。权限不是越多越先进；越接近真实世界，越要把高风险动作单独拦住。</aside>
     </section>
 
-    <section class="slide theme-midnight" id="slide-27" data-title="三层工程的严格关系" aria-hidden="true">
-      <div class="slide-inner triad-composition"><div class="chapter-mark light">26 · SIX QUESTIONS → FOUR SYSTEM LAYERS</div><h2>六个工程问题，最后落到<br><strong>三层工作系统 + 一层治理</strong></h2><div class="triad-grid"><article><span>CONTEXT · 工作桌面</span><h3>先形成判断</h3><p>任务、资料、记忆和当前进度放到眼前。</p></article><article><span>HARNESS · 工作间</span><h3>再安全行动</h3><p>工具、运行环境和反馈限定能做什么。</p></article><article><span>LOOP · 工作节奏</span><h3>持续到结果</h3><p>检查、重试、停止或叫人，把行动带到终点。</p></article></div><div class="triad-equation">Context 负责“知道什么” · Harness 负责“能做什么” · Loop 负责“接下来怎么办”</div><div class="governance-band"><b>治理横跨三层</b><span>权限 · 预算 · 审计 · 异常升级</span></div></div>
-      <aside class="speaker-note">这里回收第 2 页的六个问题：任务理解、事实获取和记忆进入 Context；工具与观察进入 Harness；持续完成由 Loop 控制；安全委派则不是第四个顺序步骤，而是横跨三层的 Governance。四者共同构成 Agent Work System。</aside>
+    <section class="slide theme-green" id="slide-27" data-title="Loop Engineering 决定 Agent 何时继续以及何时叫人" aria-hidden="true">
+      <div class="slide-inner system-composition"><div class="chapter-mark light">26 · LOOP ENGINEERING · AN EMERGING LABEL</div><h2>Loop Engineering：<br><strong>每跑一轮，都要问还该不该继续</strong></h2><div class="loop-orbit"><strong>目标</strong><span>计划</span><span>行动</span><span>看结果</span><span>检查</span><span>总结</span><span>重试</span><b>停止 / 叫人</b></div><div class="loop-gates large-gates"><span>做对了吗</span><span>预算够吗</span><span>还要试几次</span><span>需要审批吗</span><span>异常交给谁</span><span>经验写到哪里</span></div><p class="takeaway light-copy">没有停止条件，重试不会自动变成改进，只会把同一个错误再做一遍。</p><div class="source-strip inverse"><span>方法前史</span><a href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noreferrer">ReAct · 2022</a><a href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noreferrer">Reflexion · 2023</a></div></div>
+      <aside class="speaker-note">最后看第三步：为什么失败以后还在继续发？Loop 管的不是“让它永远运行”，而是每一轮都检查结果。做对了吗，预算还够吗，还能试几次，这一步需不需要审批，异常交给谁。Loop Engineering 还是一个正在形成的说法，但这些实践从 ReAct、Reflexion 到今天的生产系统一直都在。</aside>
     </section>
 
-    <section class="slide theme-paper" id="slide-28" data-title="模型越强工程重心越向外移动" aria-hidden="true">
-      <div class="slide-inner outward-composition"><div class="chapter-mark">27 · ENGINEERING MOVES OUTWARD</div><h2>模型越强，<br><strong>工程重心越向外移动</strong></h2><div class="outward-rings" role="img" aria-label="从 Model 到 Governance 的五层同心结构"><div class="ring r5"><span>Governance</span><div class="ring r4"><span>Loop</span><div class="ring r3"><span>Harness</span><div class="ring r2"><span>Context</span><div class="ring r1"><span>Model</span></div></div></div></div></div></div><div class="outward-copy"><p>模型能力提高后，真实差异越来越来自组织知识、执行环境、验证数据、权限设计与持续改进机制。</p><strong>瓶颈没有消失，只是从模型内部迁移到模型外部。</strong></div></div>
-      <aside class="speaker-note">这是一条综合判断，不是单篇论文的结论。前面的历史证据共同指向它：当基础模型更强，决定可靠价值的常常是模型之外的 Context、Harness、Loop 与 Governance。</aside>
+    <section class="slide theme-paper" id="slide-28" data-title="只比较模型已经解释不了 Agent 的结果差距" aria-hidden="true">
+      <div class="slide-inner outward-composition"><div class="chapter-mark">27 · THE WORK AROUND THE MODEL</div><h2>只比较模型，<br><strong>已经解释不了结果差距</strong></h2><div class="outward-rings" role="img" aria-label="从模型到治理的五层同心结构"><div class="ring r5"><span>边界</span><div class="ring r4"><span>何时停</span><div class="ring r3"><span>怎么做</span><div class="ring r2"><span>看什么</span><div class="ring r1"><span>模型</span></div></div></div></div></div></div><div class="outward-copy"><p>Context 决定它看什么；Harness 决定它能做什么；Loop 决定下一步继续、重试还是叫人。</p><strong>更难复制的，是资料、工具、验证和责任怎样接在一起。</strong></div></div>
+      <aside class="speaker-note">同样的模型放进不同工作环境，结果会完全不同。Context 管它看什么，Harness 管它能做什么，Loop 管下一步怎么办，权限、预算和审计把三者围起来。模型仍然重要，但只比较模型，已经解释不了一家公司、一所学校最后拿到的结果。这是我根据前面历史做出的判断。</aside>
     </section>
 
-    <section class="slide theme-violet" id="slide-29" data-title="远程异步并行改变了人的工作角色" aria-hidden="true">
-      <div class="slide-inner delegation-composition"><div class="chapter-mark light">28 · HUMAN IMPACT</div><h2>AI Worker 的出现，<br>把人从操作者推向<strong>任务编排者</strong></h2><div class="delegation-grid"><article><span>SYNC</span><h3>即时协作</h3><p>人与 Agent 共享当前窗口，快速澄清和共同调试。</p></article><article><span>ASYNC</span><h3>后台委派</h3><p>人离开当前会话，Agent 保留环境和状态继续工作。</p></article><article><span>PARALLEL</span><h3>多线推进</h3><p>多个独立任务同时运行，人负责优先级、验收和冲突处理。</p></article></div><p class="takeaway light-copy">远程、异步、并行，让稀缺资源从“亲自执行的时间”迁移到“定义、判断与验收的带宽”。</p></div>
-      <aside class="speaker-note">把这页放在工程框架和工程重心外移之后，作为第一部分最后一个外部影响判断。Codex 等产品表明，异步与并行会把执行时间和人的在线时间解耦；这里仍只讲通用工作方式，具体组织含义留到第二部分。</aside>
+    <section class="slide theme-violet" id="slide-29" data-title="人不必一直守着 Agent 但必须守住三个关口" aria-hidden="true">
+      <div class="slide-inner delegation-composition"><div class="chapter-mark light">28 · THE HUMAN JOB</div><h2>人不必一直守着 Agent，<br>但要守住<strong>三个关口</strong></h2><div class="delegation-grid"><article><span>派工前</span><h3>把任务说清楚</h3><p>为什么做、先做什么、哪些地方不能碰。</p></article><article><span>进行中</span><h3>只盯关键节点</h3><p>高风险动作、预算变化和异常情况必须叫人。</p></article><article><span>交付时</span><h3>看证据，不看语气</h3><p>检查来源、测试、修改记录和没有解决的问题。</p></article></div><p class="takeaway light-copy">人省下的是守在屏幕前的时间；省不掉的是判断和责任。</p></div>
+      <aside class="speaker-note">远程、异步、并行以后，人当然不必一直守着屏幕。但工作没有凭空消失，它移到了三个关口：派工前把目标和禁区说清楚；进行中只盯高风险节点；交付时看来源、测试和修改记录。Agent 可以承担执行，人仍然要承担判断和结果责任。</aside>
     </section>
 
     <section class="slide theme-midnight" id="slide-30" data-title="技术范式已改变接下来讨论我们的选择" aria-hidden="true">
-      <div class="slide-inner closing-composition"><div class="chapter-mark light">29 · VERDICT & HANDOFF</div><h2>AI Worker 能把工作做完，<br>也知道<strong>什么时候不能继续</strong></h2><div class="closing-words"><span>工作桌面</span><i>→</i><span>行动环境</span><i>→</i><span>持续循环</span></div><div class="closing-governance">权限 · 预算 · 审计 · 异常升级</div><p>三十年的技术接力，把会说话的模型放进了有资料、有工具、有检查、有边界的工作系统。</p><div class="closing-moat"><b>下一部分</b><i>→</i><b>CocoRobo 如何把这些能力转化为组织、产品与教育工作系统</b></div></div>
-      <aside class="speaker-note">最后不要再重复定义术语，用一句人话收束：AI Worker 能接下一件事，做完后拿出证据；做不下去、预算超限或权限不足时，它会停下来叫人。第一部分到此回答外部技术怎样演进，第二部分再讲 CocoRobo 自己的选择。</aside>
+      <div class="slide-inner closing-composition"><div class="chapter-mark light">29 · VERDICT & HANDOFF</div><h2>AI Worker 能接下一件事，<br>做不下去时也会<strong>停下来叫人</strong></h2><div class="closing-words"><span>看对资料</span><i>→</i><span>用对工具</span><i>→</i><span>交出证据</span></div><div class="closing-governance">权限不够 · 预算超限 · 结果存疑 → 停止并升级</div><p>三十年的技术接力，不只让模型更聪明，也给它配上了工作桌、工具、检查和边界。</p><div class="closing-moat"><b>下一部分</b><i>→</i><b>CocoRobo 准备怎样把它放进真实的教育工作</b></div></div>
+      <aside class="speaker-note">所以我对 AI Worker 的判断很简单：它能接下一件事，做完以后拿出证据；如果权限不够、预算超限、结果存疑，它会停下来叫人。第一部分讲的是别人怎样一步步把这些能力造出来。下一部分，我想谈 CocoRobo 准备怎样把它放进真实的教育工作。</aside>
     </section>
   </main>
 
