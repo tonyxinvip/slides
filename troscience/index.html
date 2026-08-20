@@ -2,141 +2,27 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
   <meta name="theme-color" content="#071428">
-  <meta name="description" content="辛海洋在深圳教育科学研究院（大鹏基地）分享《AI赋能小学科学——人机协同，素养共生》，2026年5月25日。">
+  <meta name="description" content="辛海洋在深圳教育科学研究院（大鹏基地）面向一线小学科学教师的分享，2026年5月25日。">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>AI赋能小学科学 · troscience</title>
-  <style>
-    :root { color-scheme: dark; }
-    * { box-sizing: border-box; }
-    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #071428; }
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
-    #deck { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; background: #071428; }
-    #status {
-      position: fixed; inset: 0; z-index: 2; display: grid; place-items: center;
-      padding: 32px; text-align: center; color: #eef7fa; background: #071428;
-      font-size: clamp(16px, 4vw, 22px); line-height: 1.65;
-    }
-    #status[hidden] { display: none; }
-    #status small { display: block; margin-top: 12px; color: #9fb4c7; font-size: .72em; }
-  </style>
+  <link rel="stylesheet" href="styles.css?v=20260820-4">
 </head>
 <body>
-  <div id="status">正在载入演讲……<small>2026年5月25日 · 深圳教育科学研究院（大鹏基地）</small></div>
-  <iframe
-    id="deck"
-    title="AI赋能小学科学——人机协同，素养共生"
-    src="../ai4science/?edition=troscience-20260525-v3"
-    allow="fullscreen; autoplay"
-    allowfullscreen
-  ></iframe>
-
-  <script>
-  (() => {
-    const frame = document.getElementById('deck');
-    const status = document.getElementById('status');
-    const desiredTitle = 'AI赋能小学科学 · troscience';
-    const desiredDescription = '辛海洋在深圳教育科学研究院（大鹏基地）分享《AI赋能小学科学——人机协同，素养共生》，2026年5月25日。';
-    const replacements = [
-      ['深圳教育科学研究院（大鹏培训基地）', '深圳教育科学研究院（大鹏基地）'],
-      ['深圳技术大学', '深圳教育科学研究院（大鹏基地）'],
-      ['2026年8月21日', '2026年5月25日'],
-      ['2026-08-21', '2026-05-25'],
-      ['2026.8.21', '2026.5.25'],
-      ['8月21日', '5月25日'],
-      ['2026.6.24', '2026.5.25']
-    ];
-
-    const replaceText = value => {
-      if (typeof value !== 'string') return value;
-      for (const [from, to] of replacements) value = value.split(from).join(to);
-      return value;
-    };
-
-    let observer = null;
-    let observedDocument = null;
-    let patching = false;
-
-    function observeDocument(doc) {
-      if (observedDocument === doc) return;
-      if (observer) observer.disconnect();
-      observedDocument = doc;
-      const Observer = doc.defaultView && doc.defaultView.MutationObserver;
-      if (!Observer || !doc.documentElement) return;
-      observer = new Observer(() => {
-        doc.defaultView.requestAnimationFrame(patchDocument);
-      });
-      observer.observe(doc.documentElement, {
-        subtree: true,
-        childList: true,
-        characterData: true,
-        attributes: true
-      });
-    }
-
-    function patchDocument() {
-      if (patching) return false;
-      let doc;
-      try {
-        doc = frame.contentDocument || frame.contentWindow.document;
-      } catch (error) {
-        return false;
-      }
-      if (!doc || !doc.documentElement || !doc.defaultView) return false;
-
-      patching = true;
-      try {
-        if (doc.title !== desiredTitle) doc.title = desiredTitle;
-
-        const filter = doc.defaultView.NodeFilter ? doc.defaultView.NodeFilter.SHOW_TEXT : 4;
-        const walker = doc.createTreeWalker(doc.documentElement, filter);
-        let node;
-        while ((node = walker.nextNode())) {
-          const next = replaceText(node.nodeValue);
-          if (next !== node.nodeValue) node.nodeValue = next;
-        }
-
-        const attributes = ['content', 'title', 'aria-label', 'alt', 'data-search', 'datetime', 'value'];
-        doc.querySelectorAll('*').forEach(element => {
-          attributes.forEach(name => {
-            if (!element.hasAttribute(name)) return;
-            const current = element.getAttribute(name);
-            const next = replaceText(current);
-            if (next !== current) element.setAttribute(name, next);
-          });
-        });
-
-        let description = doc.querySelector('meta[name="description"]');
-        if (!description && doc.head) {
-          description = doc.createElement('meta');
-          description.name = 'description';
-          doc.head.appendChild(description);
-        }
-        if (description && description.getAttribute('content') !== desiredDescription) {
-          description.setAttribute('content', desiredDescription);
-        }
-
-        observeDocument(doc);
-        status.hidden = true;
-        return true;
-      } finally {
-        patching = false;
-      }
-    }
-
-    frame.addEventListener('load', () => {
-      patchDocument();
-      setTimeout(patchDocument, 100);
-      setTimeout(patchDocument, 500);
-      setTimeout(patchDocument, 1500);
-    });
-
-    const retry = setInterval(() => {
-      if (patchDocument()) clearInterval(retry);
-    }, 250);
-
-    setTimeout(() => clearInterval(retry), 15000);
-  })();
-  </script>
+  <main id="deck" class="deck" aria-live="polite"></main>
+  <div id="progress" class="progress" aria-hidden="true"></div>
+  <nav class="controls" aria-label="演讲导航">
+    <button id="prev" type="button" aria-label="上一页">‹</button>
+    <span id="count" aria-label="当前页码"></span>
+    <button id="next" type="button" aria-label="下一页">›</button>
+  </nav>
+  <noscript><p class="fatal">此演讲需要启用 JavaScript。</p></noscript>
+  <script src="slides-1.js?v=20260820-4"></script>
+  <script src="slides-2.js?v=20260820-4"></script>
+  <script src="slides-3.js?v=20260820-4"></script>
+  <script src="app.js?v=20260820-4"></script>
 </body>
 </html>
