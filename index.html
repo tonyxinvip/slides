@@ -33,9 +33,9 @@
         <text x="120" y="700" fill="#9fb4c7" font-size="27" font-family="Arial,'PingFang SC',sans-serif">辛海洋 · ${date} · ${venue}</text>
       </svg>`);
 
-    const cardHtml = ({ slug, date, venue, cover }) => `
+    const cardHtml = ({ slug, date, venue, cover, href = `./${slug}/` }) => `
       <article class="deck-card" data-tags="education|science education|teacher ai" data-search="ai 赋能小学科学——人机协同，素养共生 ${summary} ${venue} ${date} education science education teacher ai">
-        <a class="deck-cover" href="./${slug}/" aria-label="打开 AI 赋能小学科学——人机协同，素养共生">
+        <a class="deck-cover" href="${href}" aria-label="打开 AI 赋能小学科学——人机协同，素养共生">
           <img src="${cover}" alt="AI 赋能小学科学——人机协同，素养共生封面" width="1600" height="900">
           <span class="deck-number">00 / 00</span><span class="access-badge">公开</span>
         </a>
@@ -59,11 +59,12 @@
       slug: 'troscience',
       date: '2026-05-25',
       venue: '深圳教育科学研究院（大鹏基地）',
-      cover: coverSvg('2026-05-25', '深圳教育科学研究院（大鹏基地）')
+      cover: coverSvg('2026-05-25', '深圳教育科学研究院（大鹏基地）'),
+      href: './troscience/?v=20260820-3'
     });
 
     const insertAfterArticle = (anchorSlug, newSlug, card) => {
-      if (html.includes(`href="./${newSlug}/"`)) return;
+      if (html.includes(`href="./${newSlug}/`) || html.includes(`href="./${newSlug}?`)) return;
       let anchor = html.indexOf(`href="./${anchorSlug}/"`);
       if (anchor < 0) anchor = html.indexOf(anchorSlug);
       if (anchor < 0) return;
