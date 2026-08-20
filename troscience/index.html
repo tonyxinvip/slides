@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#071428">
+  <meta name="description" content="辛海洋在深圳教育科学研究院（大鹏基地）分享《AI赋能小学科学——人机协同，素养共生》，2026年5月25日。">
+  <title>AI赋能小学科学 · troscience</title>
+  <script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
+</head>
+<body style="margin:0;background:#071428;color:#eef7fa;font-family:system-ui;display:grid;place-items:center;min-height:100vh">
+  <p id="loading">正在载入演讲……</p>
+  <script>
+  (async function () {
+    const loading = document.getElementById('loading');
+    try {
+      const sources = [
+        '../ai4science/',
+        'https://raw.githubusercontent.com/tonyxinvip/slides/864d41e82bd4df249416ecd39f53afd148318cd1/ai4science/index.html'
+      ];
+      let outer = '';
+      let lastError;
+      for (const source of sources) {
+        try {
+          outer = await fetch(source, { cache: 'no-store' }).then(response => {
+            if (!response.ok) throw new Error('source ' + response.status);
+            return response.text();
+          });
+          if (outer) break;
+        } catch (error) {
+          lastError = error;
+        }
+      }
+      if (!outer) throw lastError || new Error('source unavailable');
+
+      const match = outer.match(/(?:var|const|let)\s+data\s*=\s*"([A-Za-z0-9+/=]+)"/);
+      if (!match) throw new Error('payload not found');
+
+      const bytes = Uint8Array.from(atob(match[1]), character => character.charCodeAt(0));
+      let html;
+      if (window.pako) {
+        html = new TextDecoder('utf-8').decode(window.pako.ungzip(bytes));
+      } else if ('DecompressionStream' in window) {
+        const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+        html = await new Response(stream).text();
+      } else {
+        throw new Error('No gzip decoder available');
+      }
+
+      const replacements = [
+        ['深圳技术大学', '深圳教育科学研究院（大鹏基地）'],
+        ['深圳教育科学研究院（大鹏培训基地）', '深圳教育科学研究院（大鹏基地）'],
+        ['2026-08-21', '2026-05-25'],
+        ['2026.8.21', '2026.5.25'],
+        ['2026年8月21日', '2026年5月25日'],
+        ['8月21日', '5月25日'],
+        ['2026.6.24', '2026.5.25']
+      ];
+      for (const [from, to] of replacements) html = html.split(from).join(to);
+
+      html = html.replace(/<title>[\s\S]*?<\/title>/i, '<title>AI赋能小学科学 · troscience</title>');
+      const description = '辛海洋在深圳教育科学研究院（大鹏基地）分享《AI赋能小学科学——人机协同，素养共生》，2026年5月25日。';
+      if (/<meta\s+name=["']description["'][^>]*>/i.test(html)) {
+        html = html.replace(/<meta\s+name=["']description["'][^>]*>/i, '<meta name="description" content="' + description + '">');
+      } else {
+        html = html.replace(/<head>/i, '<head><meta name="description" content="' + description + '">');
+      }
+
+      document.open();
+      document.write(html);
+      document.close();
+    } catch (error) {
+      loading.textContent = '演讲载入失败，请刷新页面重试。';
+      console.error(error);
+    }
+  })();
+  </script>
+</body>
+</html>
