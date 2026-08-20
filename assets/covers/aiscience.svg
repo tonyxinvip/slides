@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AI赋能小学科学教与学</title>
+  <desc id="desc">辛海洋于2026年8月21日在深圳技术大学开展的小学科学教师培训</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071a2d"/>
+      <stop offset="1" stop-color="#0b3047"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#52d8dd" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#52d8dd" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1320" cy="170" r="360" fill="url(#glow)"/>
+  <g fill="none" stroke="#79e6e8" opacity=".55">
+    <ellipse cx="1280" cy="205" rx="245" ry="92" stroke-width="2" transform="rotate(-18 1280 205)"/>
+    <ellipse cx="1280" cy="205" rx="245" ry="92" stroke-width="2" transform="rotate(42 1280 205)"/>
+    <circle cx="1280" cy="205" r="16" fill="#79e6e8" stroke="none"/>
+    <circle cx="1064" cy="317" r="10" fill="#ffd166" stroke="none"/>
+    <circle cx="1440" cy="89" r="9" fill="#79e6e8" stroke="none"/>
+  </g>
+  <rect x="112" y="116" width="82" height="8" rx="4" fill="#ffd166"/>
+  <text x="112" y="198" fill="#79e6e8" font-size="30" font-family="Arial, 'PingFang SC', sans-serif" letter-spacing="4">PRIMARY SCIENCE · TEACHER AI</text>
+  <text x="112" y="380" fill="#f5fbff" font-size="84" font-weight="700" font-family="Arial, 'PingFang SC', sans-serif">AI赋能小学科学教与学</text>
+  <text x="116" y="476" fill="#d4e8ee" font-size="39" font-family="Arial, 'PingFang SC', sans-serif">先把科学课上好，再决定AI放在哪一步</text>
+  <line x1="112" y1="642" x2="1488" y2="642" stroke="#7bb6c5" stroke-opacity=".34"/>
+  <text x="112" y="722" fill="#f5fbff" font-size="30" font-family="Arial, 'PingFang SC', sans-serif">辛海洋</text>
+  <text x="112" y="782" fill="#9fc4cf" font-size="27" font-family="Arial, 'PingFang SC', sans-serif">2026年8月21日 · 深圳技术大学</text>
+  <text x="1488" y="782" text-anchor="end" fill="#9fc4cf" font-size="23" font-family="Arial, 'PingFang SC', sans-serif">教师培训 · 48页</text>
+</svg>
