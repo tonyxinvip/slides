@@ -12,7 +12,8 @@
     '第四段':'环节配置的判断方法',
     '第五段':'生命健康主题的双学段案例',
     '第六段':'过程证据、评价与使用红线',
-    '第七段':'工具定位与实施建议'
+    '第七段':'工具定位与实施建议',
+    '附录':'六个主题各一份案例'
   };
   var ORDER = Object.keys(SECTIONS);
 
@@ -201,6 +202,45 @@
         '<div class="spec"><p class="lbl">可直接照抄的指令</p><p>' + e(s.spec) + '</p></div>' +
         '<p class="afterline">' + e(s.after) + '</p>';
     },
+    apxcover: function (s) {
+      return top(s) + '<p class="cap" style="margin-top:2px;font-size:15px">' + e(s.lead) + '</p>' +
+        '<div class="apxlist">' + s.items.map(function (i) {
+          return '<div class="apxrow"><span class="ax-t">' + e(i.t) + '</span>' +
+            '<span class="ax-k">' + e(i.task) + '</span>' +
+            '<span class="ax-g">' + e(i.grade) + '</span>' +
+            '<span class="ax-p">' + e(i.p) + '</span></div>'; }).join('') + '</div>' +
+        '<p class="apxdims">' + e(s.dims) + '</p>' + foot(s.caveat);
+    },
+    apxtask: function (s) {
+      return eyebrow(s) + '<p class="apxtheme">' + e(s.theme) + '</p>' +
+        '<h1 class="head apxhead">' + e(s.title) + '</h1>' +
+        '<div class="apxmeta">' + s.meta.map(function (m) {
+          return '<span><b>' + e(m[0]) + '</b>　' + e(m[1]) + '</span>'; }).join('') + '</div>' +
+        '<div class="apxreq"><p class="lbl">任务要求（附件原文）</p><p>' + e(s.req) + '</p></div>' +
+        '<div class="apxsteps"><p class="lbl">实施建议（附件原文）</p><ol>' +
+          s.steps.map(function (x) { return '<li>' + e(x) + '</li>'; }).join('') + '</ol></div>' +
+        '<p class="cap apxsrc">' + e(s.src) + '</p>' + foot(s.foot);
+    },
+    apxflow: function (s) {
+      var h = '<div class="apxflow"><div class="fh">环节</div><div class="fh">学生须自行完成</div>' +
+        '<div class="fh">AI 可承担</div>';
+      s.rows.forEach(function (r) {
+        h += '<div class="fs"><span class="fn">' + e(r.stage) + '</span>' +
+          '<span class="fl L' + r.levelIdx + '">' + e(r.level) + '</span></div>' +
+          '<div class="fd">' + e(r.self) + '</div><div class="fd fa">' + e(r.ai) + '</div>';
+      });
+      return eyebrow(s) + '<p class="apxtheme">' + e(s.theme) + '</p>' +
+        '<h1 class="head apxhead sm">' + e(s.title) + '</h1>' + h + '</div>' + foot(s.foot);
+    },
+    apxrule: function (s) {
+      return eyebrow(s) + '<p class="apxtheme">' + e(s.theme) + '</p>' +
+        '<h1 class="head apxhead sm">' + e(s.title) + '</h1>' +
+        '<div class="red apxred">' + s.limits.map(function (i) {
+          return '<div class="redrow"><span class="k">' + e(i.t) + '</span><span class="v">' + e(i.d) + '</span></div>'; }).join('') +
+        '</div>' +
+        '<p class="apxtrack"><b>留痕</b>　' + e(s.track) + '</p>' +
+        '<div class="spec apxspec"><p class="lbl">教师侧可直接照抄的指令</p><p>' + e(s.spec) + '</p></div>';
+    },
     endnote: function (s) {
       return '<ul class="endlines">' + s.lines.map(function (l) { return '<li>' + e(l) + '</li>'; }).join('') + '</ul>' +
         '<p class="sign">' + e(s.sign) + '</p><p class="handout">' + e(s.handout) + '</p>';
@@ -215,7 +255,8 @@
 
   deck.innerHTML = chrome + S.map(function (s) {
     var body = R[s.layout] ? R[s.layout](s) : top(s) + '<p class="body">缺少版式：' + e(s.layout) + '</p>';
-    var cls = 'slide' + (s.layout === 'cover' ? ' cover' : '') + (s.layout === 'statement' ? ' statement' : '');
+    var cls = 'slide' + (s.layout === 'cover' ? ' cover' : '') + (s.layout === 'statement' ? ' statement' : '') +
+      (s.layout.indexOf('apx') === 0 ? ' apx' : '');
     return '<section class="' + cls + '" data-n="' + s.n + '">' + body + '</section>';
   }).join('');
 
@@ -236,7 +277,7 @@
     });
     phase.innerHTML = s.sec.split('').map(function (ch) { return '<span>' + e(ch) + '</span>'; }).join('');
     pageno.innerHTML = '<b>' + pad(cur + 1) + '</b> / ' + nodes.length;
-    tiermark.textContent = s.tier + ' 档';
+    tiermark.textContent = s.tier === '附' ? '附录' : s.tier + ' 档';
     hud.textContent = pad(cur + 1) + ' / ' + pad(nodes.length) + '　' + s.sec;
     notes.innerHTML = '<p class="nh">讲稿 · 第 ' + (cur + 1) + ' 页</p>' + e(s.notes);
     document.title = (cur + 1) + '/' + nodes.length + ' · 做中学与综合实践活动';
