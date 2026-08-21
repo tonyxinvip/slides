@@ -262,7 +262,8 @@ h2.t{font-size:var(--fs-title);font-weight:600;line-height:1.25;letter-spacing:-
 .tp .tno{font-size:var(--fs-small);color:var(--alert);line-height:1.5}
 .endlines{margin-top:auto;margin-bottom:auto;display:flex;flex-direction:column;gap:20px}
 .endlines li{list-style:none;font-size:var(--fs-body);line-height:1.7;color:var(--ink-2);max-width:1000px}
-.handout{margin-top:var(--gap);font-size:var(--fs-small);color:var(--alert);border:1px dashed var(--sev-1-ln);padding:16px 20px;display:inline-block}
+.sign{margin-top:var(--gap);font-size:var(--fs-body);color:var(--ink)}
+.handout{align-self:flex-start;margin-top:var(--gap-s);font-size:var(--fs-small);color:var(--alert);border:1px dashed var(--sev-1-ln);padding:16px 20px;display:inline-block}
 
 /* ── 控件 ─────────────────────────────── */
 #bar{position:fixed;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.12);z-index:5}

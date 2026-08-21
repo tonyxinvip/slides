@@ -20,6 +20,7 @@ const pres = new pptxgen();
 pres.layout = 'LAYOUT_WIDE';       // 必须在 addSlide 之前
 pres.author = '辛海洋';
 pres.title = '做中学与综合实践活动';
+pres.subject = 'AI 在任务链条上的位置';
 
 const txt = o => Object.assign({ fontFace:F, color:C.ink, margin:0 }, o);
 const TITLE_Y = 0.62, TITLE_H = 0.62, BODY_TOP = 1.55;
@@ -444,9 +445,10 @@ const R = {
     d.lines.forEach((l, i) => s.addText(l,
       txt({ x:PAD, y:2.2 + i * 0.85, w:CW - 1.2, h:0.75, fontSize:16, color:C.ink2,
             lineSpacingMultiple:1.55, valign:'top' })));
-    s.addShape(pres.ShapeType.rect, { x:PAD, y:5.5, w:4.2, h:0.55,
+    s.addText(d.sign, txt({ x:PAD, y:5.3, w:CW, h:0.35, fontSize:16 }));
+    s.addShape(pres.ShapeType.rect, { x:PAD, y:5.85, w:4.2, h:0.55,
       fill:{ color:C.white }, line:{ color:C.sev1ln, width:1, dashType:'dash' } });
-    s.addText(d.handout, txt({ x:PAD, y:5.5, w:4.2, h:0.55, fontSize:13, color:C.alert, align:'center', valign:'middle' }));
+    s.addText(d.handout, txt({ x:PAD, y:5.85, w:4.2, h:0.55, fontSize:13, color:C.alert, align:'center', valign:'middle' }));
   }
 };
 
