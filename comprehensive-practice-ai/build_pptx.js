@@ -443,6 +443,44 @@ const R = {
     });
     footNote(s, d.foot);
   },
+  specs(s, d) {
+    const y = top(s, d);
+    s.addText(d.lead, T({ x:CX, y:y - 0.06, w:CW, h:0.5, fontSize:11.5, color:C.muted,
+      lineSpacingMultiple:1.4, valign:'top' }));
+    const kw = 1.16, tx = CX + 0.26 + kw + 0.22, tw = CW - 0.26 - kw - 0.44;
+    let yy = y + 0.62;
+    d.specs.forEach(it => {
+      const lines = Math.ceil(it.v.length / 50), h = 0.3 + lines * 0.3;
+      s.addShape(pres.ShapeType.roundRect, { x:CX, y:yy, w:CW, h, rectRadius:0.08,
+        fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+      s.addShape(pres.ShapeType.rect, { x:CX, y:yy + 0.05, w:IN(4), h:h - 0.1,
+        fill:{ color:C.rust }, line:{ width:0, color:C.rust } });
+      s.addText(it.k, T({ x:CX + 0.26, y:yy + 0.17, w:kw, h:0.28, fontSize:11.5, bold:true, color:C.rust }));
+      s.addText(it.v, T({ x:tx, y:yy + 0.14, w:tw, h:h - 0.28, fontSize:12, lineSpacingMultiple:1.5, valign:'top' }));
+      yy += h + 0.14;
+    });
+    footNote(s, d.foot);
+  },
+  allow(s, d) {
+    const y = top(s, d);
+    s.addText(d.lead, T({ x:CX, y:y - 0.06, w:CW, h:0.36, fontSize:11.5, color:C.muted,
+      lineSpacingMultiple:1.4, valign:'top' }));
+    const cw = (CW - 0.4) / 3, ch = 2.5, iw = cw - 0.4;
+    d.items.forEach((it, i) => {
+      const x = CX + i * (cw + 0.2), yy = y + 0.46;
+      card(s, x, yy, cw, ch, C.slate);
+      s.addText(it.t, { fontFace:DISPLAY, color:C.navy, margin:0,
+        x:x + 0.2, y:yy + 0.20, w:iw, h:0.32, fontSize:15, bold:true });
+      s.addText(it.act, T({ x:x + 0.2, y:yy + 0.62, w:iw, h:0.8, fontSize:12,
+        lineSpacingMultiple:1.5, valign:'top' }));
+      s.addShape(pres.ShapeType.line, { x:x + 0.2, y:yy + 1.46, w:iw, h:0, line:{ color:C.line, width:1 } });
+      s.addText([{ text:'约束　', options:{ bold:true, color:C.rust } }, { text:it.lim, options:{ color:C.muted } }],
+        T({ x:x + 0.2, y:yy + 1.58, w:iw, h:0.44, fontSize:10.5, lineSpacingMultiple:1.45, valign:'top' }));
+      s.addText([{ text:'留痕　', options:{ bold:true, color:C.slate } }, { text:it.rec, options:{ color:C.muted } }],
+        T({ x:x + 0.2, y:yy + 2.04, w:iw, h:0.4, fontSize:10.5, lineSpacingMultiple:1.45, valign:'top' }));
+    });
+    footNote(s, d.foot);
+  },
   exchange(s, d) {
     const y = top(s, d);
     s.addText(d.lead, T({ x:CX, y:y - 0.06, w:CW, h:0.3, fontSize:11.5, color:C.muted }));

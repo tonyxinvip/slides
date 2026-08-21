@@ -48,7 +48,6 @@
           return '<div class="card"><p class="k cap">' + e(c[0]) + '</p><h4 style="font-size:16px;margin-top:6px">' +
             e(c[1]) + '</h4></div>'; }).join('') + '</div>' + foot(s.foot);
     },
-    timeline: function (s) { return top(s) + FIG.timeline(s.nodes); },
     fourfour: function (s) {
       return top(s) + '<div class="g2 mt">' + s.groups.map(function (g) {
         return '<div><p class="glabel">' + e(g.label) + '</p>' +
@@ -177,6 +176,19 @@
         '<div class="uses">' + s.items.map(function (i) {
           return '<div class="use"><p class="ut">' + e(i.t) + '</p><p class="uh">' + e(i.how) + '</p>' +
             '<p class="uo"><b>产出</b>　' + e(i.out) + '</p></div>'; }).join('') + '</div>' + foot(s.foot);
+    },
+    specs: function (s) {
+      return top(s) + '<p class="cap" style="margin-top:2px;font-size:15px">' + e(s.lead) + '</p>' +
+        '<div class="speclist">' + s.specs.map(function (i) {
+          return '<div class="specitem"><p class="spk">' + e(i.k) + '</p>' +
+            '<p class="spv">' + e(i.v) + '</p></div>'; }).join('') + '</div>' + foot(s.foot);
+    },
+    allow: function (s) {
+      return top(s) + '<p class="cap" style="margin-top:2px;font-size:15px">' + e(s.lead) + '</p>' +
+        '<div class="allow">' + s.items.map(function (i) {
+          return '<div class="al"><p class="alt">' + e(i.t) + '</p><p class="ala">' + e(i.act) + '</p>' +
+            '<p class="alr"><b>约束</b>　' + e(i.lim) + '</p>' +
+            '<p class="alk"><b>留痕</b>　' + e(i.rec) + '</p></div>'; }).join('') + '</div>' + foot(s.foot);
     },
     exchange: function (s) {
       return top(s) + '<p class="cap" style="margin-top:2px;font-size:15px">' + e(s.lead) + '</p>' +
