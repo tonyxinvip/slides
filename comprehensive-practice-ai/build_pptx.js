@@ -153,7 +153,6 @@ const R = {
     });
     footNote(s, d.foot);
   },
-  timeline(s, d) { const y = top(s, d); fig(s, 'timeline', y + 0.3); },
   coverage(s, d) { const y = top(s, d); fig(s, 'coverage', y + 0.1, 3.9); },
   bars(s, d)     { const y = top(s, d); fig(s, 'impact', y + 0.24, 3.5); footNote(s, d.foot); },
   overlay(s, d) {
@@ -298,11 +297,12 @@ const R = {
   },
   threedo(s, d) {
     top(s, d);
+    const nw = Math.max(0.5, 0.24 + Math.max.apply(null, d.items.map(x => x.no.length)) * 0.24);
     d.items.forEach((it, i) => {
-      const y = 2.5 + i * 1.02;
-      s.addText(it.no, { fontFace:DISPLAY, color:C.rust, margin:0, x:CX, y, w:0.45, h:0.44, fontSize:16, bold:true });
-      s.addText(it.t, { fontFace:DISPLAY, color:C.navy, margin:0, x:CX + 0.62, y, w:CW - 0.62, h:0.42, fontSize:20, bold:true });
-      s.addText(it.d, T({ x:CX + 0.62, y:y + 0.44, w:CW - 0.62, h:0.4, fontSize:11.5, color:C.muted, valign:'top' }));
+      const y = 2.5 + i * 1.02, tx = CX + nw + 0.22;
+      s.addText(it.no, { fontFace:DISPLAY, color:C.rust, margin:0, x:CX, y, w:nw, h:0.44, fontSize:16, bold:true });
+      s.addText(it.t, { fontFace:DISPLAY, color:C.navy, margin:0, x:tx, y, w:CW - nw - 0.22, h:0.42, fontSize:20, bold:true });
+      s.addText(it.d, T({ x:tx, y:y + 0.44, w:CW - nw - 0.22, h:0.4, fontSize:11.5, color:C.muted, valign:'top' }));
     });
     footNote(s, d.kicker);
   },
@@ -393,7 +393,9 @@ const R = {
       s.addText(it.t, T({ x:CX + 0.24, y:yy, w:1.4, h:0.56, fontSize:13, bold:true, color:C.rust, valign:'middle' }));
       s.addText(it.d, T({ x:CX + 1.76, y:yy, w:CW - 2.0, h:0.56, fontSize:12, lineSpacingMultiple:1.35, valign:'middle' }));
     });
-    srcLine(s, d.src, y + d.items.length * 0.66 + 0.1);
+    let ry = y + d.items.length * 0.66 + 0.14;
+    if (d.kicker) { s.addText(d.kicker, T({ x:CX, y:ry, w:CW, h:0.3, fontSize:13, color:C.ink })); ry += 0.38; }
+    srcLine(s, d.src, ry);
     footNote(s, d.caveat);
   },
   signature(s, d) {
@@ -425,6 +427,51 @@ const R = {
       rowH:[0.4, 0.66, 0.66, 0.66], border:{ type:'solid', color:C.line, pt:1 }, fill:{ color:C.white },
       fontFace:BODY, color:C.ink, valign:'middle', margin:9 });
     footNote(s, d.kicker);
+  },
+  uses(s, d) {
+    const y = top(s, d);
+    s.addText(d.lead, T({ x:CX, y:y - 0.06, w:CW, h:0.3, fontSize:11.5, color:C.muted }));
+    const cw = (CW - 0.2) / 2, ch = 1.42, acc = [C.slate, C.sev2, C.sev2, C.slate];
+    d.items.forEach((it, i) => {
+      const x = CX + (i % 2) * (cw + 0.2), yy = y + 0.4 + Math.floor(i / 2) * (ch + 0.18);
+      card(s, x, yy, cw, ch, acc[i]);
+      s.addText(it.t, { fontFace:DISPLAY, color:C.navy, margin:0, x:x + 0.22, y:yy + 0.16, w:cw - 0.44, h:0.32, fontSize:15, bold:true });
+      s.addText(it.how, T({ x:x + 0.22, y:yy + 0.52, w:cw - 0.44, h:0.5, fontSize:11.5, lineSpacingMultiple:1.35, valign:'top' }));
+      s.addShape(pres.ShapeType.line, { x:x + 0.22, y:yy + 1.06, w:cw - 0.44, h:0, line:{ color:C.line, width:1 } });
+      s.addText([{ text:'产出　', options:{ bold:true, color:C.slate } }, { text:it.out, options:{ color:C.muted } }],
+        T({ x:x + 0.22, y:yy + 1.13, w:cw - 0.44, h:0.24, fontSize:10 }));
+    });
+    footNote(s, d.foot);
+  },
+  exchange(s, d) {
+    const y = top(s, d);
+    s.addText(d.lead, T({ x:CX, y:y - 0.06, w:CW, h:0.3, fontSize:11.5, color:C.muted }));
+    const tone = { ask:C.slate, ans:C.sev2, judge:C.rust };
+    const bg = { ask:C.white, ans:C.paper, judge:C.wash };
+    let yy = y + 0.4;
+    d.turns.forEach(t => {
+      const h = t.tone === 'ans' ? 0.98 : 0.86;
+      s.addShape(pres.ShapeType.roundRect, { x:CX, y:yy, w:CW, h, rectRadius:0.08,
+        fill:{ color:bg[t.tone] }, line:{ color: t.tone === 'judge' ? C.sev1ln : C.line, width:1 } });
+      s.addShape(pres.ShapeType.rect, { x:CX, y:yy + 0.05, w:IN(4), h:h - 0.1,
+        fill:{ color:tone[t.tone] }, line:{ width:0, color:tone[t.tone] } });
+      s.addText(t.who, T({ x:CX + 0.24, y:yy + 0.14, w:1.05, h:0.24, fontSize:10, bold:true, color:tone[t.tone] }));
+      s.addText(t.text, T({ x:CX + 1.44, y:yy + 0.12, w:CW - 1.72, h:h - 0.24, fontSize:12.5,
+        color: t.tone === 'ans' ? C.muted : C.ink, lineSpacingMultiple:1.45, valign:'top' }));
+      yy += h + 0.14;
+    });
+    footNote(s, d.foot);
+  },
+  agentspec(s, d) {
+    const y = top(s, d);
+    s.addText(d.lead, T({ x:CX, y:y - 0.02, w:CW, h:0.6, fontSize:14, color:C.muted, lineSpacingMultiple:1.45, valign:'top' }));
+    const sy = y + 0.78, sh = 1.55;
+    s.addShape(pres.ShapeType.roundRect, { x:CX, y:sy, w:CW, h:sh, rectRadius:0.09,
+      fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+    s.addShape(pres.ShapeType.rect, { x:CX, y:sy + 0.06, w:IN(4), h:sh - 0.12, fill:{ color:C.rust }, line:{ width:0, color:C.rust } });
+    s.addText('可直接照抄的指令', T({ x:CX + 0.3, y:sy + 0.18, w:CW - 0.6, h:0.22, fontSize:10, bold:true, color:C.rust, charSpacing:1.2 }));
+    s.addText(d.spec, T({ x:CX + 0.3, y:sy + 0.5, w:CW - 0.6, h:sh - 0.68, fontSize:15, lineSpacingMultiple:1.6, valign:'top' }));
+    s.addText(d.after, T({ x:CX, y:sy + sh + 0.28, w:CW, h:0.4, fontSize:13.5, lineSpacingMultiple:1.5, valign:'top' }));
   },
   endnote(s, d) {
     d.lines.forEach((l, i) => s.addText(l,

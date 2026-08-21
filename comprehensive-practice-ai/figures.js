@@ -35,23 +35,6 @@
 
   var F = {};
 
-  /* ── 政策时间线（第 04 页）───────────────────────── */
-  F.timeline = function (nodes) {
-    var W = 1048, H = 226, y = 92, x0 = 88, x1 = W - 88;
-    var n = nodes.length, gap = (x1 - x0) / (n - 1);
-    var s = '<line x1="' + x0 + '" y1="' + y + '" x2="' + x1 + '" y2="' + y + '" stroke="' + C.line + '" stroke-width="2"/>';
-    nodes.forEach(function (nd, i) {
-      var x = x0 + i * gap, last = i === n - 1;
-      s += '<circle cx="' + x + '" cy="' + y + '" r="' + (last ? 9 : 6) + '" fill="' +
-           (last ? C.rust : C.white) + '" stroke="' + (last ? C.rust : C.muted) + '" stroke-width="2"/>';
-      s += txt(x, y - 26, nd[0], { size: 19, weight: 700, anchor: 'middle', fill: last ? C.rust : C.navy, serif: true });
-      nd[1].split('\n').forEach(function (l, k) {
-        s += txt(x, y + 34 + k * 21, l, { size: 13.5, anchor: 'middle', fill: C.muted });
-      });
-    });
-    return wrap(W, H, s);
-  };
-
   /* ── 覆盖关系：嵌套（第 07 页）──────────────────── */
   F.coverage = function () {
     var W = 1048, H = 372, s = '';
