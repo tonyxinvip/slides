@@ -262,7 +262,11 @@
         '<div class="spec apxspec"><p class="lbl">教师侧可直接照抄的指令</p><p>' + e(s.spec) + '</p></div>';
     },
     endnote: function (s) {
-      return '<ul class="endlines">' + s.lines.map(function (l) { return '<li>' + e(l) + '</li>'; }).join('') + '</ul>' +
+      return '<p class="takelbl">' + e(s.take.label) + '</p>' +
+        '<div class="takes">' + s.take.items.map(function (i) {
+          return '<div class="take"><span class="tkt">' + e(i.t) + '</span>' +
+            '<span class="tkp">' + e(i.p) + '</span></div>'; }).join('') + '</div>' +
+        '<ul class="endlines">' + s.lines.map(function (l) { return '<li>' + e(l) + '</li>'; }).join('') + '</ul>' +
         '<p class="sign">' + e(s.sign) + '</p><p class="handout">' + e(s.handout) + '</p>';
     }
   };
