@@ -26,14 +26,14 @@ const BODY = 'Microsoft YaHei';
 const DISPLAY = 'Microsoft YaHei';
 
 const SECTIONS = {
-  '开场':'做中学九月落地',
-  '第一段':'做中学补了这门课的哪一半',
-  '第二段':'成果不可信之后，专业位置在哪里',
-  '第三段':'老问题清单，以及 AI 往哪边推',
-  '第四段':'判断三问与环节表',
-  '第五段':'案例走查：生命健康双学段',
-  '第六段':'证据、评价与红线',
-  '第七段':'工具位置与下周三件事'
+  '开场':'领航行动指南与本课程的关系',
+  '第一段':'做中学对综合实践活动的覆盖范围',
+  '第二段':'成果可替代性与教师的专业位置',
+  '第三段':'既有问题与生成式 AI 的作用方向',
+  '第四段':'环节配置的判断方法',
+  '第五段':'生命健康主题的双学段案例',
+  '第六段':'过程证据、评价与使用红线',
+  '第七段':'工具定位与实施建议'
 };
 const ORDER = Object.keys(SECTIONS);
 
@@ -189,9 +189,9 @@ const R = {
       s.addText(d.title, T({ x:CX, y:2.42, w:CW, h:0.26, fontSize:10, bold:true, color:C.rust, charSpacing:2.2 }));
       y = 2.86;
     }
-    s.addText(d.big, { fontFace:DISPLAY, color:C.navy, margin:0, x:CX, y, w:CW - 0.9, h:1.9,
-      fontSize:28, bold:true, lineSpacingMultiple:1.45, valign:'top' });
-    if (d.sub) s.addText(d.sub, T({ x:CX, y:y + 1.3, w:CW - 0.9, h:0.4, fontSize:15, color:C.muted }));
+    s.addText(d.big, { fontFace:DISPLAY, color:C.navy, margin:0, x:CX, y, w:CW - 0.9, h:2.5,
+      fontSize:25, bold:true, lineSpacingMultiple:1.45, valign:'top' });
+    if (d.sub) s.addText(d.sub, T({ x:CX, y:y + 1.6, w:CW - 0.9, h:0.4, fontSize:15, color:C.muted }));
   },
   twoplans(s, d) {
     const y = top(s, d), cw = (CW - 0.24) / 2, bh = 3.1;
