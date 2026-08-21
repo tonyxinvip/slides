@@ -202,6 +202,7 @@
     },
     endnote: function (s) {
       return '<ul class="endlines">' + s.lines.map(function (l) { return '<li>' + e(l) + '</li>'; }).join('') + '</ul>' +
+        '<p class="sign">' + e(s.sign) + '</p>' +
         '<p class="handout">' + e(s.handout) + '</p>';
     }
   };
