@@ -85,7 +85,11 @@
   slides.forEach((slide, i) => {
     const button = document.createElement('button');
     button.type = 'button';
-    button.innerHTML = `<span>${pad(i + 1)}</span><strong>${slide.dataset.title}</strong>`;
+    const series = slide.dataset.seriesTitle
+      ? `<em>${slide.dataset.seriesLabel} · ${slide.dataset.seriesTitle} · ${slide.dataset.seriesStep}</em>`
+      : '';
+    button.classList.toggle('is-case', Boolean(slide.dataset.seriesTitle));
+    button.innerHTML = `<span>${pad(i + 1)}</span><strong>${slide.dataset.title}</strong>${series}`;
     button.addEventListener('click', () => { show(i); toggleOverview(false); });
     overviewGrid.appendChild(button);
   });
