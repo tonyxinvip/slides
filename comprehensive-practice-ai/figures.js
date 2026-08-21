@@ -121,7 +121,7 @@
     s += txt(cx - off - 74, cy + 2, '考察探究', { size: 15, anchor: 'middle', fill: C.muted });
     s += txt(cx - off - 74, cy + 26, '设计制作', { size: 15, anchor: 'middle', fill: C.muted });
     s += txt(cx + off + 70, cy + 14, '身体必须在场', { size: 15, anchor: 'middle', fill: C.muted });
-    s += txt(cx, H - 12, '两个圈的交集，就是综合实践活动教师的专业位置', { size: 14, anchor: 'middle', fill: C.muted });
+    s += txt(cx, H - 12, '两个集合的交集即综合实践活动教师的专业位置', { size: 14, anchor: 'middle', fill: C.muted });
     return wrap(W, H, s);
   };
 
@@ -150,10 +150,10 @@
     s += '<line x1="' + bx + '" y1="136" x2="' + (bx + bw) + '" y2="136" stroke="' + C.line + '" stroke-width="1.5"/>';
     s += '<line x1="' + bx + '" y1="132" x2="' + bx + '" y2="140" stroke="' + C.line + '" stroke-width="1.5"/>';
     s += '<line x1="' + (bx + bw) + '" y1="132" x2="' + (bx + bw) + '" y2="140" stroke="' + C.line + '" stroke-width="1.5"/>';
-    s += txt(bx + bw / 2, 158, '内核：六个环节这条主干', { size: 13, anchor: 'middle', fill: C.muted });
+    s += txt(bx + bw / 2, 158, '内核：六个环节', { size: 13, anchor: 'middle', fill: C.muted });
     s += txt(edgeW / 2, 158, '外圈', { size: 13, anchor: 'middle', fill: C.muted });
     s += txt(W - edgeW / 2, 158, '外圈', { size: 13, anchor: 'middle', fill: C.muted });
-    s += txt(0, 196, '色越深表示收得越紧。六个环节自身前紧后松，任务前的检索与任务后的表达可以放开。', { size: 13.5, fill: C.muted });
+    s += txt(0, 196, '颜色越深表示收得越紧。六个环节自身呈前紧后松，任务前的检索与任务后的表达可以放开。', { size: 13.5, fill: C.muted });
     return wrap(W, H, s);
   };
 
@@ -178,7 +178,7 @@
              '<path d="M' + (ax + 2) + ' 99 L' + (ax + 9) + ' 104 L' + (ax + 2) + ' 109 Z" fill="' + C.muted + '"/>';
       }
     });
-    s += txt(0, 226, '过程证据有制度出口，留痕是这条链的入口。', { size: 13.5, fill: C.muted });
+    s += txt(0, 226, '过程证据具有制度出口，留痕是该链条的入口。', { size: 13.5, fill: C.muted });
     return wrap(W, H, s);
   };
 
