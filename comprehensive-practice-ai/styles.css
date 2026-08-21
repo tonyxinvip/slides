@@ -303,3 +303,22 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 .spec p{font-size:19px;line-height:1.75;color:var(--ink)}
 .spec .lbl{font-size:12.5px;color:var(--rust);font-weight:700;letter-spacing:.1em;margin-bottom:12px}
 .afterline{margin-top:22px;font-size:17px;color:var(--ink);line-height:1.6}
+
+/* ── 指令原文（specs）───────────────────── */
+.speclist{margin-top:18px;display:flex;flex-direction:column;gap:12px}
+.specitem{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--rust);
+  border-radius:12px;padding:14px 22px;display:grid;grid-template-columns:104px 1fr;gap:22px;align-items:start}
+.specitem .spk{font-size:14px;font-weight:700;color:var(--rust);padding-top:3px;line-height:1.45}
+.specitem .spv{font-size:15px;color:var(--ink);line-height:1.7}
+
+/* ── 学生侧放开的用法（allow）───────────── */
+.allow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.al{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--slate);
+  border-radius:12px;padding:20px 18px 18px;min-height:240px;display:flex;flex-direction:column}
+.al .alt{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--navy)}
+.al .ala{font-size:14px;color:var(--ink);line-height:1.6;margin-top:9px}
+.al .alr{font-size:12.5px;color:var(--muted);line-height:1.55;margin-top:auto;
+  padding-top:12px;border-top:1px solid var(--line)}
+.al .alk{font-size:12.5px;color:var(--muted);line-height:1.55;margin-top:7px}
+.al .alr b{color:var(--rust);font-weight:700}
+.al .alk b{color:var(--slate);font-weight:700}
