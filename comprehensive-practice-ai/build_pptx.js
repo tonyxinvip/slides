@@ -33,7 +33,8 @@ const SECTIONS = {
   '第四段':'环节配置的判断方法',
   '第五段':'生命健康主题的双学段案例',
   '第六段':'过程证据、评价与使用红线',
-  '第七段':'工具定位与实施建议'
+  '第七段':'工具定位与实施建议',
+  '附录':'六个主题各一份案例'
 };
 const ORDER = Object.keys(SECTIONS);
 
@@ -64,7 +65,7 @@ function chrome(s, d, idx, total) {
   s.addText([{ text:String(idx).padStart(2, '0'), options:{ bold:true, color:C.navy } },
              { text:' / ' + total, options:{ color:C.muted } }],
     T({ x:CX, y:H - 0.62, w:2, h:0.26, fontSize:10, charSpacing:0.6 }));
-  s.addText(d.tier + ' 档',
+  s.addText(d.tier === '附' ? '附录' : d.tier + ' 档',
     T({ x:W - PAD_R - 1.4, y:H - 0.62, w:1.4, h:0.26, fontSize:8, color:C.dim, align:'right', charSpacing:1.4 }));
 }
 
@@ -510,6 +511,138 @@ const R = {
     s.addText('可直接照抄的指令', T({ x:CX + 0.3, y:sy + 0.18, w:CW - 0.6, h:0.22, fontSize:10, bold:true, color:C.rust, charSpacing:1.2 }));
     s.addText(d.spec, T({ x:CX + 0.3, y:sy + 0.5, w:CW - 0.6, h:sh - 0.68, fontSize:15, lineSpacingMultiple:1.6, valign:'top' }));
     s.addText(d.after, T({ x:CX, y:sy + sh + 0.28, w:CW, h:0.4, fontSize:13.5, lineSpacingMultiple:1.5, valign:'top' }));
+  },
+  /* ── 附录 ───────────────────────────────── */
+  apxcover(s, d) {
+    const y = top(s, d);
+    s.addText(d.lead, T({ x:CX, y:y - 0.06, w:CW, h:0.42, fontSize:11.5, color:C.muted,
+      lineSpacingMultiple:1.4, valign:'top' }));
+    let yy = y + 0.5;
+    const rh = 0.42;
+    d.items.forEach(it => {
+      s.addShape(pres.ShapeType.roundRect, { x:CX, y:yy, w:CW, h:rh, rectRadius:0.06,
+        fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+      s.addShape(pres.ShapeType.rect, { x:CX, y:yy + 0.04, w:IN(4), h:rh - 0.08,
+        fill:{ color:C.slate }, line:{ width:0, color:C.slate } });
+      s.addText(it.t, T({ x:CX + 0.24, y:yy, w:1.32, h:rh, fontSize:11, bold:true, color:C.slate, valign:'middle' }));
+      s.addText(it.task, { fontFace:DISPLAY, color:C.navy, margin:0,
+        x:CX + 1.70, y:yy, w:5.6, h:rh, fontSize:13.5, bold:true, valign:'middle' });
+      s.addText(it.grade, T({ x:CX + 7.4, y:yy, w:1.5, h:rh, fontSize:10, color:C.muted, valign:'middle' }));
+      s.addText(it.p, T({ x:W - PAD_R - 1.1, y:yy, w:0.9, h:rh, fontSize:10, color:C.muted,
+        align:'right', valign:'middle' }));
+      yy += rh + 0.08;
+    });
+    s.addText(d.dims, T({ x:CX, y:yy + 0.1, w:CW, h:0.5, fontSize:10.5, color:C.muted,
+      lineSpacingMultiple:1.4, valign:'top' }));
+    footNote(s, d.caveat);
+  },
+  apxtask(s, d) {
+    eyebrow(s, d);
+    s.addText(d.theme, T({ x:CX, y:PAD_T + 0.30, w:CW, h:0.22, fontSize:10.5, bold:true,
+      color:C.slate, charSpacing:0.6 }));
+    headline(s, d.title, PAD_T + 0.56, 30);
+    let yy = PAD_T + 1.30;
+    let mx = CX;
+    d.meta.forEach(m => {
+      const w = 0.62 + (m[0].length + m[1].length) * 0.115;
+      s.addText([{ text:m[0] + '　', options:{ bold:true, color:C.slate } },
+                 { text:m[1], options:{ color:C.muted } }],
+        T({ x:mx, y:yy, w, h:0.22, fontSize:10 }));
+      mx += w + 0.24;
+    });
+    yy += 0.34;
+    const rl = Math.ceil(d.req.length / 62), rh = 0.50 + rl * 0.23;
+    s.addShape(pres.ShapeType.roundRect, { x:CX, y:yy, w:CW, h:rh, rectRadius:0.07,
+      fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+    s.addShape(pres.ShapeType.rect, { x:CX, y:yy + 0.05, w:IN(4), h:rh - 0.1,
+      fill:{ color:C.slate }, line:{ width:0, color:C.slate } });
+    s.addText('任务要求（附件原文）', T({ x:CX + 0.26, y:yy + 0.11, w:CW - 0.5, h:0.2,
+      fontSize:9.5, bold:true, color:C.rust, charSpacing:1 }));
+    s.addText(d.req, T({ x:CX + 0.24, y:yy + 0.35, w:CW - 0.46, h:rh - 0.44, fontSize:10.5,
+      lineSpacingMultiple:1.5, valign:'top' }));
+    yy += rh + 0.16;
+    s.addText('实施建议（附件原文）', T({ x:CX, y:yy, w:CW, h:0.2, fontSize:9.5, bold:true,
+      color:C.rust, charSpacing:1 }));
+    yy += 0.26;
+    d.steps.forEach((t, i) => {
+      const ln = Math.ceil((t.length + 3) / 66), h = ln * 0.215;
+      s.addText(String(i + 1) + '.', T({ x:CX, y:yy, w:0.26, h, fontSize:10, bold:true,
+        color:C.rust, valign:'top' }));
+      s.addText(t, T({ x:CX + 0.3, y:yy, w:CW - 0.3, h, fontSize:10,
+        lineSpacingMultiple:1.42, valign:'top' }));
+      yy += h + 0.05;
+    });
+    srcLine(s, d.src, H - 1.44);
+    footNote(s, d.foot);
+  },
+  apxflow(s, d) {
+    eyebrow(s, d);
+    s.addText(d.theme, T({ x:CX, y:PAD_T + 0.30, w:CW, h:0.22, fontSize:10.5, bold:true,
+      color:C.slate, charSpacing:0.6 }));
+    headline(s, d.title, PAD_T + 0.56, 25);
+    const c0 = 2.18, c1 = 4.4, c2 = CW - c0 - c1;
+    const hh = 0.32, rh = 0.615, y0 = PAD_T + 1.30;
+    const th = hh + rh * d.rows.length;
+    s.addShape(pres.ShapeType.roundRect, { x:CX, y:y0, w:CW, h:th, rectRadius:0.07,
+      fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+    s.addShape(pres.ShapeType.rect, { x:CX + 0.02, y:y0 + 0.02, w:CW - 0.04, h:hh - 0.02,
+      fill:{ color:C.paper }, line:{ width:0, color:C.paper } });
+    [['环节', CX, c0], ['学生须自行完成', CX + c0, c1], ['AI 可承担', CX + c0 + c1, c2]]
+      .forEach(h => s.addText(h[0], T({ x:h[1] + 0.16, y:y0, w:h[2] - 0.3, h:hh,
+        fontSize:9.5, bold:true, color:C.muted, valign:'middle' })));
+    d.rows.forEach((r, i) => {
+      const ry = y0 + hh + i * rh;
+      s.addShape(pres.ShapeType.line, { x:CX, y:ry, w:CW, h:0, line:{ color:C.line, width:1 } });
+      s.addShape(pres.ShapeType.line, { x:CX + c0, y:ry, w:0, h:rh, line:{ color:C.line, width:1 } });
+      s.addShape(pres.ShapeType.line, { x:CX + c0 + c1, y:ry, w:0, h:rh, line:{ color:C.line, width:1 } });
+      s.addText(r.stage, { fontFace:DISPLAY, color:C.navy, margin:0,
+        x:CX + 0.16, y:ry + 0.09, w:c0 - 0.3, h:0.24, fontSize:12, bold:true });
+      const bw = 0.24 + r.level.length * 0.115;
+      const bg = [null, C.sev3, C.sev2, C.sev1, C.white][r.levelIdx];
+      const fg = r.levelIdx <= 2 ? 'FFFFFF' : (r.levelIdx === 3 ? C.ink : C.muted);
+      s.addShape(pres.ShapeType.roundRect, { x:CX + 0.16, y:ry + 0.36, w:bw, h:0.2, rectRadius:0.1,
+        fill:{ color:bg }, line:{ color: r.levelIdx === 3 ? C.sev1ln : (r.levelIdx === 4 ? C.line : bg), width:1 } });
+      s.addText(r.level, T({ x:CX + 0.16, y:ry + 0.36, w:bw, h:0.2, fontSize:8, bold:true,
+        color:fg, align:'center', valign:'middle' }));
+      s.addText(r.self, T({ x:CX + c0 + 0.16, y:ry + 0.08, w:c1 - 0.32, h:rh - 0.16,
+        fontSize:10.5, lineSpacingMultiple:1.4, valign:'top' }));
+      s.addText(r.ai, T({ x:CX + c0 + c1 + 0.16, y:ry + 0.08, w:c2 - 0.32, h:rh - 0.16,
+        fontSize:10.5, color:C.muted, lineSpacingMultiple:1.4, valign:'top' }));
+    });
+    footNote(s, d.foot);
+  },
+  apxrule(s, d) {
+    eyebrow(s, d);
+    s.addText(d.theme, T({ x:CX, y:PAD_T + 0.30, w:CW, h:0.22, fontSize:10.5, bold:true,
+      color:C.slate, charSpacing:0.6 }));
+    headline(s, d.title, PAD_T + 0.56, 25);
+    let yy = PAD_T + 1.32;
+    d.limits.forEach(it => {
+      const ln = Math.ceil(it.d.length / 52), h = Math.max(0.5, 0.28 + ln * 0.25);
+      s.addShape(pres.ShapeType.roundRect, { x:CX, y:yy, w:CW, h, rectRadius:0.07,
+        fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+      s.addShape(pres.ShapeType.rect, { x:CX, y:yy + 0.05, w:IN(4), h:h - 0.1,
+        fill:{ color:C.rust }, line:{ width:0, color:C.rust } });
+      s.addText(it.t, T({ x:CX + 0.24, y:yy, w:1.3, h, fontSize:11.5, bold:true, color:C.rust, valign:'middle' }));
+      s.addText(it.d, T({ x:CX + 1.66, y:yy, w:CW - 1.9, h, fontSize:11,
+        lineSpacingMultiple:1.42, valign:'middle' }));
+      yy += h + 0.12;
+    });
+    yy += 0.04;
+    const tl = Math.ceil((d.track.length + 3) / 62), th = tl * 0.24;
+    s.addText([{ text:'留痕　', options:{ bold:true, color:C.slate } },
+               { text:d.track, options:{ color:C.muted } }],
+      T({ x:CX, y:yy, w:CW, h:th, fontSize:11, lineSpacingMultiple:1.42, valign:'top' }));
+    yy += th + 0.16;
+    const sl = Math.ceil(d.spec.length / 56), sh = 0.52 + sl * 0.26;
+    s.addShape(pres.ShapeType.roundRect, { x:CX, y:yy, w:CW, h:sh, rectRadius:0.07,
+      fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+    s.addShape(pres.ShapeType.rect, { x:CX, y:yy + 0.05, w:IN(4), h:sh - 0.1,
+      fill:{ color:C.rust }, line:{ width:0, color:C.rust } });
+    s.addText('教师侧可直接照抄的指令', T({ x:CX + 0.26, y:yy + 0.12, w:CW - 0.5, h:0.2,
+      fontSize:9.5, bold:true, color:C.rust, charSpacing:1 }));
+    s.addText(d.spec, T({ x:CX + 0.26, y:yy + 0.38, w:CW - 0.52, h:sh - 0.48, fontSize:11.5,
+      lineSpacingMultiple:1.55, valign:'top' }));
   },
   endnote(s, d) {
     d.lines.forEach((l, i) => s.addText(l,
