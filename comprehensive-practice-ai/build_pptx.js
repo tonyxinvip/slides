@@ -705,13 +705,33 @@ const R = {
       lineSpacingMultiple:1.55, valign:'top' }));
   },
   endnote(s, d) {
-    d.lines.forEach((l, i) => s.addText(l,
-      T({ x:CX, y:2.14 + i * 0.8, w:CW - 1.0, h:0.7, fontSize:13.5, color:C.muted,
-          lineSpacingMultiple:1.55, valign:'top' })));
-    s.addText(d.sign, T({ x:CX, y:5.0, w:CW, h:0.32, fontSize:14, color:C.navy }));
-    s.addShape(pres.ShapeType.roundRect, { x:CX, y:5.46, w:3.2, h:0.5, rectRadius:0.08,
+    s.addText(d.take.label, T({ x:CX, y:1.06, w:CW, h:0.24, fontSize:9.5, bold:true,
+      color:C.rust, charSpacing:1.8 }));
+    const tw = 7.9;
+    d.take.items.forEach((it, i) => {
+      const y = 1.38 + i * 0.5;
+      s.addShape(pres.ShapeType.roundRect, { x:CX, y, w:tw, h:0.42, rectRadius:0.07,
+        fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+      s.addShape(pres.ShapeType.rect, { x:CX, y:y + 0.04, w:IN(4), h:0.34,
+        fill:{ color:C.slate }, line:{ width:0, color:C.slate } });
+      s.addText(it.t, { fontFace:DISPLAY, color:C.navy, margin:0,
+        x:CX + 0.24, y, w:tw - 1.7, h:0.42, fontSize:13, bold:true, valign:'middle' });
+      s.addText(it.p, T({ x:CX + tw - 1.5, y, w:1.32, h:0.42, fontSize:10, color:C.muted,
+        align:'right', valign:'middle' }));
+    });
+    let ly = 1.38 + d.take.items.length * 0.5 + 0.28;
+    d.lines.forEach((l, i) => {
+      const h = 0.3 + Math.ceil(l.length / 74) * 0.22;
+      s.addText(l, T({ x:CX, y:ly, w:CW - 0.6, h, fontSize:10.5, color:C.muted,
+        lineSpacingMultiple:1.45, valign:'top' }));
+      ly += h;
+    });
+    s.addText(d.sign, T({ x:CX, y:ly + 0.16, w:CW, h:0.3, fontSize:13, color:C.navy }));
+    const hy = ly + 0.58;
+    s.addShape(pres.ShapeType.roundRect, { x:CX, y:hy, w:2.7, h:0.44, rectRadius:0.07,
       fill:{ color:C.paper }, line:{ color:C.sev1ln, width:1, dashType:'dash' } });
-    s.addText(d.handout, T({ x:CX, y:5.46, w:3.2, h:0.5, fontSize:11.5, color:C.rust, align:'center', valign:'middle' }));
+    s.addText(d.handout, T({ x:CX, y:hy, w:2.7, h:0.44, fontSize:11, color:C.rust,
+      align:'center', valign:'middle' }));
   }
 };
 
