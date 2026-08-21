@@ -12,7 +12,7 @@ if(cardAt>=0){
       .replace(oldCardHref,'href="./aiscience/"')
       .replaceAll('AI 赋能小学科学——人机协同，素养共生',newTitle)
       .replace(summary,newSummary)
-      .replace('<b>60</b> 张','<b>48</b> 张')
+      .replace('<b>60</b> 张','<b>58</b> 张')
       .replace(/<img src="[^"]+"/,'<img src="./assets/covers/aiscience.svg"');
     html=html.slice(0,cardStart)+cardHtml+html.slice(cardEnd+10);
   }
@@ -27,7 +27,7 @@ html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(
     publishedAt:'2026-08-21',
     eventDate:'2026-08-21',
     eventVenue:'深圳技术大学',
-    slideCount:48
+    slideCount:58
   }:deck);
   return a+JSON.stringify(decks)+c;
 });
