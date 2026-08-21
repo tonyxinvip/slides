@@ -39,20 +39,20 @@ const SCREEN = {
   threebad:'三张卡片',
   counter:'反向证据卡＋边界条件',
   uses:'四项用途卡，各含做法与产出',
-  specs:'三条指令原文，各含用途名与可照抄的全文',
-  threeq:'三问竖排',
+  specs:'三条指令原文，三段结构以底色分界，附图例',
+  threeq:'三问竖排，第 28 页每问另附后续动作',
   blankgrid:'六环节空白网格，可打印',
   shape:'收放刻度图（SVG）',
   allow:'三种用法卡，各含动作、约束与留痕',
   twotasks:'两张任务卡并置',
-  stage:'左右分栏＋收放标签＋额外落点',
-  exchange:'三段交互：教师输入、AI 返回、教师判断',
+  stage:'左右分栏＋收放标签＋六环节迷你刻度＋额外落点',
+  exchange:'三段交互，AI 返回逐条编号并标出采纳与否',
   twoscales:'两案例卡',
   tracktable:'四栏留痕表',
   chainflow:'证据链条图（SVG）',
   redlines:'四条红线＋边界说明',
   signature:'评价主体与责任二分',
-  agentspec:'说明＋可照抄的指令块',
+  agentspec:'智能体示意图（SVG）＋可照抄的指令块',
   toolpos:'工具位置表（全场第二张表）',
   threedo:'三项动作，按周排布',
   endnote:'出处说明＋署名＋讲义占位',
@@ -64,7 +64,8 @@ const SCREEN = {
 
 /* 图示：从 app.js 的渲染器里读出哪个版式调用了哪张图，再映射到页码 */
 const FIGNAME = { coverage:'覆盖关系嵌套图', impact:'四种活动方式的 AI 冲击强度条形图',
-                  overlap:'覆盖缺口与冲击强度的叠合图', scale:'六环节收放刻度条', chain:'证据链条图' };
+                  overlap:'覆盖缺口与冲击强度的叠合图', scale:'六环节收放刻度条', chain:'证据链条图',
+                  agent:'智能体示意图：一段指令 × 每次提问', stepbar:'环节位置的迷你刻度' };
 function figures() {
   const src = fs.readFileSync(path.join(__dirname, 'app.js'), 'utf8');
   const body = src.slice(src.indexOf('  var R = {'));

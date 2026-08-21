@@ -17,6 +17,7 @@ CALLS = {
   "impact":   "FIG.impact(%s.rows)" % (BY % "bars"),
   "scale":    "FIG.scale(%s.before, %s.stages, %s.after)" % ((BY % "shape",) * 3),
   "chain":    "FIG.chain(%s.nodes)" % (BY % "chainflow"),
+  "agent":    "FIG.agent()",
 }
 
 with sync_playwright() as p:

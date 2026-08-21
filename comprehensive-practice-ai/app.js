@@ -28,6 +28,10 @@
   var foot    = function (t) { return t ? '<p class="foot">' + e(t) + '</p>' : ''; };
   var kick    = function (t) { return t ? '<p class="kicker">' + e(t) + '</p>' : ''; };
 
+  var LEVELS = S.filter(function (x) { return x.layout === 'stage'; })
+    .sort(function (a, b) { return a.step - b.step; })
+    .map(function (x) { return x.levelIdx; });
+
   var R = {
     cover: function (s) {
       return '<p class="eyebrow">' + e(s.kicker) + '</p><h1 class="head">' + e(s.title) + '</h1>' +
@@ -102,7 +106,8 @@
     },
     threeq: function (s) {
       return top(s) + '<div class="qs">' + s.items.map(function (i) {
-        return '<div class="q"><span class="no">' + e(i.no) + '</span><span class="qt">' + e(i.q) + '</span></div>'; }).join('') +
+        return '<div class="q"><span class="no">' + e(i.no) + '</span><span><span class="qt">' + e(i.q) + '</span>' +
+          (i.then ? '<span class="qthen">' + e(i.then) + '</span>' : '') + '</span></div>'; }).join('') +
         '</div>' + foot(s.kicker);
     },
     blankgrid: function (s) {
@@ -126,7 +131,9 @@
     stage: function (s) {
       return eyebrow(s) +
         '<div class="stagehead"><h1 class="head">' + e(s.title) + '</h1>' +
-        '<span class="stagelevel L' + s.levelIdx + '">' + e(s.level) + '</span></div>' +
+        '<span class="stagelevel L' + s.levelIdx + '">' + e(s.level) + '</span>' +
+        '<span class="stepwrap">' + FIG.stepbar(s.step, LEVELS) +
+        '<i>六个环节的收放形态　第 ' + s.step + ' 步</i></span></div>' +
         '<div class="stagemain"><div class="twocol">' +
           '<div class="sc"><p class="n">' + e(s.left.name) + '</p><p class="b2">' + e(s.left.body) + '</p></div>' +
           '<div class="sc b"><p class="n">' + e(s.right.name) + '</p><p class="b2">' + e(s.right.body) + '</p></div>' +
@@ -180,9 +187,13 @@
     },
     specs: function (s) {
       return top(s) + '<p class="cap" style="margin-top:2px;font-size:15px">' + e(s.lead) + '</p>' +
+        '<div class="partkey">' + s.parts.map(function (p, k) {
+          return '<span class="pk sg' + (k + 1) + '"><b>' + e(p.n) + '</b>' + e(p.t) +
+            '<i>' + e(p.d) + '</i></span>'; }).join('') + '</div>' +
         '<div class="speclist">' + s.specs.map(function (i) {
-          return '<div class="specitem"><p class="spk">' + e(i.k) + '</p>' +
-            '<p class="spv">' + e(i.v) + '</p></div>'; }).join('') + '</div>' + foot(s.foot);
+          return '<div class="specitem"><p class="spk">' + e(i.k) + '</p><p class="spv">' +
+            i.seg.map(function (g, k) { return '<span class="sg' + (k + 1) + '">' + e(g) + '</span>'; }).join('') +
+            '</p></div>'; }).join('') + '</div>' + foot(s.foot);
     },
     allow: function (s) {
       return top(s) + '<p class="cap" style="margin-top:2px;font-size:15px">' + e(s.lead) + '</p>' +
@@ -194,13 +205,22 @@
     exchange: function (s) {
       return top(s) + '<p class="cap" style="margin-top:2px;font-size:15px">' + e(s.lead) + '</p>' +
         '<div class="turns">' + s.turns.map(function (t) {
+          var body = t.items
+            ? '<span class="rets">' + t.items.map(function (i) {
+                return '<span class="ret' + (i.ok ? '' : ' no') + '"><span class="rn">' + e(i.no) + '</span>' +
+                  '<span class="rm">' + (i.ok ? '√' : '×') + '</span>' +
+                  '<span class="rt">' + e(i.t) + '</span></span>'; }).join('') + '</span>'
+            : '<span class="txt">' + e(t.text) + '</span>';
           return '<div class="turn ' + t.tone + '"><span class="who">' + e(t.who) + '</span>' +
-            '<span class="txt">' + e(t.text) + '</span></div>'; }).join('') + '</div>' + foot(s.foot);
+            body + '</div>'; }).join('') + '</div>' +
+        (s.legend ? '<p class="cap" style="margin-top:10px;font-size:13px">' + e(s.legend) + '</p>' : '') +
+        foot(s.foot);
     },
     agentspec: function (s) {
-      return top(s) + '<p class="body" style="margin-top:4px;font-size:18px;color:var(--muted)">' + e(s.lead) + '</p>' +
-        '<div class="spec"><p class="lbl">可直接照抄的指令</p><p>' + e(s.spec) + '</p></div>' +
-        '<p class="afterline">' + e(s.after) + '</p>';
+      return top(s) + '<p class="cap" style="margin-top:2px;font-size:15px">' + e(s.lead) + '</p>' +
+        FIG.agent() +
+        '<div class="spec agspec"><p class="lbl">可直接照抄的指令</p><p>' + e(s.spec) + '</p></div>' +
+        foot(s.after);
     },
     apxcover: function (s) {
       return top(s) + '<p class="cap" style="margin-top:2px;font-size:15px">' + e(s.lead) + '</p>' +
