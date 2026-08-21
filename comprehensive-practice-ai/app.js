@@ -150,7 +150,8 @@
     redlines: function (s) {
       return top(s) + '<div class="red">' + s.items.map(function (i) {
         return '<div class="redrow"><span class="k">' + e(i.t) + '</span><span class="v">' + e(i.d) + '</span></div>'; }).join('') +
-        '</div>' + src(s.src) + foot(s.caveat);
+        '</div>' + (s.kicker ? '<p class="kicker" style="margin-top:16px;font-size:17px">' + e(s.kicker) + '</p>' : '') +
+        src(s.src) + foot(s.caveat);
     },
     signature: function (s) {
       return top(s) + '<div class="subj">' + s.subjects.map(function (x) { return '<span>' + e(x) + '</span>'; }).join('') + '</div>' +
@@ -170,6 +171,23 @@
       return top(s) + '<div class="qs">' + s.items.map(function (i) {
         return '<div class="q"><span class="no">' + e(i.no) + '</span><span><span class="qh">' + e(i.t) + '</span>' +
           '<span class="qd">' + e(i.d) + '</span></span></div>'; }).join('') + '</div>' + foot(s.kicker);
+    },
+    uses: function (s) {
+      return top(s) + '<p class="cap" style="margin-top:2px;font-size:15px">' + e(s.lead) + '</p>' +
+        '<div class="uses">' + s.items.map(function (i) {
+          return '<div class="use"><p class="ut">' + e(i.t) + '</p><p class="uh">' + e(i.how) + '</p>' +
+            '<p class="uo"><b>产出</b>　' + e(i.out) + '</p></div>'; }).join('') + '</div>' + foot(s.foot);
+    },
+    exchange: function (s) {
+      return top(s) + '<p class="cap" style="margin-top:2px;font-size:15px">' + e(s.lead) + '</p>' +
+        '<div class="turns">' + s.turns.map(function (t) {
+          return '<div class="turn ' + t.tone + '"><span class="who">' + e(t.who) + '</span>' +
+            '<span class="txt">' + e(t.text) + '</span></div>'; }).join('') + '</div>' + foot(s.foot);
+    },
+    agentspec: function (s) {
+      return top(s) + '<p class="body" style="margin-top:4px;font-size:18px;color:var(--muted)">' + e(s.lead) + '</p>' +
+        '<div class="spec"><p class="lbl">可直接照抄的指令</p><p>' + e(s.spec) + '</p></div>' +
+        '<p class="afterline">' + e(s.after) + '</p>';
     },
     endnote: function (s) {
       return '<ul class="endlines">' + s.lines.map(function (l) { return '<li>' + e(l) + '</li>'; }).join('') + '</ul>' +

@@ -9,13 +9,14 @@ OUT.mkdir(exist_ok=True)
 PORT = sys.argv[1] if len(sys.argv) > 1 else "8795"
 SCALE = 3          # 3 倍图，投影与打印都够
 
+# 按版式查找页面，页码变动不影响
+BY = "(S.find(x=>x.layout==='%s'))"
 CALLS = {
-  "timeline":  "FIG.timeline(S[3].nodes)",
-  "coverage":  "FIG.coverage()",
-  "impact":    "FIG.impact(S[10].rows)",
-  "overlap":   "FIG.overlap()",
-  "scale":     "FIG.scale(S[22].before, S[22].stages, S[22].after)",
-  "chain":     "FIG.chain(S[35].nodes)",
+  "coverage": "FIG.coverage()",
+  "overlap":  "FIG.overlap()",
+  "impact":   "FIG.impact(%s.rows)" % (BY % "bars"),
+  "scale":    "FIG.scale(%s.before, %s.stages, %s.after)" % ((BY % "shape",) * 3),
+  "chain":    "FIG.chain(%s.nodes)" % (BY % "chainflow"),
 }
 
 with sync_playwright() as p:
