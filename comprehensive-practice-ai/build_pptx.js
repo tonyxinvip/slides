@@ -1,461 +1,445 @@
-/* 从 slides.data.js 生成 .pptx。内容与 HTML deck 同源，不要在两边分别改。
-   版面 13.333 × 7.5 英寸，与 HTML 的 1280 × 720 px 一一对应（96 px/英寸）。 */
+/* 从 slides.data.js 生成 .pptx，版式与网页版一致（1280×720 px ↔ 13.333×7.5 英寸，96 px/英寸）。
+ * 骨架图示走 figures/ 下的 PNG，由 make_figures.py 从 figures.js 栅格化而来。
+ * 网页版用 Noto Serif SC 做大标题；这里用微软雅黑，因为中文 Windows 一定有。
+ * 若确定嵌入字体，把 DISPLAY 换成 'Noto Serif SC' 即可。 */
 const pptxgen = require('pptxgenjs');
+const fs = require('fs');
+const path = require('path');
 const SLIDES = require('./slides.data.js');
 
-const IN = px => px / 96;          // px → 英寸
-const PT = px => px * 0.75;        // px → 磅
+const FIGDIR = path.join(__dirname, 'figures');
+const FIGMETA = JSON.parse(fs.readFileSync(path.join(FIGDIR, 'meta.json'), 'utf8'));
 
-const W = 13.333, H = 7.5, PAD = IN(72), GAP = IN(48), GAPS = IN(24);
-const CW = W - PAD * 2;            // 内容宽 11.833
+const IN = px => px / 96;
+const W = 13.333, H = 7.5;
+const PAD_L = IN(136), PAD_R = IN(96), PAD_T = IN(84);
+const CW = W - PAD_L - PAD_R;               // 10.917
+const CX = PAD_L;
 
 const C = {
-  ink:'1A2029', ink2:'5A6472', struct:'33414F', struct2:'8C97A3',
-  hair:'E2E6EA', soft:'F4F6F8', white:'FFFFFF',
-  alert:'B0472A', sev3:'99341A', sev2:'C9714C', sev1:'EBC4B2', sev1ln:'D9A98F'
+  navy:'0F1B2D', ink:'1A2029', muted:'5B6470', line:'E2E7F0',
+  paper:'F5F7FB', white:'FFFFFF', wash:'FBF1EC',
+  rust:'B0472A', slate:'33414F',
+  sev3:'99341A', sev2:'C9714C', sev1:'EBC4B2', sev1ln:'D9A98F', dim:'A9B3C0'
 };
-const F = 'Microsoft YaHei';       // 目标机器为中文 Windows；LibreOffice 预览会替换字体，宽度仅供参考
+const BODY = 'Microsoft YaHei';
+const DISPLAY = 'Microsoft YaHei';
+
+const SECTIONS = {
+  '开场':'做中学九月落地',
+  '第一段':'做中学补了这门课的哪一半',
+  '第二段':'成果不可信之后，专业位置在哪里',
+  '第三段':'老问题清单，以及 AI 往哪边推',
+  '第四段':'判断三问与环节表',
+  '第五段':'案例走查：生命健康双学段',
+  '第六段':'证据、评价与红线',
+  '第七段':'工具位置与下周三件事'
+};
+const ORDER = Object.keys(SECTIONS);
 
 const pres = new pptxgen();
-pres.layout = 'LAYOUT_WIDE';       // 必须在 addSlide 之前
+pres.layout = 'LAYOUT_WIDE';
 pres.author = '辛海洋';
 pres.title = '做中学与综合实践活动';
 pres.subject = 'AI 在任务链条上的位置';
 
-const txt = o => Object.assign({ fontFace:F, color:C.ink, margin:0 }, o);
-const TITLE_Y = 0.62, TITLE_H = 0.62, BODY_TOP = 1.55;
+const T = o => Object.assign({ fontFace:BODY, color:C.ink, margin:0 }, o);
 
-function addTitle(s, t) {
-  if (!t) return BODY_TOP - 0.35;
-  s.addText(t, txt({ x:PAD, y:TITLE_Y, w:CW, h:TITLE_H, fontSize:36, bold:true, valign:'top' }));
-  return BODY_TOP;
-}
-function addFoot(s, t) {
-  if (!t) return;
-  s.addShape(pres.ShapeType.line, { x:PAD, y:H - 0.98, w:CW, h:0, line:{ color:C.hair, width:1 } });
-  s.addText(t, txt({ x:PAD, y:H - 0.9, w:CW, h:0.55, fontSize:11, color:C.ink2, lineSpacingMultiple:1.35, valign:'top' }));
-}
-function addSrc(s, t, y) {
-  if (!t) return;
-  s.addText(t, txt({ x:PAD, y, w:CW, h:0.3, fontSize:11, color:C.ink2, valign:'top' }));
-}
-function tag(s, n, tier) {
-  s.addText(String(n).padStart(2,'0') + ' · ' + tier,
-    txt({ x:W-1.5, y:0.16, w:1.0, h:0.24, fontSize:9, color:C.struct2, align:'right' }));
-}
-function softBox(s, x, y, w, h) {
-  s.addShape(pres.ShapeType.rect, { x, y, w, h, fill:{ color:C.soft }, line:{ color:C.soft, width:0 } });
-}
-function ruleTop(s, x, y, w, color, width) {
-  s.addShape(pres.ShapeType.line, { x, y, w, h:0, line:{ color:color||C.struct, width:width||2 } });
+/* ── 常驻构件 ─────────────────────────────── */
+function chrome(s, d, idx, total) {
+  s.background = { color: C.paper };
+  const top = IN(96), bot = IN(610), x = IN(56);
+  s.addShape(pres.ShapeType.line, { x, y:top, w:0, h:bot - top, line:{ color:C.line, width:1.5 } });
+  const si = ORDER.indexOf(d.sec);
+  ORDER.forEach((_, i) => {
+    const cy = top + (bot - top) * (i / (ORDER.length - 1));
+    const on = i === si, done = i < si, r = on ? IN(7) : IN(5);
+    s.addShape(pres.ShapeType.ellipse, { x:x - r, y:cy - r, w:r * 2, h:r * 2,
+      fill:{ color: on ? C.rust : (done ? 'C2CBD8' : C.white) },
+      line:{ color: on ? C.rust : (done ? 'C2CBD8' : C.line), width:2 } });
+  });
+  s.addText(d.sec.split('').join('\n'),
+    T({ x:IN(10), y:H / 2 - 0.6, w:IN(30), h:1.2, fontSize:9, color:C.muted,
+        align:'center', valign:'middle', lineSpacingMultiple:1.35 }));
+  s.addText([{ text:String(idx).padStart(2, '0'), options:{ bold:true, color:C.navy } },
+             { text:' / ' + total, options:{ color:C.muted } }],
+    T({ x:CX, y:H - 0.62, w:2, h:0.26, fontSize:10, charSpacing:0.6 }));
+  s.addText(d.tier + ' 档',
+    T({ x:W - PAD_R - 1.4, y:H - 0.62, w:1.4, h:0.26, fontSize:8, color:C.dim, align:'right', charSpacing:1.4 }));
 }
 
+/* ── 通用块 ──────────────────────────────── */
+function eyebrow(s, d, y) {
+  s.addText(d.sec + '　·　' + (SECTIONS[d.sec] || ''),
+    T({ x:CX, y: y == null ? PAD_T : y, w:CW, h:0.24, fontSize:10, bold:true, color:C.rust, charSpacing:2.2 }));
+}
+function headline(s, t, y, size) {
+  s.addText(t, { fontFace:DISPLAY, color:C.navy, margin:0, x:CX, y, w:CW, h:0.66,
+    fontSize:size || 32, bold:true, valign:'top' });
+}
+function top(s, d) { eyebrow(s, d); headline(s, d.title, PAD_T + 0.34); return PAD_T + 1.16; }
+function footNote(s, t) {
+  if (!t) return;
+  s.addShape(pres.ShapeType.line, { x:CX, y:H - 1.06, w:CW, h:0, line:{ color:C.line, width:1 } });
+  s.addText(t, T({ x:CX, y:H - 0.98, w:CW, h:0.4, fontSize:10, color:C.muted, lineSpacingMultiple:1.35, valign:'top' }));
+}
+function srcLine(s, t, y) {
+  if (t) s.addText(t, T({ x:CX, y, w:CW, h:0.28, fontSize:10, color:C.muted }));
+}
+function card(s, x, y, w, h, accent) {
+  s.addShape(pres.ShapeType.roundRect, { x, y, w, h, rectRadius:0.09,
+    fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+  if (accent) s.addShape(pres.ShapeType.rect, { x:x + 0.07, y, w:w - 0.14, h:IN(4),
+    fill:{ color:accent }, line:{ color:accent, width:0 } });
+}
+function fig(s, name, y, maxH) {
+  const m = FIGMETA[name];
+  let w = CW, h = CW * m.h / m.w;
+  if (maxH && h > maxH) { h = maxH; w = h * m.w / m.h; }
+  s.addImage({ path:path.join(FIGDIR, name + '.png'), x:CX + (CW - w) / 2, y, w, h });
+  return y + h;
+}
+
+/* ── 逐版式 ──────────────────────────────── */
 const R = {
   cover(s, d) {
-    s.addText(d.kicker, txt({ x:PAD, y:1.75, w:CW, h:0.3, fontSize:14, color:C.ink2, charSpacing:2 }));
-    s.addText(d.title, txt({ x:PAD, y:2.15, w:CW, h:0.95, fontSize:48, bold:true }));
-    s.addText(d.sub, txt({ x:PAD, y:3.15, w:CW, h:0.45, fontSize:21, color:C.ink2 }));
-    const n = d.chain.length, bw = 1.62, gap = 0.16;
+    s.addText(d.kicker, T({ x:CX, y:1.32, w:CW, h:0.26, fontSize:10, bold:true, color:C.rust, charSpacing:2.2 }));
+    s.addText(d.title, { fontFace:DISPLAY, color:C.navy, margin:0, x:CX, y:1.72, w:CW, h:1.1, fontSize:50, bold:true });
+    s.addText(d.sub, T({ x:CX, y:2.92, w:CW, h:0.44, fontSize:19, color:C.muted }));
+    const bw = 1.62, gap = 0.2;
     d.chain.forEach((c, i) => {
-      const x = PAD + i * (bw + gap);
-      s.addShape(pres.ShapeType.rect, { x, y:3.95, w:bw, h:0.42,
-        fill:{ color:C.white }, line:{ color:C.hair, width:1 } });
-      s.addText(c, txt({ x, y:3.95, w:bw, h:0.42, fontSize:10, color:C.struct, align:'center', valign:'middle' }));
-      if (i < n - 1) s.addShape(pres.ShapeType.line,
-        { x:x + bw, y:4.16, w:gap, h:0, line:{ color:C.hair, width:1 } });
+      const x = CX + i * (bw + gap);
+      s.addShape(pres.ShapeType.roundRect, { x, y:3.66, w:bw, h:0.42, rectRadius:0.07,
+        fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+      s.addText(c, T({ x, y:3.66, w:bw, h:0.42, fontSize:10, color:C.slate, align:'center', valign:'middle' }));
+      if (i < d.chain.length - 1) s.addShape(pres.ShapeType.line,
+        { x:x + bw, y:3.87, w:gap, h:0, line:{ color:C.line, width:1 } });
     });
     d.meta.forEach((m, i) => {
-      const x = PAD + i * 2.4;
-      s.addText(m[0], txt({ x, y:6.15, w:2.2, h:0.24, fontSize:12, color:C.ink2 }));
-      s.addText(m[1], txt({ x, y:6.42, w:2.2, h:0.3, fontSize:16 }));
+      const x = CX + i * 2.5;
+      s.addText(m[0], T({ x, y:5.0, w:2.3, h:0.24, fontSize:11, color:C.muted }));
+      s.addText(m[1], T({ x, y:5.3, w:2.3, h:0.3, fontSize:14, color:C.navy }));
     });
   },
   factfile(s, d) {
-    addTitle(s, d.title);
-    s.addText(d.fact.name, txt({ x:PAD, y:BODY_TOP, w:CW, h:0.6, fontSize:24, lineSpacingMultiple:1.4 }));
+    top(s, d);
+    s.addText(d.fact.name, { fontFace:DISPLAY, color:C.navy, margin:0, x:CX, y:PAD_T + 1.12,
+      w:CW, h:0.55, fontSize:21, bold:true, lineSpacingMultiple:1.35 });
+    const cw = (CW - 0.54) / 3;
     d.fact.rows.forEach((r, i) => {
-      const x = PAD + i * 3.45, w = 3.25;
-      ruleTop(s, x, 2.62, w);
-      s.addText(r[0], txt({ x, y:2.72, w, h:0.26, fontSize:11, color:C.ink2 }));
-      s.addText(r[1], txt({ x, y:3.0, w, h:0.32, fontSize:16 }));
+      const x = CX + i * (cw + 0.27);
+      card(s, x, 2.72, cw, 0.86, C.slate);
+      s.addText(r[0], T({ x:x + 0.2, y:2.88, w:cw - 0.4, h:0.22, fontSize:9.5, color:C.muted }));
+      s.addText(r[1], T({ x:x + 0.2, y:3.14, w:cw - 0.4, h:0.3, fontSize:13, color:C.navy }));
     });
-    s.addText(d.note, txt({ x:PAD, y:4.25, w:CW - 0.6, h:1.0, fontSize:21, lineSpacingMultiple:1.45, valign:'top' }));
+    s.addText(d.note, T({ x:CX, y:4.02, w:CW - 1.0, h:0.9, fontSize:16, lineSpacingMultiple:1.4, valign:'top' }));
   },
   quotecards(s, d) {
-    addTitle(s, d.title);
-    const qh = 1.55;
-    softBox(s, PAD, BODY_TOP, CW, qh);
-    s.addText(d.quote, txt({ x:PAD + 0.3, y:BODY_TOP + 0.16, w:CW - 0.6, h:qh - 0.32,
-      fontSize:17, lineSpacingMultiple:1.55, valign:'top' }));
-    addSrc(s, d.src, BODY_TOP + qh + 0.14);
-    const n = d.cards.length, cw = (CW - 0.24 * (n - 1)) / n;
+    const y = top(s, d);
+    const qh = 1.42;
+    s.addShape(pres.ShapeType.roundRect, { x:CX, y, w:CW, h:qh, rectRadius:0.09,
+      fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+    s.addShape(pres.ShapeType.rect, { x:CX, y:y + 0.06, w:IN(4), h:qh - 0.12, fill:{ color:C.slate }, line:{ width:0, color:C.slate } });
+    s.addText(d.quote, T({ x:CX + 0.28, y:y + 0.16, w:CW - 0.56, h:qh - 0.32, fontSize:15,
+      lineSpacingMultiple:1.6, valign:'top' }));
+    srcLine(s, d.src, y + qh + 0.14);
+    const n = d.cards.length, cw = (CW - 0.15 * (n - 1)) / n;
     d.cards.forEach((c, i) => {
-      const x = PAD + i * (cw + 0.24);
-      ruleTop(s, x, 4.15, cw);
-      s.addText(c[0], txt({ x, y:4.25, w:cw, h:0.24, fontSize:11, color:C.ink2 }));
-      s.addText(c[1], txt({ x, y:4.53, w:cw, h:0.5, fontSize:13, lineSpacingMultiple:1.25, valign:'top' }));
+      const x = CX + i * (cw + 0.15);
+      card(s, x, 4.28, cw, 0.86, C.slate);
+      s.addText(c[0], T({ x:x + 0.14, y:4.44, w:cw - 0.28, h:0.2, fontSize:9.5, color:C.muted }));
+      s.addText(c[1], { fontFace:DISPLAY, color:C.navy, margin:0, x:x + 0.14, y:4.66, w:cw - 0.28, h:0.4,
+        fontSize:11.5, bold:true, lineSpacingMultiple:1.2, valign:'top' });
     });
-    addFoot(s, d.foot);
+    footNote(s, d.foot);
   },
-  timeline(s, d) {
-    addTitle(s, d.title);
-    const rh = 0.78;
-    d.nodes.forEach((n, i) => {
-      const y = BODY_TOP + i * rh;
-      s.addShape(pres.ShapeType.line, { x:PAD, y, w:CW, h:0, line:{ color:C.hair, width:1 } });
-      s.addText(n[0], txt({ x:PAD, y:y + 0.16, w:1.5, h:0.32, fontSize:16, bold:true, color:C.struct }));
-      s.addText(n[1], txt({ x:PAD + 1.65, y:y + 0.16, w:CW - 1.65, h:0.5, fontSize:14, lineSpacingMultiple:1.3, valign:'top' }));
-    });
-    s.addShape(pres.ShapeType.line, { x:PAD, y:BODY_TOP + d.nodes.length * rh, w:CW, h:0, line:{ color:C.hair, width:1 } });
+  timeline(s, d) { const y = top(s, d); fig(s, 'timeline', y + 0.3); },
+  coverage(s, d) { const y = top(s, d); fig(s, 'coverage', y + 0.1, 3.9); },
+  bars(s, d)     { const y = top(s, d); fig(s, 'impact', y + 0.24, 3.5); footNote(s, d.foot); },
+  overlay(s, d) {
+    const y = top(s, d); const end = fig(s, 'overlap', y + 0.02, 3.5);
+    s.addText(d.conclusion, T({ x:CX, y:end + 0.18, w:CW, h:0.4, fontSize:15 }));
+  },
+  chainflow(s, d) {
+    const y = top(s, d); const end = fig(s, 'chain', y + 0.3);
+    s.addText(d.local, T({ x:CX, y:end + 0.2, w:CW, h:0.4, fontSize:14 }));
+  },
+  shape(s, d) {
+    const y = top(s, d); const end = fig(s, 'scale', y + 0.16);
+    s.addText(d.conclusion, T({ x:CX, y:end + 0.2, w:CW, h:0.44, fontSize:16, color:C.ink }));
+    s.addText(d.counter, T({ x:CX, y:end + 0.7, w:CW, h:0.4, fontSize:11.5, color:C.muted, lineSpacingMultiple:1.35 }));
   },
   fourfour(s, d) {
-    addTitle(s, d.title);
-    const cw = (CW - GAP) / 2;
+    const y = top(s, d), cw = (CW - 0.5) / 2;
     d.groups.forEach((g, gi) => {
-      const x = PAD + gi * (cw + GAP);
-      s.addText(g.label, txt({ x, y:BODY_TOP, w:cw, h:0.26, fontSize:11, color:C.ink2, charSpacing:1 }));
+      const x = CX + gi * (cw + 0.5);
+      s.addText(g.label, T({ x, y, w:cw, h:0.22, fontSize:9.5, color:C.muted, charSpacing:0.8 }));
       g.items.forEach((it, i) => {
-        const y = BODY_TOP + 0.44 + i * 0.56;
-        s.addShape(pres.ShapeType.line, { x, y, w:0, h:0.44, line:{ color:C.hair, width:2 } });
-        s.addText(it, txt({ x:x + 0.18, y, w:cw - 0.18, h:0.44, fontSize:16, valign:'middle' }));
+        const yy = y + 0.34 + i * 0.53;
+        s.addShape(pres.ShapeType.roundRect, { x, y:yy, w:cw, h:0.44, rectRadius:0.07,
+          fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+        s.addText(it, T({ x:x + 0.18, y:yy, w:cw - 0.36, h:0.44, fontSize:14, valign:'middle' }));
       });
     });
-    addSrc(s, d.src, H - 1.15);
-  },
-  coverage(s, d) {
-    addTitle(s, d.title);
-    const cw = (CW - GAP) / 2;
-    [d.left, d.right].forEach((side, si) => {
-      const x = PAD + si * (cw + GAP);
-      s.addText(side.label, txt({ x, y:BODY_TOP, w:cw, h:0.26, fontSize:11, color:C.ink2, charSpacing:1 }));
-      side.items.forEach((it, i) => {
-        const y = BODY_TOP + 0.46 + i * 0.92;
-        s.addShape(pres.ShapeType.line, { x, y, w:cw, h:0, line:{ color:C.hair, width:1 } });
-        const on = it.on === true, part = it.on === 'part';
-        s.addShape(pres.ShapeType.ellipse, { x:x + 0.03, y:y + 0.2, w:0.15, h:0.15,
-          fill:{ color: on ? C.struct : C.white },
-          line:{ color: on ? C.struct : (part ? C.struct : C.struct2), width: part ? 3 : 1 } });
-        s.addText(it.t, txt({ x:x + 0.34, y:y + 0.13, w:cw - 0.34, h:0.3, fontSize:16,
-          color: (on || part) ? C.ink : C.ink2 }));
-        s.addText(it.why, txt({ x:x + 0.34, y:y + 0.44, w:cw - 0.34, h:0.28, fontSize:11, color:C.ink2 }));
-      });
-      s.addShape(pres.ShapeType.line, { x, y:BODY_TOP + 0.46 + side.items.length * 0.92, w:cw, h:0,
-        line:{ color:C.hair, width:1 } });
-    });
+    srcLine(s, d.src, H - 1.0);
   },
   statement(s, d) {
-    let y = 2.5;
-    if (d.title) { s.addText(d.title, txt({ x:PAD, y:2.05, w:CW, h:0.6, fontSize:36, bold:true })); y = 2.85; }
-    s.addText(d.big, txt({ x:PAD, y, w:CW - 0.9, h:2.0, fontSize:30, lineSpacingMultiple:1.45, valign:'top' }));
-    if (d.sub) s.addText(d.sub, txt({ x:PAD, y:y + 1.35, w:CW - 0.9, h:0.5, fontSize:21, color:C.ink2 }));
+    let y = 2.7;
+    if (d.title) {
+      s.addText(d.title, T({ x:CX, y:2.42, w:CW, h:0.26, fontSize:10, bold:true, color:C.rust, charSpacing:2.2 }));
+      y = 2.86;
+    }
+    s.addText(d.big, { fontFace:DISPLAY, color:C.navy, margin:0, x:CX, y, w:CW - 0.9, h:1.9,
+      fontSize:28, bold:true, lineSpacingMultiple:1.45, valign:'top' });
+    if (d.sub) s.addText(d.sub, T({ x:CX, y:y + 1.3, w:CW - 0.9, h:0.4, fontSize:15, color:C.muted }));
   },
   twoplans(s, d) {
-    addTitle(s, d.title);
-    const cw = (CW - GAPS) / 2, bh = 3.85;
+    const y = top(s, d), cw = (CW - 0.24) / 2, bh = 3.1;
     d.plans.forEach((p, i) => {
-      const x = PAD + i * (cw + GAPS);
-      softBox(s, x, BODY_TOP, cw, bh);
-      s.addText(p.tag, txt({ x:x + 0.22, y:BODY_TOP + 0.18, w:cw - 0.44, h:0.24, fontSize:11, color:C.ink2, charSpacing:1 }));
-      s.addText(p.lines.map(l => ({ text:l, options:{ breakLine:true } })),
-        txt({ x:x + 0.22, y:BODY_TOP + 0.52, w:cw - 0.44, h:bh - 0.72, fontSize:11,
-              lineSpacingMultiple:1.45, paraSpaceAfter:5, valign:'top' }));
+      const x = CX + i * (cw + 0.24);
+      card(s, x, y, cw, bh, i ? C.sev2 : C.slate);
+      s.addText(p.tag, T({ x:x + 0.2, y:y + 0.18, w:cw - 0.4, h:0.22, fontSize:9.5, color:C.muted, charSpacing:1 }));
+      s.addText(p.lines.map((l, k) => ({ text:l, options:{ breakLine:k < p.lines.length - 1 } })),
+        T({ x:x + 0.2, y:y + 0.5, w:cw - 0.4, h:bh - 0.7, fontSize:10, lineSpacingMultiple:1.45,
+            paraSpaceAfter:4, valign:'top' }));
     });
-    s.addText(d.ask, txt({ x:PAD, y:BODY_TOP + bh + 0.22, w:CW, h:0.35, fontSize:16 }));
+    s.addText(d.ask, T({ x:CX, y:y + bh + 0.22, w:CW, h:0.35, fontSize:15, color:C.navy, bold:true }));
   },
-  reveal(s, d) { R._points(s, d, d.points); addFoot(s, d.kicker); },
-  bridge(s, d) { R._points(s, d, d.points); },
-  _points(s, d, pts) {
-    addTitle(s, d.title);
+  reveal(s, d) { R._pts(s, d, d.points); footNote(s, d.kicker); },
+  bridge(s, d) { R._pts(s, d, d.points); },
+  _pts(s, d, pts) {
+    top(s, d);
+    const y0 = 2.6;
     pts.forEach((p, i) => {
-      const y = BODY_TOP + 0.15 + i * 0.75;
-      s.addText(String(i + 1), txt({ x:PAD, y, w:0.35, h:0.4, fontSize:16, bold:true, color:C.struct2 }));
-      s.addText(p, txt({ x:PAD + 0.45, y:y - 0.04, w:CW - 0.45, h:0.6, fontSize:21, lineSpacingMultiple:1.35, valign:'top' }));
+      const y = y0 + i * 0.72;
+      s.addText(String(i + 1), { fontFace:DISPLAY, color:C.rust, margin:0, x:CX, y, w:0.4, h:0.4, fontSize:15, bold:true });
+      s.addText(p, T({ x:CX + 0.52, y:y - 0.03, w:CW - 0.52, h:0.6, fontSize:16, lineSpacingMultiple:1.4, valign:'top' }));
     });
   },
   problems(s, d) {
-    addTitle(s, d.title);
-    const cw = (CW - GAP) / 2;
+    top(s, d);
+    const cw = (CW - 0.42) / 2;
     d.items.forEach((it, i) => {
-      const x = PAD + (i % 2) * (cw + GAP), y = 2.25 + Math.floor(i / 2) * 0.85;
-      s.addShape(pres.ShapeType.line, { x, y, w:cw, h:0, line:{ color:C.hair, width:1 } });
-      s.addText(String(i + 1).padStart(2,'0'), txt({ x, y:y + 0.2, w:0.45, h:0.35, fontSize:16, bold:true, color:C.struct2 }));
-      s.addText(it, txt({ x:x + 0.52, y:y + 0.18, w:cw - 0.52, h:0.4, fontSize:21 }));
+      const x = CX + (i % 2) * (cw + 0.42), y = 2.5 + Math.floor(i / 2) * 0.74;
+      s.addShape(pres.ShapeType.roundRect, { x, y, w:cw, h:0.58, rectRadius:0.07,
+        fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+      s.addText(String(i + 1).padStart(2, '0'),
+        { fontFace:DISPLAY, color:C.dim, margin:0, x:x + 0.2, y, w:0.4, h:0.58, fontSize:12, bold:true, valign:'middle' });
+      s.addText(it, T({ x:x + 0.66, y, w:cw - 0.86, h:0.58, fontSize:14.5, valign:'middle' }));
     });
-  },
-  bars(s, d) {
-    addTitle(s, d.title);
-    const nameW = 1.4, trackX = PAD + nameW + 0.2, trackW = CW - nameW - 0.2;
-    const wid = { 3:1.0, 2:0.66, 1:0.30 }, col = { 3:C.sev3, 2:C.sev2, 1:C.sev1 };
-    let y = BODY_TOP + 0.2;
-    d.rows.forEach(r => {
-      const bw = trackW * wid[r.level];
-      s.addText(r.name, txt({ x:PAD, y, w:nameW, h:0.46, fontSize:16, align:'right', valign:'middle' }));
-      s.addShape(pres.ShapeType.rect, { x:trackX, y, w:bw, h:0.46,
-        fill:{ color:col[r.level] },
-        line:{ color: r.level === 1 ? C.sev1ln : col[r.level], width:1 } });
-      s.addText(r.label, txt({ x:trackX, y, w:bw - 0.16, h:0.46, fontSize:14, bold:true,
-        color: r.level === 1 ? C.ink : C.white, align:'right', valign:'middle' }));
-      y += 0.46 + 0.12;
-      if (r.why) {
-        s.addText(r.why, txt({ x:trackX, y:y - 0.02, w:trackW, h:0.3, fontSize:14, color:C.ink2 }));
-        y += 0.42;
-      }
-    });
-    addFoot(s, d.foot);
-  },
-  overlay(s, d) {
-    addTitle(s, d.title);
-    const cw = (CW - GAP) / 2, bh = 1.9;
-    [d.a, d.b].forEach((o, i) => {
-      const x = PAD + i * (cw + GAP);
-      softBox(s, x, BODY_TOP, cw, bh);
-      s.addText(o.label, txt({ x:x + 0.26, y:BODY_TOP + 0.2, w:cw - 0.52, h:0.24, fontSize:11, color:C.ink2 }));
-      o.items.forEach((it, k) => s.addText(it,
-        txt({ x:x + 0.26, y:BODY_TOP + 0.58 + k * 0.48, w:cw - 0.52, h:0.4, fontSize:19, bold:true })));
-    });
-    s.addText(d.conclusion, txt({ x:PAD, y:BODY_TOP + bh + 0.45, w:CW, h:0.8, fontSize:24, lineSpacingMultiple:1.4, valign:'top' }));
   },
   evidence(s, d) {
-    addTitle(s, d.title);
-    const bh = 2.5;
-    softBox(s, PAD, BODY_TOP, CW, bh);
-    s.addText(d.study.claim, txt({ x:PAD + 0.3, y:BODY_TOP + 0.2, w:CW - 0.6, h:0.4, fontSize:21 }));
+    const y = top(s, d), bh = 2.35;
+    card(s, CX, y, CW, bh, C.slate);
+    s.addText(d.study.claim, { fontFace:DISPLAY, color:C.navy, margin:0, x:CX + 0.28, y:y + 0.2,
+      w:CW - 0.56, h:0.36, fontSize:16, bold:true });
     d.study.rows.forEach((r, i) => {
-      const y = BODY_TOP + 0.78 + i * 0.42;
-      s.addShape(pres.ShapeType.line, { x:PAD + 0.3, y, w:CW - 0.6, h:0, line:{ color:C.hair, width:1 } });
-      s.addText(r[0], txt({ x:PAD + 0.3, y:y + 0.08, w:1.0, h:0.28, fontSize:11, color:C.ink2 }));
-      s.addText(r[1], txt({ x:PAD + 1.42, y:y + 0.06, w:CW - 1.72, h:0.3, fontSize:14 }));
+      const yy = y + 0.72 + i * 0.38;
+      s.addShape(pres.ShapeType.line, { x:CX + 0.28, y:yy, w:CW - 0.56, h:0, line:{ color:C.line, width:1 } });
+      s.addText(r[0], T({ x:CX + 0.28, y:yy + 0.07, w:0.95, h:0.26, fontSize:9.5, color:C.muted }));
+      s.addText(r[1], T({ x:CX + 1.36, y:yy + 0.05, w:CW - 1.64, h:0.3, fontSize:12.5 }));
     });
-    addSrc(s, d.study.src, BODY_TOP + bh + 0.16);
-    addFoot(s, d.caveat);
+    srcLine(s, d.study.src, y + bh + 0.16);
+    footNote(s, d.caveat);
   },
   counter(s, d) {
-    addTitle(s, d.title);
-    const bh = 2.35;
-    softBox(s, PAD, BODY_TOP, CW, bh);
+    const y = top(s, d), bh = 2.15;
+    card(s, CX, y, CW, bh, C.rust);
     d.study.rows.forEach((r, i) => {
-      const y = BODY_TOP + 0.22 + i * 0.42;
-      s.addShape(pres.ShapeType.line, { x:PAD + 0.3, y, w:CW - 0.6, h:0, line:{ color:C.hair, width:1 } });
-      s.addText(r[0], txt({ x:PAD + 0.3, y:y + 0.08, w:1.0, h:0.28, fontSize:11, color:C.ink2 }));
-      s.addText(r[1], txt({ x:PAD + 1.42, y:y + 0.06, w:CW - 1.72, h:0.3, fontSize:14 }));
+      const yy = y + 0.24 + i * 0.38;
+      s.addShape(pres.ShapeType.line, { x:CX + 0.28, y:yy, w:CW - 0.56, h:0, line:{ color:C.line, width:1 } });
+      s.addText(r[0], T({ x:CX + 0.28, y:yy + 0.07, w:0.95, h:0.26, fontSize:9.5, color:C.muted }));
+      s.addText(r[1], T({ x:CX + 1.36, y:yy + 0.05, w:CW - 1.64, h:0.3, fontSize:12.5 }));
     });
-    s.addText(d.study.term, txt({ x:PAD + 0.3, y:BODY_TOP + 1.98, w:CW - 0.6, h:0.3, fontSize:16, bold:true, color:C.alert }));
-    addSrc(s, d.study.src, BODY_TOP + bh + 0.14);
+    s.addText(d.study.term, T({ x:CX + 0.28, y:y + 1.78, w:CW - 0.56, h:0.28, fontSize:13.5, bold:true, color:C.rust }));
+    srcLine(s, d.study.src, y + bh + 0.12);
     d.bounds.forEach((b, i) => s.addText(b,
-      txt({ x:PAD, y:BODY_TOP + bh + 0.46 + i * 0.3, w:CW, h:0.28, fontSize:11, color:C.ink2 })));
-    addFoot(s, d.caveat);
+      T({ x:CX, y:y + bh + 0.42 + i * 0.28, w:CW, h:0.26, fontSize:9.5, color:C.muted })));
+    footNote(s, d.caveat);
   },
   tri(s, d) {
-    addTitle(s, d.title);
-    const cw = (CW - GAPS * 2) / 3;
-    const tone = { alert:C.alert, struct:C.struct, muted:C.ink2 };
+    const y = top(s, d), cw = (CW - 0.42) / 3;
+    const tone = { alert:C.rust, struct:C.slate, muted:C.line };
+    const headC = { alert:C.rust, struct:C.slate, muted:C.muted };
     d.cols.forEach((c, i) => {
-      const x = PAD + i * (cw + GAPS), col = tone[c.tone];
-      s.addText(c.head, txt({ x, y:BODY_TOP, w:cw, h:0.4, fontSize:21, bold:true, color:col }));
-      s.addShape(pres.ShapeType.line, { x, y:BODY_TOP + 0.46, w:cw, h:0, line:{ color:col, width:2 } });
+      const x = CX + i * (cw + 0.21), bh = 3.5;
+      card(s, x, y, cw, bh, tone[c.tone]);
+      s.addText(c.head, { fontFace:DISPLAY, color:headC[c.tone], margin:0, x:x + 0.22, y:y + 0.2,
+        w:cw - 0.44, h:0.34, fontSize:16, bold:true });
+      s.addShape(pres.ShapeType.line, { x:x + 0.22, y:y + 0.62, w:cw - 0.44, h:0, line:{ color:headC[c.tone], width:2 } });
       c.items.forEach((it, k) => {
-        const y = BODY_TOP + 0.46 + (k + 1) * 0.78;
-        s.addText(it, txt({ x, y:y - 0.62, w:cw, h:0.56, fontSize:16,
-          color: c.tone === 'muted' ? C.ink2 : C.ink, lineSpacingMultiple:1.2, valign:'middle' }));
-        s.addShape(pres.ShapeType.line, { x, y, w:cw, h:0, line:{ color:C.hair, width:1 } });
+        const yy = y + 0.72 + k * 0.66;
+        s.addText(it, T({ x:x + 0.22, y:yy, w:cw - 0.44, h:0.5, fontSize:13,
+          color: c.tone === 'muted' ? C.muted : C.ink, lineSpacingMultiple:1.25, valign:'middle' }));
+        if (k < c.items.length - 1) s.addShape(pres.ShapeType.line,
+          { x:x + 0.22, y:yy + 0.56, w:cw - 0.44, h:0, line:{ color:C.line, width:1 } });
       });
     });
   },
   threebad(s, d) {
-    addTitle(s, d.title);
-    const cw = (CW - GAPS * 2) / 3;
+    const y = top(s, d), cw = (CW - 0.4) / 3, acc = [C.slate, C.sev2, C.rust];
     d.items.forEach((it, i) => {
-      const x = PAD + i * (cw + GAPS);
-      ruleTop(s, x, 2.5, cw);
-      s.addText(it.t, txt({ x, y:2.62, w:cw, h:0.45, fontSize:20, bold:true }));
-      s.addText(it.d, txt({ x, y:3.14, w:cw, h:0.6, fontSize:14, color:C.ink2, lineSpacingMultiple:1.35, valign:'top' }));
+      const x = CX + i * (cw + 0.2);
+      card(s, x, y + 0.2, cw, 1.32, acc[i]);
+      s.addText(it.t, { fontFace:DISPLAY, color:C.navy, margin:0, x:x + 0.22, y:y + 0.4, w:cw - 0.44, h:0.36, fontSize:16, bold:true });
+      s.addText(it.d, T({ x:x + 0.22, y:y + 0.82, w:cw - 0.44, h:0.55, fontSize:11.5, color:C.muted, lineSpacingMultiple:1.35, valign:'top' }));
     });
-    addSrc(s, d.src, 4.05);
-    addFoot(s, d.kicker);
+    srcLine(s, d.src, y + 1.72);
+    footNote(s, d.kicker);
   },
   threeq(s, d) {
-    addTitle(s, d.title);
+    top(s, d);
     d.items.forEach((it, i) => {
-      const y = 2.35 + i * 0.86;
-      s.addText(it.no, txt({ x:PAD, y, w:0.45, h:0.5, fontSize:21, bold:true, color:C.struct2 }));
-      s.addText(it.q, txt({ x:PAD + 0.6, y:y - 0.04, w:CW - 0.6, h:0.6, fontSize:26, valign:'top' }));
+      const y = 2.7 + i * 0.86;
+      s.addText(it.no, { fontFace:DISPLAY, color:C.rust, margin:0, x:CX, y, w:0.45, h:0.5, fontSize:16, bold:true });
+      s.addText(it.q, { fontFace:DISPLAY, color:C.navy, margin:0, x:CX + 0.62, y:y - 0.06, w:CW - 0.62, h:0.6, fontSize:23, bold:true, valign:'top' });
     });
-    addFoot(s, d.kicker);
+    footNote(s, d.kicker);
   },
   threedo(s, d) {
-    addTitle(s, d.title);
+    top(s, d);
     d.items.forEach((it, i) => {
-      const y = 2.2 + i * 1.05;
-      s.addText(it.no, txt({ x:PAD, y, w:0.45, h:0.45, fontSize:21, bold:true, color:C.struct2 }));
-      s.addText(it.t, txt({ x:PAD + 0.6, y, w:CW - 0.6, h:0.42, fontSize:23, bold:true }));
-      s.addText(it.d, txt({ x:PAD + 0.6, y:y + 0.44, w:CW - 0.6, h:0.4, fontSize:14, color:C.ink2, valign:'top' }));
+      const y = 2.5 + i * 1.02;
+      s.addText(it.no, { fontFace:DISPLAY, color:C.rust, margin:0, x:CX, y, w:0.45, h:0.44, fontSize:16, bold:true });
+      s.addText(it.t, { fontFace:DISPLAY, color:C.navy, margin:0, x:CX + 0.62, y, w:CW - 0.62, h:0.42, fontSize:20, bold:true });
+      s.addText(it.d, T({ x:CX + 0.62, y:y + 0.44, w:CW - 0.62, h:0.4, fontSize:11.5, color:C.muted, valign:'top' }));
     });
-    addFoot(s, d.kicker);
+    footNote(s, d.kicker);
   },
   blankgrid(s, d) {
-    addTitle(s, d.title);
-    const rows = [[{ text:'', options:{ fill:{ color:C.soft } } }]
-      .concat(d.cols.map(c => ({ text:c, options:{ fill:{ color:C.soft }, color:C.ink2, fontSize:11 } })))]
-      .concat(d.rows.map(r => [{ text:r, options:{ fontSize:14 } }, '', '', '']));
-    s.addTable(rows, { x:PAD, y:BODY_TOP, w:CW, colW:[2.6, 3.08, 3.08, 3.07], rowH:0.52,
-      border:{ type:'solid', color:C.hair, pt:1 }, fontFace:F, color:C.ink, valign:'middle', margin:6 });
-    addFoot(s, d.foot);
-  },
-  shape(s, d) {
-    addTitle(s, d.title);
-    const lvl = t => t === '收' ? 1 : (t === '半收' || t.indexOf('采集') === 0) ? 2 : t === '半放' ? 3 : 4;
-    const fill = { 1:C.sev3, 2:C.sev2, 3:C.sev1, 4:C.soft };
-    const fg   = { 1:C.white, 2:C.white, 3:C.ink, 4:C.ink2 };
-    const cells = [{ n:d.before.label + '\n' + d.before.body, v:d.before.level, e:true }]
-      .concat(d.stages.map(x => ({ n:x.t, v:x.level, e:false })))
-      .concat([{ n:d.after.label + '\n' + d.after.body, v:d.after.level, e:true }]);
-    const gapx = 0.1, edgeW = 1.2;
-    const totalEdge = edgeW * 2 + gapx * (cells.length - 1);
-    const midW = (CW - totalEdge) / d.stages.length;
-    let x = PAD;
-    cells.forEach(c => {
-      const w = c.e ? edgeW : midW, k = lvl(c.v);
-      s.addText(c.n, txt({ x, y:2.35, w, h:0.5, fontSize:9.5, color:C.ink2, align:'center',
-        valign:'bottom', lineSpacingMultiple:1.2 }));
-      s.addShape(pres.ShapeType.rect, { x, y:2.95, w, h:0.62,
-        fill:{ color:fill[k] }, line:{ color: k === 3 ? C.sev1ln : fill[k], width:1 } });
-      s.addText(c.v, txt({ x, y:2.95, w, h:0.62, fontSize:9.5, color:fg[k], align:'center', valign:'middle' }));
-      x += w + gapx;
-    });
-    s.addText(d.conclusion, txt({ x:PAD, y:4.05, w:CW, h:0.75, fontSize:22, lineSpacingMultiple:1.4, valign:'top' }));
-    s.addText(d.counter, txt({ x:PAD, y:4.9, w:CW, h:0.5, fontSize:14, color:C.ink2, lineSpacingMultiple:1.4, valign:'top' }));
+    const y = top(s, d);
+    const rows = [[{ text:'', options:{ fill:{ color:C.paper } } }]
+      .concat(d.cols.map(c => ({ text:c, options:{ fill:{ color:C.paper }, color:C.muted, fontSize:9.5 } })))]
+      .concat(d.rows.map(r => [{ text:r, options:{ fontSize:12.5 } }, '', '', '']));
+    s.addTable(rows, { x:CX, y:y + 0.1, w:CW, colW:[2.3, 2.87, 2.87, 2.87], rowH:0.5,
+      border:{ type:'solid', color:C.line, pt:1 }, fill:{ color:C.white },
+      fontFace:BODY, color:C.ink, valign:'middle', margin:6 });
+    footNote(s, d.foot);
   },
   twotasks(s, d) {
-    addTitle(s, d.title);
-    const cw = (CW - GAPS) / 2, bh = 3.9;
+    const y = top(s, d), cw = (CW - 0.24) / 2, bh = 3.25;
     d.tasks.forEach((t, i) => {
-      const x = PAD + i * (cw + GAPS);
-      softBox(s, x, BODY_TOP, cw, bh);
-      s.addText(t.name, txt({ x:x + 0.26, y:BODY_TOP + 0.2, w:cw - 0.52, h:0.4, fontSize:20, bold:true }));
-      s.addText(t.grade + ' · ' + t.hours, txt({ x:x + 0.26, y:BODY_TOP + 0.6, w:cw - 0.52, h:0.24, fontSize:11, color:C.ink2 }));
-      s.addText(t.req, txt({ x:x + 0.26, y:BODY_TOP + 0.92, w:cw - 0.52, h:0.5, fontSize:11.5, lineSpacingMultiple:1.4, valign:'top' }));
-      s.addText(t.steps.map((x2, k) => ({ text:(k + 1) + '. ' + x2, options:{ breakLine:k < t.steps.length - 1 } })),
-        txt({ x:x + 0.26, y:BODY_TOP + 1.55, w:cw - 0.52, h:bh - 1.75, fontSize:10.5, color:C.ink2,
-              lineSpacingMultiple:1.4, paraSpaceAfter:5, valign:'top' }));
+      const x = CX + i * (cw + 0.24);
+      card(s, x, y, cw, bh, i ? C.sev2 : C.slate);
+      s.addText(t.name, { fontFace:DISPLAY, color:C.navy, margin:0, x:x + 0.22, y:y + 0.2, w:cw - 0.44, h:0.36, fontSize:17, bold:true });
+      s.addText(t.grade + '　·　' + t.hours, T({ x:x + 0.22, y:y + 0.6, w:cw - 0.44, h:0.22, fontSize:9.5, color:C.muted }));
+      s.addText(t.req, T({ x:x + 0.22, y:y + 0.9, w:cw - 0.44, h:0.46, fontSize:10.5, lineSpacingMultiple:1.4, valign:'top' }));
+      s.addText(t.steps.map((v, k) => ({ text:(k + 1) + '. ' + v, options:{ breakLine:k < t.steps.length - 1 } })),
+        T({ x:x + 0.22, y:y + 1.46, w:cw - 0.44, h:bh - 1.66, fontSize:9.5, color:C.muted,
+            lineSpacingMultiple:1.4, paraSpaceAfter:4, valign:'top' }));
     });
-    addFoot(s, d.foot);
+    footNote(s, d.foot);
   },
   stage(s, d) {
-    s.addText(d.title, txt({ x:PAD, y:TITLE_Y, w:5.4, h:TITLE_H, fontSize:36, bold:true }));
-    const lw = Math.max(0.95, 0.36 + d.level.length * 0.2);   // 14pt 中文字宽约 0.194 英寸
-    const bx = PAD + d.title.length * 0.5 + 0.3;   // 36pt 中文字宽约 0.5 英寸，标签紧跟标题
-    const fill = { 1:C.sev3, 2:C.sev2, 3:C.sev1, 4:C.soft };
-    const fg = { 1:C.white, 2:C.white, 3:C.ink, 4:C.ink2 };
-    s.addShape(pres.ShapeType.rect, { x:bx, y:TITLE_Y + 0.12, w:lw, h:0.4,
-      fill:{ color:fill[d.levelIdx] }, line:{ color: d.levelIdx === 3 ? C.sev1ln : fill[d.levelIdx], width:1 } });
-    s.addText(d.level, txt({ x:bx, y:TITLE_Y + 0.12, w:lw, h:0.4, fontSize:14, bold:true,
+    eyebrow(s, d);
+    headline(s, d.title, PAD_T + 0.34);
+    const lw = Math.max(0.9, 0.34 + d.level.length * 0.2);
+    const bx = CX + d.title.length * 0.46 + 0.28;
+    const fill = { 1:C.sev3, 2:C.sev2, 3:C.sev1, 4:C.white };
+    const fg = { 1:C.white, 2:C.white, 3:C.ink, 4:C.muted };
+    s.addShape(pres.ShapeType.roundRect, { x:bx, y:PAD_T + 0.46, w:lw, h:0.36, rectRadius:0.18,
+      fill:{ color:fill[d.levelIdx] }, line:{ color: d.levelIdx >= 3 ? C.sev1ln : fill[d.levelIdx], width:1 } });
+    s.addText(d.level, T({ x:bx, y:PAD_T + 0.46, w:lw, h:0.36, fontSize:11, bold:true,
       color:fg[d.levelIdx], align:'center', valign:'middle' }));
-    const cw = (CW - GAPS) / 2, by = 2.05, bh = 1.1;
+    const cw = (CW - 0.24) / 2, by = 2.1, bh = 1.02;
     [d.left, d.right].forEach((c, i) => {
-      const x = PAD + i * (cw + GAPS);
-      softBox(s, x, by, cw, bh);
-      s.addText(c.name, txt({ x:x + 0.24, y:by + 0.16, w:cw - 0.48, h:0.22, fontSize:11, color:C.ink2 }));
-      s.addText(c.body, txt({ x:x + 0.24, y:by + 0.44, w:cw - 0.48, h:bh - 0.6, fontSize:15,
-        lineSpacingMultiple:1.35, valign:'top' }));
+      const x = CX + i * (cw + 0.24);
+      s.addShape(pres.ShapeType.roundRect, { x, y:by, w:cw, h:bh, rectRadius:0.08,
+        fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+      s.addShape(pres.ShapeType.rect, { x, y:by + 0.06, w:IN(4), h:bh - 0.12,
+        fill:{ color: i ? C.sev2 : C.slate }, line:{ width:0, color: i ? C.sev2 : C.slate } });
+      s.addText(c.name, T({ x:x + 0.24, y:by + 0.14, w:cw - 0.46, h:0.2, fontSize:9.5, color:C.muted }));
+      s.addText(c.body, T({ x:x + 0.24, y:by + 0.4, w:cw - 0.46, h:bh - 0.54, fontSize:13, lineSpacingMultiple:1.4, valign:'top' }));
     });
-    s.addText(d.rule, txt({ x:PAD, y:by + bh + 0.4, w:CW, h:0.8, fontSize:20, lineSpacingMultiple:1.4, valign:'top' }));
-    const ey = H - 1.55;
-    s.addShape(pres.ShapeType.line, { x:PAD, y:ey, w:CW, h:0, line:{ color:C.hair, width:1 } });
-    s.addText(d.extra.label, txt({ x:PAD, y:ey + 0.14, w:CW, h:0.24, fontSize:11,
-      color: d.extra.tone === 'alert' ? C.alert : C.ink2, bold: d.extra.tone === 'alert' }));
-    s.addText(d.extra.text, txt({ x:PAD, y:ey + 0.42, w:CW, h:0.75, fontSize:13.5, lineSpacingMultiple:1.4, valign:'top' }));
+    s.addText(d.rule, { fontFace:DISPLAY, color:C.navy, margin:0, x:CX, y:by + bh + 0.34,
+      w:CW, h:0.7, fontSize:18, bold:true, lineSpacingMultiple:1.4, valign:'top' });
+    const ey = H - 1.62, alert = d.extra.tone === 'alert';
+    if (alert) s.addShape(pres.ShapeType.roundRect, { x:CX, y:ey - 0.06, w:CW, h:1.02, rectRadius:0.08,
+      fill:{ color:C.wash }, line:{ color:C.wash, width:0 } });
+    else s.addShape(pres.ShapeType.line, { x:CX, y:ey, w:CW, h:0, line:{ color:C.line, width:1 } });
+    const px = alert ? CX + 0.2 : CX;
+    s.addText(d.extra.label, T({ x:px, y:ey + 0.12, w:CW - 0.4, h:0.22, fontSize:9.5,
+      color: alert ? C.rust : C.muted, bold: alert, charSpacing:0.8 }));
+    s.addText(d.extra.text, T({ x:px, y:ey + 0.4, w:CW - 0.4, h:0.55, fontSize:11.5, lineSpacingMultiple:1.4, valign:'top' }));
   },
   twoscales(s, d) {
-    addTitle(s, d.title);
-    const cw = (CW - GAP) / 2;
+    const y = top(s, d), cw = (CW - 0.24) / 2;
     d.cases.forEach((c, i) => {
-      const x = PAD + i * (cw + GAP);
-      ruleTop(s, x, 2.3, cw);
-      s.addText(c.name, txt({ x, y:2.42, w:cw, h:0.4, fontSize:20, bold:true }));
-      s.addText(c.grade + ' · ' + c.hours, txt({ x, y:2.86, w:cw, h:0.24, fontSize:11, color:C.ink2 }));
-      s.addText(c.scale, txt({ x, y:3.22, w:cw, h:0.5, fontSize:16, bold:true, lineSpacingMultiple:1.3, valign:'top' }));
-      s.addText(c.detail, txt({ x, y:3.85, w:cw, h:1.1, fontSize:13.5, color:C.ink2, lineSpacingMultiple:1.45, valign:'top' }));
+      const x = CX + i * (cw + 0.24);
+      card(s, x, y + 0.2, cw, 1.92, i ? C.sev2 : C.slate);
+      s.addText(c.name, { fontFace:DISPLAY, color:C.navy, margin:0, x:x + 0.22, y:y + 0.4, w:cw - 0.44, h:0.34, fontSize:16, bold:true });
+      s.addText(c.grade + '　·　' + c.hours, T({ x:x + 0.22, y:y + 0.78, w:cw - 0.44, h:0.2, fontSize:9.5, color:C.muted }));
+      s.addText(c.scale, T({ x:x + 0.22, y:y + 1.04, w:cw - 0.44, h:0.36, fontSize:13, bold:true, lineSpacingMultiple:1.3, valign:'top' }));
+      s.addText(c.detail, T({ x:x + 0.22, y:y + 1.46, w:cw - 0.44, h:0.58, fontSize:10.5, color:C.muted, lineSpacingMultiple:1.4, valign:'top' }));
     });
-    addFoot(s, d.kicker);
+    footNote(s, d.kicker);
   },
   tracktable(s, d) {
-    addTitle(s, d.title);
-    const rows = [d.cols.map(c => ({ text:c, options:{ fill:{ color:C.soft }, color:C.ink2, fontSize:11 } })),
-                  d.sample.map(c => ({ text:c, options:{ fontSize:13.5, valign:'top' } }))];
-    s.addTable(rows, { x:PAD, y:BODY_TOP + 0.35, w:CW, colW:[2.96, 2.96, 2.96, 2.95], rowH:[0.42, 1.9],
-      border:{ type:'solid', color:C.hair, pt:1 }, fontFace:F, color:C.ink, margin:9, lineSpacingMultiple:1.4 });
-    addFoot(s, d.kicker);
-  },
-  chainflow(s, d) {
-    addTitle(s, d.title);
-    const n = d.nodes.length, aw = 0.36, nw = (CW - aw * (n - 1)) / n, ny = 2.35, nh = 1.75;
-    d.nodes.forEach((node, i) => {
-      const x = PAD + i * (nw + aw);
-      softBox(s, x, ny, nw, nh);
-      s.addText(node.t, txt({ x:x + 0.2, y:ny + 0.2, w:nw - 0.4, h:0.32, fontSize:16, bold:true }));
-      s.addText(node.d, txt({ x:x + 0.2, y:ny + 0.58, w:nw - 0.4, h:nh - 0.75, fontSize:11,
-        color:C.ink2, lineSpacingMultiple:1.4, valign:'top' }));
-      if (i < n - 1) s.addText('→', txt({ x:x + nw, y:ny + nh / 2 - 0.16, w:aw, h:0.32,
-        fontSize:16, color:C.struct2, align:'center' }));
-    });
-    s.addText(d.local, txt({ x:PAD, y:ny + nh + 0.45, w:CW, h:0.4, fontSize:14 }));
+    const y = top(s, d);
+    const rows = [d.cols.map(c => ({ text:c, options:{ fill:{ color:C.paper }, color:C.muted, fontSize:9.5 } })),
+                  d.sample.map(c => ({ text:c, options:{ fontSize:12, valign:'top' } }))];
+    s.addTable(rows, { x:CX, y:y + 0.3, w:CW, colW:[2.73, 2.73, 2.73, 2.72], rowH:[0.4, 1.7],
+      border:{ type:'solid', color:C.line, pt:1 }, fill:{ color:C.white },
+      fontFace:BODY, color:C.ink, margin:9, lineSpacingMultiple:1.4 });
+    footNote(s, d.kicker);
   },
   redlines(s, d) {
-    addTitle(s, d.title);
+    const y = top(s, d);
     d.items.forEach((it, i) => {
-      const y = BODY_TOP + i * 0.66;
-      s.addShape(pres.ShapeType.line, { x:PAD, y, w:CW, h:0, line:{ color:C.hair, width:1 } });
-      s.addText(it.t, txt({ x:PAD, y:y + 0.16, w:1.6, h:0.34, fontSize:16, bold:true, color:C.alert }));
-      s.addText(it.d, txt({ x:PAD + 1.75, y:y + 0.14, w:CW - 1.75, h:0.42, fontSize:14, lineSpacingMultiple:1.4, valign:'top' }));
+      const yy = y + i * 0.66;
+      s.addShape(pres.ShapeType.roundRect, { x:CX, y:yy, w:CW, h:0.56, rectRadius:0.07,
+        fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+      s.addShape(pres.ShapeType.rect, { x:CX, y:yy + 0.05, w:IN(4), h:0.46, fill:{ color:C.rust }, line:{ width:0, color:C.rust } });
+      s.addText(it.t, T({ x:CX + 0.24, y:yy, w:1.4, h:0.56, fontSize:13, bold:true, color:C.rust, valign:'middle' }));
+      s.addText(it.d, T({ x:CX + 1.76, y:yy, w:CW - 2.0, h:0.56, fontSize:12, lineSpacingMultiple:1.35, valign:'middle' }));
     });
-    s.addShape(pres.ShapeType.line, { x:PAD, y:BODY_TOP + d.items.length * 0.66, w:CW, h:0, line:{ color:C.hair, width:1 } });
-    addSrc(s, d.src, BODY_TOP + d.items.length * 0.66 + 0.16);
-    addFoot(s, d.caveat);
+    srcLine(s, d.src, y + d.items.length * 0.66 + 0.1);
+    footNote(s, d.caveat);
   },
   signature(s, d) {
-    addTitle(s, d.title);
-    let x = PAD;
+    top(s, d);
+    let x = CX;
     d.subjects.forEach(t => {
-      const w = 0.5 + t.length * 0.28;
-      s.addShape(pres.ShapeType.rect, { x, y:2.5, w, h:0.6, fill:{ color:C.white }, line:{ color:C.hair, width:1 } });
-      s.addText(t, txt({ x, y:2.5, w, h:0.6, fontSize:19, align:'center', valign:'middle' }));
-      x += w + 0.25;
+      const w = 0.44 + t.length * 0.27;
+      s.addShape(pres.ShapeType.roundRect, { x, y:2.7, w, h:0.58, rectRadius:0.09,
+        fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+      s.addText(t, { fontFace:DISPLAY, color:C.navy, margin:0, x, y:2.7, w, h:0.58, fontSize:15, bold:true, align:'center', valign:'middle' });
+      x += w + 0.2;
     });
-    s.addText(d.absent, txt({ x:PAD, y:3.35, w:CW, h:0.4, fontSize:21, bold:true, color:C.alert }));
+    s.addText(d.absent, T({ x:CX, y:3.52, w:CW, h:0.36, fontSize:15, bold:true, color:C.rust }));
     d.split.forEach((p, i) => {
-      const bx = PAD + i * (CW / 2);
-      s.addText(p[0], txt({ x:bx, y:4.35, w:CW / 2 - 0.3, h:0.24, fontSize:11, color:C.ink2 }));
-      s.addText(p[1], txt({ x:bx, y:4.65, w:CW / 2 - 0.3, h:0.45, fontSize:23, bold:true }));
+      const bx = CX + i * (CW / 2);
+      s.addText(p[0], T({ x:bx, y:4.36, w:CW / 2 - 0.4, h:0.22, fontSize:9.5, color:C.muted }));
+      s.addText(p[1], { fontFace:DISPLAY, color:C.navy, margin:0, x:bx, y:4.64, w:CW / 2 - 0.4, h:0.44, fontSize:21, bold:true });
     });
   },
   toolpos(s, d) {
-    addTitle(s, d.title);
-    const head = [{ text:'', options:{ fill:{ color:C.soft } } }]
-      .concat(d.cols.map(c => ({ text:c, options:{ fill:{ color:C.soft }, color:C.ink2, fontSize:11 } })));
+    const y = top(s, d);
+    const head = [{ text:'', options:{ fill:{ color:C.paper } } }]
+      .concat(d.cols.map(c => ({ text:c, options:{ fill:{ color:C.paper }, color:C.muted, fontSize:9.5 } })));
     const body = d.rows.map(r => [
-      { text:r.t, options:{ fontSize:16, bold:true } },
-      { text:r.yes, options:{ fontSize:14 } },
-      { text:r.no, options:{ fontSize:14, color:C.alert } }]);
-    s.addTable([head].concat(body), { x:PAD, y:BODY_TOP + 0.25, w:CW, colW:[2.4, 4.75, 4.68],
-      rowH:[0.42, 0.72, 0.72, 0.72], border:{ type:'solid', color:C.hair, pt:1 },
-      fontFace:F, color:C.ink, valign:'middle', margin:9 });
-    addFoot(s, d.kicker);
+      { text:r.t, options:{ fontSize:13, bold:true, color:C.navy } },
+      { text:r.yes, options:{ fontSize:12 } },
+      { text:r.no, options:{ fontSize:12, color:C.rust } }]);
+    s.addTable([head].concat(body), { x:CX, y:y + 0.3, w:CW, colW:[2.2, 4.4, 4.32],
+      rowH:[0.4, 0.66, 0.66, 0.66], border:{ type:'solid', color:C.line, pt:1 }, fill:{ color:C.white },
+      fontFace:BODY, color:C.ink, valign:'middle', margin:9 });
+    footNote(s, d.kicker);
   },
   endnote(s, d) {
     d.lines.forEach((l, i) => s.addText(l,
-      txt({ x:PAD, y:2.2 + i * 0.85, w:CW - 1.2, h:0.75, fontSize:16, color:C.ink2,
-            lineSpacingMultiple:1.55, valign:'top' })));
-    s.addText(d.sign, txt({ x:PAD, y:5.3, w:CW, h:0.35, fontSize:16 }));
-    s.addShape(pres.ShapeType.rect, { x:PAD, y:5.85, w:4.2, h:0.55,
-      fill:{ color:C.white }, line:{ color:C.sev1ln, width:1, dashType:'dash' } });
-    s.addText(d.handout, txt({ x:PAD, y:5.85, w:4.2, h:0.55, fontSize:13, color:C.alert, align:'center', valign:'middle' }));
+      T({ x:CX, y:2.14 + i * 0.8, w:CW - 1.0, h:0.7, fontSize:13.5, color:C.muted,
+          lineSpacingMultiple:1.55, valign:'top' })));
+    s.addText(d.sign, T({ x:CX, y:5.0, w:CW, h:0.32, fontSize:14, color:C.navy }));
+    s.addShape(pres.ShapeType.roundRect, { x:CX, y:5.46, w:3.2, h:0.5, rectRadius:0.08,
+      fill:{ color:C.paper }, line:{ color:C.sev1ln, width:1, dashType:'dash' } });
+    s.addText(d.handout, T({ x:CX, y:5.46, w:3.2, h:0.5, fontSize:11.5, color:C.rust, align:'center', valign:'middle' }));
   }
 };
 
-SLIDES.forEach(d => {
+SLIDES.forEach((d, i) => {
   const s = pres.addSlide();
-  s.background = { color: C.white };
-  tag(s, d.n, d.tier);
+  chrome(s, d, i + 1, SLIDES.length);
   if (!R[d.layout]) throw new Error('缺少版式渲染器：' + d.layout + '（第 ' + d.n + ' 页）');
   R[d.layout](s, d);
   s.addNotes(d.notes);
