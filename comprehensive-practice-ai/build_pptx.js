@@ -46,6 +46,26 @@ pres.subject = 'AI 在任务链条上的位置';
 
 const T = o => Object.assign({ fontFace:BODY, color:C.ink, margin:0 }, o);
 
+/* 六个环节的收放序列，供案例段每页的迷你刻度使用 */
+const LEVELS = SLIDES.filter(x => x.layout === 'stage')
+  .sort((a, b) => a.step - b.step).map(x => x.levelIdx);
+const SEGFILL = ['DCE4F0', null, 'F3DFD4'];       /* ①③ 底色，②留白只加下划线 */
+
+function stepbar(s, x, y, step) {
+  const w = 4.2, gap = 0.05, bw = (w - gap * 5) / 6;
+  const fill = [null, C.sev3, C.sev2, C.sev1, C.white];
+  LEVELS.forEach((lv, i) => {
+    const on = i + 1 === step, bx = x + i * (bw + gap);
+    s.addShape(pres.ShapeType.roundRect, { x:bx, y: on ? y : y + 0.05, w:bw, h: on ? 0.17 : 0.085,
+      rectRadius:0.03, fill:{ color:fill[lv] },
+      line:{ color: lv === 4 ? C.line : (lv === 3 ? C.sev1ln : fill[lv]), width:1 } });
+    if (on) s.addShape(pres.ShapeType.rect, { x:bx, y:y + 0.22, w:bw, h:0.03,
+      fill:{ color:C.rust }, line:{ width:0, color:C.rust } });
+  });
+  s.addText('六个环节的收放形态　第 ' + step + ' 步',
+    T({ x, y:y + 0.28, w, h:0.2, fontSize:8, color:C.muted, align:'right' }));
+}
+
 /* ── 常驻构件 ─────────────────────────────── */
 function chrome(s, d, idx, total) {
   s.background = { color: C.paper };
@@ -289,10 +309,18 @@ const R = {
   },
   threeq(s, d) {
     top(s, d);
+    const has = d.items.some(x => x.then);
+    const step = has ? 1.06 : 0.86, y0 = has ? 2.42 : 2.7;
     d.items.forEach((it, i) => {
-      const y = 2.7 + i * 0.86;
+      const y = y0 + i * step;
       s.addText(it.no, { fontFace:DISPLAY, color:C.rust, margin:0, x:CX, y, w:0.45, h:0.5, fontSize:16, bold:true });
-      s.addText(it.q, { fontFace:DISPLAY, color:C.navy, margin:0, x:CX + 0.62, y:y - 0.06, w:CW - 0.62, h:0.6, fontSize:23, bold:true, valign:'top' });
+      s.addText(it.q, { fontFace:DISPLAY, color:C.navy, margin:0, x:CX + 0.62, y:y - 0.06, w:CW - 0.62,
+        h:0.6, fontSize:23, bold:true, valign:'top' });
+      if (it.then) {
+        s.addShape(pres.ShapeType.rect, { x:CX + 0.62, y:y + 0.46, w:0.02, h:0.24,
+          fill:{ color:C.sev1ln }, line:{ width:0, color:C.sev1ln } });
+        s.addText(it.then, T({ x:CX + 0.76, y:y + 0.44, w:CW - 0.76, h:0.28, fontSize:11.5, color:C.muted }));
+      }
     });
     footNote(s, d.kicker);
   },
@@ -342,6 +370,7 @@ const R = {
       fill:{ color:fill[d.levelIdx] }, line:{ color: d.levelIdx >= 3 ? C.sev1ln : fill[d.levelIdx], width:1 } });
     s.addText(d.level, T({ x:bx, y:PAD_T + 0.46, w:lw, h:0.36, fontSize:11, bold:true,
       color:fg[d.levelIdx], align:'center', valign:'middle' }));
+    stepbar(s, W - PAD_R - 4.2, PAD_T + 0.44, d.step);
     const cw = (CW - 0.24) / 2, by = 2.1, bh = 1.02;
     [d.left, d.right].forEach((c, i) => {
       const x = CX + i * (cw + 0.24);
@@ -446,18 +475,32 @@ const R = {
   },
   specs(s, d) {
     const y = top(s, d);
-    s.addText(d.lead, T({ x:CX, y:y - 0.06, w:CW, h:0.5, fontSize:11.5, color:C.muted,
+    s.addText(d.lead, T({ x:CX, y:y - 0.06, w:CW, h:0.36, fontSize:11.5, color:C.muted,
       lineSpacingMultiple:1.4, valign:'top' }));
+    /* 三段结构的图例：底色对应指令里的三段 */
+    const pw = (CW - 0.2) / 3;
+    d.parts.forEach((pt, i) => {
+      const px = CX + i * (pw + 0.1);
+      s.addShape(pres.ShapeType.roundRect, { x:px, y:y + 0.38, w:pw, h:0.28, rectRadius:0.05,
+        fill:{ color: SEGFILL[i] || C.paper },
+        line:{ color: i === 2 ? C.sev1ln : (i === 0 ? 'C6D2E4' : C.line), width:1 } });
+      s.addText([{ text:pt.n + ' ', options:{ bold:true, color:C.slate } },
+                 { text:pt.t, options:{ bold:true, color:C.slate } },
+                 { text:'　' + pt.d, options:{ color:C.muted, fontSize:8.5 } }],
+        T({ x:px + 0.12, y:y + 0.38, w:pw - 0.24, h:0.28, fontSize:9.5, valign:'middle' }));
+    });
     const kw = 1.16, tx = CX + 0.26 + kw + 0.22, tw = CW - 0.26 - kw - 0.44;
-    let yy = y + 0.62;
+    let yy = y + 0.78;
     d.specs.forEach(it => {
-      const lines = Math.ceil(it.v.length / 50), h = 0.3 + lines * 0.3;
+      const lines = Math.ceil(it.seg.join('').length / 50), h = 0.3 + lines * 0.3;
       s.addShape(pres.ShapeType.roundRect, { x:CX, y:yy, w:CW, h, rectRadius:0.08,
         fill:{ color:C.white }, line:{ color:C.line, width:1 } });
       s.addShape(pres.ShapeType.rect, { x:CX, y:yy + 0.05, w:IN(4), h:h - 0.1,
         fill:{ color:C.rust }, line:{ width:0, color:C.rust } });
       s.addText(it.k, T({ x:CX + 0.26, y:yy + 0.17, w:kw, h:0.28, fontSize:11.5, bold:true, color:C.rust }));
-      s.addText(it.v, T({ x:tx, y:yy + 0.14, w:tw, h:h - 0.28, fontSize:12, lineSpacingMultiple:1.5, valign:'top' }));
+      s.addText(it.seg.map((g, k) => ({ text:g,
+        options: SEGFILL[k] ? { highlight:SEGFILL[k] } : { underline:{ style:'sng', color:'C2CBD8' } } })),
+        T({ x:tx, y:yy + 0.14, w:tw, h:h - 0.28, fontSize:12, lineSpacingMultiple:1.5, valign:'top' }));
       yy += h + 0.14;
     });
     footNote(s, d.foot);
@@ -495,22 +538,39 @@ const R = {
       s.addShape(pres.ShapeType.rect, { x:CX, y:yy + 0.05, w:IN(4), h:h - 0.1,
         fill:{ color:tone[t.tone] }, line:{ width:0, color:tone[t.tone] } });
       s.addText(t.who, T({ x:CX + 0.24, y:yy + 0.14, w:1.05, h:0.24, fontSize:10, bold:true, color:tone[t.tone] }));
-      s.addText(t.text, T({ x:CX + 1.44, y:yy + 0.12, w:CW - 1.72, h:h - 0.24, fontSize:12.5,
-        color: t.tone === 'ans' ? C.muted : C.ink, lineSpacingMultiple:1.45, valign:'top' }));
+      if (t.items) {
+        t.items.forEach((it, k) => {
+          const iy = yy + 0.12 + k * 0.28;
+          s.addText(it.no, T({ x:CX + 1.44, y:iy, w:0.24, h:0.24, fontSize:10, color:C.muted }));
+          s.addText(it.ok ? '√' : '×', T({ x:CX + 1.72, y:iy, w:0.24, h:0.24, fontSize:11,
+            bold:true, color: it.ok ? C.slate : C.rust }));
+          s.addText(it.t, T({ x:CX + 2.02, y:iy, w:CW - 2.3, h:0.24, fontSize:12, color:C.muted,
+            strike: it.ok ? undefined : 'sngStrike' }));
+        });
+      } else {
+        s.addText(t.text, T({ x:CX + 1.44, y:yy + 0.12, w:CW - 1.72, h:h - 0.24, fontSize:12.5,
+          color: t.tone === 'ans' ? C.muted : C.ink, lineSpacingMultiple:1.45, valign:'top' }));
+      }
       yy += h + 0.14;
     });
+    if (d.legend) { s.addText(d.legend, T({ x:CX, y:yy, w:CW, h:0.24, fontSize:10, color:C.muted })); }
     footNote(s, d.foot);
   },
   agentspec(s, d) {
     const y = top(s, d);
-    s.addText(d.lead, T({ x:CX, y:y - 0.02, w:CW, h:0.6, fontSize:14, color:C.muted, lineSpacingMultiple:1.45, valign:'top' }));
-    const sy = y + 0.78, sh = 1.55;
+    s.addText(d.lead, T({ x:CX, y:y - 0.06, w:CW, h:0.36, fontSize:11.5, color:C.muted,
+      lineSpacingMultiple:1.4, valign:'top' }));
+    const fy = fig(s, 'agent', y + 0.34);
+    const sy = fy + 0.16, sh = 1.16;
     s.addShape(pres.ShapeType.roundRect, { x:CX, y:sy, w:CW, h:sh, rectRadius:0.09,
       fill:{ color:C.white }, line:{ color:C.line, width:1 } });
-    s.addShape(pres.ShapeType.rect, { x:CX, y:sy + 0.06, w:IN(4), h:sh - 0.12, fill:{ color:C.rust }, line:{ width:0, color:C.rust } });
-    s.addText('可直接照抄的指令', T({ x:CX + 0.3, y:sy + 0.18, w:CW - 0.6, h:0.22, fontSize:10, bold:true, color:C.rust, charSpacing:1.2 }));
-    s.addText(d.spec, T({ x:CX + 0.3, y:sy + 0.5, w:CW - 0.6, h:sh - 0.68, fontSize:15, lineSpacingMultiple:1.6, valign:'top' }));
-    s.addText(d.after, T({ x:CX, y:sy + sh + 0.28, w:CW, h:0.4, fontSize:13.5, lineSpacingMultiple:1.5, valign:'top' }));
+    s.addShape(pres.ShapeType.rect, { x:CX, y:sy + 0.06, w:IN(4), h:sh - 0.12,
+      fill:{ color:C.rust }, line:{ width:0, color:C.rust } });
+    s.addText('可直接照抄的指令', T({ x:CX + 0.3, y:sy + 0.13, w:CW - 0.6, h:0.2, fontSize:9.5,
+      bold:true, color:C.rust, charSpacing:1.2 }));
+    s.addText(d.spec, T({ x:CX + 0.3, y:sy + 0.38, w:CW - 0.6, h:sh - 0.48, fontSize:12.5,
+      lineSpacingMultiple:1.55, valign:'top' }));
+    footNote(s, d.after);
   },
   /* ── 附录 ───────────────────────────────── */
   apxcover(s, d) {

@@ -305,11 +305,11 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 .afterline{margin-top:22px;font-size:17px;color:var(--ink);line-height:1.6}
 
 /* ── 指令原文（specs）───────────────────── */
-.speclist{margin-top:18px;display:flex;flex-direction:column;gap:12px}
+.speclist{margin-top:10px;display:flex;flex-direction:column;gap:8px}
 .specitem{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--rust);
-  border-radius:12px;padding:14px 22px;display:grid;grid-template-columns:104px 1fr;gap:22px;align-items:start}
+  border-radius:11px;padding:10px 20px;display:grid;grid-template-columns:92px 1fr;gap:18px;align-items:start}
 .specitem .spk{font-size:14px;font-weight:700;color:var(--rust);padding-top:3px;line-height:1.45}
-.specitem .spv{font-size:15px;color:var(--ink);line-height:1.7}
+.specitem .spv{font-size:14.5px;color:var(--ink);line-height:1.62;padding-right:6px}
 
 /* ── 学生侧放开的用法（allow）───────────── */
 .allow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
@@ -385,3 +385,44 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 .apxspec{margin-top:13px;padding:14px 20px}
 .apxspec p{font-size:14px;line-height:1.65}
 .apxspec .lbl{font-size:11.5px;margin-bottom:7px}
+
+/* ══ 面向新手教师的可视化补强 ══════════════ */
+
+/* 指令的三段结构（第 18 页）：底色标出分界，正文一律 ink，不靠颜色传达文字 */
+.partkey{margin-top:10px;display:flex;gap:9px}
+.pk{flex:1;font-size:12px;color:var(--slate);padding:5px 11px;border-radius:7px;
+  line-height:1.45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pk b{color:var(--slate);font-weight:700;margin-right:5px}
+.pk i{font-style:normal;font-size:11.5px;color:var(--muted);margin-left:7px}
+.pk.sg1{background:#EDF1F7;border:1px solid #DCE3EE}
+.pk.sg2{background:var(--paper);border:1px solid var(--line);box-shadow:inset 0 -2px 0 #C2CBD8}
+.pk.sg3{background:var(--wash);border:1px solid var(--sev1ln)}
+.specitem .spv span{padding:1px 3px;border-radius:3px;box-decoration-break:clone;
+  -webkit-box-decoration-break:clone}
+.specitem .spv .sg1{background:#EDF1F7}
+.specitem .spv .sg2{background:transparent;box-shadow:inset 0 -1px 0 #C2CBD8}
+.specitem .spv .sg3{background:var(--wash);box-shadow:inset 0 -2px 0 var(--sev1ln)}
+
+/* AI 返回逐条编号与采纳标记（第 27 页）*/
+.rets{display:flex;flex-direction:column;gap:5px}
+.ret{display:grid;grid-template-columns:20px 20px 1fr;gap:8px;align-items:baseline;
+  font-size:15px;line-height:1.5}
+.ret .rn{color:var(--muted);font-size:13px}
+.ret .rm{font-size:13px;font-weight:700;color:var(--slate)}
+.ret .rt{color:var(--muted)}
+.ret.no .rm{color:var(--rust)}
+.ret.no .rt{color:var(--muted);text-decoration:line-through;
+  text-decoration-color:var(--sev1ln);text-decoration-thickness:1.5px}
+
+/* 自查三问的后续动作（第 28 页）*/
+.q .qthen{display:block;margin-top:7px;font-size:14px;color:var(--muted);line-height:1.5;
+  padding-left:14px;border-left:2px solid var(--sev1ln)}
+
+/* 案例段每页的环节迷你刻度 */
+.stepwrap{display:flex;flex-direction:column;gap:3px;margin-left:auto;align-items:flex-end}
+.stepwrap i{font-style:normal;font-size:11px;color:var(--muted);letter-spacing:.04em}
+.stepwrap svg{display:block}
+
+/* 智能体页改为图＋指令块 */
+.agspec{margin-top:14px;padding:16px 22px}
+.agspec p{font-size:16px;line-height:1.7}

@@ -165,6 +165,68 @@
     return wrap(W, H, s);
   };
 
+  /* ── 智能体：一段指令 × 每次提问（第 41 页）───── */
+  F.agent = function () {
+    var W = 1048, H = 244, s = '';
+    var bx = 0, bw = 316, by = 30, bh = 128;
+    s += rect(bx, by, bw, bh, { fill: '#FBF1EC', stroke: C.sev1ln, r: 12 });
+    s += rect(bx, by + 6, 4, bh - 12, { fill: C.rust, r: 2 });
+    s += txt(bx + 22, by + 30, '写一次', { size: 12, fill: C.rust, weight: 700, spacing: 1.4 });
+    s += txt(bx + 22, by + 64, '预先写好的指令', { size: 22, weight: 700, fill: C.navy, serif: true });
+    s += txt(bx + 22, by + 94, '规定身份、只提问、', { size: 13.5, fill: C.muted });
+    s += txt(bx + 22, by + 116, '不给结论、最多三条', { size: 13.5, fill: C.muted });
+
+    /* 三次提问 */
+    var qx = 398, qw = 250, qy = 8;
+    s += txt(qx, qy + 6, '每次提问', { size: 12, fill: C.slate, weight: 700, spacing: 1.4 });
+    ['第 1 次：这份方案有什么问题', '第 2 次：这组数据够不够', '第 3 次：这个结论站得住吗'].forEach(function (t, i) {
+      var y = qy + 22 + i * 56;
+      s += rect(qx, y, qw, 42, { fill: C.white, stroke: C.line, r: 8 });
+      s += txt(qx + 14, y + 26, t, { size: 13, fill: C.ink });
+      /* 指令框汇入的短横 */
+      s += '<path d="M' + (bx + bw + 10) + ' ' + (by + bh / 2) + ' H' + (qx - 30) +
+           ' V' + (y + 21) + ' H' + (qx - 8) + '" fill="none" stroke="' + C.sev1ln +
+           '" stroke-width="1.5"/>';
+      s += '<path d="M' + (qx - 14) + ' ' + (y + 16) + ' L' + (qx - 4) + ' ' + (y + 21) +
+           ' L' + (qx - 14) + ' ' + (y + 26) + ' Z" fill="' + C.sev1ln + '"/>';
+      /* 提问到返回 */
+      s += '<path d="M' + (qx + qw + 8) + ' ' + (y + 21) + ' H' + (qx + qw + 44) +
+           '" stroke="' + C.muted + '" stroke-width="1.5"/>';
+      s += '<path d="M' + (qx + qw + 38) + ' ' + (y + 16) + ' L' + (qx + qw + 48) + ' ' + (y + 21) +
+           ' L' + (qx + qw + 38) + ' ' + (y + 26) + ' Z" fill="' + C.muted + '"/>';
+    });
+    s += txt(bx + bw + 18, by + bh / 2 - 10, '附在每次提问之前', { size: 12, fill: C.rust });
+
+    var rx = 700, rw = W - rx;
+    s += rect(rx, qy + 22, rw, 154, { fill: C.white, stroke: C.line, r: 12 });
+    s += txt(rx + 20, qy + 52, '三次返回', { size: 12, fill: C.slate, weight: 700, spacing: 1.4 });
+    s += txt(rx + 20, qy + 84, '都只有问题', { size: 20, weight: 700, fill: C.navy, serif: true });
+    s += txt(rx + 20, qy + 112, '没有改好的方案，', { size: 13.5, fill: C.muted });
+    s += txt(rx + 20, qy + 134, '没有结论，每次至多三条。', { size: 13.5, fill: C.muted });
+
+    s += txt(0, H - 6, '指令写一次，三次对话都受同一段约束。要换用途，只改左边那一段。',
+      { size: 13, fill: C.muted });
+    return wrap(W, H, s);
+  };
+
+  /* ── 环节位置的迷你刻度（案例段每页）──────────── */
+  F.stepbar = function (step, levels) {
+    var W = 448, H = 34, n = 6, gap = 5;
+    var bw = (W - gap * (n - 1)) / n, s = '';
+    var fill = [null, C.sev3, C.sev2, C.sev1, C.white];
+    for (var i = 0; i < n; i++) {
+      var on = i + 1 === step, x = i * (bw + gap);
+      var lv = levels[i];
+      s += rect(x, on ? 6 : 11, bw, on ? 16 : 8, {
+        fill: fill[lv], r: 3,
+        stroke: lv === 4 ? C.line : (lv === 3 ? C.sev1ln : fill[lv]), sw: 1 });
+      if (on) s += rect(x, 27, bw, 3, { fill: C.rust, r: 1.5 });
+    }
+    return '<svg class="stepbar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + ' ' + H +
+      '" width="' + W + '" height="' + H + '" role="img" aria-hidden="true">' +
+      '<style>text{font-family:' + SANS + '}</style>' + s + '</svg>';
+  };
+
   if (typeof module !== 'undefined' && module.exports) { module.exports = F; }
   else { root.DECK_FIGURES = F; }
 })(typeof globalThis !== 'undefined' ? globalThis : this);
