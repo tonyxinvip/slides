@@ -73,6 +73,31 @@
     if (dialog?.open) dialog.close();
   }
 
+  async function copyKnowledgeText(button) {
+    const text = button.closest('.knowledge-copy')?.querySelector('pre')?.textContent.trim();
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (_) {
+      const field = document.createElement('textarea');
+      field.value = text;
+      field.setAttribute('readonly', '');
+      field.style.position = 'fixed';
+      field.style.opacity = '0';
+      document.body.appendChild(field);
+      field.select();
+      document.execCommand('copy');
+      field.remove();
+    }
+    const original = button.textContent;
+    button.textContent = '已复制';
+    button.classList.add('is-copied');
+    setTimeout(() => {
+      button.textContent = original;
+      button.classList.remove('is-copied');
+    }, 1800);
+  }
+
   async function toggleFullscreen() {
     try {
       if (document.fullscreenElement) await document.exitFullscreen();
@@ -106,6 +131,11 @@
   }
 
   document.addEventListener('click', (event) => {
+    const copyButton = event.target.closest('[data-copy-note]');
+    if (copyButton) {
+      copyKnowledgeText(copyButton);
+      return;
+    }
     const knowledgeOpen = event.target.closest('[data-knowledge-open]');
     if (knowledgeOpen) {
       openKnowledge(knowledgeOpen.dataset.knowledgeOpen, knowledgeOpen);
