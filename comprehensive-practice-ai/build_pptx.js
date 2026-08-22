@@ -1,5 +1,6 @@
 /* 从 slides.data.js 生成 .pptx，版式与网页版一致（1280×720 px ↔ 13.333×7.5 英寸，96 px/英寸）。
  * 骨架图示走 figures/ 下的 PNG，由 make_figures.py 从 figures.js 栅格化而来。
+ * 色值来自 palette.js，与 styles.css、figures.js 同源。
  * 网页版用 Noto Serif SC 做大标题；这里用微软雅黑，因为中文 Windows 一定有。
  * 若确定嵌入字体，把 DISPLAY 换成 'Noto Serif SC' 即可。 */
 const pptxgen = require('pptxgenjs');
@@ -16,12 +17,9 @@ const PAD_L = IN(136), PAD_R = IN(96), PAD_T = IN(84);
 const CW = W - PAD_L - PAD_R;               // 10.917
 const CX = PAD_L;
 
-const C = {
-  navy:'0F1B2D', ink:'1A2029', muted:'5B6470', line:'E2E7F0',
-  paper:'F5F7FB', white:'FFFFFF', wash:'FBF1EC',
-  rust:'B0472A', slate:'33414F',
-  sev3:'99341A', sev2:'C9714C', sev1:'EBC4B2', sev1ln:'D9A98F', dim:'A9B3C0'
-};
+/* 色值与网页版同源。pptxgenjs 要不带 # 的六位十六进制，在这里剥掉 */
+const PALETTE = require('./palette.js');
+const C = Object.keys(PALETTE).reduce((o, k) => (o[k] = PALETTE[k].replace('#', ''), o), {});
 const BODY = 'Microsoft YaHei';
 const DISPLAY = 'Microsoft YaHei';
 
@@ -49,7 +47,7 @@ const T = o => Object.assign({ fontFace:BODY, color:C.ink, margin:0 }, o);
 /* 六个环节的收放序列，供案例段每页的迷你刻度使用 */
 const LEVELS = SLIDES.filter(x => x.layout === 'stage')
   .sort((a, b) => a.step - b.step).map(x => x.levelIdx);
-const SEGFILL = ['DCE4F0', null, 'F3DFD4'];       /* ①③ 底色，②留白只加下划线 */
+const SEGFILL = [C.tint1, null, C.tint3];        /* ①③ 底色，②留白只加下划线 */
 
 function stepbar(s, x, y, step) {
   const w = 4.2, gap = 0.05, bw = (w - gap * 5) / 6;
@@ -76,8 +74,8 @@ function chrome(s, d, idx, total) {
     const cy = top + (bot - top) * (i / (ORDER.length - 1));
     const on = i === si, done = i < si, r = on ? IN(7) : IN(5);
     s.addShape(pres.ShapeType.ellipse, { x:x - r, y:cy - r, w:r * 2, h:r * 2,
-      fill:{ color: on ? C.rust : (done ? 'C2CBD8' : C.white) },
-      line:{ color: on ? C.rust : (done ? 'C2CBD8' : C.line), width:2 } });
+      fill:{ color: on ? C.rustf : (done ? C.done : C.white) },
+      line:{ color: on ? C.rustf : (done ? C.done : C.line), width:2 } });
   });
   s.addText(d.sec.split('').join('\n'),
     T({ x:IN(10), y:H / 2 - 0.6, w:IN(30), h:1.2, fontSize:9, color:C.muted,
@@ -160,7 +158,7 @@ const R = {
     const qh = 1.42;
     s.addShape(pres.ShapeType.roundRect, { x:CX, y, w:CW, h:qh, rectRadius:0.09,
       fill:{ color:C.white }, line:{ color:C.line, width:1 } });
-    s.addShape(pres.ShapeType.rect, { x:CX, y:y + 0.06, w:IN(4), h:qh - 0.12, fill:{ color:C.slate }, line:{ width:0, color:C.slate } });
+    s.addShape(pres.ShapeType.rect, { x:CX, y:y + 0.06, w:IN(4), h:qh - 0.12, fill:{ color:C.blue }, line:{ width:0, color:C.blue } });
     s.addText(d.quote, T({ x:CX + 0.28, y:y + 0.16, w:CW - 0.56, h:qh - 0.32, fontSize:15,
       lineSpacingMultiple:1.6, valign:'top' }));
     srcLine(s, d.src, y + qh + 0.14);
@@ -419,7 +417,7 @@ const R = {
       const yy = y + i * 0.66;
       s.addShape(pres.ShapeType.roundRect, { x:CX, y:yy, w:CW, h:0.56, rectRadius:0.07,
         fill:{ color:C.white }, line:{ color:C.line, width:1 } });
-      s.addShape(pres.ShapeType.rect, { x:CX, y:yy + 0.05, w:IN(4), h:0.46, fill:{ color:C.rust }, line:{ width:0, color:C.rust } });
+      s.addShape(pres.ShapeType.rect, { x:CX, y:yy + 0.05, w:IN(4), h:0.46, fill:{ color:C.rustf }, line:{ width:0, color:C.rust } });
       s.addText(it.t, T({ x:CX + 0.24, y:yy, w:1.4, h:0.56, fontSize:13, bold:true, color:C.rust, valign:'middle' }));
       s.addText(it.d, T({ x:CX + 1.76, y:yy, w:CW - 2.0, h:0.56, fontSize:12, lineSpacingMultiple:1.35, valign:'middle' }));
     });
@@ -461,7 +459,7 @@ const R = {
   uses(s, d) {
     const y = top(s, d);
     s.addText(d.lead, T({ x:CX, y:y - 0.06, w:CW, h:0.3, fontSize:11.5, color:C.muted }));
-    const cw = (CW - 0.2) / 2, ch = 1.42, acc = [C.slate, C.sev2, C.sev2, C.slate];
+    const cw = (CW - 0.2) / 2, ch = 1.42, acc = [C.blue, C.sev2, C.sev2, C.blue];
     d.items.forEach((it, i) => {
       const x = CX + (i % 2) * (cw + 0.2), yy = y + 0.4 + Math.floor(i / 2) * (ch + 0.18);
       card(s, x, yy, cw, ch, acc[i]);
@@ -483,7 +481,7 @@ const R = {
       const px = CX + i * (pw + 0.1);
       s.addShape(pres.ShapeType.roundRect, { x:px, y:y + 0.38, w:pw, h:0.28, rectRadius:0.05,
         fill:{ color: SEGFILL[i] || C.paper },
-        line:{ color: i === 2 ? C.sev1ln : (i === 0 ? 'C6D2E4' : C.line), width:1 } });
+        line:{ color: i === 2 ? C.sev1ln : (i === 0 ? C.line2 : C.line), width:1 } });
       s.addText([{ text:pt.n + ' ', options:{ bold:true, color:C.slate } },
                  { text:pt.t, options:{ bold:true, color:C.slate } },
                  { text:'　' + pt.d, options:{ color:C.muted, fontSize:8.5 } }],
@@ -496,10 +494,10 @@ const R = {
       s.addShape(pres.ShapeType.roundRect, { x:CX, y:yy, w:CW, h, rectRadius:0.08,
         fill:{ color:C.white }, line:{ color:C.line, width:1 } });
       s.addShape(pres.ShapeType.rect, { x:CX, y:yy + 0.05, w:IN(4), h:h - 0.1,
-        fill:{ color:C.rust }, line:{ width:0, color:C.rust } });
+        fill:{ color:C.rustf }, line:{ width:0, color:C.rust } });
       s.addText(it.k, T({ x:CX + 0.26, y:yy + 0.17, w:kw, h:0.28, fontSize:11.5, bold:true, color:C.rust }));
       s.addText(it.seg.map((g, k) => ({ text:g,
-        options: SEGFILL[k] ? { highlight:SEGFILL[k] } : { underline:{ style:'sng', color:'C2CBD8' } } })),
+        options: SEGFILL[k] ? { highlight:SEGFILL[k] } : { underline:{ style:'sng', color:C.tint2 } } })),
         T({ x:tx, y:yy + 0.14, w:tw, h:h - 0.28, fontSize:12, lineSpacingMultiple:1.5, valign:'top' }));
       yy += h + 0.14;
     });
@@ -512,7 +510,7 @@ const R = {
     const cw = (CW - 0.4) / 3, ch = 2.5, iw = cw - 0.4;
     d.items.forEach((it, i) => {
       const x = CX + i * (cw + 0.2), yy = y + 0.46;
-      card(s, x, yy, cw, ch, C.slate);
+      card(s, x, yy, cw, ch, C.blue);
       s.addText(it.t, { fontFace:DISPLAY, color:C.navy, margin:0,
         x:x + 0.2, y:yy + 0.20, w:iw, h:0.32, fontSize:15, bold:true });
       s.addText(it.act, T({ x:x + 0.2, y:yy + 0.62, w:iw, h:0.8, fontSize:12,
@@ -565,7 +563,7 @@ const R = {
     s.addShape(pres.ShapeType.roundRect, { x:CX, y:sy, w:CW, h:sh, rectRadius:0.09,
       fill:{ color:C.white }, line:{ color:C.line, width:1 } });
     s.addShape(pres.ShapeType.rect, { x:CX, y:sy + 0.06, w:IN(4), h:sh - 0.12,
-      fill:{ color:C.rust }, line:{ width:0, color:C.rust } });
+      fill:{ color:C.rustf }, line:{ width:0, color:C.rust } });
     s.addText('可直接照抄的指令', T({ x:CX + 0.3, y:sy + 0.13, w:CW - 0.6, h:0.2, fontSize:9.5,
       bold:true, color:C.rust, charSpacing:1.2 }));
     s.addText(d.spec, T({ x:CX + 0.3, y:sy + 0.38, w:CW - 0.6, h:sh - 0.48, fontSize:12.5,
@@ -583,7 +581,7 @@ const R = {
       s.addShape(pres.ShapeType.roundRect, { x:CX, y:yy, w:CW, h:rh, rectRadius:0.06,
         fill:{ color:C.white }, line:{ color:C.line, width:1 } });
       s.addShape(pres.ShapeType.rect, { x:CX, y:yy + 0.04, w:IN(4), h:rh - 0.08,
-        fill:{ color:C.slate }, line:{ width:0, color:C.slate } });
+        fill:{ color:C.blue }, line:{ width:0, color:C.blue } });
       s.addText(it.t, T({ x:CX + 0.24, y:yy, w:1.32, h:rh, fontSize:11, bold:true, color:C.slate, valign:'middle' }));
       s.addText(it.task, { fontFace:DISPLAY, color:C.navy, margin:0,
         x:CX + 1.70, y:yy, w:5.6, h:rh, fontSize:13.5, bold:true, valign:'middle' });
@@ -615,7 +613,7 @@ const R = {
     s.addShape(pres.ShapeType.roundRect, { x:CX, y:yy, w:CW, h:rh, rectRadius:0.07,
       fill:{ color:C.white }, line:{ color:C.line, width:1 } });
     s.addShape(pres.ShapeType.rect, { x:CX, y:yy + 0.05, w:IN(4), h:rh - 0.1,
-      fill:{ color:C.slate }, line:{ width:0, color:C.slate } });
+      fill:{ color:C.blue }, line:{ width:0, color:C.blue } });
     s.addText('任务要求（附件原文）', T({ x:CX + 0.26, y:yy + 0.11, w:CW - 0.5, h:0.2,
       fontSize:9.5, bold:true, color:C.rust, charSpacing:1 }));
     s.addText(d.req, T({ x:CX + 0.24, y:yy + 0.35, w:CW - 0.46, h:rh - 0.44, fontSize:10.5,
@@ -659,7 +657,7 @@ const R = {
         x:CX + 0.16, y:ry + 0.09, w:c0 - 0.3, h:0.24, fontSize:12, bold:true });
       const bw = 0.24 + r.level.length * 0.115;
       const bg = [null, C.sev3, C.sev2, C.sev1, C.white][r.levelIdx];
-      const fg = r.levelIdx <= 2 ? 'FFFFFF' : (r.levelIdx === 3 ? C.ink : C.muted);
+      const fg = r.levelIdx <= 2 ? C.white : (r.levelIdx === 3 ? C.ink : C.muted);
       s.addShape(pres.ShapeType.roundRect, { x:CX + 0.16, y:ry + 0.36, w:bw, h:0.2, rectRadius:0.1,
         fill:{ color:bg }, line:{ color: r.levelIdx === 3 ? C.sev1ln : (r.levelIdx === 4 ? C.line : bg), width:1 } });
       s.addText(r.level, T({ x:CX + 0.16, y:ry + 0.36, w:bw, h:0.2, fontSize:8, bold:true,
@@ -682,7 +680,7 @@ const R = {
       s.addShape(pres.ShapeType.roundRect, { x:CX, y:yy, w:CW, h, rectRadius:0.07,
         fill:{ color:C.white }, line:{ color:C.line, width:1 } });
       s.addShape(pres.ShapeType.rect, { x:CX, y:yy + 0.05, w:IN(4), h:h - 0.1,
-        fill:{ color:C.rust }, line:{ width:0, color:C.rust } });
+        fill:{ color:C.rustf }, line:{ width:0, color:C.rust } });
       s.addText(it.t, T({ x:CX + 0.24, y:yy, w:1.3, h, fontSize:11.5, bold:true, color:C.rust, valign:'middle' }));
       s.addText(it.d, T({ x:CX + 1.66, y:yy, w:CW - 1.9, h, fontSize:11,
         lineSpacingMultiple:1.42, valign:'middle' }));
@@ -698,7 +696,7 @@ const R = {
     s.addShape(pres.ShapeType.roundRect, { x:CX, y:yy, w:CW, h:sh, rectRadius:0.07,
       fill:{ color:C.white }, line:{ color:C.line, width:1 } });
     s.addShape(pres.ShapeType.rect, { x:CX, y:yy + 0.05, w:IN(4), h:sh - 0.1,
-      fill:{ color:C.rust }, line:{ width:0, color:C.rust } });
+      fill:{ color:C.rustf }, line:{ width:0, color:C.rust } });
     s.addText('教师侧可直接照抄的指令', T({ x:CX + 0.26, y:yy + 0.12, w:CW - 0.5, h:0.2,
       fontSize:9.5, bold:true, color:C.rust, charSpacing:1 }));
     s.addText(d.spec, T({ x:CX + 0.26, y:yy + 0.38, w:CW - 0.52, h:sh - 0.48, fontSize:11.5,
@@ -713,7 +711,7 @@ const R = {
       s.addShape(pres.ShapeType.roundRect, { x:CX, y, w:tw, h:0.42, rectRadius:0.07,
         fill:{ color:C.white }, line:{ color:C.line, width:1 } });
       s.addShape(pres.ShapeType.rect, { x:CX, y:y + 0.04, w:IN(4), h:0.34,
-        fill:{ color:C.slate }, line:{ width:0, color:C.slate } });
+        fill:{ color:C.blue }, line:{ width:0, color:C.blue } });
       s.addText(it.t, { fontFace:DISPLAY, color:C.navy, margin:0,
         x:CX + 0.24, y, w:tw - 1.7, h:0.42, fontSize:13, bold:true, valign:'middle' });
       s.addText(it.p, T({ x:CX + tw - 1.5, y, w:1.32, h:0.42, fontSize:10, color:C.muted,

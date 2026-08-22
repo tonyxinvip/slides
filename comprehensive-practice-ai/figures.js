@@ -1,15 +1,13 @@
 /* 骨架图示。每个函数返回一段独立 SVG，供网页直接内联、供 pptx 栅格化后嵌入。
  * 画布宽度统一 1048（1280 减去左侧书脊区 136 与右边距 96）。
- * 颜色与 styles.css 的口径一致，改色请两处同改。 */
+ * 色值来自 palette.js，与 styles.css、build_pptx.js 同源，不在这里另写。 */
 (function (root) {
   'use strict';
 
-  var C = {
-    navy:'#0F1B2D', ink:'#1A2029', muted:'#5B6470', line:'#E2E7F0',
-    paper:'#F5F7FB', white:'#FFFFFF', rust:'#B0472A', slate:'#33414F',
-    sev3:'#99341A', sev2:'#C9714C', sev1:'#EBC4B2', sev1ln:'#D9A98F'
-  };
-  var SANS = "'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif";
+  var C = (typeof module !== 'undefined' && module.exports)
+    ? require('./palette.js')
+    : (typeof globalThis !== 'undefined' ? globalThis : this).DECK_PALETTE;
+  var SANS = "'Inter','Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif";
   var SERIF = "'Noto Serif SC','Songti SC',serif";
   var esc = function (s) { return String(s).replace(/[&<>]/g, function (c) {
     return { '&':'&amp;','<':'&lt;','>':'&gt;' }[c]; }); };
@@ -40,7 +38,7 @@
     var W = 1048, H = 372, s = '';
     s += rect(0, 40, 620, 300, { fill: C.white, stroke: C.line, r: 14 });
     s += txt(28, 70, '综合实践活动　四种活动方式', { size: 13, fill: C.muted, spacing: 1 });
-    s += rect(24, 88, 572, 128, { fill: '#FBF1EC', stroke: C.sev1ln, r: 12 });
+    s += rect(24, 88, 572, 128, { fill: C.wash, stroke: C.sev1ln, r: 12 });
     s += txt(44, 114, '做中学覆盖的一半', { size: 13, fill: C.rust, weight: 700, spacing: 1 });
     [['考察探究', '六个环节的主干'], ['设计制作', '对应制作改进']].forEach(function (it, i) {
       var x = 44 + i * 268;
@@ -146,7 +144,7 @@
     var bw = (W - aw * (n - 1)) / n, s = '';
     nodes.forEach(function (nd, i) {
       var x = i * (bw + aw), last = i === n - 1;
-      s += rect(x, 20, bw, 168, { fill: last ? '#FBF1EC' : C.white, stroke: last ? C.sev1ln : C.line, r: 12 });
+      s += rect(x, 20, bw, 168, { fill: last ? C.wash : C.white, stroke: last ? C.sev1ln : C.line, r: 12 });
       s += '<rect x="' + x + '" y="20" width="' + bw + '" height="4" rx="2" fill="' + (last ? C.rust : C.slate) + '"/>';
       s += txt(x + 20, 60, nd.t, { size: 17, weight: 700, fill: C.navy, serif: true });
       var cur = '', line = 0;
@@ -169,7 +167,7 @@
   F.agent = function () {
     var W = 1048, H = 244, s = '';
     var bx = 0, bw = 316, by = 30, bh = 128;
-    s += rect(bx, by, bw, bh, { fill: '#FBF1EC', stroke: C.sev1ln, r: 12 });
+    s += rect(bx, by, bw, bh, { fill: C.wash, stroke: C.sev1ln, r: 12 });
     s += rect(bx, by + 6, 4, bh - 12, { fill: C.rust, r: 2 });
     s += txt(bx + 22, by + 30, '写一次', { size: 12, fill: C.rust, weight: 700, spacing: 1.4 });
     s += txt(bx + 22, by + 64, '预先写好的指令', { size: 22, weight: 700, fill: C.navy, serif: true });
