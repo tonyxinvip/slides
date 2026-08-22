@@ -41,6 +41,8 @@ if(comprehensiveAt>=0){
     let cardHtml=html.slice(cardStart,cardEnd+10);
     cardHtml=cardHtml
       .replace(/<p class="deck-summary">[\s\S]*?<\/p>/,`<p class="deck-summary">${comprehensiveSummary}</p>`)
+      .replace(/<time datetime="[^"]+"><small>[^<]*日期<\/small><b>[^<]+<\/b><\/time>/,'<time datetime="2026-08-25"><small>讲座日期</small><b>2026-08-25</b></time>')
+      .replace(/<span><small>举办地点<\/small><b>[^<]+<\/b><\/span>/,'<span><small>举办地点</small><b>深圳技术大学</b></span>')
       .replace(/<b>\d+<\/b> 张/,'<b>71</b> 张');
     html=html.slice(0,cardStart)+cardHtml+html.slice(cardEnd+10);
   }
@@ -50,6 +52,8 @@ html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(
     ...deck,
     summary:comprehensiveSummary,
     publishedAt:'2026-08-22',
+    eventDate:'2026-08-25',
+    eventVenue:'深圳技术大学',
     slideCount:71,
     durationMinutes:90
   }:deck);

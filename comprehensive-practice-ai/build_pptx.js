@@ -166,9 +166,9 @@ const R = {
     });
     s.addShape(pres.ShapeType.line, { x:CX, y:4.86, w:CW, h:0, line:{ color:C.white, transparency:72, width:1 } });
     d.meta.forEach((m, i) => {
-      const x = CX + i * 2.5;
-      s.addText(m[0], T({ x, y:5.0, w:2.3, h:0.24, fontSize:10, color:C.dim }));
-      s.addText(m[1], T({ x, y:5.28, w:2.3, h:0.3, fontSize:13, color:C.white }));
+      const x = CX + i * 1.9;
+      s.addText(m[0], T({ x, y:5.0, w:1.7, h:0.24, fontSize:10, color:C.dim }));
+      s.addText(m[1], T({ x, y:5.28, w:1.7, h:0.3, fontSize:13, color:C.white }));
     });
     if (d.handoutDownload) {
       s.addText(d.handoutDownload.label, T({ x:9.26, y:5.04, w:1.65, h:0.24, fontSize:10.5,
