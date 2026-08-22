@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="做中学与综合实践活动">
+  <rect width="1600" height="900" fill="#FFFFFF"/>
+  <text x="120" y="196" fill="#5A6472" font-size="30" letter-spacing="7" font-family="Arial,'PingFang SC',sans-serif">COMPREHENSIVE PRACTICE · AI</text>
+  <text x="120" y="330" fill="#1A2029" font-size="86" font-weight="700" font-family="Arial,'PingFang SC',sans-serif">做中学与综合实践活动</text>
+  <text x="120" y="410" fill="#5A6472" font-size="42" font-family="Arial,'PingFang SC',sans-serif">AI 在任务链条上的位置</text>
+
+  <g font-family="Arial,'PingFang SC',sans-serif" font-size="24" fill="#33414F">
+    <rect x="120" y="530" width="228" height="62" fill="none" stroke="#E2E6EA"/><text x="234" y="568" text-anchor="middle">提出问题和假设</text>
+    <rect x="368" y="530" width="180" height="62" fill="none" stroke="#E2E6EA"/><text x="458" y="568" text-anchor="middle">设计方案</text>
+    <rect x="568" y="530" width="204" height="62" fill="none" stroke="#E2E6EA"/><text x="670" y="568" text-anchor="middle">搜集分析证据</text>
+    <rect x="792" y="530" width="228" height="62" fill="none" stroke="#E2E6EA"/><text x="906" y="568" text-anchor="middle">得出结论并解释</text>
+    <rect x="1040" y="530" width="180" height="62" fill="none" stroke="#E2E6EA"/><text x="1130" y="568" text-anchor="middle">制作改进</text>
+    <rect x="1240" y="530" width="180" height="62" fill="none" stroke="#E2E6EA"/><text x="1330" y="568" text-anchor="middle">交流反思</text>
+  </g>
+
+  <g>
+    <rect x="120" y="650" width="400" height="26" fill="#99341A"/>
+    <rect x="536" y="650" width="264" height="26" fill="#C9714C"/>
+    <rect x="816" y="650" width="120" height="26" fill="#EBC4B2"/>
+    <text x="120" y="712" fill="#5A6472" font-size="24" font-family="Arial,'PingFang SC',sans-serif">收　　　　　　　　　半收　　　　　　半放　　　放</text>
+  </g>
+
+  <text x="120" y="806" fill="#5A6472" font-size="28" font-family="Arial,'PingFang SC',sans-serif">辛海洋 · 2026-08-21 · 深圳</text>
+</svg>
