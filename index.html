@@ -55,4 +55,28 @@ html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(
   }:deck);
   return a+JSON.stringify(decks)+c;
 });
+const comprehensiveSummary='面向综合实践活动教师，说明做中学领航行动与课程目标的关系，并以六个完整案例呈现人工智能在任务链条中的适用位置、过程证据与责任边界。';
+const comprehensiveCardHref='href="./comprehensive-practice-ai/"';
+const comprehensiveAt=html.indexOf(comprehensiveCardHref);
+if(comprehensiveAt>=0){
+  const cardStart=html.lastIndexOf('<article',comprehensiveAt);
+  const cardEnd=html.indexOf('</article>',comprehensiveAt);
+  if(cardStart>=0&&cardEnd>=0){
+    let cardHtml=html.slice(cardStart,cardEnd+10);
+    cardHtml=cardHtml
+      .replace(/<p class="deck-summary">[\s\S]*?<\/p>/,`<p class="deck-summary">${comprehensiveSummary}</p>`)
+      .replace(/<b>\d+<\/b> 张/,'<b>71</b> 张');
+    html=html.slice(0,cardStart)+cardHtml+html.slice(cardEnd+10);
+  }
+}
+html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(_,a,b,c)=>{
+  const decks=JSON.parse(b).map(deck=>deck.slug==='comprehensive-practice-ai'?{
+    ...deck,
+    summary:comprehensiveSummary,
+    publishedAt:'2026-08-22',
+    slideCount:71,
+    durationMinutes:90
+  }:deck);
+  return a+JSON.stringify(decks)+c;
+});
 document.open();document.write(html);document.close()}catch(e){document.getElementById('loading').textContent='浏览器无法载入目录，请使用最新版 Safari、Chrome 或 Edge。';console.error(e)}</script></body></html>
