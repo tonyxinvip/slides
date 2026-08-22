@@ -1,24 +1,39 @@
 /* 做中学与综合实践活动 · 版式
    结构沿用本站既有讲座的做法：左侧书脊导航、衬线大标题、eyebrow 路径行、顶部描边卡片、纸色底。
-   配色仍按本场的口径：一个中性主色加一个警示色，不用默认蓝。
-   警示色只用在三分表加剧列、红线页、收放刻度收紧端、数据红线。 */
+   配色取自 CocoRobo 视觉口径（深蓝主色 + 赭色强调），色值唯一真源在 palette.js。
+   结构用蓝，警示用赭；警示色只用在三分表加剧列、红线页、收放刻度收紧端、数据红线。 */
 
+/* gen:palette */
+/* 由 palette.js 生成，勿手改。改色改 palette.js 后重跑 node palette.js */
 :root{
-  --navy:#0F1B2D;   /* 大标题、书脊 */
-  --ink:#1A2029;    /* 正文        16.4:1 */
-  --muted:#5B6470;  /* 次要        6.2:1  */
-  --line:#E2E7F0;
-  --paper:#F5F7FB;  /* 页底 */
+  --navy:#081B3A;   /* 大标题、书脊 */
+  --ink:#27364A;    /* 正文 */
+  --muted:#5F7088;  /* 次要 */
+  --line:#D9E2EF;   /* 分隔线 */
+  --line2:#BFD3EA;  /* 卡片描边 */
+  --paper:#F7FAFF;  /* 页底 */
   --white:#FFFFFF;  /* 卡片 */
-
-  --rust:#B0472A;   /* 警示        5.6:1 */
-  --slate:#33414F;  /* 结构        10.5:1 */
-  --sev3:#99341A; --sev2:#C9714C; --sev1:#EBC4B2; --sev1ln:#D9A98F;
-  --wash:#FBF1EC;   /* 警示色的极浅底 */
+  --soft:#EEF6FF;   /* 冷色浅底 */
+  --sky:#DBEAFE;    /* 更浅冷底 */
+  --rust:#A8421F;   /* 警示，承字 */
+  --rustf:#C2552F;  /* 警示，图形 */
+  --slate:#1D4ED8;  /* 结构，承字 */
+  --blue:#2563EB;   /* 结构，图形 */
+  --sev3:#7A2C10;   /* 收 */
+  --sev2:#C2552F;   /* 中 */
+  --sev1:#F0CBBB;   /* 放 */
+  --sev1ln:#DFB09C; /* sev1 描边 */
+  --wash:#FCF2EC;   /* 警示极浅底 */
+  --done:#BFD3EA;   /* 书脊已过 */
+  --dim:#8FA3BE;    /* 最弱文字 */
+  --tint1:#DBEAFE;  /* 指令①底 */
+  --tint3:#F2C9B4;  /* 指令③底 */
+  --tint2:#9FB6D4;  /* 指令②下划线 */
 
   --serif:"Noto Serif SC","Songti SC","STSong",serif;
-  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --sans:"Inter","Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
 }
+/* /gen:palette */
 
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -41,9 +56,9 @@ body{
   position:absolute;left:-4px;width:10px;height:10px;border-radius:50%;
   background:var(--white);border:2px solid var(--line);
 }
-.spine i.done{border-color:#C2CBD8;background:#C2CBD8}
-.spine i.on{border-color:var(--rust);background:var(--rust);width:14px;height:14px;left:-6px;
-  box-shadow:0 0 0 5px rgba(176,71,42,.14)}
+.spine i.done{border-color:var(--done);background:var(--done)}
+.spine i.on{border-color:var(--rustf);background:var(--rustf);width:14px;height:14px;left:-6px;
+  box-shadow:0 0 0 5px rgba(194,85,47,.16)}
 .phase-label{
   position:absolute;left:22px;top:50%;transform:translateY(-50%);
   display:flex;flex-direction:column;align-items:center;gap:5px;
@@ -56,7 +71,7 @@ body{
 }
 .pageno{font-size:13px;color:var(--muted);letter-spacing:.08em;font-variant-numeric:tabular-nums}
 .pageno b{color:var(--navy)}
-.tiermark{font-size:11px;letter-spacing:.18em;color:#A9B3C0}
+.tiermark{font-size:11px;letter-spacing:.18em;color:var(--dim)}
 
 /* ── 页 ─────────────────────────────────── */
 .slide{
@@ -81,7 +96,7 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 
 /* ── 卡片 ───────────────────────────────── */
 .card{
-  border:1px solid var(--line);border-top:4px solid var(--slate);border-radius:14px;
+  border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:14px;
   background:var(--white);padding:22px 24px;
 }
 .card.rust{border-top-color:var(--rust)}
@@ -107,7 +122,7 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 /* ── 文件事实页 ─────────────────────────── */
 .factname{font-family:var(--serif);font-size:29px;line-height:1.5;color:var(--navy);margin-top:6px}
 .factrows{display:flex;gap:26px;margin-top:28px}
-.factrows>div{flex:1;border:1px solid var(--line);border-top:4px solid var(--slate);border-radius:12px;
+.factrows>div{flex:1;border:1px solid var(--line);border-top:4px solid var(--blue);border-radius:12px;
   background:var(--white);padding:16px 20px}
 .factrows .k{font-size:12.5px;color:var(--muted);margin-bottom:6px}
 .factrows .v{font-size:17px;color:var(--navy);font-weight:500}
@@ -115,7 +130,7 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 
 /* ── 引文 ───────────────────────────────── */
 .quote{margin-top:6px;font-size:21px;line-height:1.8;background:var(--white);
-  border:1px solid var(--line);border-left:4px solid var(--slate);border-radius:12px;padding:24px 28px}
+  border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:24px 28px}
 .mark{color:var(--rust);font-weight:700}
 
 /* ── 目标与方式并列 ─────────────────────── */
@@ -131,7 +146,7 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 
 /* ── 两份方案 ───────────────────────────── */
 .plans{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:22px 0 auto;align-items:start}
-.plan{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--slate);
+.plan{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--blue);
   border-radius:12px;padding:18px 20px}
 .plan.b{border-top-color:var(--sev2)}
 .plan .tag{font-size:12px;color:var(--muted);letter-spacing:.1em;margin-bottom:10px}
@@ -148,12 +163,12 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 .probs{display:grid;grid-template-columns:1fr 1fr;gap:16px 34px;margin:auto 0}
 .prob{display:grid;grid-template-columns:38px 1fr;gap:14px;align-items:center;
   background:var(--white);border:1px solid var(--line);border-radius:10px;padding:15px 18px}
-.prob b{font-family:var(--serif);font-size:17px;color:#A9B3C0;font-weight:700}
+.prob b{font-family:var(--serif);font-size:17px;color:var(--dim);font-weight:700}
 .prob span{font-size:19px;color:var(--ink)}
 
 /* ── 研究卡 ─────────────────────────────── */
 .study{margin-top:6px;background:var(--white);border:1px solid var(--line);
-  border-top:4px solid var(--slate);border-radius:14px;padding:22px 26px}
+  border-top:4px solid var(--blue);border-radius:14px;padding:22px 26px}
 .study.warn{border-top-color:var(--rust)}
 .study .claim{font-family:var(--serif);font-size:22px;line-height:1.5;color:var(--navy);
   font-weight:700;margin-bottom:16px}
@@ -169,8 +184,8 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 .tricol{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
 .tricol .head{font-family:var(--serif);font-size:21px;font-weight:700;padding-bottom:12px;
   border-bottom:2px solid currentColor;margin-bottom:6px}
-.tricol.alert{border-top:4px solid var(--rust)} .tricol.alert .head{color:var(--rust)}
-.tricol.struct{border-top:4px solid var(--slate)} .tricol.struct .head{color:var(--slate)}
+.tricol.alert{border-top:4px solid var(--rustf)} .tricol.alert .head{color:var(--rust)}
+.tricol.struct{border-top:4px solid var(--blue)} .tricol.struct .head{color:var(--slate)}
 .tricol.muted{border-top:4px solid var(--line)} .tricol.muted .head{color:var(--muted)}
 .tricol li{list-style:none;font-size:17px;line-height:1.4;color:var(--ink);padding:13px 0;
   border-bottom:1px solid var(--line)}
@@ -205,7 +220,7 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 
 /* ── 案例 ───────────────────────────────── */
 .tasks{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:20px;flex:1}
-.task{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--slate);
+.task{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--blue);
   border-radius:14px;padding:20px 22px}
 .task.b{border-top-color:var(--sev2)}
 .task .tn{font-family:var(--serif);font-size:24px;font-weight:700;color:var(--navy)}
@@ -221,7 +236,7 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 .stagelevel.L4{background:var(--white);color:var(--muted);border:1px solid var(--line)}
 .stagemain{flex:1;display:flex;flex-direction:column;justify-content:center;gap:22px;margin-top:20px}
 .twocol{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.sc{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--slate);
+.sc{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--blue);
   border-radius:12px;padding:18px 20px}
 .sc.b{border-left-color:var(--sev2)}
 .sc .n{font-size:12.5px;color:var(--muted);margin-bottom:8px}
@@ -233,7 +248,7 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 .extra.alert{background:var(--wash);border-top:none;border-radius:12px;padding:16px 20px;margin-top:16px}
 .extra.alert .el{color:var(--rust);font-weight:700}
 .scales{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px;align-items:start}
-.scale{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--slate);
+.scale{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--blue);
   border-radius:14px;padding:20px 22px}
 .scale.b{border-top-color:var(--sev2)}
 .scale .sn{font-family:var(--serif);font-size:23px;font-weight:700;color:var(--navy)}
@@ -244,7 +259,7 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 /* ── 红线 / 签名 ────────────────────────── */
 .red{margin-top:22px;display:flex;flex-direction:column;gap:10px}
 .redrow{display:grid;grid-template-columns:132px 1fr;gap:20px;background:var(--white);
-  border:1px solid var(--line);border-left:4px solid var(--rust);border-radius:10px;padding:13px 18px}
+  border:1px solid var(--line);border-left:4px solid var(--rustf);border-radius:10px;padding:13px 18px}
 .redrow .k{font-size:16px;font-weight:700;color:var(--rust)}
 .redrow .v{font-size:15px;color:var(--ink);line-height:1.55}
 .subj{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap}
@@ -258,7 +273,7 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 /* ── 末页 ───────────────────────────────── */
 .takelbl{margin-top:auto;font-size:12.5px;font-weight:700;color:var(--rust);letter-spacing:.14em}
 .takes{margin-top:14px;display:flex;flex-direction:column;gap:7px}
-.take{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--slate);
+.take{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--blue);
   border-radius:9px;padding:9px 18px;display:flex;justify-content:space-between;align-items:baseline;
   max-width:760px}
 .take .tkt{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--navy)}
@@ -283,7 +298,7 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 
 /* ── 教师侧用途（uses）───────────────────── */
 .uses{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
-.use{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--slate);
+.use{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--blue);
   border-radius:12px;padding:16px 20px}
 .use:nth-child(2),.use:nth-child(3){border-top-color:var(--sev2)}
 .use .ut{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--navy)}
@@ -296,31 +311,31 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 .turn{border-radius:12px;padding:14px 20px;display:grid;grid-template-columns:104px 1fr;gap:20px;align-items:start}
 .turn .who{font-size:12.5px;font-weight:700;padding-top:2px}
 .turn .txt{font-size:16px;line-height:1.62}
-.turn.ask{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--slate)}
+.turn.ask{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--blue)}
 .turn.ask .who{color:var(--slate)}
 .turn.ans{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--sev2)}
 .turn.ans .who{color:var(--sev2)}
 .turn.ans .txt{color:var(--muted)}
-.turn.judge{background:var(--wash);border:1px solid var(--sev1ln);border-left:4px solid var(--rust)}
+.turn.judge{background:var(--wash);border:1px solid var(--sev1ln);border-left:4px solid var(--rustf)}
 .turn.judge .who{color:var(--rust)}
 
 /* ── 智能体指令（agentspec）──────────────── */
 .spec{margin-top:22px;background:var(--white);border:1px solid var(--line);
-  border-left:4px solid var(--rust);border-radius:12px;padding:24px 28px}
+  border-left:4px solid var(--rustf);border-radius:12px;padding:24px 28px}
 .spec p{font-size:19px;line-height:1.75;color:var(--ink)}
 .spec .lbl{font-size:12.5px;color:var(--rust);font-weight:700;letter-spacing:.1em;margin-bottom:12px}
 .afterline{margin-top:22px;font-size:17px;color:var(--ink);line-height:1.6}
 
 /* ── 指令原文（specs）───────────────────── */
 .speclist{margin-top:10px;display:flex;flex-direction:column;gap:8px}
-.specitem{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--rust);
+.specitem{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--rustf);
   border-radius:11px;padding:10px 20px;display:grid;grid-template-columns:92px 1fr;gap:18px;align-items:start}
 .specitem .spk{font-size:14px;font-weight:700;color:var(--rust);padding-top:3px;line-height:1.45}
 .specitem .spv{font-size:14.5px;color:var(--ink);line-height:1.62;padding-right:6px}
 
 /* ── 学生侧放开的用法（allow）───────────── */
 .allow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
-.al{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--slate);
+.al{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--blue);
   border-radius:12px;padding:20px 18px 18px;min-height:240px;display:flex;flex-direction:column}
 .al .alt{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--navy)}
 .al .ala{font-size:14px;color:var(--ink);line-height:1.6;margin-top:9px}
@@ -336,7 +351,7 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 
 /* 目录页（apxcover）*/
 .apxlist{margin-top:18px;display:flex;flex-direction:column;gap:8px}
-.apxrow{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--slate);
+.apxrow{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--blue);
   border-radius:10px;padding:11px 20px;display:grid;
   grid-template-columns:118px 1fr 96px 74px;gap:18px;align-items:baseline}
 .apxrow .ax-t{font-size:14px;font-weight:700;color:var(--slate)}
@@ -355,7 +370,7 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 .apxmeta span{font-size:13px;color:var(--muted)}
 .apxmeta b{color:var(--slate);font-weight:600}
 .apxreq{margin-top:14px;background:var(--white);border:1px solid var(--line);
-  border-left:4px solid var(--slate);border-radius:10px;padding:13px 20px}
+  border-left:4px solid var(--blue);border-radius:10px;padding:13px 20px}
 .apxreq p:last-child{font-size:14px;line-height:1.65;color:var(--ink)}
 .apxsteps{margin-top:12px}
 .apxsteps ol{margin:8px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
@@ -401,14 +416,14 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
   line-height:1.45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pk b{color:var(--slate);font-weight:700;margin-right:5px}
 .pk i{font-style:normal;font-size:11.5px;color:var(--muted);margin-left:7px}
-.pk.sg1{background:#EDF1F7;border:1px solid #DCE3EE}
-.pk.sg2{background:var(--paper);border:1px solid var(--line);box-shadow:inset 0 -2px 0 #C2CBD8}
-.pk.sg3{background:var(--wash);border:1px solid var(--sev1ln)}
+.pk.sg1{background:var(--tint1);border:1px solid var(--line2)}
+.pk.sg2{background:var(--paper);border:1px solid var(--line);box-shadow:inset 0 -2px 0 var(--tint2)}
+.pk.sg3{background:var(--tint3);border:1px solid var(--sev1ln)}
 .specitem .spv span{padding:1px 3px;border-radius:3px;box-decoration-break:clone;
   -webkit-box-decoration-break:clone}
-.specitem .spv .sg1{background:#EDF1F7}
-.specitem .spv .sg2{background:transparent;box-shadow:inset 0 -1px 0 #C2CBD8}
-.specitem .spv .sg3{background:var(--wash);box-shadow:inset 0 -2px 0 var(--sev1ln)}
+.specitem .spv .sg1{background:var(--tint1)}
+.specitem .spv .sg2{background:transparent;box-shadow:inset 0 -1px 0 var(--tint2)}
+.specitem .spv .sg3{background:var(--tint3);box-shadow:inset 0 -2px 0 var(--sev1ln)}
 
 /* AI 返回逐条编号与采纳标记（第 27 页）*/
 .rets{display:flex;flex-direction:column;gap:5px}
