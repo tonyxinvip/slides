@@ -6,7 +6,32 @@
 const pptxgen = require('pptxgenjs');
 const fs = require('fs');
 const path = require('path');
-const SLIDES = require('./slides.data.js');
+const ALL_SLIDES = require('./slides.data.js');
+const argv = process.argv.slice(2);
+const MODE60 = argv.includes('--60');
+const originalToCurrent = {};
+const filtered = MODE60 ? ALL_SLIDES.filter(x => x.tier !== 'B') : ALL_SLIDES;
+filtered.forEach((x, i) => { originalToCurrent[x.n] = i + 1; });
+function remapText(value) {
+  return String(value)
+    .replace(/第\s*(\d+)—(\d+)\s*页/g, (match, a, b) =>
+      originalToCurrent[a] && originalToCurrent[b] ? `第 ${originalToCurrent[a]}—${originalToCurrent[b]} 页` : match)
+    .replace(/第\s*(\d+)\s*页/g, (match, n) =>
+      originalToCurrent[n] ? `第 ${originalToCurrent[n]} 页` : match);
+}
+function remap(value, key) {
+  if (Array.isArray(value)) return value.map(x => remap(x));
+  if (value && typeof value === 'object') {
+    return Object.keys(value).reduce((out, k) => (out[k] = remap(value[k], k), out), {});
+  }
+  if (typeof value !== 'string') return value;
+  if (key === 'p' && /^(\d+)—(\d+)$/.test(value)) {
+    return value.replace(/^(\d+)—(\d+)$/, (match, a, b) =>
+      originalToCurrent[a] && originalToCurrent[b] ? `${originalToCurrent[a]}—${originalToCurrent[b]}` : match);
+  }
+  return remapText(value);
+}
+const SLIDES = MODE60 ? filtered.map(x => remap(x)) : filtered;
 
 const FIGDIR = path.join(__dirname, 'figures');
 const FIGMETA = JSON.parse(fs.readFileSync(path.join(FIGDIR, 'meta.json'), 'utf8'));
@@ -66,25 +91,29 @@ function stepbar(s, x, y, step) {
 
 /* ── 常驻构件 ─────────────────────────────── */
 function chrome(s, d, idx, total) {
-  s.background = { color: C.paper };
+  const dark = d.layout === 'cover' || d.layout === 'statement';
+  const chromeLine = dark ? C.muted : C.line;
+  const chromeText = dark ? C.dim : C.muted;
+  const chromeStrong = dark ? C.white : C.navy;
+  s.background = { color: dark ? C.navy : C.paper };
   const top = IN(96), bot = IN(610), x = IN(56);
-  s.addShape(pres.ShapeType.line, { x, y:top, w:0, h:bot - top, line:{ color:C.line, width:1.5 } });
+  s.addShape(pres.ShapeType.line, { x, y:top, w:0, h:bot - top, line:{ color:chromeLine, transparency:dark ? 55 : 0, width:1.5 } });
   const si = ORDER.indexOf(d.sec);
   ORDER.forEach((_, i) => {
     const cy = top + (bot - top) * (i / (ORDER.length - 1));
     const on = i === si, done = i < si, r = on ? IN(7) : IN(5);
     s.addShape(pres.ShapeType.ellipse, { x:x - r, y:cy - r, w:r * 2, h:r * 2,
-      fill:{ color: on ? C.rustf : (done ? C.done : C.white) },
-      line:{ color: on ? C.rustf : (done ? C.done : C.line), width:2 } });
+      fill:{ color: on ? C.rustf : (done ? C.done : (dark ? C.navy : C.white)) },
+      line:{ color: on ? C.rustf : (done ? C.done : chromeLine), width:2 } });
   });
   s.addText(d.sec.split('').join('\n'),
-    T({ x:IN(10), y:H / 2 - 0.6, w:IN(30), h:1.2, fontSize:9, color:C.muted,
+    T({ x:IN(10), y:H / 2 - 0.6, w:IN(30), h:1.2, fontSize:9, color:chromeText,
         align:'center', valign:'middle', lineSpacingMultiple:1.35 }));
-  s.addText([{ text:String(idx).padStart(2, '0'), options:{ bold:true, color:C.navy } },
-             { text:' / ' + total, options:{ color:C.muted } }],
+  s.addText([{ text:String(idx).padStart(2, '0'), options:{ bold:true, color:chromeStrong } },
+             { text:' / ' + total, options:{ color:chromeText } }],
     T({ x:CX, y:H - 0.62, w:2, h:0.26, fontSize:10, charSpacing:0.6 }));
   s.addText(d.tier === '附' ? '附录' : d.tier + ' 档',
-    T({ x:W - PAD_R - 1.4, y:H - 0.62, w:1.4, h:0.26, fontSize:8, color:C.dim, align:'right', charSpacing:1.4 }));
+    T({ x:W - PAD_R - 1.4, y:H - 0.62, w:1.4, h:0.26, fontSize:8, color:chromeText, align:'right', charSpacing:1.4 }));
 }
 
 /* ── 通用块 ──────────────────────────────── */
@@ -122,23 +151,33 @@ function fig(s, name, y, maxH) {
 /* ── 逐版式 ──────────────────────────────── */
 const R = {
   cover(s, d) {
-    s.addText(d.kicker, T({ x:CX, y:1.32, w:CW, h:0.26, fontSize:10, bold:true, color:C.rust, charSpacing:2.2 }));
-    s.addText(d.title, { fontFace:DISPLAY, color:C.navy, margin:0, x:CX, y:1.72, w:CW, h:1.1, fontSize:50, bold:true });
-    s.addText(d.sub, T({ x:CX, y:2.92, w:CW, h:0.44, fontSize:19, color:C.muted }));
-    const bw = 1.62, gap = 0.2;
+    s.addText(d.kicker, T({ x:CX, y:1.22, w:CW, h:0.26, fontSize:10, bold:true, color:C.sev1, charSpacing:2.2 }));
+    s.addText(d.title, { fontFace:DISPLAY, color:C.white, margin:0, x:CX, y:1.64, w:CW, h:1.1, fontSize:50, bold:true });
+    s.addText(d.sub, T({ x:CX, y:2.84, w:CW, h:0.44, fontSize:19, color:C.done }));
+    const bw = 1.62, gap = 0.2, railY = 3.78;
+    s.addShape(pres.ShapeType.line, { x:CX + 0.32, y:railY, w:CW - 0.64, h:0,
+      line:{ color:C.white, transparency:65, width:1.5 } });
     d.chain.forEach((c, i) => {
       const x = CX + i * (bw + gap);
-      s.addShape(pres.ShapeType.roundRect, { x, y:3.66, w:bw, h:0.42, rectRadius:0.07,
-        fill:{ color:C.white }, line:{ color:C.line, width:1 } });
-      s.addText(c, T({ x, y:3.66, w:bw, h:0.42, fontSize:10, color:C.slate, align:'center', valign:'middle' }));
-      if (i < d.chain.length - 1) s.addShape(pres.ShapeType.line,
-        { x:x + bw, y:3.87, w:gap, h:0, line:{ color:C.line, width:1 } });
+      s.addShape(pres.ShapeType.ellipse, { x:x + bw / 2 - 0.07, y:railY - 0.07, w:0.14, h:0.14,
+        fill:{ color:C.rustf }, line:{ color:C.white, transparency:30, width:1.5 } });
+      s.addText(c, T({ x, y:railY + 0.18, w:bw, h:0.32, fontSize:10.5, bold:true,
+        color:C.white, align:'center', valign:'middle' }));
     });
+    s.addShape(pres.ShapeType.line, { x:CX, y:4.86, w:CW, h:0, line:{ color:C.white, transparency:72, width:1 } });
     d.meta.forEach((m, i) => {
       const x = CX + i * 2.5;
-      s.addText(m[0], T({ x, y:5.0, w:2.3, h:0.24, fontSize:11, color:C.muted }));
-      s.addText(m[1], T({ x, y:5.3, w:2.3, h:0.3, fontSize:14, color:C.navy }));
+      s.addText(m[0], T({ x, y:5.0, w:2.3, h:0.24, fontSize:10, color:C.dim }));
+      s.addText(m[1], T({ x, y:5.28, w:2.3, h:0.3, fontSize:13, color:C.white }));
     });
+    if (d.handoutDownload) {
+      s.addText(d.handoutDownload.label, T({ x:9.26, y:5.04, w:1.65, h:0.24, fontSize:10.5,
+        bold:true, color:C.white, align:'right' }));
+      s.addText(d.handoutDownload.detail, T({ x:9.26, y:5.31, w:1.65, h:0.2, fontSize:8.5,
+        color:C.dim, align:'right' }));
+      s.addImage({ path:path.join(__dirname, d.handoutDownload.qr), x:11.08, y:4.89, w:0.92, h:0.92,
+        hyperlink:{ url:d.handoutDownload.url } });
+    }
   },
   factfile(s, d) {
     top(s, d);
@@ -204,12 +243,21 @@ const R = {
   statement(s, d) {
     let y = 2.7;
     if (d.title) {
-      s.addText(d.title, T({ x:CX, y:2.42, w:CW, h:0.26, fontSize:10, bold:true, color:C.rust, charSpacing:2.2 }));
+      s.addText(d.title, T({ x:CX, y:2.42, w:CW, h:0.26, fontSize:10, bold:true, color:C.sev1, charSpacing:2.2 }));
       y = 2.86;
     }
-    s.addText(d.big, { fontFace:DISPLAY, color:C.navy, margin:0, x:CX, y, w:CW - 0.9, h:2.5,
+    s.addShape(pres.ShapeType.rect, { x:CX, y:y + 0.04, w:0.05, h:1.35, fill:{ color:C.rustf }, line:{ color:C.rustf, width:0 } });
+    s.addText(d.big, { fontFace:DISPLAY, color:C.white, margin:0, x:CX + 0.28, y, w:CW - 1.18, h:2.5,
       fontSize:25, bold:true, lineSpacingMultiple:1.45, valign:'top' });
-    if (d.sub) s.addText(d.sub, T({ x:CX, y:y + 1.6, w:CW - 0.9, h:0.4, fontSize:15, color:C.muted }));
+    if (d.sub) s.addText(d.sub, T({ x:CX + 0.28, y:y + 1.6, w:CW - 1.18, h:0.4, fontSize:15, color:C.done }));
+    if (d.route) {
+      s.addShape(pres.ShapeType.line, { x:CX + 0.28, y:y + 2.54, w:CW - 1.18, h:0,
+        line:{ color:C.muted, width:1, transparency:45 } });
+      s.addText(d.routeLabel, T({ x:CX + 0.28, y:y + 2.68, w:CW - 1.18, h:0.2,
+        fontSize:9.5, bold:true, color:C.dim, charSpacing:1.2 }));
+      s.addText(d.route, T({ x:CX + 0.28, y:y + 2.98, w:CW - 1.18, h:0.42,
+        fontSize:15, color:C.done, valign:'top' }));
+    }
   },
   twoplans(s, d) {
     const y = top(s, d), cw = (CW - 0.24) / 2, bh = 3.1;
@@ -276,21 +324,21 @@ const R = {
     footNote(s, d.caveat);
   },
   tri(s, d) {
-    const y = top(s, d), cw = (CW - 0.42) / 3;
+    const y = top(s, d), cw = (CW - 0.7) / 3;
     const tone = { alert:C.rust, struct:C.slate, muted:C.line };
     const headC = { alert:C.rust, struct:C.slate, muted:C.muted };
     d.cols.forEach((c, i) => {
-      const x = CX + i * (cw + 0.21), bh = 3.5;
-      card(s, x, y, cw, bh, tone[c.tone]);
-      s.addText(c.head, { fontFace:DISPLAY, color:headC[c.tone], margin:0, x:x + 0.22, y:y + 0.2,
-        w:cw - 0.44, h:0.34, fontSize:16, bold:true });
-      s.addShape(pres.ShapeType.line, { x:x + 0.22, y:y + 0.62, w:cw - 0.44, h:0, line:{ color:headC[c.tone], width:2 } });
+      const x = CX + i * (cw + 0.35);
+      s.addShape(pres.ShapeType.line, { x, y, w:cw, h:0, line:{ color:tone[c.tone], width:4 } });
+      s.addText(c.head, { fontFace:DISPLAY, color:headC[c.tone], margin:0, x, y:y + 0.18,
+        w:cw, h:0.38, fontSize:17, bold:true });
       c.items.forEach((it, k) => {
-        const yy = y + 0.72 + k * 0.66;
-        s.addText(it, T({ x:x + 0.22, y:yy, w:cw - 0.44, h:0.5, fontSize:13,
+        const yy = y + 0.76 + k * 0.66;
+        s.addShape(pres.ShapeType.line, { x, y:yy + 0.2, w:0.1, h:0, line:{ color:headC[c.tone], transparency:35, width:1.5 } });
+        s.addText(it, T({ x:x + 0.22, y:yy, w:cw - 0.22, h:0.5, fontSize:13,
           color: c.tone === 'muted' ? C.muted : C.ink, lineSpacingMultiple:1.25, valign:'middle' }));
         if (k < c.items.length - 1) s.addShape(pres.ShapeType.line,
-          { x:x + 0.22, y:yy + 0.56, w:cw - 0.44, h:0, line:{ color:C.line, width:1 } });
+          { x, y:yy + 0.56, w:cw, h:0, line:{ color:C.line, width:1 } });
       });
     });
   },
@@ -308,28 +356,38 @@ const R = {
   threeq(s, d) {
     top(s, d);
     const has = d.items.some(x => x.then);
-    const step = has ? 1.06 : 0.86, y0 = has ? 2.42 : 2.7;
+    const gap = 0.3, cw = (CW - gap * 2) / 3, y0 = has ? 2.5 : 2.72;
+    s.addShape(pres.ShapeType.line, { x:CX + 0.28, y:y0 + 0.27, w:CW - 0.56, h:0, line:{ color:C.line2, width:1.5 } });
     d.items.forEach((it, i) => {
-      const y = y0 + i * step;
-      s.addText(it.no, { fontFace:DISPLAY, color:C.rust, margin:0, x:CX, y, w:0.45, h:0.5, fontSize:16, bold:true });
-      s.addText(it.q, { fontFace:DISPLAY, color:C.navy, margin:0, x:CX + 0.62, y:y - 0.06, w:CW - 0.62,
-        h:0.6, fontSize:23, bold:true, valign:'top' });
+      const x = CX + i * (cw + gap);
+      s.addShape(pres.ShapeType.ellipse, { x, y:y0, w:0.54, h:0.54, fill:{ color:C.paper }, line:{ color:C.rustf, width:1.7 } });
+      s.addText(it.no, { fontFace:DISPLAY, color:C.rust, margin:0, x, y:y0, w:0.54, h:0.54,
+        fontSize:14, bold:true, align:'center', valign:'middle' });
+      s.addText(it.q, { fontFace:DISPLAY, color:C.navy, margin:0, x, y:y0 + 0.78, w:cw - 0.08,
+        h:0.95, fontSize:18, bold:true, lineSpacingMultiple:1.35, valign:'top' });
       if (it.then) {
-        s.addShape(pres.ShapeType.rect, { x:CX + 0.62, y:y + 0.46, w:0.02, h:0.24,
-          fill:{ color:C.sev1ln }, line:{ width:0, color:C.sev1ln } });
-        s.addText(it.then, T({ x:CX + 0.76, y:y + 0.44, w:CW - 0.76, h:0.28, fontSize:11.5, color:C.muted }));
+        s.addShape(pres.ShapeType.line, { x, y:y0 + 1.76, w:cw - 0.08, h:0, line:{ color:C.sev1ln, width:1.5 } });
+        s.addText(it.then, T({ x, y:y0 + 1.86, w:cw - 0.08, h:0.76, fontSize:10.5, color:C.muted,
+          lineSpacingMultiple:1.4, valign:'top' }));
       }
     });
     footNote(s, d.kicker);
   },
   threedo(s, d) {
     top(s, d);
-    const nw = Math.max(0.5, 0.24 + Math.max.apply(null, d.items.map(x => x.no.length)) * 0.24);
+    const gap = 0.3, cw = (CW - gap * 2) / 3, y0 = 2.56;
+    s.addShape(pres.ShapeType.line, { x:CX + 0.28, y:y0 + 0.27, w:CW - 0.56, h:0, line:{ color:C.line2, width:1.5 } });
     d.items.forEach((it, i) => {
-      const y = 2.5 + i * 1.02, tx = CX + nw + 0.22;
-      s.addText(it.no, { fontFace:DISPLAY, color:C.rust, margin:0, x:CX, y, w:nw, h:0.44, fontSize:16, bold:true });
-      s.addText(it.t, { fontFace:DISPLAY, color:C.navy, margin:0, x:tx, y, w:CW - nw - 0.22, h:0.42, fontSize:20, bold:true });
-      s.addText(it.d, T({ x:tx, y:y + 0.44, w:CW - nw - 0.22, h:0.4, fontSize:11.5, color:C.muted, valign:'top' }));
+      const x = CX + i * (cw + gap);
+      s.addShape(pres.ShapeType.roundRect, { x, y:y0, w:0.78, h:0.54, rectRadius:0.27,
+        fill:{ color:C.paper }, line:{ color:C.rustf, width:1.7 } });
+      s.addText(it.no, { fontFace:DISPLAY, color:C.rust, margin:0, x, y:y0, w:0.78, h:0.54,
+        fontSize:11, bold:true, align:'center', valign:'middle' });
+      s.addText(it.t, { fontFace:DISPLAY, color:C.navy, margin:0, x, y:y0 + 0.78, w:cw - 0.08, h:0.62,
+        fontSize:17, bold:true, valign:'top' });
+      s.addShape(pres.ShapeType.line, { x, y:y0 + 1.48, w:cw - 0.08, h:0, line:{ color:C.line, width:1 } });
+      s.addText(it.d, T({ x, y:y0 + 1.62, w:cw - 0.08, h:1.05, fontSize:11, color:C.muted,
+        lineSpacingMultiple:1.4, valign:'top' }));
     });
     footNote(s, d.kicker);
   },
@@ -337,10 +395,15 @@ const R = {
     const y = top(s, d);
     const rows = [[{ text:'', options:{ fill:{ color:C.paper } } }]
       .concat(d.cols.map(c => ({ text:c, options:{ fill:{ color:C.paper }, color:C.muted, fontSize:9.5 } })))]
-      .concat(d.rows.map(r => [{ text:r, options:{ fontSize:12.5 } }, '', '', '']));
-    s.addTable(rows, { x:CX, y:y + 0.1, w:CW, colW:[2.3, 2.87, 2.87, 2.87], rowH:0.5,
+      .concat(d.rows.map((r, i) => {
+        const sample = d.sampleRows && d.sampleRows[i];
+        return [{ text:r, options:{ fontSize:11.5, bold:true } }].concat(sample
+          ? sample.map(v => ({ text:v, options:{ fontSize:9, color:C.ink, valign:'top' } }))
+          : ['', '', '']);
+      }));
+    s.addTable(rows, { x:CX, y:y + 0.06, w:CW, colW:[2.3, 2.87, 2.87, 2.87], rowH:0.62,
       border:{ type:'solid', color:C.line, pt:1 }, fill:{ color:C.white },
-      fontFace:BODY, color:C.ink, valign:'middle', margin:6 });
+      fontFace:BODY, color:C.ink, valign:'middle', margin:5 });
     footNote(s, d.foot);
   },
   twotasks(s, d) {
@@ -362,25 +425,26 @@ const R = {
     headline(s, d.title, PAD_T + 0.34);
     const lw = Math.max(0.9, 0.34 + d.level.length * 0.2);
     const bx = CX + d.title.length * 0.46 + 0.28;
-    const fill = { 1:C.sev3, 2:C.sev2, 3:C.sev1, 4:C.white };
-    const fg = { 1:C.white, 2:C.white, 3:C.ink, 4:C.muted };
-    s.addShape(pres.ShapeType.roundRect, { x:bx, y:PAD_T + 0.46, w:lw, h:0.36, rectRadius:0.18,
-      fill:{ color:fill[d.levelIdx] }, line:{ color: d.levelIdx >= 3 ? C.sev1ln : fill[d.levelIdx], width:1 } });
+    const stamp = { 1:C.rust, 2:C.rustf, 3:C.sev2, 4:C.muted };
+    s.addShape(pres.ShapeType.rect, { x:bx, y:PAD_T + 0.46, w:lw, h:0.36,
+      fill:{ color:C.paper, transparency:100 }, line:{ color:stamp[d.levelIdx], width:1.5 } });
     s.addText(d.level, T({ x:bx, y:PAD_T + 0.46, w:lw, h:0.36, fontSize:11, bold:true,
-      color:fg[d.levelIdx], align:'center', valign:'middle' }));
+      color:stamp[d.levelIdx], align:'center', valign:'middle' }));
     stepbar(s, W - PAD_R - 4.2, PAD_T + 0.44, d.step);
-    const cw = (CW - 0.24) / 2, by = 2.1, bh = 1.02;
+    const cw = (CW - 0.4) / 2, by = 2.18, bh = 1.05;
     [d.left, d.right].forEach((c, i) => {
-      const x = CX + i * (cw + 0.24);
-      s.addShape(pres.ShapeType.roundRect, { x, y:by, w:cw, h:bh, rectRadius:0.08,
-        fill:{ color:C.white }, line:{ color:C.line, width:1 } });
-      s.addShape(pres.ShapeType.rect, { x, y:by + 0.06, w:IN(4), h:bh - 0.12,
+      const x = CX + i * (cw + 0.4);
+      s.addShape(pres.ShapeType.rect, { x, y:by + 0.02, w:IN(5), h:bh - 0.04,
         fill:{ color: i ? C.sev2 : C.slate }, line:{ width:0, color: i ? C.sev2 : C.slate } });
       s.addText(c.name, T({ x:x + 0.24, y:by + 0.14, w:cw - 0.46, h:0.2, fontSize:9.5, color:C.muted }));
       s.addText(c.body, T({ x:x + 0.24, y:by + 0.4, w:cw - 0.46, h:bh - 0.54, fontSize:13, lineSpacingMultiple:1.4, valign:'top' }));
     });
-    s.addText(d.rule, { fontFace:DISPLAY, color:C.navy, margin:0, x:CX, y:by + bh + 0.34,
-      w:CW, h:0.7, fontSize:18, bold:true, lineSpacingMultiple:1.4, valign:'top' });
+    const ry = by + bh + 0.3;
+    s.addShape(pres.ShapeType.rect, { x:CX, y:ry, w:CW, h:0.92, fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+    s.addShape(pres.ShapeType.rect, { x:CX, y:ry + 0.12, w:0.05, h:0.68, fill:{ color:C.rustf }, line:{ color:C.rustf, width:0 } });
+    s.addText(d.rule, { fontFace:DISPLAY, color:C.navy, margin:0, x:CX + 0.28, y:ry + 0.12,
+      w:CW - 0.56, h:0.62, fontSize:18, bold:true, lineSpacingMultiple:1.35, valign:'top' });
+    s.addShape(pres.ShapeType.line, { x:CX + 0.28, y:ry + 0.76, w:CW - 0.56, h:0, line:{ color:C.sev1ln, width:1.5 } });
     const ey = H - 1.62, alert = d.extra.tone === 'alert';
     if (alert) s.addShape(pres.ShapeType.roundRect, { x:CX, y:ey - 0.06, w:CW, h:1.02, rectRadius:0.08,
       fill:{ color:C.wash }, line:{ color:C.wash, width:0 } });
@@ -404,24 +468,35 @@ const R = {
   },
   tracktable(s, d) {
     const y = top(s, d);
-    const rows = [d.cols.map(c => ({ text:c, options:{ fill:{ color:C.paper }, color:C.muted, fontSize:9.5 } })),
-                  d.sample.map(c => ({ text:c, options:{ fontSize:12, valign:'top' } }))];
-    s.addTable(rows, { x:CX, y:y + 0.3, w:CW, colW:[2.73, 2.73, 2.73, 2.72], rowH:[0.4, 1.7],
+    s.addText(d.focus, T({ x:W - PAD_R - 2.2, y:y + 0.02, w:2.2, h:0.24, fontSize:9.5,
+      bold:true, color:C.rust, align:'right', charSpacing:0.8 }));
+    const rows = [d.cols.map((c, i) => ({ text:c, options:{ fill:{ color:i === 3 ? C.wash : C.paper }, color:i === 3 ? C.rust : C.muted, fontSize:9.5, bold:i === 3 } })),
+                  d.sample.map((c, i) => ({ text:c, options:{ fill:{ color:i === 3 ? C.wash : C.white }, fontSize:11.5, valign:'top' } }))];
+    for (let r = 0; r < (d.blankRows || 0); r++) rows.push(d.cols.map((_, i) => ({ text:'', options:{ fill:{ color:i === 3 ? C.wash : C.white } } })));
+    s.addTable(rows, { x:CX, y:y + 0.34, w:CW, colW:[2.73, 2.73, 2.73, 2.72], rowH:[0.38, 1.15, 0.48, 0.48],
       border:{ type:'solid', color:C.line, pt:1 }, fill:{ color:C.white },
-      fontFace:BODY, color:C.ink, margin:9, lineSpacingMultiple:1.4 });
+      fontFace:BODY, color:C.ink, margin:8, lineSpacingMultiple:1.35 });
     footNote(s, d.kicker);
   },
   redlines(s, d) {
     const y = top(s, d);
-    d.items.forEach((it, i) => {
-      const yy = y + i * 0.66;
-      s.addShape(pres.ShapeType.roundRect, { x:CX, y:yy, w:CW, h:0.56, rectRadius:0.07,
-        fill:{ color:C.white }, line:{ color:C.line, width:1 } });
-      s.addShape(pres.ShapeType.rect, { x:CX, y:yy + 0.05, w:IN(4), h:0.46, fill:{ color:C.rustf }, line:{ width:0, color:C.rust } });
-      s.addText(it.t, T({ x:CX + 0.24, y:yy, w:1.4, h:0.56, fontSize:13, bold:true, color:C.rust, valign:'middle' }));
-      s.addText(it.d, T({ x:CX + 1.76, y:yy, w:CW - 2.0, h:0.56, fontSize:12, lineSpacingMultiple:1.35, valign:'middle' }));
+    let yy = y;
+    const roles = [...new Set(d.items.map(x => x.role))];
+    roles.forEach(role => {
+      const items = d.items.filter(x => x.role === role), laneH = items.length * 0.56 + (items.length - 1) * 0.07;
+      s.addShape(pres.ShapeType.rect, { x:CX, y:yy, w:0.92, h:laneH, fill:{ color:C.navy }, line:{ color:C.navy, width:0 } });
+      s.addText(role, T({ x:CX + 0.06, y:yy, w:0.8, h:laneH, fontSize:9.5, bold:true, color:C.white,
+        align:'center', valign:'middle' }));
+      items.forEach((it, i) => {
+        const ry = yy + i * 0.63, rx = CX + 1.08, rw = CW - 1.08;
+        s.addShape(pres.ShapeType.rect, { x:rx, y:ry, w:rw, h:0.56, fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+        s.addShape(pres.ShapeType.rect, { x:rx, y:ry + 0.05, w:IN(4), h:0.46, fill:{ color:C.rustf }, line:{ width:0, color:C.rust } });
+        s.addText(it.t, T({ x:rx + 0.22, y:ry, w:1.48, h:0.56, fontSize:11.5, bold:true, color:C.rust, valign:'middle' }));
+        s.addText(it.d, T({ x:rx + 1.78, y:ry, w:rw - 2.0, h:0.56, fontSize:10.5, lineSpacingMultiple:1.3, valign:'middle' }));
+      });
+      yy += laneH + 0.1;
     });
-    let ry = y + d.items.length * 0.66 + 0.14;
+    let ry = yy + 0.02;
     if (d.kicker) { s.addText(d.kicker, T({ x:CX, y:ry, w:CW, h:0.3, fontSize:13, color:C.ink })); ry += 0.38; }
     srcLine(s, d.src, ry);
     footNote(s, d.caveat);
@@ -431,17 +506,21 @@ const R = {
     let x = CX;
     d.subjects.forEach(t => {
       const w = 0.44 + t.length * 0.27;
-      s.addShape(pres.ShapeType.roundRect, { x, y:2.7, w, h:0.58, rectRadius:0.09,
-        fill:{ color:C.white }, line:{ color:C.line, width:1 } });
-      s.addText(t, { fontFace:DISPLAY, color:C.navy, margin:0, x, y:2.7, w, h:0.58, fontSize:15, bold:true, align:'center', valign:'middle' });
+      s.addText(t, { fontFace:DISPLAY, color:C.navy, margin:0, x, y:2.68, w, h:0.48, fontSize:14, bold:true, valign:'middle' });
       x += w + 0.2;
     });
-    s.addText(d.absent, T({ x:CX, y:3.52, w:CW, h:0.36, fontSize:15, bold:true, color:C.rust }));
+    s.addShape(pres.ShapeType.line, { x:CX, y:2.64, w:CW, h:0, line:{ color:C.line, width:1 } });
+    s.addShape(pres.ShapeType.line, { x:CX, y:3.18, w:CW, h:0, line:{ color:C.line, width:1 } });
+    s.addShape(pres.ShapeType.rect, { x:CX, y:3.42, w:1.05, h:0.34, fill:{ color:C.paper, transparency:100 }, line:{ color:C.rustf, width:1.5 } });
+    s.addText(d.absent, T({ x:CX, y:3.42, w:1.05, h:0.34, fontSize:11, bold:true, color:C.rust, align:'center', valign:'middle' }));
     d.split.forEach((p, i) => {
       const bx = CX + i * (CW / 2);
-      s.addText(p[0], T({ x:bx, y:4.36, w:CW / 2 - 0.4, h:0.22, fontSize:9.5, color:C.muted }));
-      s.addText(p[1], { fontFace:DISPLAY, color:C.navy, margin:0, x:bx, y:4.64, w:CW / 2 - 0.4, h:0.44, fontSize:21, bold:true });
+      s.addText(p[0], T({ x:bx, y:4.08, w:CW / 2 - 0.4, h:0.22, fontSize:9.5, color:C.muted }));
+      s.addText(p[1], { fontFace:DISPLAY, color:C.navy, margin:0, x:bx, y:4.36, w:CW / 2 - 0.4, h:0.44, fontSize:20, bold:true });
     });
+    s.addText('→', T({ x:CX + CW / 2 - 0.28, y:4.28, w:0.56, h:0.44, fontSize:20, color:C.rust, align:'center' }));
+    s.addText(d.signLabel, T({ x:CX, y:5.28, w:0.9, h:0.24, fontSize:9.5, bold:true, color:C.rust }));
+    s.addShape(pres.ShapeType.line, { x:CX + 1.05, y:5.5, w:3.7, h:0, line:{ color:C.navy, width:1 } });
   },
   toolpos(s, d) {
     const y = top(s, d);
@@ -489,7 +568,7 @@ const R = {
     });
     const kw = 1.16, tx = CX + 0.26 + kw + 0.22, tw = CW - 0.26 - kw - 0.44;
     let yy = y + 0.78;
-    d.specs.forEach(it => {
+    d.specs.slice(0, d.screenSpecs || d.specs.length).forEach(it => {
       const lines = Math.ceil(it.seg.join('').length / 50), h = 0.3 + lines * 0.3;
       s.addShape(pres.ShapeType.roundRect, { x:CX, y:yy, w:CW, h, rectRadius:0.08,
         fill:{ color:C.white }, line:{ color:C.line, width:1 } });
@@ -501,6 +580,8 @@ const R = {
         T({ x:tx, y:yy + 0.14, w:tw, h:h - 0.28, fontSize:12, lineSpacingMultiple:1.5, valign:'top' }));
       yy += h + 0.14;
     });
+    if (d.screenNote) s.addText(d.screenNote, T({ x:CX, y:yy + 0.02, w:CW, h:0.24,
+      fontSize:10, color:C.muted }));
     footNote(s, d.foot);
   },
   allow(s, d) {
@@ -564,7 +645,7 @@ const R = {
       fill:{ color:C.white }, line:{ color:C.line, width:1 } });
     s.addShape(pres.ShapeType.rect, { x:CX, y:sy + 0.06, w:IN(4), h:sh - 0.12,
       fill:{ color:C.rustf }, line:{ width:0, color:C.rust } });
-    s.addText('可直接照抄的指令', T({ x:CX + 0.3, y:sy + 0.13, w:CW - 0.6, h:0.2, fontSize:9.5,
+    s.addText('可直接使用的指令', T({ x:CX + 0.3, y:sy + 0.13, w:CW - 0.6, h:0.2, fontSize:9.5,
       bold:true, color:C.rust, charSpacing:1.2 }));
     s.addText(d.spec, T({ x:CX + 0.3, y:sy + 0.38, w:CW - 0.6, h:sh - 0.48, fontSize:12.5,
       lineSpacingMultiple:1.55, valign:'top' }));
@@ -573,9 +654,9 @@ const R = {
   /* ── 附录 ───────────────────────────────── */
   apxcover(s, d) {
     const y = top(s, d);
-    s.addText(d.lead, T({ x:CX, y:y - 0.06, w:CW, h:0.42, fontSize:11.5, color:C.muted,
+    s.addText(d.lead, T({ x:CX, y:y - 0.06, w:CW, h:0.58, fontSize:11, color:C.muted,
       lineSpacingMultiple:1.4, valign:'top' }));
-    let yy = y + 0.5;
+    let yy = y + 0.66;
     const rh = 0.42;
     d.items.forEach(it => {
       s.addShape(pres.ShapeType.roundRect, { x:CX, y:yy, w:CW, h:rh, rectRadius:0.06,
@@ -697,15 +778,54 @@ const R = {
       fill:{ color:C.white }, line:{ color:C.line, width:1 } });
     s.addShape(pres.ShapeType.rect, { x:CX, y:yy + 0.05, w:IN(4), h:sh - 0.1,
       fill:{ color:C.rustf }, line:{ width:0, color:C.rust } });
-    s.addText('教师侧可直接照抄的指令', T({ x:CX + 0.26, y:yy + 0.12, w:CW - 0.5, h:0.2,
+    s.addText('教师侧指令示例', T({ x:CX + 0.26, y:yy + 0.12, w:CW - 0.5, h:0.2,
       fontSize:9.5, bold:true, color:C.rust, charSpacing:1 }));
     s.addText(d.spec, T({ x:CX + 0.26, y:yy + 0.38, w:CW - 0.52, h:sh - 0.48, fontSize:11.5,
       lineSpacingMultiple:1.55, valign:'top' }));
   },
+  apxteach(s, d) {
+    eyebrow(s, d);
+    s.addText(d.theme, T({ x:CX, y:PAD_T + 0.30, w:CW, h:0.22, fontSize:10.5, bold:true,
+      color:C.slate, charSpacing:0.6 }));
+    headline(s, d.title, PAD_T + 0.56, 25);
+    s.addText(d.lead, T({ x:CX, y:PAD_T + 1.26, w:CW, h:0.22, fontSize:9.5,
+      color:C.muted, lineSpacingMultiple:1.35, valign:'top' }));
+    const fy = PAD_T + 1.56, fh = 0.58;
+    s.addShape(pres.ShapeType.rect, { x:CX, y:fy, w:CW, h:fh,
+      fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+    s.addShape(pres.ShapeType.rect, { x:CX, y:fy, w:IN(4), h:fh,
+      fill:{ color:C.blue }, line:{ color:C.blue, width:0 } });
+    s.addText('核心教学判断', T({ x:CX + 0.22, y:fy + 0.08, w:1.34, h:0.2,
+      fontSize:9.5, bold:true, color:C.slate }));
+    s.addText(d.design.focus, { fontFace:DISPLAY, color:C.navy, margin:0,
+      x:CX + 1.66, y:fy + 0.07, w:CW - 1.9, h:fh - 0.12, fontSize:11.5, bold:true,
+      lineSpacingMultiple:1.35, valign:'middle' });
+    let yy = PAD_T + 2.26;
+    d.items.forEach(it => {
+      const ln = Math.ceil(it.d.length / 62), h = Math.max(0.58, 0.28 + ln * 0.22);
+      s.addShape(pres.ShapeType.line, { x:CX, y:yy, w:CW, h:0, line:{ color:C.line, width:1 } });
+      s.addText(it.t, T({ x:CX + 0.18, y:yy + 0.10, w:1.35, h:h - 0.14, fontSize:10.5,
+        bold:true, color:C.rust, valign:'top' }));
+      s.addText(it.d, T({ x:CX + 1.72, y:yy + 0.08, w:CW - 1.92, h:h - 0.12, fontSize:11.5,
+        lineSpacingMultiple:1.48, valign:'top' }));
+      yy += h;
+    });
+    s.addShape(pres.ShapeType.line, { x:CX, y:yy, w:CW, h:0, line:{ color:C.line, width:1 } });
+    yy += 0.16;
+    const mh = 0.72;
+    s.addShape(pres.ShapeType.rect, { x:CX, y:yy, w:CW, h:mh,
+      fill:{ color:C.wash }, line:{ color:C.sev1ln, width:1 } });
+    s.addShape(pres.ShapeType.rect, { x:CX, y:yy, w:IN(4), h:mh,
+      fill:{ color:C.rustf }, line:{ color:C.rustf, width:0 } });
+    s.addText(d.minimum.label, T({ x:CX + 0.24, y:yy + 0.10, w:1.42, h:0.22, fontSize:9.5,
+      bold:true, color:C.navy }));
+    s.addText(d.minimum.text, T({ x:CX + 1.72, y:yy + 0.08, w:CW - 1.96, h:mh - 0.14,
+      fontSize:10.5, color:C.muted, lineSpacingMultiple:1.42, valign:'top' }));
+  },
   endnote(s, d) {
     s.addText(d.take.label, T({ x:CX, y:1.06, w:CW, h:0.24, fontSize:9.5, bold:true,
       color:C.rust, charSpacing:1.8 }));
-    const tw = 7.9;
+    const tw = 7.55;
     d.take.items.forEach((it, i) => {
       const y = 1.38 + i * 0.5;
       s.addShape(pres.ShapeType.roundRect, { x:CX, y, w:tw, h:0.42, rectRadius:0.07,
@@ -713,10 +833,28 @@ const R = {
       s.addShape(pres.ShapeType.rect, { x:CX, y:y + 0.04, w:IN(4), h:0.34,
         fill:{ color:C.blue }, line:{ width:0, color:C.blue } });
       s.addText(it.t, { fontFace:DISPLAY, color:C.navy, margin:0,
-        x:CX + 0.24, y, w:tw - 1.7, h:0.42, fontSize:13, bold:true, valign:'middle' });
+        x:CX + 0.24, y, w:tw - 1.7, h:0.42, fontSize:12, bold:true, valign:'middle' });
       s.addText(it.p, T({ x:CX + tw - 1.5, y, w:1.32, h:0.42, fontSize:10, color:C.muted,
         align:'right', valign:'middle' }));
     });
+    const gx = CX + tw + 0.28, gw = CW - tw - 0.28, gy = 1.06, gh = 2.94;
+    s.addShape(pres.ShapeType.rect, { x:gx, y:gy, w:gw, h:gh,
+      fill:{ color:C.white }, line:{ color:C.line, width:1 } });
+    s.addShape(pres.ShapeType.rect, { x:gx, y:gy, w:gw, h:IN(4),
+      fill:{ color:C.rustf }, line:{ color:C.rustf, width:0 } });
+    s.addText(d.handoutGuide.title, { fontFace:DISPLAY, color:C.navy, margin:0,
+      x:gx + 0.18, y:gy + 0.18, w:gw - 0.36, h:0.28, fontSize:14, bold:true });
+    d.handoutGuide.items.forEach((it, i) => {
+      const yy = gy + 0.58 + i * 0.37;
+      s.addShape(pres.ShapeType.line, { x:gx + 0.18, y:yy, w:gw - 0.36, h:0,
+        line:{ color:C.line, width:1 } });
+      s.addText(String(i + 1), T({ x:gx + 0.18, y:yy + 0.08, w:0.24, h:0.18,
+        fontSize:8.5, bold:true, color:C.rust }));
+      s.addText(it, T({ x:gx + 0.48, y:yy + 0.06, w:gw - 0.66, h:0.22,
+        fontSize:10.5, color:C.ink }));
+    });
+    s.addText(d.handoutGuide.note, T({ x:gx + 0.18, y:gy + 2.5, w:gw - 0.36, h:0.28,
+      fontSize:9, color:C.muted, lineSpacingMultiple:1.35, valign:'top' }));
     let ly = 1.38 + d.take.items.length * 0.5 + 0.28;
     d.lines.forEach((l, i) => {
       const h = 0.3 + Math.ceil(l.length / 74) * 0.22;
@@ -738,8 +876,8 @@ SLIDES.forEach((d, i) => {
   chrome(s, d, i + 1, SLIDES.length);
   if (!R[d.layout]) throw new Error('缺少版式渲染器：' + d.layout + '（第 ' + d.n + ' 页）');
   R[d.layout](s, d);
-  s.addNotes(d.notes);
+  s.addNotes(MODE60 && d.notes60 ? d.notes60 : d.notes);
 });
 
-const out = process.argv[2] || '做中学与综合实践活动.pptx';
+const out = argv.find(x => x !== '--60') || (MODE60 ? '做中学与综合实践活动-60分钟版.pptx' : '做中学与综合实践活动.pptx');
 pres.writeFile({ fileName: out }).then(() => console.log('已生成', out, '共', SLIDES.length, '页'));
