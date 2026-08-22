@@ -349,7 +349,44 @@
   var hud = document.getElementById('hud'), notes = document.getElementById('notes'), help = document.getElementById('help');
   var cur = Math.max(0, (parseInt(location.hash.slice(1), 10) || 1) - 1);
 
-  function fit() { deck.style.transform = 'scale(' + Math.min(innerWidth / 1280, innerHeight / 720) + ')'; }
+  var fitQueued = false;
+  function validSize(value) { return typeof value === 'number' && isFinite(value) && value > 1; }
+  function viewportSize() {
+    var stage = document.getElementById('stage');
+    var root = document.documentElement;
+    var visual = window.visualViewport;
+    var widths = [
+      visual && visual.width,
+      stage && stage.clientWidth,
+      root && root.clientWidth,
+      window.innerWidth
+    ].filter(validSize);
+    var heights = [
+      visual && visual.height,
+      stage && stage.clientHeight,
+      root && root.clientHeight,
+      window.innerHeight
+    ].filter(validSize);
+    return {
+      width: widths.length ? Math.min.apply(null, widths) : 0,
+      height: heights.length ? Math.min.apply(null, heights) : 0
+    };
+  }
+  function fit() {
+    var size = viewportSize();
+    if (!size.width || !size.height) return;
+    var scale = Math.min(size.width / 1280, size.height / 720);
+    if (!validSize(scale * 1000)) return;
+    deck.style.transform = 'translate(-50%,-50%) scale(' + scale + ')';
+  }
+  function scheduleFit() {
+    if (fitQueued) return;
+    fitQueued = true;
+    requestAnimationFrame(function () {
+      fitQueued = false;
+      fit();
+    });
+  }
   function show(i) {
     cur = Math.max(0, Math.min(nodes.length - 1, i));
     nodes.forEach(function (n, k) { n.classList.toggle('is-active', k === cur); });
@@ -367,7 +404,15 @@
     document.title = (cur + 1) + '/' + nodes.length + (MODE60 ? ' · 60 分钟版' : '') + ' · 做中学与综合实践活动';
     try { history.replaceState(null, '', '#' + (cur + 1)); } catch (x) {}
   }
-  addEventListener('resize', fit);
+  addEventListener('resize', scheduleFit);
+  addEventListener('orientationchange', scheduleFit);
+  addEventListener('pageshow', scheduleFit);
+  addEventListener('load', scheduleFit);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', scheduleFit);
+    window.visualViewport.addEventListener('scroll', scheduleFit);
+  }
+  if (window.ResizeObserver) new ResizeObserver(scheduleFit).observe(document.getElementById('stage'));
   addEventListener('keydown', function (ev) {
     var k = ev.key;
     if (k === 'ArrowRight' || k === 'PageDown' || k === ' ') { ev.preventDefault(); show(cur + 1); }
@@ -381,7 +426,11 @@
   });
   addEventListener('click', function (ev) {
     if (ev.target.closest && ev.target.closest('a')) return;
-    show(ev.clientX > innerWidth * 0.55 ? cur + 1 : cur - 1);
+    show(ev.clientX > viewportSize().width * 0.55 ? cur + 1 : cur - 1);
   });
-  fit(); show(cur);
+  fit();
+  requestAnimationFrame(scheduleFit);
+  setTimeout(scheduleFit, 120);
+  setTimeout(scheduleFit, 500);
+  show(cur);
 })();
