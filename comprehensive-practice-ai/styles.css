@@ -143,6 +143,9 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 .statement .big{font-family:var(--serif);font-size:40px;line-height:1.5;font-weight:700;
   color:var(--navy);max-width:940px}
 .statement .ssub{font-size:20px;color:var(--muted);margin-top:20px}
+.statementroute{margin-top:30px;padding-top:16px;border-top:1px solid rgba(255,255,255,.25);max-width:1040px}
+.statementroute span{display:block;font-size:12px;color:var(--dim);letter-spacing:.12em;margin-bottom:9px}
+.statementroute p{font-size:17px;line-height:1.5;color:var(--done);letter-spacing:.02em}
 
 /* ── 两份方案 ───────────────────────────── */
 .plans{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:22px 0 auto;align-items:start}
@@ -207,6 +210,7 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
   display:flex;align-items:center}
 .grid .gh{font-size:12.5px;color:var(--muted);background:var(--paper)}
 .grid .gr{font-size:15px;color:var(--ink)}
+.grid .gx{align-items:flex-start;font-size:12.5px;line-height:1.45;color:var(--ink);background:var(--white)}
 .track{margin:auto 0;display:grid;grid-template-columns:repeat(4,1fr)}
 .track>div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 16px}
 .track .th{font-size:12.5px;color:var(--muted);background:var(--paper)}
@@ -271,13 +275,20 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 .split .sv{font-family:var(--serif);font-size:28px;font-weight:700;color:var(--navy)}
 
 /* ── 末页 ───────────────────────────────── */
-.takelbl{margin-top:auto;font-size:12.5px;font-weight:700;color:var(--rust);letter-spacing:.14em}
+.endtop{margin-top:auto;display:grid;grid-template-columns:minmax(0,760px) 1fr;gap:34px;align-items:start}
+.takelbl{font-size:12.5px;font-weight:700;color:var(--rust);letter-spacing:.14em}
 .takes{margin-top:14px;display:flex;flex-direction:column;gap:7px}
 .take{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--blue);
   border-radius:9px;padding:9px 18px;display:flex;justify-content:space-between;align-items:baseline;
   max-width:760px}
 .take .tkt{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--navy)}
 .take .tkp{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.handoutguide{border:1px solid var(--line);border-top:4px solid var(--rustf);padding:15px 18px;background:var(--white)}
+.handoutguide .hgt{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--navy);margin-bottom:7px}
+.handoutguide>div{display:grid;grid-template-columns:24px 1fr;gap:8px;padding:6px 0;border-top:1px solid var(--line)}
+.handoutguide>div b{font-size:11px;color:var(--rust)}
+.handoutguide>div span{font-size:13px;color:var(--ink)}
+.handoutguide .hgn{font-size:11.5px;line-height:1.45;color:var(--muted);margin-top:9px}
 .endlines{margin:22px 0 auto;display:flex;flex-direction:column;gap:9px}
 .endlines li{list-style:none;font-size:13.5px;line-height:1.6;color:var(--muted);max-width:1000px}
 .sign{margin-top:18px;font-size:17px;color:var(--navy);font-weight:500}
@@ -385,10 +396,10 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
   border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--white)}
 .apxflow .fh{background:var(--paper);font-size:11.5px;color:var(--muted);font-weight:600;
   padding:8px 14px;border-bottom:1px solid var(--line)}
-.apxflow .fs{padding:8px 14px;border-bottom:1px solid var(--line);
-  display:flex;flex-direction:column;gap:5px;align-items:flex-start}
-.apxflow .fd{padding:8px 14px;border-bottom:1px solid var(--line);
-  border-left:1px solid var(--line);font-size:12.5px;line-height:1.5;color:var(--ink)}
+.apxflow .fs{padding:6px 14px;border-bottom:1px solid var(--line);
+  display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.apxflow .fd{padding:6px 14px;border-bottom:1px solid var(--line);
+  border-left:1px solid var(--line);font-size:12.5px;line-height:1.45;color:var(--ink)}
 .apxflow .fd.fa{color:var(--muted)}
 .apxflow .fs .fn{font-size:13.5px;font-weight:700;color:var(--navy)}
 .apxflow .fs .fl{font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;color:#fff}
@@ -408,6 +419,20 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 .apxspec p{font-size:14px;line-height:1.65}
 .apxspec .lbl{font-size:11.5px;margin-bottom:7px}
 
+/* 案例实施卡（apxteach）*/
+.apxteachlead{margin-top:7px;font-size:12px}
+.teachfocus{margin-top:9px;padding:10px 16px;border-left:4px solid var(--blue);background:var(--white);display:grid;grid-template-columns:116px 1fr;gap:18px}
+.teachfocus span{font-size:12px;font-weight:700;color:var(--slate)}
+.teachfocus p{font-family:var(--serif);font-size:15px;line-height:1.5;font-weight:700;color:var(--navy)}
+.apxteach{margin-top:10px;border-top:1px solid var(--line)}
+.teachrow{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:12px 18px;
+  border-bottom:1px solid var(--line);align-items:start}
+.teachrow .k{font-size:14px;font-weight:700;color:var(--rust)}
+.teachrow .v{font-size:14px;line-height:1.55;color:var(--ink)}
+.teachmin{margin-top:12px;padding:12px 18px;border-left:4px solid var(--rust);
+  background:var(--wash);font-size:14px;line-height:1.6;color:var(--muted)}
+.teachmin b{color:var(--navy)}
+
 /* ══ 面向新手教师的可视化补强 ══════════════ */
 
 /* 指令的三段结构（第 18 页）：底色标出分界，正文一律 ink，不靠颜色传达文字 */
@@ -424,6 +449,7 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 .specitem .spv .sg1{background:var(--tint1)}
 .specitem .spv .sg2{background:transparent;box-shadow:inset 0 -1px 0 var(--tint2)}
 .specitem .spv .sg3{background:var(--tint3);box-shadow:inset 0 -2px 0 var(--sev1ln)}
+.specmore{margin-top:14px;font-size:14px;color:var(--muted)}
 
 /* AI 返回逐条编号与采纳标记（第 27 页）*/
 .rets{display:flex;flex-direction:column;gap:5px}
@@ -448,3 +474,107 @@ svg.fig{display:block;max-width:100%;height:auto;margin-top:26px}
 /* 智能体页改为图＋指令块 */
 .agspec{margin-top:14px;padding:16px 22px}
 .agspec p{font-size:16px;line-height:1.7}
+
+/* ══ 教师工作台：观察记录式视觉语言 ══════════ */
+
+/* 深色封面与整屏判断句形成讲述中的停顿，不使用图片、光效或装饰性渐变。 */
+#deck[data-layout="cover"],#deck[data-layout="statement"]{background:var(--navy)}
+#deck[data-layout="cover"] .spine,#deck[data-layout="statement"] .spine{background:rgba(255,255,255,.22)}
+#deck[data-layout="cover"] .spine i,#deck[data-layout="statement"] .spine i{
+  background:var(--navy);border-color:rgba(255,255,255,.28)}
+#deck[data-layout="cover"] .spine i.done,#deck[data-layout="statement"] .spine i.done{
+  background:var(--dim);border-color:var(--dim)}
+#deck[data-layout="cover"] .phase-label,#deck[data-layout="statement"] .phase-label,
+#deck[data-layout="cover"] .pageno,#deck[data-layout="statement"] .pageno,
+#deck[data-layout="cover"] .tiermark,#deck[data-layout="statement"] .tiermark{color:var(--dim)}
+#deck[data-layout="cover"] .pageno b,#deck[data-layout="statement"] .pageno b{color:var(--white)}
+.cover .head,.statement .big{color:var(--white)!important}
+.cover .csub,.statement .ssub{color:var(--done)}
+.cover .eyebrow,.statement h1.head{color:#F0CBBB}
+.cover .chainrow{position:relative;justify-content:space-between;margin-top:48px;padding-top:1px}
+.cover .chainrow::before{content:"";position:absolute;left:18px;right:18px;top:18px;height:2px;background:rgba(255,255,255,.30)}
+.cover .chainrow span{position:relative;z-index:1;border:0;border-radius:0;background:var(--navy);
+  color:var(--white);padding:28px 8px 0;font-size:14px;font-weight:600}
+.cover .chainrow span::before{content:"";position:absolute;left:50%;top:10px;width:14px;height:14px;
+  transform:translate(-50%,-50%);border:3px solid var(--navy);border-radius:50%;background:var(--rustf);
+  box-shadow:0 0 0 2px rgba(255,255,255,.55)}
+.cover .chainrow i{display:none}
+.cover .cmeta{margin-top:54px;border-top:1px solid rgba(255,255,255,.22);padding-top:16px}
+.cover .cmeta span{min-width:180px}
+.cover .cmeta small{font-size:12px;color:var(--dim)}
+.cover .cmeta b{color:var(--white);font-size:17px}
+.cover-download{position:absolute;right:96px;bottom:84px;display:flex;align-items:center;gap:14px;
+  color:var(--white);text-decoration:none;z-index:5}
+.cover-download>span{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
+.cover-download b{font-size:15px;font-weight:600}
+.cover-download small{font-size:12px;color:var(--dim)}
+.cover-download img{display:block;width:88px;height:88px;padding:6px;background:var(--white);border-radius:6px}
+.cover-download:hover b,.cover-download:focus-visible b{text-decoration:underline;text-underline-offset:4px}
+.cover-download:focus-visible{outline:2px solid var(--white);outline-offset:7px;border-radius:4px}
+.statement .big{max-width:990px;position:relative;padding-left:30px}
+.statement .big::before{content:"";position:absolute;left:0;top:.15em;bottom:.1em;width:5px;background:var(--rustf)}
+
+/* 三列不再像三个网页卡片，而像并排展开的三张观察记录。 */
+.layout-tri .tri{gap:34px}
+.layout-tri .tricol{border:0;border-radius:0;background:transparent;padding:20px 0 0}
+.layout-tri .tricol.alert,.layout-tri .tricol.struct,.layout-tri .tricol.muted{border-top:6px solid currentColor}
+.layout-tri .tricol .head{font-size:23px;border-bottom:0;margin-bottom:14px;padding-bottom:0}
+.layout-tri .tricol li{padding:13px 0 13px 22px;position:relative}
+.layout-tri .tricol li::before{content:"";position:absolute;left:0;top:23px;width:10px;height:2px;background:currentColor;opacity:.55}
+
+/* 三问与三周路径：从逐条清单改为可沿线讲述的三站路线。 */
+.layout-threeq .qs,.layout-threedo .qs{position:relative;display:grid;grid-template-columns:repeat(3,1fr);
+  gap:30px;margin:auto 0;align-items:start}
+.layout-threeq .qs::before,.layout-threedo .qs::before{content:"";position:absolute;left:9%;right:9%;top:27px;height:2px;background:var(--line2)}
+.layout-threeq .q,.layout-threedo .q{position:relative;display:block;padding-top:72px}
+.layout-threeq .q .no,.layout-threedo .q .no{position:absolute;left:0;top:0;display:grid;place-items:center;
+  width:54px;height:54px;border-radius:50%;background:var(--paper);border:2px solid var(--rustf);
+  color:var(--rust);font-size:19px;z-index:1}
+.layout-threedo .q .no{width:72px;border-radius:27px;font-size:15px;white-space:nowrap}
+.layout-threeq .q .qt{display:block;font-size:25px;line-height:1.45;padding-right:10px}
+.layout-threeq .q .qthen{margin-top:14px;padding:10px 0 0;border-left:0;border-top:2px solid var(--sev1ln)}
+.layout-threedo .q .qh{font-size:24px;line-height:1.35}
+.layout-threedo .q .qd{font-size:15px;margin-top:13px;padding-top:12px;border-top:1px solid var(--line)}
+
+/* 六个环节统一成课堂观察记录：状态章、双栏记录、教师批注。 */
+.layout-stage .stagehead{align-items:flex-start}
+.layout-stage .stagelevel{border-radius:0;background:transparent!important;border:2px solid currentColor!important;
+  padding:5px 12px;transform:rotate(-1.5deg)}
+.layout-stage .stagelevel.L1,.layout-stage .stagelevel.L2{color:var(--rust)}
+.layout-stage .stagelevel.L3{color:var(--sev2)}
+.layout-stage .stagelevel.L4{color:var(--muted)}
+.layout-stage .stagemain{justify-content:flex-start;gap:28px;margin-top:34px}
+.layout-stage .twocol{gap:34px}
+.layout-stage .sc{border:0;border-left:5px solid var(--blue);border-radius:0;background:transparent;padding:5px 0 5px 20px}
+.layout-stage .sc.b{border-left-color:var(--sev2)}
+.layout-stage .sc .n{text-transform:none;letter-spacing:.08em}
+.layout-stage .rule{position:relative;padding:16px 22px 18px 28px;background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.layout-stage .rule::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:5px;background:var(--rustf)}
+.layout-stage .rule::after{content:"";position:absolute;left:28px;right:28px;bottom:12px;height:2px;background:var(--sev1ln)}
+
+/* 留痕表保留两行空白，直接呈现“可以打印出来填”的用途。 */
+.layout-tracktable .trackfocus{align-self:flex-end;margin:14px 0 8px;color:var(--rust);font-size:13px;font-weight:700;letter-spacing:.08em}
+.layout-tracktable .track{margin:0;flex:1;border-radius:0}
+.layout-tracktable .track .th.focus,.layout-tracktable .track .td.focus,.layout-tracktable .track .blank.focus{background:var(--wash)}
+.layout-tracktable .track .th.focus{color:var(--rust);font-weight:700}
+.layout-tracktable .track .td{min-height:105px}
+.layout-tracktable .track .blank{min-height:54px;background:var(--white)}
+
+/* 文件边界按责任主体排布，先看“谁”，再读“什么场景”。 */
+.layout-redlines .red{margin-top:18px;gap:12px}
+.layout-redlines .redlane{display:grid;grid-template-columns:92px 1fr;gap:16px;align-items:stretch}
+.layout-redlines .redlane .role{display:grid;place-items:center;background:var(--navy);color:var(--white);
+  font-size:13px;font-weight:700;letter-spacing:.06em;padding:8px;text-align:center}
+.layout-redlines .redlane>div{display:flex;flex-direction:column;gap:7px}
+.layout-redlines .redrow{border-radius:0;border-left:4px solid var(--rustf);padding:10px 16px;grid-template-columns:142px 1fr}
+
+/* 责任页把判断动作落到一条明确的教师签名线。 */
+.layout-signature .subj{gap:0;margin-top:32px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.layout-signature .subj span{border:0;border-radius:0;background:transparent;padding:13px 24px 13px 0;margin-right:28px;font-size:18px}
+.layout-signature .absent{display:inline-block;align-self:flex-start;margin-top:15px;padding:5px 13px;border:2px solid var(--rustf);transform:rotate(-1deg);font-size:16px}
+.layout-signature .split{margin-top:24px;gap:0;position:relative}
+.layout-signature .split::after{content:"→";position:absolute;left:50%;top:20px;transform:translateX(-50%);color:var(--rust);font-size:28px}
+.layout-signature .split>div{padding:0 34px 0 0}
+.layout-signature .split>div+div{padding-left:46px;border-left:1px solid var(--line)}
+.layout-signature .signline{display:flex;align-items:flex-end;gap:16px;margin-top:30px;color:var(--rust);font-size:13px;font-weight:700}
+.layout-signature .signline i{display:block;width:360px;height:1px;background:var(--navy)}
