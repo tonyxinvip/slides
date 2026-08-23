@@ -11,13 +11,13 @@ const esc = value => String(value == null ? '' : value).replace(/[&<>"']/g, c =>
 const rows = (items, cells) => items.map(x => '<tr>' + cells.map(fn => '<td>' + fn(x) + '</td>').join('') + '</tr>').join('');
 const page = (title, body, label) => `<section class="page"><header><span>${esc(label || '教师讲义')}</span><b>做中学与综合实践活动</b></header><h1>${esc(title)}</h1>${body}<footer>辛海洋　2026 年 8 月　深圳</footer></section>`;
 
-const prompts = byN(18), q19 = byN(19), grid = byN(21), track = byN(36), defense = byN(37), duty = byN(40), policy = byN(39);
+const prompts = byN(18), q19 = byN(19), principle = byN(22), grid = byN(21), track = byN(36), defense = byN(37), duty = byN(40), policy = byN(39);
 let pages = [];
 pages.push(`<section class="page cover"><div class="rule"></div><p class="overline">可打印教师讲义</p><h1>做中学与综合实践活动</h1><h2>AI 在任务链条上的位置</h2><p class="lead">四件可直接使用的课堂工具，加六套完整案例设计与学生工作页。</p><div class="use"><b>使用顺序</b><span>先判断环节训练什么能力，再决定人工智能收放位置，最后安排过程证据。</span></div><p class="meta">辛海洋　2026 年 8 月　深圳</p></section>`);
 
 pages.push(page(q19.title,
   `<div class="cards">${q19.items.map(x => `<div><b>${esc(x.no)}</b><p>${esc(x.q)}</p></div>`).join('')}</div><p class="kicker">${esc(q19.kicker)}</p>` +
-  `<h2>一项判据</h2><p class="statement">${esc(byN(20).big)}</p><p class="note">六个环节的收放配置是依据评价维度作出的专业判断，不是政策规定。</p>`, '工具一'));
+  `<h2>一项判据</h2><p class="statement">${esc(principle.counter)}</p><p class="note">六个环节的收放配置是依据评价维度作出的专业判断，不是政策规定。</p>`, '工具一'));
 
 pages.push(page('教师侧指令原文（完整）',
   `<p class="intro">三条指令使用同一结构：交代场景、说明所需产出、限定不取什么。返回内容均须由教师复核。</p>` +
