@@ -347,12 +347,67 @@
   var phase = document.getElementById('phase'), pageno = document.getElementById('pageno');
   var tiermark = document.getElementById('tiermark');
   var hud = document.getElementById('hud'), notes = document.getElementById('notes'), help = document.getElementById('help');
+  var stage = document.getElementById('stage');
+  var mobileControls = document.getElementById('mobile-controls');
+  var mobilePrev = document.getElementById('mobile-prev');
+  var mobileNext = document.getElementById('mobile-next');
+  var mobileFullscreen = document.getElementById('mobile-fullscreen');
+  var mobileHint = document.getElementById('mobile-hint');
   var cur = Math.max(0, (parseInt(location.hash.slice(1), 10) || 1) - 1);
+  var hintTimer = 0, suppressClickUntil = 0, gesture = null;
+
+  function hideMobileHint() {
+    if (!mobileHint) return;
+    clearTimeout(hintTimer);
+    mobileHint.classList.remove('on');
+  }
+  function announceMobile(message, duration) {
+    if (!mobileHint) return;
+    clearTimeout(hintTimer);
+    mobileHint.textContent = message;
+    mobileHint.classList.add('on');
+    hintTimer = setTimeout(hideMobileHint, duration || 4800);
+  }
+  function showInitialMobileHint() {
+    var coarse = matchMedia('(hover:none) and (pointer:coarse)').matches || innerWidth <= 700;
+    if (!coarse || !mobileHint || innerWidth > innerHeight) return;
+    var seen = false;
+    try { seen = sessionStorage.getItem('comprehensive-practice-mobile-hint') === '1'; } catch (x) {}
+    if (seen) return;
+    announceMobile('左右滑动或点击两侧翻页　·　建议横屏观看', 5200);
+    try { sessionStorage.setItem('comprehensive-practice-mobile-hint', '1'); } catch (x) {}
+  }
+  function fullscreenElement() {
+    return document.fullscreenElement || document.webkitFullscreenElement;
+  }
+  function updateFullscreenControl() {
+    if (!mobileFullscreen) return;
+    var active = !!fullscreenElement();
+    mobileFullscreen.textContent = active ? '退出全屏' : '全屏';
+    mobileFullscreen.setAttribute('aria-label', active ? '退出全屏' : '进入全屏');
+  }
+  function toggleFullscreen() {
+    var active = fullscreenElement();
+    var action = active ? (document.exitFullscreen || document.webkitExitFullscreen) :
+      (document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen);
+    var receiver = active ? document : document.documentElement;
+    if (!action) {
+      announceMobile('当前浏览器不能进入网页全屏，请使用系统浏览器打开并横屏观看；需要隐藏地址栏时，可添加到主屏幕。', 7000);
+      return;
+    }
+    try {
+      var result = action.call(receiver);
+      if (result && result.catch) result.catch(function () {
+        announceMobile('当前浏览器阻止了网页全屏，请使用系统浏览器打开并横屏观看。', 7000);
+      });
+    } catch (x) {
+      announceMobile('当前浏览器阻止了网页全屏，请使用系统浏览器打开并横屏观看。', 7000);
+    }
+  }
 
   var fitQueued = false;
   function validSize(value) { return typeof value === 'number' && isFinite(value) && value > 1; }
   function viewportSize() {
-    var stage = document.getElementById('stage');
     var root = document.documentElement;
     var visual = window.visualViewport;
     var widths = [
@@ -375,7 +430,18 @@
   function fit() {
     var size = viewportSize();
     if (!size.width || !size.height) return;
-    var scale = Math.min(size.width / 1280, size.height / 720);
+    var availableWidth = size.width;
+    var landscapeControls = mobileControls &&
+      matchMedia('(max-height:500px) and (orientation:landscape)').matches &&
+      getComputedStyle(mobileControls).display !== 'none';
+    if (landscapeControls) {
+      var controlsBox = mobileControls.getBoundingClientRect();
+      availableWidth = Math.max(320, controlsBox.left - 8);
+      deck.style.left = (availableWidth / 2) + 'px';
+    } else {
+      deck.style.left = '50%';
+    }
+    var scale = Math.min(availableWidth / 1280, size.height / 720);
     if (!validSize(scale * 1000)) return;
     deck.style.transform = 'translate(-50%,-50%) scale(' + scale + ')';
   }
@@ -401,11 +467,13 @@
     hud.textContent = pad(cur + 1) + ' / ' + pad(nodes.length) + '　' + s.sec;
     var noteText = MODE60 && s.notes60 ? s.notes60 : s.notes;
     notes.innerHTML = '<p class="nh">讲稿 · 第 ' + (cur + 1) + ' 页' + (MODE60 ? ' · 60 分钟版' : '') + '</p>' + e(noteText);
+    if (mobilePrev) mobilePrev.disabled = cur === 0;
+    if (mobileNext) mobileNext.disabled = cur === nodes.length - 1;
     document.title = (cur + 1) + '/' + nodes.length + (MODE60 ? ' · 60 分钟版' : '') + ' · 做中学与综合实践活动';
     try { history.replaceState(null, '', '#' + (cur + 1)); } catch (x) {}
   }
   addEventListener('resize', scheduleFit);
-  addEventListener('orientationchange', scheduleFit);
+  addEventListener('orientationchange', function () { hideMobileHint(); scheduleFit(); });
   addEventListener('pageshow', scheduleFit);
   addEventListener('load', scheduleFit);
   if (window.visualViewport) {
@@ -413,6 +481,36 @@
     window.visualViewport.addEventListener('scroll', scheduleFit);
   }
   if (window.ResizeObserver) new ResizeObserver(scheduleFit).observe(document.getElementById('stage'));
+  if (mobileControls) mobileControls.addEventListener('click', function (ev) { ev.stopPropagation(); });
+  if (mobilePrev) mobilePrev.addEventListener('click', function () { hideMobileHint(); show(cur - 1); });
+  if (mobileNext) mobileNext.addEventListener('click', function () { hideMobileHint(); show(cur + 1); });
+  if (mobileFullscreen) mobileFullscreen.addEventListener('click', function () { hideMobileHint(); toggleFullscreen(); });
+  document.addEventListener('fullscreenchange', function () { updateFullscreenControl(); scheduleFit(); });
+  document.addEventListener('webkitfullscreenchange', function () { updateFullscreenControl(); scheduleFit(); });
+  if (stage) {
+    stage.addEventListener('pointerdown', function (ev) {
+      if (ev.pointerType === 'mouse' || !ev.isPrimary) return;
+      if (ev.target.closest && ev.target.closest('a,button')) return;
+      gesture = { id:ev.pointerId, x:ev.clientX, y:ev.clientY, at:Date.now() };
+      if (stage.setPointerCapture) {
+        try { stage.setPointerCapture(ev.pointerId); } catch (x) {}
+      }
+    });
+    stage.addEventListener('pointerup', function (ev) {
+      if (!gesture || gesture.id !== ev.pointerId) return;
+      var dx = ev.clientX - gesture.x, dy = ev.clientY - gesture.y;
+      var elapsed = Date.now() - gesture.at;
+      var threshold = Math.max(48, Math.min(80, viewportSize().width * .12));
+      gesture = null;
+      if (elapsed <= 1400 && Math.abs(dx) >= threshold && Math.abs(dx) > Math.abs(dy) * 1.25) {
+        ev.preventDefault();
+        suppressClickUntil = Date.now() + 500;
+        hideMobileHint();
+        show(cur + (dx < 0 ? 1 : -1));
+      }
+    });
+    stage.addEventListener('pointercancel', function () { gesture = null; });
+  }
   addEventListener('keydown', function (ev) {
     var k = ev.key;
     if (k === 'ArrowRight' || k === 'PageDown' || k === ' ') { ev.preventDefault(); show(cur + 1); }
@@ -421,11 +519,13 @@
     else if (k === 'End') show(nodes.length - 1);
     else if (k === 'n' || k === 'N') notes.classList.toggle('on');
     else if (k === '?' || k === 'h') help.classList.toggle('on');
-    else if (k === 'f' || k === 'F') { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen(); }
+    else if (k === 'f' || k === 'F') toggleFullscreen();
     else if (k === 'Escape') { notes.classList.remove('on'); help.classList.remove('on'); }
   });
   addEventListener('click', function (ev) {
-    if (ev.target.closest && ev.target.closest('a')) return;
+    if (Date.now() < suppressClickUntil) { ev.preventDefault(); return; }
+    if (ev.target.closest && ev.target.closest('a,button')) return;
+    hideMobileHint();
     show(ev.clientX > viewportSize().width * 0.55 ? cur + 1 : cur - 1);
   });
   fit();
@@ -433,4 +533,6 @@
   setTimeout(scheduleFit, 120);
   setTimeout(scheduleFit, 500);
   show(cur);
+  updateFullscreenControl();
+  showInitialMobileHint();
 })();

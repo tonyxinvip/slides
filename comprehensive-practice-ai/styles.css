@@ -44,7 +44,7 @@ body{
 .fatal{color:#fff;padding:40px;font-size:18px}
 
 /* ── 舞台 ───────────────────────────────── */
-#stage{position:fixed;inset:0}
+#stage{position:fixed;inset:0;touch-action:pan-y;overscroll-behavior:none}
 #deck{
   width:1280px;height:720px;position:absolute;left:50%;top:50%;background:var(--paper);
   transform:translate(-50%,-50%) scale(1);transform-origin:center center;
@@ -80,6 +80,45 @@ body{
   display:none;flex-direction:column;justify-content:center;
 }
 .slide.is-active{display:flex}
+
+/* ── 手机导航 ───────────────────────────── */
+#mobile-controls,#mobile-hint{display:none}
+#mobile-controls{
+  position:fixed;left:50%;bottom:max(82px,calc(env(safe-area-inset-bottom) + 62px));
+  transform:translateX(-50%);z-index:30;align-items:center;gap:8px;
+  padding:7px;border:1px solid rgba(255,255,255,.24);border-radius:16px;
+  background:rgba(8,27,58,.9);box-shadow:0 8px 28px rgba(0,0,0,.3);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)
+}
+#mobile-controls button{
+  min-width:66px;height:48px;padding:0 12px;border:1px solid rgba(255,255,255,.28);
+  border-radius:11px;background:rgba(255,255,255,.1);color:#fff;
+  font:600 15px/1 var(--sans);letter-spacing:.02em;white-space:nowrap;-webkit-tap-highlight-color:transparent
+}
+#mobile-controls button:active{background:rgba(255,255,255,.22)}
+#mobile-controls button:focus-visible{outline:3px solid var(--rustf);outline-offset:2px}
+#mobile-controls button:disabled{opacity:.34}
+#mobile-hint{
+  position:fixed;left:50%;bottom:max(150px,calc(env(safe-area-inset-bottom) + 130px));
+  transform:translateX(-50%) translateY(8px);z-index:31;width:max-content;max-width:calc(100vw - 32px);
+  padding:10px 14px;border-radius:12px;background:rgba(8,27,58,.94);color:#fff;
+  font:500 14px/1.45 var(--sans);text-align:center;box-shadow:0 8px 28px rgba(0,0,0,.28);
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,transform .18s ease,visibility .18s
+}
+#mobile-hint.on{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+
+@media (max-width:700px),(hover:none) and (pointer:coarse){
+  #mobile-controls{display:flex}
+  #mobile-hint{display:block}
+}
+@media (max-height:500px) and (orientation:landscape){
+  #mobile-controls{
+    left:auto;right:max(6px,env(safe-area-inset-right));top:50%;bottom:auto;
+    transform:translateY(-50%);flex-direction:column;padding:5px;gap:5px
+  }
+  #mobile-controls button{min-width:54px;height:44px;padding:0 6px;font-size:13px}
+  #mobile-hint{bottom:max(68px,calc(env(safe-area-inset-bottom) + 58px))}
+}
 
 .eyebrow{font-size:13px;font-weight:700;letter-spacing:.22em;color:var(--rust);margin-bottom:16px}
 h1.head{font-family:var(--serif);font-weight:700;color:var(--navy);line-height:1.16;font-size:44px}
