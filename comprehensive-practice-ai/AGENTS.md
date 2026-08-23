@@ -44,12 +44,17 @@ python3 make_figures.py 8795   # 图示重新栅格化（需仓库根目录起�
 
 # 版式改动
 node check_css.js      # 类名撞车与孤儿类
+
+# 网页版与手机交互（NODE_PATH 须能找到 playwright）
+node qa_web.js output/playwright
+node qa_mobile.js
+
+# PowerPoint 几何检查（Python 环境须能找到 python-pptx）
+python3 qa_pptx.py 做中学与综合实践活动.pptx output/qa-pptx
 ```
 
-逐页转图检查是必须的，两个版本都要。这个仓库里没有现成脚本（在会话的临时目录里），
-接手时请自行写一个：网页版用 Playwright 截 71 页并检查 `scrollHeight > clientHeight`
-**以及每个子元素**（`overflow:hidden` 的容器内部被裁掉的内容，页级检查看不见，
-附录六张表就是这么漏过去的）；pptx 用 python-pptx 读几何自绘预览并报越界。
+逐页转图检查是必须的，两个版本都要。`qa_web.js` 使用 Playwright 截图并检查页面及每个含字子元素，
+`qa_mobile.js` 检查滑动、可见导航、全屏入口与竖屏避让，`qa_pptx.py` 使用 python-pptx 检查几何越界。
 环境里 LibreOffice 不可用。
 
 ---
@@ -67,6 +72,7 @@ node check_css.js      # 类名撞车与孤儿类
 | `styles.css` | 版式。`:root` 段是生成的 |
 | `gen_outline.js` | 重写 OUTLINE.md 的生成段与数据文件的分段横幅 |
 | `check_colors.js` / `check_css.js` | 配色核验 / 类名核验 |
+| `qa_web.js` / `qa_mobile.js` / `qa_pptx.py` | 网页逐页、手机交互与 PowerPoint 几何检查 |
 | `OUTLINE.md` | 逐页大纲、各段时长、档位、图示页码 |
 | `占位与待确认清单.md` | 六次改版的记录、替 Tony 做的决定、已处理的风险、待决项 |
 
