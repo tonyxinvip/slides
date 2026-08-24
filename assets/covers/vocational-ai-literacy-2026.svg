@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">当工作开始由人与 AI 共同完成</title>
+  <desc id="desc">职业教育需要怎样的 AI 通识课，辛海洋，2026 年 8 月 28 日，深圳城市职业学院。</desc>
+  <rect width="1600" height="900" fill="#122131"/>
+  <circle cx="1320" cy="188" r="330" fill="#0f766e" opacity=".38"/>
+  <circle cx="1420" cy="770" r="390" fill="#cf633f" opacity=".26"/>
+  <circle cx="1040" cy="520" r="260" fill="none" stroke="#69d3c9" stroke-width="3" opacity=".15"/>
+  <circle cx="1040" cy="520" r="170" fill="none" stroke="#f1c96f" stroke-width="2" opacity=".16"/>
+  <path d="M1080 180C1290 260 1330 470 1220 650" fill="none" stroke="#69d3c9" stroke-width="6" stroke-linecap="round" opacity=".7"/>
+  <circle cx="1080" cy="180" r="15" fill="#f1c96f"/>
+  <circle cx="1220" cy="650" r="15" fill="#69d3c9"/>
+  <rect x="112" y="116" width="108" height="8" rx="4" fill="#69d3c9"/>
+  <text x="112" y="190" fill="#69d3c9" font-size="28" font-weight="700" font-family="Arial,'PingFang SC','Noto Sans SC',sans-serif" letter-spacing="5">VOCATIONAL EDUCATION · AI LITERACY</text>
+  <text x="112" y="332" fill="#f8f4eb" font-size="78" font-weight="800" font-family="Arial,'PingFang SC','Noto Sans SC',sans-serif">当工作开始由人与 AI</text>
+  <text x="112" y="430" fill="#f8f4eb" font-size="78" font-weight="800" font-family="Arial,'PingFang SC','Noto Sans SC',sans-serif">共同完成</text>
+  <text x="116" y="520" fill="#f1c96f" font-size="38" font-weight="600" font-family="Arial,'PingFang SC','Noto Sans SC',sans-serif">职业教育需要怎样的 AI 通识课</text>
+  <text x="116" y="700" fill="#cbd5d9" font-size="28" font-family="Arial,'PingFang SC','Noto Sans SC',sans-serif">辛海洋 · 2026-08-28</text>
+  <text x="116" y="752" fill="#8fa3ad" font-size="25" font-family="Arial,'PingFang SC','Noto Sans SC',sans-serif">深圳城市职业学院（深圳技师学院）</text>
+</svg>
