@@ -1,0 +1,20 @@
+{
+  "slug": "vocational-ai-literacy-2026",
+  "title": "当工作开始由人与 AI 共同完成",
+  "summary": "面向职业院校管理者和教师，从技术实践、教育经验与企业经营三个视角，讨论人才标准如何变化，以及 AI 通识课程应如何培养真实任务中的交付、验证与责任能力。",
+  "cover": "../assets/covers/vocational-ai-literacy-2026.svg",
+  "author": "辛海洋",
+  "publishedAt": "2026-08-24",
+  "eventDate": "2026-08-28",
+  "eventVenue": "深圳城市职业学院（深圳技师学院）",
+  "eventKind": "分享",
+  "tags": [
+    "Vocational Education",
+    "AI Literacy",
+    "AI-native"
+  ],
+  "slideCount": 36,
+  "durationMinutes": 30,
+  "access": "public",
+  "featured": true
+}

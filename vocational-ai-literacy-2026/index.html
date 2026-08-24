@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="面向广东职业院校管理者的人工智能通识教育分享">
+  <meta name="theme-color" content="#122131">
+  <title>当工作开始由人与 AI 共同完成</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="deck-header">
+    <a href="./" class="brand">企业专家视角 · 职业教育 AI 通识</a>
+    <div class="header-actions">
+      <button data-action="overview" type="button">总览</button>
+      <button data-action="fullscreen" type="button">全屏</button>
+    </div>
+  </header>
+
+  <main class="deck" id="deck" aria-live="polite">
+    <section class="slide cover is-active" id="slide-1" data-title="当工作开始由人与 AI 共同完成" aria-hidden="false">
+      <div class="cover-grid"></div>
+      <div class="slide-inner cover-layout">
+        <div class="cover-copy">
+          <p class="kicker">广东职业院校人工智能通识教育分享 · 2026</p>
+          <h1 class="cover-title">
+            <span class="cover-title-line">当工作开始由人</span>
+            <span class="cover-title-line">与 AI 共同完成</span>
+          </h1>
+          <p class="cover-question">职业教育需要怎样的 AI 通识课</p>
+          <div class="cover-rule"></div>
+          <p class="cover-subtitle">一位技术从业者、教育实践者与企业经营者的现场观察</p>
+          <div class="cover-meta">
+            <p class="byline"><strong>辛海洋</strong><span>CocoRobo 创始人兼 CEO</span></p>
+            <p class="event-meta"><span>2026 年 8 月 28 日</span><span>深圳城市职业学院（深圳技师学院）</span></p>
+          </div>
+        </div>
+        <div class="cover-loop" aria-hidden="true">
+          <span class="loop-human">人</span>
+          <span class="loop-ai">AI</span>
+          <span class="loop-result">结果</span>
+          <svg viewBox="0 0 520 520" role="img" aria-label="人与 AI 围绕真实结果形成循环">
+            <circle cx="260" cy="260" r="192"></circle>
+            <path d="M135 116 C260 35 425 118 448 250"></path>
+            <path d="M439 295 C390 447 206 480 94 372"></path>
+            <path d="M70 323 C35 232 62 159 112 119"></path>
+          </svg>
+        </div>
+      </div>
+      <aside class="speaker-note">家庭、学校与企业的三组实践共同指向一个人才培养问题：当 AI 系统进入真实职业任务，通识教育需要帮助学生形成任务理解、执行组织、结果验证与责任说明的完整能力。</aside>
+    </section>
+
+    <section class="slide thesis answer-slide" id="slide-2" data-title="AI 通识教育的目标判断" aria-hidden="true">
+      <div class="slide-inner centered answer-layout">
+        <p class="kicker pale">核心判断</p>
+        <h2>学生应当能够与 AI 系统共同完成真实职业任务，<br>并验证结果、说明责任</h2>
+        <div class="answer-chain" aria-label="AI 通识教育的三项长期目标">
+          <span>完成任务</span><b>→</b><span>验证结果</span><b>→</b><span>说明责任</span>
+        </div>
+        <p class="thesis-foot">工具会持续变化，课程需要长期积累能够跨工具、跨岗位情境迁移的任务能力。</p>
+      </div>
+      <aside class="speaker-note">AI 通识教育的培养目标包括：在真实职业任务中组织人机协作、交付结果、完成验证并说明责任。概念理解与工具操作是基础条件，不构成完整的培养目标。模型与平台会持续变化，课程需要长期积累能够跨工具、跨情境迁移的工作能力。</aside>
+    </section>
+
+    <section class="slide paper perspective-slide" id="slide-3" data-title="技术、教育与经营的三重视角" aria-hidden="true">
+      <div class="slide-inner split perspective-layout">
+        <div class="copy-column">
+          <p class="kicker ink">观察位置</p>
+          <h2>技术、教育、经营<br>三重视角<br>共同构成本次判断</h2>
+          <p class="lead strong">技术帮助我理解什么已经可以实现，教育让我追问能力如何形成，企业经营则要求结果经得起采用、成本与责任的检验。</p>
+          <p class="source-note">本次分享呈现企业专家的实践观察；学校的建设历程、课程决策与实施成果由学校教师介绍。</p>
+        </div>
+        <div class="identity-stage" aria-label="技术、教育与企业经营三个视角交汇于未来职业人才">
+          <div class="identity-orbit tech"><strong>技术实践</strong><span>工作的可实现边界</span></div>
+          <div class="identity-orbit education"><strong>教育经验</strong><span>能力形成与迁移</span></div>
+          <div class="identity-orbit business"><strong>企业经营</strong><span>结果采用、成本与责任</span></div>
+          <div class="identity-core">未来职业<br>人才</div>
+        </div>
+      </div>
+      <aside class="speaker-note">我的观察位置来自三个相互约束的视角。技术实践让我看到实现边界正在变化；教育经验要求我们解释能力如何形成、如何迁移；企业经营则用真实采用、成本、可靠性和责任检验结果。以下内容不代替学校介绍校本建设与实施成果。</aside>
+    </section>
+
+    <section class="slide paper outline-slide" id="slide-4" data-title="分享结构：从实践观察到课程试点" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker ink">分享结构</p>
+        <h2>从实践观察出发，逐步回答四个问题</h2>
+        <div class="outline-grid">
+          <article><span>01</span><strong>哪些实践改变了我的判断？</strong><p>家庭原型、教师共创与企业协作。</p></article>
+          <article><span>02</span><strong>工作与人才要求发生了什么变化？</strong><p>产业、任务、协作方式与责任结构。</p></article>
+          <article><span>03</span><strong>AI 通识课应该长期积累什么？</strong><p>共同基础、专业情境、真实任务与评价证据。</p></article>
+          <article><span>04</span><strong>学校可以怎样开始第一轮实践？</strong><p>明确责任边界，开展小规模验证。</p></article>
+        </div>
+        <p class="bottom-thesis">中心问题：当 AI 系统进入真实职业任务，职业教育需要帮助学生形成哪些能够迁移、能够验证的能力？</p>
+      </div>
+      <aside class="speaker-note">本次分享按照“实践观察—工作与人才—课程回应—实施路径”展开。先说明哪些经历改变了我的判断，再分析工作单位、能力结构与责任边界，随后提出课程长期积累对象，最后给出可以由学校自主采用的一轮试点方法。</aside>
+    </section>
+
+    <section class="slide navy chapter-cover" id="slide-5" data-title="第一章：为什么我开始重新理解 AI 通识教育" aria-hidden="true">
+      <div class="chapter-number" aria-hidden="true">01</div>
+      <div class="slide-inner chapter-layout chapter-title-only">
+        <div class="chapter-copy">
+          <p class="kicker">第一章</p>
+          <h2>为什么我开始重新理解<br>AI 通识教育</h2>
+        </div>
+      </div>
+      <aside class="speaker-note">第一章解释问题的来源。我将从家庭原型、教师共创和企业协作三个现场，说明为什么讨论需要从工具操作上移到人才培养目标。</aside>
+    </section>
+
+    <section class="slide navy practice-overview" id="slide-6" data-title="三个实践现场提出同一个人才培养问题" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker">第一章 · 实践全景</p>
+        <h2>三个实践现场共同呈现实现门槛、专业判断与组织价值的变化</h2>
+        <div class="story-triptych">
+          <article class="story-panel">
+            <div><img src="./assets/yoyo-home.png" alt="Yo-yo 英语学习应用首页"></div>
+            <div><span>家庭原型</span><strong>教育设想更快转化为可运行体验</strong></div>
+          </article>
+          <article class="story-panel">
+            <div class="invitation-thumb"><img src="./assets/unesco-invitation.jpg" alt="UNESCO Digital Learning Week 2026 邀请函"></div>
+            <div><span>教师共创</span><strong>专业判断可以进入智能体设计与课堂修订</strong></div>
+          </article>
+          <article class="story-panel team-panel">
+            <div class="team-mini"><i>产品</i><i>研发</i><i>研究</i><i>课程</i></div>
+            <div><span>企业协作</span><strong>原型更快以后，结果价值与责任更加重要</strong></div>
+          </article>
+        </div>
+        <p class="prompt-line light-prompt">这些变化共同要求课程从单项工具操作延伸到可迁移的职业任务能力。</p>
+      </div>
+      <aside class="speaker-note">家庭原型、教师共创与企业协作分别呈现了实现、专业判断与组织价值三个层面的变化。家庭原型显示实现门槛下降，教师共创显示专业判断能够进入系统设计和课堂修订，企业协作则要求结果接受采用、运行与责任检验。这些变化共同要求我们重新考虑学生需要形成什么能力。</aside>
+    </section>
+
+    <section class="slide warm" id="slide-7" data-title="教育设想转化为学习原型" aria-hidden="true">
+      <div class="slide-inner split image-heavy">
+        <div class="copy-column">
+          <p class="kicker ink">第一章 · 01 家庭实践</p>
+          <h2>这次家庭实践中，<br>AI 工具缩短了教育设想<br>转化为学习原型的时间</h2>
+          <p class="lead strong">女儿喜欢小猪佩奇、库洛米和迪士尼公主。我尝试依据她的兴趣设计英语活动，并把品格期待纳入内容选择与互动规则。</p>
+          <div class="quote-card">可运行的技术验证版本（Technical Alpha）；尚未评估学习成效。</div>
+          <div class="evidence-chip warm-chip">本地 Technical Alpha · 演讲者过程记录</div>
+          <p class="micro-note">家庭内部学习原型。角色素材仅用于非商业演示，不代表品牌合作或授权。</p>
+        </div>
+        <div class="device-frame">
+          <img src="./assets/yoyo-home.png" alt="Yo-yo 英语学习应用首页，展示三个角色世界">
+        </div>
+      </div>
+      <aside class="speaker-note">Yo-yo Technical Alpha 记录了一个可运行的家庭学习原型，说明个人将教育设想转化为软件体验的门槛已经下降。本次展示仅用于说明技术实践；相关角色授权与商业合作不在该案例的证据范围内。来源：本地 Technical Alpha 截图与演讲者过程记录。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-8" data-title="教育判断仍由教育者承担" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker ink">第一章 · 02 教育边界</p>
+        <h2>培养目标、适龄性与学习成效<br>仍需由教育者判断</h2>
+        <div class="boundary-columns">
+          <div class="boundary-box execution">
+            <span class="boundary-label">AI 系统可辅助的环节</span>
+            <ul>
+              <li>内容、界面与互动的初步生成</li>
+              <li>语音、练习与多版本快速修改</li>
+              <li>基于明确规则的低风险执行</li>
+            </ul>
+          </div>
+          <div class="boundary-box judgment">
+            <span class="boundary-label">教育者承担的判断责任</span>
+            <ul>
+              <li>培养目标与适龄性</li>
+              <li>价值取舍与个性化边界</li>
+              <li>学习成效与相应验证方式</li>
+            </ul>
+          </div>
+        </div>
+        <p class="bottom-thesis">生成能力只能说明技术可行性，教育适切性与学习成效需要另行判断和验证。</p>
+      </div>
+      <aside class="speaker-note">该原型支持的结论仅限于实现门槛下降。培养目标、适龄性、内容边界以及理解与迁移的判断，仍需由家长和教育者依据学习过程承担责任。</aside>
+    </section>
+
+    <section class="slide unesco-blue" id="slide-9" data-title="教师智能体共创项目获邀 UNESCO 交流" aria-hidden="true">
+      <div class="slide-inner split invitation-layout">
+        <div class="copy-column light-copy">
+          <p class="kicker pale">第一章 · 03 教师共创</p>
+          <h2>教师智能体共创项目获邀在 UNESCO Digital Learning Week 2026 交流</h2>
+          <p class="lead light-lead">官方暂定议程列出分享题目<br><strong>From AI tool users to AI agent creators</strong></p>
+          <div class="evidence-chip">巴黎 UNESCO 总部 · 2026 年 9 月</div>
+          <p class="source-note on-dark">来源：UNESCO《Digital Learning Week 2026 Provisional Programme》p.8；正式邀请函（2026-07-21）。获邀分享不等于对课程、成效或机构的认证。</p>
+        </div>
+        <figure class="invitation-sheet">
+          <img src="./assets/unesco-invitation.jpg" alt="写给 Haiyang Tony Xin 的 UNESCO Digital Learning Week 2026 官方邀请函">
+          <figcaption>UNESCO 官方邀请函原件</figcaption>
+        </figure>
+      </div>
+      <aside class="speaker-note">正式邀请函与 UNESCO 官方暂定议程确认了分论坛分享安排，主题涉及教师能动性与专业发展。这项实践由参与教师、合作学校与项目团队共同推进；现有材料只证明交流安排，不构成 UNESCO 对课程、研究成效或机构的认证与背书。来源：UNESCO Digital Learning Week 2026 Provisional Programme，第 8 页；正式邀请函。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-10" data-title="教师专业发展路径" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker ink">第一章 · 04 实践路径</p>
+        <h2>教师共创以真实课堂问题为起点，<br>并依据课堂证据持续修订</h2>
+        <div class="pathway-line">
+          <div><span>01</span><strong>真实教学问题</strong><small>界定可观察的课堂问题</small></div>
+          <div><span>02</span><strong>共同设计智能体</strong><small>将教学判断转化为可执行规则</small></div>
+          <div><span>03</span><strong>进入课堂试验</strong><small>记录运行偏差与适用边界</small></div>
+          <div><span>04</span><strong>依据证据修订</strong><small>依据过程证据调整下一轮设计</small></div>
+        </div>
+        <div class="co-creation-note"><strong>共同完成</strong><span>参与教师提供课堂问题与专业判断，项目团队提供协同设计、技术支持与过程记录。</span></div>
+        <p class="source-note">来源范围：实践路径据项目材料整理；官方议程只确认分享安排，学习成效仍需独立研究。</p>
+      </div>
+      <aside class="speaker-note">这一实践以教师的真实课堂问题为起点，经过协同设计、课堂试验和证据修订形成专业发展循环。官方议程确认的是分享安排；项目触达人数、研究样本与学习效果需要分别依据实施记录和研究证据判断。</aside>
+    </section>
+
+    <section class="slide navy" id="slide-11" data-title="CocoRobo 团队协作变化" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker">第一章 · 05 企业现场</p>
+        <h2>CocoRobo 的原型实践正在将部分串行交接转为共同验证</h2>
+        <div class="workflow-shift">
+          <div class="workflow-before">
+            <span>串行交接</span>
+            <div class="relay"><i>需求</i><b>→</b><i>产品</i><b>→</b><i>设计</i><b>→</b><i>研发</i><b>→</b><i>测试</i></div>
+            <small>串行交接增加信息损耗风险</small>
+          </div>
+          <div class="workflow-now">
+            <span>共同验证</span>
+            <div class="shared-result"><strong>可检验原型</strong><i>产品</i><i>研发</i><i>研究</i><i>课程</i></div>
+            <small>围绕同一问题形成并检验原型</small>
+          </div>
+        </div>
+        <p class="prompt-line light-prompt">原型制作成本下降以后，企业仍需以用户采用、稳定运行和可复核证据证明价值。</p>
+      </div>
+      <aside class="speaker-note">CocoRobo 的团队实践仍处于推进阶段。产品角色开始参与部署与测试，研发角色开始参与产品设计和用户判断；原型周期缩短后，组织需要同时承担采用、可靠性、成本、治理与复用责任。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-12" data-title="企业价值形成条件" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker ink">第一章 · 06 结果价值</p>
+        <h2>企业价值需要由用户采用、结果验证<br>与持续运行共同形成</h2>
+        <div class="value-chain">
+          <div><span>问题必要性</span><strong>明确用户与现实必要性</strong></div>
+          <div><span>真实采用</span><strong>目标用户在真实情境中持续使用</strong></div>
+          <div><span>结果验证</span><strong>交付结果通过预定标准检验</strong></div>
+          <div><span>稳定运行</span><strong>系统在目标条件下保持可靠</strong></div>
+          <div><span>治理条件</span><strong>权限、成本与异常处置可控</strong></div>
+          <div><span>方法沉淀</span><strong>形成可复核、可再次使用的方法</strong></div>
+        </div>
+        <p class="bottom-thesis">原型速度属于局部效率指标，不能单独作为组织价值的证据。</p>
+      </div>
+      <aside class="speaker-note">个人效率与组织价值采用不同的衡量标准。局部产出速度的提升，只有经过用户采用、结果验证、稳定运行与持续维护，才可能转化为组织价值。该判断源于 CocoRobo 团队实践，属于管理分析，尚不构成行业因果证据。</aside>
+    </section>
+
+    <section class="slide thesis chapter-cover" id="slide-13" data-title="第二章：工作系统改变以后，人才标准发生了什么" aria-hidden="true">
+      <div class="chapter-number" aria-hidden="true">02</div>
+      <div class="slide-inner chapter-layout chapter-title-only">
+        <div class="chapter-copy">
+          <p class="kicker pale">第二章</p>
+          <h2>工作系统改变以后，<br>人才标准发生了什么</h2>
+        </div>
+      </div>
+      <aside class="speaker-note">第二章讨论工作单位、协作方式和责任结构如何变化，并由此重新审视职业人才的能力结构。</aside>
+    </section>
+
+    <section class="slide thesis core-judgment" id="slide-14" data-title="一般性产出成本下降后的能力权重变化" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker pale">第二章 · 核心判断</p>
+        <h2>一般性产出成本下降以后，<br>判断、验证与责任的相对权重上升</h2>
+        <div class="scarcity-scale" aria-label="生产门槛下降与专业责任权重上升的关系">
+          <div class="down"><span>生产门槛下降</span><strong>草稿、原型、代码与一般性内容更容易生成</strong></div>
+          <div class="scale-axis" aria-hidden="true"></div>
+          <div class="up"><span>责任权重上升</span><strong>问题选择、专业判断、结果验证与持续运行更重要</strong></div>
+        </div>
+        <p class="thesis-foot">制作与工程仍是交付基础；变化发生在能力组合及其相对稀缺性。</p>
+      </div>
+      <aside class="speaker-note">这一判断并不意味着制作和工程不再重要。一般性产出更容易生成以后，真正形成结果仍需要问题选择、专业标准、质量验证、稳定运行和责任承担。职业教育需要据此重新安排基础操作、专业深度与完整任务能力的关系。</aside>
+    </section>
+
+    <section class="slide paper data-slide" id="slide-15" data-title="广东产业结构与高技术制造" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker ink">第二章 · 01 广东产业现场</p>
+        <h2>广东工业和高技术制造指标，为分析职业任务变化提供宏观背景</h2>
+        <div class="data-trio">
+          <article><strong>33.6%</strong><span>工业增加值占地区生产总值</span></article>
+          <article><strong>10.2%</strong><span>规模以上高技术制造业增加值增速</span></article>
+          <article><strong>31.2%</strong><span>工业机器人产量增速</span></article>
+        </div>
+        <p class="data-interpretation">职业教育需要进一步分析这些变化如何进入制造、检测、运维、服务和管理等具体职业任务。</p>
+        <p class="source-note">来源：广东省统计局《2024 年广东经济运行简况》。这些指标反映产业变化，不代表均由 AI 单独导致。</p>
+      </div>
+      <aside class="speaker-note">这组 2024 年广东官方统计提供产业结构与高技术制造的宏观背景。其统计口径没有识别 AI 的独立贡献，也未测量就业效应。因此，本页仅用于界定产业背景，不用于推断 AI 的独立贡献或就业效应。</aside>
+    </section>
+
+    <section class="slide dark-teal data-slide" id="slide-16" data-title="职业暴露与任务变化" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker pale">第二章 · 02 岗位任务变化</p>
+        <h2>职业暴露指标用于估计生成式 AI 影响任务结构的潜在范围</h2>
+        <div class="exposure-visual">
+          <div class="exposure-major"><strong>25%</strong><span>全球就业中，约 25% 位于对生成式 AI 存在某种潜在暴露的职业</span></div>
+          <div class="exposure-minor"><strong>3.3%</strong><span>全球就业中，约 3.3% 位于最高暴露梯度</span></div>
+        </div>
+        <p class="data-interpretation light-copyline">“职业暴露”指一个职业中有多少任务可能受到生成式 AI 影响，并不等于相应岗位会消失。</p>
+        <p class="source-note on-dark">来源：ILO–NASK, <em>Generative AI and Jobs: A Refined Global Index of Occupational Exposure</em>, 2025。</p>
+      </div>
+      <aside class="speaker-note">ILO–NASK 根据近三万项职业任务、专家校验及 140 多个国家的劳动力数据进行估算。25% 和 3.3% 衡量的是潜在职业暴露程度；实际采用、任务重组和岗位变化仍需其他证据判断。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-17" data-title="AI 工作系统与结果闭环" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker ink">第二章 · 03 任务组织</p>
+        <h2>在状态可记录、结果可检查的任务中，AI 工作系统可组织多步执行</h2>
+        <div class="work-unit-flow">
+          <div><span>聊天</span><strong>回答一个问题</strong><small>一次性交互</small></div>
+          <b>→</b>
+          <div><span>单一工具</span><strong>完成一个步骤</strong><small>局部产出</small></div>
+          <b>→</b>
+          <div class="result-unit"><span>AI 工作系统</span><strong>围绕目标持续执行、保存状态、接受检查</strong><small>形成可验证结果</small></div>
+        </div>
+        <div class="task-example"><span>职业任务示例</span><strong>读取设备工单 → 查找技术标准 → 形成检查清单 → 记录异常 → 等待专业复核</strong></div>
+        <p class="bottom-thesis">课程评价可由单项操作延伸到对完整任务过程与交付结果的评价。</p>
+      </div>
+      <aside class="speaker-note">AI 工作系统在这里指能够围绕目标组织多步行动、保存过程状态、接受检查并依据结果继续修正的系统。以设备检查为例，它可以读取工单、检索标准、形成检查清单和记录异常，但专业人员仍需复核。其适用条件包括任务可数字化、状态可记录和结果可检查。</aside>
+    </section>
+
+    <section class="slide warm" id="slide-18" data-title="AI 系统授权条件" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker ink">第二章 · 04 能力边界</p>
+        <h2>可委托给 AI 系统的工作范围，取决于目标可分解性、环境可观测性、反馈可检查性与后果风险</h2>
+        <div class="risk-spectrum">
+          <div class="spectrum-row"><span>目标</span><strong>清晰、可分解</strong><i></i><strong>模糊、需要取舍</strong></div>
+          <div class="spectrum-row"><span>环境</span><strong>数字化、可观测</strong><i></i><strong>物理现场、高情境</strong></div>
+          <div class="spectrum-row"><span>反馈</span><strong>快速、可自动检查</strong><i></i><strong>滞后、标准有争议</strong></div>
+          <div class="spectrum-row"><span>后果</span><strong>低风险、可逆转</strong><i></i><strong>高影响、难以逆转</strong></div>
+        </div>
+        <div class="risk-caption"><span>越接近左侧，可授予系统的执行范围越大；越接近右侧，人工判断与独立复核越重要。</span></div>
+      </div>
+      <aside class="speaker-note">AI 系统的授权范围受到任务结构和风险条件约束。任务模糊度、物理情境依赖、反馈周期与后果风险越高，自动执行范围越应收窄，专业人员的判断与独立复核权重相应上升。</aside>
+    </section>
+
+    <section class="slide navy" id="slide-19" data-title="T 型人才结构" aria-hidden="true">
+      <div class="slide-inner split t-layout">
+        <div class="copy-column light-copy">
+          <p class="kicker">第二章 · 05 人才结构</p>
+          <h2>专业深度之外，学生还需要贯穿完整任务的横向能力</h2>
+          <p class="lead light-lead">纵向保持专业深度；横向能力覆盖任务理解、执行组织、结果验证与责任说明。</p>
+        </div>
+        <div class="t-diagram" aria-label="T 型人才结构图">
+          <div class="t-horizontal"><span>任务理解</span><span>执行组织</span><span>结果验证</span><span>责任说明</span></div>
+          <div class="t-vertical"><strong>专业深度</strong><span>知识</span><span>工艺</span><span>标准</span><span>现场经验</span></div>
+        </div>
+      </div>
+      <aside class="speaker-note">T 型结构使学生在保持专业深度的同时理解完整任务。横向能力支持其识别上下游关系、减少交接损耗并参与结果闭环；纵向专业深度则提供判断 AI 输出是否符合专业标准的依据。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-20" data-title="相邻技能重叠" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker ink">第二章 · 06 跨专业协作</p>
+        <h2>相邻技能的适度重叠，<br>能够减少交接中的信息失真</h2>
+        <div class="overlap-stage">
+          <div class="overlap-circle product"><strong>任务设计</strong><span>理解实现与验收</span></div>
+          <div class="overlap-circle engineering"><strong>技术实现</strong><span>理解用户与场景</span></div>
+          <div class="overlap-circle domain"><strong>行业专业</strong><span>理解数据与流程</span></div>
+          <div class="overlap-center">共同标准<br>完整结果</div>
+        </div>
+        <p class="bottom-thesis">团队成员对上下游保持基本理解，并在主要环节形成专长；相邻技能的重叠用于提前识别接口错误与标准冲突。</p>
+      </div>
+      <aside class="speaker-note">学生项目团队中的任务设计、技术实现和行业专业需要共享基础术语、必要技能与验收标准。适度的技能重叠有助于提前识别问题，各成员仍在关键环节承担差异化专业责任。</aside>
+    </section>
+
+    <section class="slide lifecycle" id="slide-21" data-title="五类生命周期活动" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker pale">第二章 · 07 完整生命周期</p>
+        <h2>一项数字化成果进入真实现场，<br>通常包含五类工作</h2>
+        <div class="life-ring">
+          <div class="life-node n1"><strong>探索</strong><span>理解问题<br>比较方案</span></div>
+          <div class="life-node n2"><strong>构建</strong><span>形成可运行成果</span></div>
+          <div class="life-node n3"><strong>优化</strong><span>修正错误<br>降低复杂性</span></div>
+          <div class="life-node n4"><strong>扩展</strong><span>适配用户<br>增加情境</span></div>
+          <div class="life-node n5"><strong>维护</strong><span>保持安全、可靠<br>与成本可控</span></div>
+          <div class="life-core">从问题<br>到长期运行</div>
+        </div>
+        <p class="source-note on-dark">该框架来自软件与产品实践，目前作为课程设计假设，尚未经过职业教育实证验证，也不对应固定岗位分类。</p>
+      </div>
+      <aside class="speaker-note">探索、构建、优化、扩展和维护来自软件与产品团队实践，在本报告中用于检查一项数字化任务是否从问题走到长期运行。五类工作不对应五个固定岗位，也不要求由一个人独立完成；该框架目前属于课程设计假设，尚未形成经过职业教育实证验证的人才理论。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-22" data-title="生命周期覆盖与个人专长" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker ink">第二章 · 08 能力完整性</p>
+        <h2>课程应同时培养完整工作过程的基础能力与若干环节的专业专长</h2>
+        <p class="framework-bridge">T 型结构描述个人能力的广度与深度；五类工作描述任务生命周期；四项共同能力描述各阶段所需的参与方式。</p>
+        <div class="capability-profiles">
+          <div class="profile"><span>能力组合 A</span><i class="level-skilled">熟练</i><i class="level-strong">专长</i><i class="level-skilled">熟练</i><i class="level-base">基础</i><i class="level-base">基础</i></div>
+          <div class="profile"><span>能力组合 B</span><i class="level-strong">专长</i><i class="level-skilled">熟练</i><i class="level-base">基础</i><i class="level-skilled">熟练</i><i class="level-base">基础</i></div>
+          <div class="profile"><span>能力组合 C</span><i class="level-base">基础</i><i class="level-skilled">熟练</i><i class="level-strong">专长</i><i class="level-skilled">熟练</i><i class="level-strong">专长</i></div>
+          <div class="profile-labels"><span>探索</span><span>构建</span><span>优化</span><span>扩展</span><span>维护</span></div>
+          <p class="profile-disclaimer">示意性能力画像，非测评数据。正式使用前需建立任务量规与实测记录。</p>
+        </div>
+        <p class="bottom-thesis">基础覆盖强调对上下游、衔接任务与交接时点的理解；专业专长决定个人承担主要责任的环节。</p>
+      </div>
+      <aside class="speaker-note">T 型结构描述能力广度与深度，五类工作描述任务生命周期，四项共同能力描述学生在各阶段的参与方式。基础覆盖用于理解上下游关系、承担衔接任务并判断交接时点；专业专长决定主要责任环节。</aside>
+    </section>
+
+    <section class="slide warm" id="slide-23" data-title="AI 系统辅助与专业复核" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker ink">第二章 · 09 人机协作</p>
+        <h2>AI 系统可辅助个人覆盖非专长环节，高影响结果仍需专业复核</h2>
+        <div class="support-layers">
+          <div class="support-person"><span>个人专长</span><strong>在主要环节形成专业判断与交付能力</strong></div>
+          <div class="support-ai"><span>AI 系统辅助</span><strong>支持检索、草拟、分析、测试与文档处理</strong></div>
+          <div class="support-team"><span>专业复核</span><strong>完成专业校核、例外处置与质量确认</strong></div>
+        </div>
+        <p class="bottom-thesis">AI 系统可扩大个人参与完整任务的范围，但不会自动赋予专业资格或转移最终责任。</p>
+      </div>
+      <aside class="speaker-note">AI 系统可在明确授权和结果可检查的条件下，辅助上下文整理、方法检索、初步分析、测试与文档工作。高影响结果仍需由具备相应专业能力的同伴、教师或行业导师独立复核。</aside>
+    </section>
+
+    <section class="slide navy" id="slide-24" data-title="授权、记录与责任" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker">第二章 · 10 责任模型</p>
+        <h2>课程中的 AI 使用需要明确授权范围、运行记录与责任归属</h2>
+        <div class="responsibility-stack">
+          <div class="responsibility human"><span>人</span><strong>目标 · 专业判断 · 价值取舍 · 最终责任</strong></div>
+          <div class="responsibility system"><span>AI 系统</span><strong>在授权范围内执行可检查、可逆转的任务</strong></div>
+          <div class="responsibility runtime"><span>治理机制</span><strong>配置权限、状态、成本、证据与停止条件</strong></div>
+        </div>
+        <p class="prompt-line light-prompt">自动化不会自行转移责任；课程实施前需要明确决策、复核与责任主体。</p>
+      </div>
+      <aside class="speaker-note">教育任务通常涉及学生数据、评价决策与学习机会分配，因此授权范围应受情境、风险和责任约束。课程除工具操作外，还应覆盖权限、数据、成本、知识产权、人工批准与停止条件；自动化程度不能单独作为系统成熟度依据。</aside>
+    </section>
+
+    <section class="slide dark-teal data-slide" id="slide-25" data-title="职业教育系统规模" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker pale">第二章 · 11 职业教育规模</p>
+        <h2>职业教育系统的规模要求 AI 通识课程同时满足教学质量与可实施性</h2>
+        <div class="vocational-scale">
+          <div><strong>1,229.33 万</strong><span>中等职业学校在校生</span></div>
+          <div><strong>1,764.66 万</strong><span>高职（专科）在校生</span></div>
+          <div><strong>40.68 万</strong><span>职业本科在校生</span></div>
+        </div>
+        <p class="data-interpretation light-copyline">真实项目提供综合实践载体，系统规模说明课程改革的影响面；这些条件能否形成优势，取决于教师支持、教学实施与评价机制能否协同运行。</p>
+        <p class="source-note on-dark">来源：教育部《2024 年全国教育事业发展统计公报》。简单加总不含人社部门管理的技工学校。</p>
+      </div>
+      <aside class="speaker-note">教育部 2024 年行政统计所列三类在校生合计约 3,034.67 万。统计范围未包括人社部门管理的技工学校，因此适合用于说明教育系统规模，不宜作为全部职业技能教育学习者总量或课程质量指标。真实项目提供课程载体，系统规模说明影响面；下一章由此转向 AI 通识课的课程回应。</aside>
+    </section>
+
+    <section class="slide dark-teal chapter-cover" id="slide-26" data-title="第三章：AI 通识课应该长期积累什么" aria-hidden="true">
+      <div class="chapter-number" aria-hidden="true">03</div>
+      <div class="slide-inner chapter-layout chapter-title-only">
+        <div class="chapter-copy">
+          <p class="kicker pale">第三章</p>
+          <h2>AI 通识课，<br>应该长期积累什么</h2>
+        </div>
+      </div>
+      <aside class="speaker-note">前一章说明人才能力结构的变化，本章转向课程回应，讨论工具快速更新时课程仍然值得长期积累的内容。</aside>
+    </section>
+
+    <section class="slide paper course-definition" id="slide-27" data-title="AI 通识课的长期对象是可迁移的任务能力" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker ink">第三章 · 01 课程定义</p>
+        <h2>AI 通识课程应以可迁移的职业任务能力作为长期主线</h2>
+        <div class="tool-vs-capability">
+          <div class="tool-cloud" aria-label="持续变化的工具与概念">
+            <span>大模型</span><span>智能体</span><span>提示词</span><span>知识库</span><span>工作流</span><span>可复用技能（Skill）</span><span>多模态</span><span>自动化</span><span>模型平台</span>
+          </div>
+          <div class="stable-spine">
+            <strong>课程长期积累的能力主线</strong>
+            <i><b>理解任务</b><small>识别用户、情境、标准与边界</small></i>
+            <i><b>组织执行</b><small>配置工具、信息、分工与过程</small></i>
+            <i><b>验证结果</b><small>依据专业标准检查并修正</small></i>
+            <i><b>说明责任</b><small>记录来源、决策、权限与风险</small></i>
+          </div>
+        </div>
+        <p class="bottom-thesis">工具与平台是阶段性教学材料；能力模型、真实任务、作品证据、评价标准与教师经验构成长期资产。</p>
+      </div>
+      <aside class="speaker-note">模型、平台和概念会持续变化，阶段性工具仍需纳入教学，但课程框架不宜随每次产品更新而整体重写。长期主线包括理解任务、组织执行、验证结果与说明责任。学校可以围绕这些能力持续积累真实任务、学生作品、过程证据、评价标准和教师经验。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-28" data-title="真实项目与综合实践" aria-hidden="true">
+      <div class="slide-inner split pbl-layout">
+        <div class="copy-column">
+          <p class="kicker ink">第三章 · 02 实践基础</p>
+          <h2>真实项目可以把分散能力置于同一任务中练习</h2>
+          <p class="lead strong">过去十年，我与团队持续与多所学校及教师开展科学、技术、工程与数学教育及项目式学习（STEM/PBL）实践，关注学生如何理解问题、检验假设、比较证据、协作行动并修正方案。</p>
+          <p class="source-note">OECD 官方综述认为 PBL 对学业与参与的积极证据较多，但对创造性、批判性思维的直接因果证据仍有限。</p>
+        </div>
+        <div class="pbl-loop">
+          <span>真实问题</span><span>知识整合</span><span>协作行动</span><span>证据检验</span><span>反思修正</span>
+          <strong>完整学习闭环</strong>
+        </div>
+      </div>
+      <aside class="speaker-note">过去十年，我与团队和多所学校、教师共同开展 STEM/PBL 项目。真实项目能够把知识整合、工具使用、协作行动、证据检验和责任承担置于同一任务中练习，因此构成从人才判断转向课程设计的实践桥梁。项目形式本身不足以推定教学效果，任务质量与教学设计仍是关键条件。来源：OECD, Fostering Students' Creativity and Critical Thinking, 2019。</aside>
+    </section>
+
+    <section class="slide navy" id="slide-29" data-title="共同基础与专业情境" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker">第三章 · 03 课程架构</p>
+        <h2>共同基础与专业情境可以形成两层课程结构</h2>
+        <div class="curriculum-principle">
+          <div class="foundation-module">
+            <div class="module-heading"><span>共同基础</span><div><strong>所有学生都需要的 AI 素养与工作方法</strong><small>不随某个模型或平台的更新而频繁改写</small></div></div>
+            <div class="foundation-items">
+              <span>理解任务与工具边界</span><span>组织人机协作过程</span><span>验证结果并说明责任</span>
+            </div>
+          </div>
+          <div class="cluster-connector"><span>依据专业培养目标做场景适配</span></div>
+          <div class="cluster-row">
+            <article class="engineering"><span>工程制造情境</span><strong>工艺 · 检测 · 运维 · 安全</strong></article>
+            <article class="design"><span>设计创意情境</span><strong>需求 · 生成 · 评审 · 版权</strong></article>
+            <article class="business"><span>商贸服务情境</span><strong>客户 · 数据 · 流程 · 合规</strong></article>
+            <article class="other"><span>其他专业情境</span><strong>由课程团队依据培养目标确定</strong></article>
+          </div>
+        </div>
+        <p class="prompt-line light-prompt">依据深圳技师学院项目申报方案提炼；具体课时、项目序列与专业模块由学校课程团队确定，并由校方另行介绍。</p>
+      </div>
+      <aside class="speaker-note">本页仅提炼申报方案中的一般原则，不涉及校本课时、项目序列或专业模块。共同基础承载可迁移的 AI 素养与工作方法；专业情境由学校课程团队依据培养目标、课程标准与专业实际确定。</aside>
+    </section>
+
+    <section class="slide warm" id="slide-30" data-title="真实岗位任务反向设计" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker ink">第三章 · 04 专业模块</p>
+        <h2>专业模块应从代表性岗位任务及其验收标准出发</h2>
+        <div class="reverse-design">
+          <div class="reverse-step result"><span>01</span><strong>交付结果</strong><small>明确服务对象、问题范围与预期产物</small></div>
+          <div class="reverse-step"><span>02</span><strong>验收标准</strong><small>依据行业规范确定质量与安全要求</small></div>
+          <div class="reverse-step"><span>03</span><strong>工作过程</strong><small>界定学生、AI 系统与协作者的任务边界</small></div>
+          <div class="reverse-step"><span>04</span><strong>知识与工具</strong><small>配置所需的专业知识、数据与工具</small></div>
+        </div>
+        <p class="bottom-thesis">学生在完整职业任务中学习选择、使用和约束 AI 功能。</p>
+      </div>
+      <aside class="speaker-note">适合作为专业模块起点的任务，应具备发生频率较高、风险可控、可重复练习和可获得行业反馈等条件。每个模块还需要明确用户、验收标准、数据来源与现场约束，一般性文稿或演示制作无法承担这些专业要求。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-31" data-title="结果、过程与修正评价" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker ink">第三章 · 05 教学与评价</p>
+        <h2>真实任务的学习价值，<br>需要通过结果、过程与修正共同判断</h2>
+        <div class="learning-loop">
+          <div><strong>问题与标准</strong><span>明确用户、情境、验收和责任</span></div>
+          <div><strong>人机执行</strong><span>记录分工、来源和版本变化</span></div>
+          <div><strong>专业复核</strong><span>依据标准检查结果与风险</span></div>
+          <div><strong>证据回流</strong><span>修正方案并迁移到下一轮</span></div>
+          <span class="loop-arrow a1">→</span><span class="loop-arrow a2">→</span><span class="loop-arrow a3">→</span><span class="loop-arrow a4">↺</span>
+        </div>
+        <div class="evidence-strip"><strong>过程证据</strong><span>信息来源</span><span>关键决策</span><span>版本变化</span><span>复核结论</span><span>学生反思</span></div>
+        <p class="source-note">最终作品呈现交付质量；过程证据用于判断任务理解、修正能力与迁移表现，即学生能否在新的任务情境中独立运用已经形成的能力。</p>
+      </div>
+      <aside class="speaker-note">真实项目的评价需要同时考察交付结果、执行过程与修正表现。过程证据支持教师判断学生的理解、决策与迁移发展，评价不应依据在线时长；教师依据课程目标统筹知识教学、任务设计、过程指导、专业反馈与评价决策，AI 系统不承担教学责任。</aside>
+    </section>
+
+    <section class="slide warm chapter-cover chapter-light" id="slide-32" data-title="第四章：怎样从课程框架走向第一轮实践" aria-hidden="true">
+      <div class="chapter-number" aria-hidden="true">04</div>
+      <div class="slide-inner chapter-layout chapter-title-only">
+        <div class="chapter-copy">
+          <p class="kicker ink">第四章</p>
+          <h2>怎样从课程框架<br>走向第一轮实践</h2>
+        </div>
+      </div>
+      <aside class="speaker-note">第三章提出课程框架，第四章讨论如何在责任清晰、规模可控的条件下开始第一轮实践。</aside>
+    </section>
+
+    <section class="slide warm responsibility-map-slide" id="slide-33" data-title="校企协作的责任边界" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker ink">第四章 · 01 责任边界</p>
+        <h2>校企协作需要明确学校、企业与共同事项的责任边界</h2>
+        <div class="partnership-map">
+          <div class="partner-role school-role">
+            <div class="partner-heading"><span>学校决定</span><strong>课程与教学</strong></div>
+            <div class="partner-items"><span>育人目标</span><span>课程标准</span><span>教学组织</span><span>评价与治理</span></div>
+          </div>
+          <div class="joint-role">
+            <span>共同完成</span><strong>把行业任务转化为<br>可教、可学、可评价的项目</strong>
+            <div><i>任务选择</i><i>教学转化</i><i>试点设计</i><i>证据复核</i><i>迭代修订</i></div>
+          </div>
+          <div class="partner-role enterprise-role">
+            <div class="partner-heading"><span>企业补充</span><strong>行业与工程条件</strong></div>
+            <div class="partner-items"><span>真实任务</span><span>岗位情境</span><span>工程约束</span><span>运行经验</span></div>
+          </div>
+        </div>
+        <p class="prompt-line">学校承担育人和教学责任；企业提供任务与工程支持；共同事项必须预先约定决策权、复核主体与数据边界。</p>
+      </div>
+      <aside class="speaker-note">校企合作最需要避免的是责任混同。学校决定育人目标、课程标准、教学组织、评价和治理；企业补充真实任务、岗位情境、工程约束与运行经验。双方可以共同完成任务选择、教学转化、试点设计、证据复核和迭代修订，但需要预先约定决策权、复核主体与数据边界。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-34" data-title="企业伙伴的支持边界" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker ink">第四章 · 02 企业支持</p>
+        <h2>企业伙伴可为课程试点补充四类工程条件</h2>
+        <div class="enterprise-support-grid enterprise-support-only">
+          <article><span>01</span><strong>真实行业任务</strong><p>提供服务对象、业务流程、岗位情境与验收标准。</p></article>
+          <article><span>02</span><strong>工程约束</strong><p>说明数据、接口、安全、成本与维护条件。</p></article>
+          <article><span>03</span><strong>技术环境</strong><p>提供可审计的工具配置、测试环境与故障处置条件。</p></article>
+          <article><span>04</span><strong>运行证据</strong><p>提供版本变化、异常记录、成本与维护反馈。</p></article>
+        </div>
+        <p class="bottom-thesis">这些条件支持项目的真实性与可运行性，但不构成教育成效证据。</p>
+      </div>
+      <aside class="speaker-note">在责任边界已经明确的前提下，企业伙伴可以具体补充四类条件：真实行业任务、工程约束、可审计的技术环境以及运行证据。这些条件支持课程项目的真实性与可运行性，但不能直接替代学校的教学判断，也不构成教育成效证据。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-35" data-title="90 天可行性试点" aria-hidden="true">
+      <div class="slide-inner">
+        <p class="kicker ink">第四章 · 03 90 天试点</p>
+        <h2>AI 通识课的专业模块可通过 90 天试点检验可实施性</h2>
+        <div class="pilot-unit"><span>最小试点单元</span><strong>一个专业 · 一项真实任务 · 一支跨部门小组 · 一名试点负责人</strong></div>
+        <div class="ninety-days">
+          <article><span>前 30 天</span><strong>试点设计</strong><p>选择一个专业与一项高频真实任务，建立学生基线、验收标准和安全边界。</p></article>
+          <article><span>中间 30 天</span><strong>两轮实施</strong><p>完成至少两轮教学实施，记录版本、复核、教师负担和异常情况。</p></article>
+          <article><span>最后 30 天</span><strong>证据复核</strong><p>复核作品、过程证据与现场反馈，据此决定扩大、修订或停止。</p></article>
+        </div>
+        <p class="bottom-thesis">首轮 90 天仅用于评估可实施性；其证据不足以支持长期成效判断或全校推广决策。</p>
+      </div>
+      <aside class="speaker-note">90 天用于验证可实施性，不是全面改革计划，也不能证明长期学习成效。最小试点单元可由一个专业、一项真实任务、一支跨部门小组和一名明确责任人构成；参与者预先设定停止条件，并记录学生初步表现、教师工作量、权限与隐私风险、模型费用及维护成本。</aside>
+    </section>
+
+    <section class="slide closing" id="slide-36" data-title="真实任务与能力证据" aria-hidden="true">
+      <div class="closing-map" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="slide-inner centered">
+        <p class="kicker pale">结论 · 回到人才培养</p>
+        <h2>学生在真实职业任务中的交付、验证与责任说明，是 AI 通识课程的核心能力证据</h2>
+        <div class="closing-path"><span>任务理解</span><b>→</b><span>组织执行</span><b>→</b><span>结果验证</span><b>→</b><span>责任说明</span></div>
+        <p class="closing-share">企业可以提供行业任务与工程支持，学校依据育人目标决定课程、教学与评价。</p>
+        <p class="closing-question">贵校希望学生毕业时能够与 AI 共同完成哪一项真实职业任务？<br>学校准备依据哪些证据，判断这种能力已经形成？</p>
+      </div>
+      <aside class="speaker-note">技术与工具仍会持续更新，人才培养需要回到真实任务、可靠结果和责任说明。企业可以提供行业任务、工程条件与实施支持，学校依据育人目标决定课程、教学和评价。各校可结合专业设置与学生基础，分别界定目标任务及相应的能力证据。</aside>
+    </section>
+  </main>
+
+  <div class="progress"><span id="progress"></span></div>
+  <footer class="controls">
+    <button data-action="prev" type="button" aria-label="上一张">←</button>
+    <button data-action="next" type="button" aria-label="下一张">→</button>
+    <div><strong id="current-number">01</strong> / <span id="total-number">36</span></div>
+    <span class="spacer"></span>
+    <button data-action="notes" type="button">备注</button>
+    <button data-action="help" type="button">?</button>
+  </footer>
+
+  <div class="overview" id="overview" hidden><div class="overlay-head"><h2>选择一张幻灯片</h2><button data-action="overview-close" type="button">关闭 ×</button></div><div class="overview-grid" id="overview-grid"></div></div>
+  <aside class="notes" id="notes" hidden><div><strong>演讲者备注</strong><button data-action="notes-close" type="button">关闭 ×</button></div><p id="notes-content"></p></aside>
+  <dialog id="help-dialog"><form method="dialog"><h2>快捷键</h2><p>← / → 翻页 · Space 下一张 · O 总览 · F 全屏 · N 备注 · Home / End 首尾</p><button value="close">关闭</button></form></dialog>
+  <script src="./slides.js"></script>
+</body>
+</html>
