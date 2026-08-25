@@ -1,0 +1,20 @@
+{
+  "slug": "huayi-agentic-ai-2026",
+  "title": "AI时代，学校如何培养人、组织工作？",
+  "summary": "面向 K12 学校管理层，从未来人才需求、AI-native 管理判断与 WorkBuddy 任务实践出发，说明学校如何以低风险、可检查的真实任务建立 Agentic AI 实践，并保留人的判断与责任。",
+  "cover": "../assets/covers/huayi-agentic-ai-2026.svg",
+  "author": "辛海洋",
+  "publishedAt": "2026-08-26",
+  "eventDate": "2026-08-26",
+  "eventVenue": "华一学校",
+  "eventKind": "培训",
+  "tags": [
+    "K12 Education",
+    "Agentic AI",
+    "School Management"
+  ],
+  "slideCount": 65,
+  "durationMinutes": 180,
+  "access": "public",
+  "featured": true
+}

@@ -59,4 +59,29 @@ html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(
   }:deck);
   return a+JSON.stringify(decks)+c;
 });
+const huayiSlug='huayi-agentic-ai-2026';
+const huayiTitle='AI时代，学校如何培养人、组织工作？';
+const huayiSummary='面向 K12 学校管理层，从未来人才需求、AI-native 管理判断与 WorkBuddy 任务实践出发，说明学校如何以低风险、可检查的真实任务建立 Agentic AI 实践，并保留人的判断与责任。';
+if(!html.includes(`href="./${huayiSlug}/"`)){
+  const huayiCard=`<article class="deck-card" data-tags="k12 education|agentic ai|school management" data-search="${huayiTitle} ${huayiSummary} 华一学校 2026-08-26 k12 education agentic ai school management"><a class="deck-cover" href="./${huayiSlug}/" aria-label="打开 ${huayiTitle}"><img src="./assets/covers/${huayiSlug}.svg" alt="${huayiTitle}封面" width="1600" height="900"><span class="deck-number">00 / 00</span><span class="access-badge">公开</span></a><div class="deck-content"><p class="deck-eyebrow">K12 · AGENTIC AI · SCHOOL MANAGEMENT</p><div class="deck-title-row"><h3>${huayiTitle}</h3><i aria-hidden="true">↗</i></div><p class="deck-summary">${huayiSummary}</p><div class="deck-event"><time datetime="2026-08-26"><small>培训日期</small><b>2026-08-26</b></time><span><small>举办地点</small><b>华一学校</b></span></div><div class="deck-meta"><span><b>65</b> 张</span><span><b>180</b> 分钟</span><span>辛海洋</span></div><div class="deck-tags"><span>K12 Education</span><span>Agentic AI</span><span>School Management</span></div></div></article>`;
+  const preferred=html.indexOf('href="./vocational-ai-literacy-2026/"');
+  const fallback=html.indexOf('href="./comprehensive-practice-ai/"');
+  const anchor=preferred>=0?preferred:fallback;
+  if(anchor>=0){
+    const end=html.indexOf('</article>',anchor);
+    if(end>=0)html=html.slice(0,end+10)+'\n'+huayiCard+html.slice(end+10);
+  }
+}
+html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(_,a,b,c)=>{
+  const decks=JSON.parse(b);
+  if(!decks.some(deck=>deck.slug===huayiSlug)){
+    const huayiDeck={slug:huayiSlug,title:huayiTitle,eyebrow:'K12 · AGENTIC AI · SCHOOL MANAGEMENT',summary:huayiSummary,cover:`./assets/covers/${huayiSlug}.svg`,author:'辛海洋',publishedAt:'2026-08-26',eventDate:'2026-08-26',eventVenue:'华一学校',eventKind:'培训',tags:['K12 Education','Agentic AI','School Management'],slideCount:65,durationMinutes:180,access:'public',featured:true};
+    const anchor=decks.findIndex(deck=>deck.slug==='vocational-ai-literacy-2026');
+    decks.splice(anchor>=0?anchor+1:0,0,huayiDeck);
+  }
+  return a+JSON.stringify(decks)+c;
+});
+const deckTotal=(html.match(/class="deck-card"/g)||[]).length;
+let deckNumber=0;
+html=html.replace(/<span class="deck-number">\d{2} \/ \d{2}<\/span>/g,()=>`<span class="deck-number">${String(++deckNumber).padStart(2,'0')} / ${String(deckTotal).padStart(2,'0')}</span>`);
 document.open();document.write(html);document.close()}catch(e){document.getElementById('loading').textContent='浏览器无法载入目录，请使用最新版 Safari、Chrome 或 Edge。';console.error(e)}</script></body></html>
