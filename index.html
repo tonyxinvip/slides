@@ -81,6 +81,28 @@ html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(
   }
   return a+JSON.stringify(decks)+c;
 });
+const bohuiSlug='bohui-education-agentic-ai-2026';
+const bohuiTitle='AI时代，教育集团如何培养人、组织工作？';
+const bohuiSummary='面向博汇集团、华一学校与智理技工学校管理层，从未来人才需求、AIBP 与 Workflow Steward、Workflow Portfolio 和 WorkBuddy 任务实践出发，讨论教育集团如何在共享治理与学校专业责任之间建立可验证的 AI-native 工作流。';
+const bohuiCard=`<article class="deck-card" data-tags="education group|agentic ai|workflow portfolio" data-search="${bohuiTitle} ${bohuiSummary} 博汇集团 华一学校 智理技工学校 2026-08-26 education group agentic ai workflow portfolio"><a class="deck-cover" href="./${bohuiSlug}/" aria-label="打开 ${bohuiTitle}"><img src="./assets/covers/${bohuiSlug}.svg" alt="${bohuiTitle}封面" width="1600" height="900"><span class="deck-number">00 / 00</span><span class="access-badge">公开</span></a><div class="deck-content"><p class="deck-eyebrow">EDUCATION GROUP · AGENTIC AI · WORKFLOW PORTFOLIO</p><div class="deck-title-row"><h3>${bohuiTitle}</h3><i aria-hidden="true">↗</i></div><p class="deck-summary">${bohuiSummary}</p><div class="deck-event"><time datetime="2026-08-26"><small>培训日期</small><b>2026-08-26</b></time><span><small>举办地点</small><b>博汇集团</b></span></div><div class="deck-meta"><span><b>56</b> 张</span><span><b>180</b> 分钟</span><span>辛海洋</span></div><div class="deck-tags"><span>Education Group</span><span>Agentic AI</span><span>Workflow Portfolio</span></div></div></article>`;
+const existingBohui=html.indexOf(`href="./${bohuiSlug}/"`);
+const existingHuayi=html.indexOf(`href="./${huayiSlug}/"`);
+if(existingBohui<0&&existingHuayi>=0){
+  const cardStart=html.lastIndexOf('<article',existingHuayi);
+  const cardEnd=html.indexOf('</article>',existingHuayi);
+  if(cardStart>=0&&cardEnd>=0)html=html.slice(0,cardStart)+bohuiCard+html.slice(cardEnd+10);
+}else if(existingBohui<0){
+  const anchor=html.indexOf('href="./vocational-ai-literacy-2026/"');
+  if(anchor>=0){const end=html.indexOf('</article>',anchor);if(end>=0)html=html.slice(0,end+10)+'\n'+bohuiCard+html.slice(end+10)}
+}
+html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(_,a,b,c)=>{
+  const decks=JSON.parse(b);
+  const oldIndex=decks.findIndex(deck=>deck.slug===huayiSlug);
+  const filtered=decks.filter(deck=>deck.slug!==huayiSlug&&deck.slug!==bohuiSlug);
+  const bohuiDeck={slug:bohuiSlug,title:bohuiTitle,eyebrow:'EDUCATION GROUP · AGENTIC AI · WORKFLOW PORTFOLIO',summary:bohuiSummary,cover:`./assets/covers/${bohuiSlug}.svg`,author:'辛海洋',publishedAt:'2026-08-26',eventDate:'2026-08-26',eventVenue:'博汇集团',eventKind:'培训',tags:['Education Group','Agentic AI','Workflow Portfolio'],slideCount:56,durationMinutes:180,access:'public',featured:true};
+  filtered.splice(oldIndex>=0?Math.min(oldIndex,filtered.length):0,0,bohuiDeck);
+  return a+JSON.stringify(filtered)+c;
+});
 const deckTotal=(html.match(/class="deck-card"/g)||[]).length;
 let deckNumber=0;
 html=html.replace(/<span class="deck-number">\d{2} \/ \d{2}<\/span>/g,()=>`<span class="deck-number">${String(++deckNumber).padStart(2,'0')} / ${String(deckTotal).padStart(2,'0')}</span>`);
