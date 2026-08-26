@@ -103,6 +103,21 @@ html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(
   filtered.splice(oldIndex>=0?Math.min(oldIndex,filtered.length):0,0,bohuiDeck);
   return a+JSON.stringify(filtered)+c;
 });
+const studentAiSlug='student-ai-cognitive-division-2026';
+const studentAiTitle='当人人都有一支AI团队';
+const studentAiSummary='面向深圳外国语学校全学科教师，围绕学生、同伴、AI系统与教师的认知分工，讨论AI介入的能力目标、时机、学习证据与责任边界。';
+if(!html.includes(`href="./${studentAiSlug}/"`)){
+  const studentAiCard=`<article class="deck-card" data-tags="k12 education|ai literacy|learning sciences" data-search="${studentAiTitle} 学生与AI的认知分工 ${studentAiSummary} 深圳外国语学校 2026-08-27 k12 education ai literacy learning sciences"><a class="deck-cover" href="./${studentAiSlug}/" aria-label="打开 ${studentAiTitle}"><img src="./assets/covers/${studentAiSlug}.svg" alt="${studentAiTitle}封面" width="1600" height="900"><span class="deck-number">00 / 00</span><span class="access-badge">公开</span></a><div class="deck-content"><p class="deck-eyebrow">K12 · AI LITERACY · LEARNING SCIENCES</p><div class="deck-title-row"><h3>${studentAiTitle}</h3><i aria-hidden="true">↗</i></div><p class="deck-summary">${studentAiSummary}</p><div class="deck-event"><time datetime="2026-08-27"><small>培训日期</small><b>2026-08-27</b></time><span><small>举办地点</small><b>深圳外国语学校</b></span></div><div class="deck-meta"><span><b>53</b> 张</span><span><b>45</b> 分钟</span><span>辛海洋</span></div><div class="deck-tags"><span>K12 Education</span><span>AI Literacy</span><span>Learning Sciences</span></div></div></article>`;
+  const bohuiAt=html.indexOf(`href="./${bohuiSlug}/"`);
+  const firstCard=html.indexOf('<article class="deck-card"');
+  const anchor=bohuiAt>=0?html.lastIndexOf('<article',bohuiAt):firstCard;
+  if(anchor>=0)html=html.slice(0,anchor)+studentAiCard+'\n'+html.slice(anchor);
+}
+html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(_,a,b,c)=>{
+  const decks=JSON.parse(b).filter(deck=>deck.slug!==studentAiSlug);
+  decks.unshift({slug:studentAiSlug,title:studentAiTitle,eyebrow:'K12 · AI LITERACY · LEARNING SCIENCES',summary:studentAiSummary,cover:`./assets/covers/${studentAiSlug}.svg`,author:'辛海洋',publishedAt:'2026-08-27',eventDate:'2026-08-27',eventVenue:'深圳外国语学校',eventKind:'教师培训',tags:['K12 Education','AI Literacy','Learning Sciences'],slideCount:53,durationMinutes:45,access:'public',featured:true});
+  return a+JSON.stringify(decks)+c;
+});
 const deckTotal=(html.match(/class="deck-card"/g)||[]).length;
 let deckNumber=0;
 html=html.replace(/<span class="deck-number">\d{2} \/ \d{2}<\/span>/g,()=>`<span class="deck-number">${String(++deckNumber).padStart(2,'0')} / ${String(deckTotal).padStart(2,'0')}</span>`);

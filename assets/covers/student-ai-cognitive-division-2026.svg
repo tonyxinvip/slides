@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">当人人都有一支AI团队</title>
+  <desc id="desc">学生与AI的认知分工，深圳外国语学校，辛海洋，2026年8月27日</desc>
+  <rect width="1600" height="900" fill="#071a38"/>
+  <path d="M70 100V790" stroke="#486487" stroke-width="3"/>
+  <g fill="#071a38" stroke="#7890ad" stroke-width="5">
+    <circle cx="70" cy="120" r="12" fill="#d96737" stroke="#d96737"/><circle cx="70" cy="240" r="10"/><circle cx="70" cy="360" r="10"/><circle cx="70" cy="480" r="10"/><circle cx="70" cy="600" r="10"/><circle cx="70" cy="720" r="10"/>
+  </g>
+  <text x="170" y="175" fill="#f3c2a7" font-size="31" font-weight="700" letter-spacing="5" font-family="Arial,'PingFang SC',sans-serif">深圳外国语学校全学科教师培训</text>
+  <text x="170" y="325" fill="#ffffff" font-size="84" font-weight="800" font-family="Arial,'PingFang SC',sans-serif">当人人都有一支AI团队</text>
+  <text x="170" y="420" fill="#b7c7dc" font-size="49" font-family="Arial,'PingFang SC',sans-serif">学生与AI的认知分工</text>
+  <path d="M170 535H1460" stroke="#71849f" stroke-width="3"/>
+  <g fill="#d96737"><circle cx="265" cy="535" r="10"/><circle cx="485" cy="535" r="10"/><circle cx="705" cy="535" r="10"/><circle cx="925" cy="535" r="10"/><circle cx="1145" cy="535" r="10"/><circle cx="1365" cy="535" r="10"/></g>
+  <g fill="#ffffff" font-size="25" font-weight="700" text-anchor="middle" font-family="Arial,'PingFang SC',sans-serif">
+    <text x="265" y="585">个人原型</text><text x="485" y="585">教师智能体</text><text x="705" y="585">AI团队</text><text x="925" y="585">领域地图</text><text x="1145" y="585">课堂分工</text><text x="1365" y="585">工作坊</text>
+  </g>
+  <text x="170" y="725" fill="#8ea3bd" font-size="26" font-family="Arial,'PingFang SC',sans-serif">主讲</text>
+  <text x="170" y="770" fill="#ffffff" font-size="31" font-family="Arial,'PingFang SC',sans-serif">辛海洋</text>
+  <text x="480" y="725" fill="#8ea3bd" font-size="26" font-family="Arial,'PingFang SC',sans-serif">日期</text>
+  <text x="480" y="770" fill="#ffffff" font-size="31" font-family="Arial,'PingFang SC',sans-serif">2026 年 8 月 27 日</text>
+  <text x="900" y="725" fill="#8ea3bd" font-size="26" font-family="Arial,'PingFang SC',sans-serif">时长</text>
+  <text x="900" y="770" fill="#ffffff" font-size="31" font-family="Arial,'PingFang SC',sans-serif">45 分钟</text>
+</svg>

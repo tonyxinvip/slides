@@ -1,0 +1,20 @@
+{
+  "slug": "student-ai-cognitive-division-2026",
+  "title": "当人人都有一支AI团队",
+  "summary": "面向深圳外国语学校全学科教师，围绕学生、同伴、AI系统与教师的认知分工，讨论AI介入的能力目标、时机、学习证据与责任边界。",
+  "cover": "../assets/covers/student-ai-cognitive-division-2026.svg",
+  "author": "辛海洋",
+  "publishedAt": "2026-08-27",
+  "eventDate": "2026-08-27",
+  "eventVenue": "深圳外国语学校",
+  "eventKind": "教师培训",
+  "tags": [
+    "K12 Education",
+    "AI Literacy",
+    "Learning Sciences"
+  ],
+  "slideCount": 53,
+  "durationMinutes": 45,
+  "access": "public",
+  "featured": true
+}
