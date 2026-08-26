@@ -1,0 +1,20 @@
+{
+  "slug": "bohui-education-agentic-ai-2026",
+  "title": "AI时代，教育集团如何培养人、组织工作？",
+  "summary": "面向博汇集团、华一学校与智理技工学校管理层，从未来人才需求、AIBP 与 Workflow Steward、Workflow Portfolio 和 WorkBuddy 任务实践出发，讨论教育集团如何在共享治理与学校专业责任之间建立可验证的 AI-native 工作流。",
+  "cover": "../assets/covers/bohui-education-agentic-ai-2026.svg",
+  "author": "辛海洋",
+  "publishedAt": "2026-08-26",
+  "eventDate": "2026-08-26",
+  "eventVenue": "博汇集团",
+  "eventKind": "培训",
+  "tags": [
+    "Education Group",
+    "Agentic AI",
+    "Workflow Portfolio"
+  ],
+  "slideCount": 56,
+  "durationMinutes": 180,
+  "access": "public",
+  "featured": true
+}
