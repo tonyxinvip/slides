@@ -118,6 +118,21 @@ html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(
   decks.unshift({slug:studentAiSlug,title:studentAiTitle,eyebrow:'K12 · AI LITERACY · LEARNING SCIENCES',summary:studentAiSummary,cover:`./assets/covers/${studentAiSlug}.svg`,author:'辛海洋',publishedAt:'2026-08-27',eventDate:'2026-08-27',eventVenue:'深圳外国语学校',eventKind:'教师培训',tags:['K12 Education','AI Literacy','Learning Sciences'],slideCount:53,durationMinutes:45,access:'public',featured:true});
   return a+JSON.stringify(decks)+c;
 });
+const vocationalSlug='vocational-ai-literacy-2026';
+const vocationalAt=html.indexOf(`href="./${vocationalSlug}/"`);
+if(vocationalAt>=0){
+  const cardStart=html.lastIndexOf('<article',vocationalAt);
+  const cardEnd=html.indexOf('</article>',vocationalAt);
+  if(cardStart>=0&&cardEnd>=0){
+    let cardHtml=html.slice(cardStart,cardEnd+10);
+    cardHtml=cardHtml.replace(/<b>\d+<\/b> 张/,'<b>29</b> 张');
+    html=html.slice(0,cardStart)+cardHtml+html.slice(cardEnd+10);
+  }
+}
+html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(_,a,b,c)=>{
+  const decks=JSON.parse(b).map(deck=>deck.slug===vocationalSlug?{...deck,slideCount:29}:deck);
+  return a+JSON.stringify(decks)+c;
+});
 const deckTotal=(html.match(/class="deck-card"/g)||[]).length;
 let deckNumber=0;
 html=html.replace(/<span class="deck-number">\d{2} \/ \d{2}<\/span>/g,()=>`<span class="deck-number">${String(++deckNumber).padStart(2,'0')} / ${String(deckTotal).padStart(2,'0')}</span>`);
