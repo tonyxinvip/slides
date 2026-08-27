@@ -125,12 +125,12 @@ if(vocationalAt>=0){
   const cardEnd=html.indexOf('</article>',vocationalAt);
   if(cardStart>=0&&cardEnd>=0){
     let cardHtml=html.slice(cardStart,cardEnd+10);
-    cardHtml=cardHtml.replace(/<b>\d+<\/b> 张/,'<b>29</b> 张');
+    cardHtml=cardHtml.replace(/<b>\d+<\/b> 张/,'<b>28</b> 张');
     html=html.slice(0,cardStart)+cardHtml+html.slice(cardEnd+10);
   }
 }
 html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(_,a,b,c)=>{
-  const decks=JSON.parse(b).map(deck=>deck.slug===vocationalSlug?{...deck,slideCount:29}:deck);
+  const decks=JSON.parse(b).map(deck=>deck.slug===vocationalSlug?{...deck,slideCount:28}:deck);
   return a+JSON.stringify(decks)+c;
 });
 const deckTotal=(html.match(/class="deck-card"/g)||[]).length;
