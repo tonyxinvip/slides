@@ -133,6 +133,20 @@ html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(
   const decks=JSON.parse(b).map(deck=>deck.slug===vocationalSlug?{...deck,slideCount:28}:deck);
   return a+JSON.stringify(decks)+c;
 });
+const gardenSchoolSlug='student-ai-cognitive-division-garden-2026';
+const gardenSchoolTitle='当人人都有一支AI团队';
+const gardenSchoolSummary='面向深圳园丁学校教师，结合真实产品、会议研究与学科案例，讨论学生、同伴、AI系统和教师之间的认知分工，以及从一个教学难点启动小规模试用的方法。';
+if(!html.includes(`href="./${gardenSchoolSlug}/"`)){
+  const gardenSchoolCard=`<article class="deck-card" data-tags="k12 education|ai literacy|learning sciences" data-search="${gardenSchoolTitle} 学生与AI的认知分工 ${gardenSchoolSummary} 深圳园丁学校 2026-08-29 k12 education ai literacy learning sciences"><a class="deck-cover" href="./${gardenSchoolSlug}/" aria-label="打开 ${gardenSchoolTitle}"><img src="./assets/covers/${gardenSchoolSlug}.svg" alt="${gardenSchoolTitle}封面" width="1600" height="900"><span class="deck-number">00 / 00</span><span class="access-badge">公开</span></a><div class="deck-content"><p class="deck-eyebrow">K12 · AI LITERACY · LEARNING SCIENCES</p><div class="deck-title-row"><h3>${gardenSchoolTitle}</h3><i aria-hidden="true">↗</i></div><p class="deck-summary">${gardenSchoolSummary}</p><div class="deck-event"><time datetime="2026-08-29"><small>讲座日期</small><b>2026-08-29</b></time><span><small>举办地点</small><b>深圳园丁学校</b></span></div><div class="deck-meta"><span><b>66</b> 张</span><span><b>90</b> 分钟</span><span>辛海洋</span></div><div class="deck-tags"><span>K12 Education</span><span>AI Literacy</span><span>Learning Sciences</span></div></div></article>`;
+  const studentAt=html.indexOf('href="./student-ai-cognitive-division-2026/"');
+  const anchor=studentAt>=0?html.lastIndexOf('<article',studentAt):html.indexOf('<article class="deck-card"');
+  if(anchor>=0)html=html.slice(0,anchor)+gardenSchoolCard+'\n'+html.slice(anchor);
+}
+html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(_,a,b,c)=>{
+  const decks=JSON.parse(b).filter(deck=>deck.slug!==gardenSchoolSlug);
+  decks.unshift({slug:gardenSchoolSlug,title:gardenSchoolTitle,eyebrow:'K12 · AI LITERACY · LEARNING SCIENCES',summary:gardenSchoolSummary,cover:`./assets/covers/${gardenSchoolSlug}.svg`,author:'辛海洋',publishedAt:'2026-08-29',eventDate:'2026-08-29',eventVenue:'深圳园丁学校',eventKind:'教师讲座',tags:['K12 Education','AI Literacy','Learning Sciences'],slideCount:66,durationMinutes:90,access:'public',featured:true});
+  return a+JSON.stringify(decks)+c;
+});
 const deckTotal=(html.match(/class="deck-card"/g)||[]).length;
 let deckNumber=0;
 html=html.replace(/<span class="deck-number">\d{2} \/ \d{2}<\/span>/g,()=>`<span class="deck-number">${String(++deckNumber).padStart(2,'0')} / ${String(deckTotal).padStart(2,'0')}</span>`);

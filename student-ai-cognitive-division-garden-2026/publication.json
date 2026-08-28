@@ -1,0 +1,20 @@
+{
+  "slug": "student-ai-cognitive-division-garden-2026",
+  "title": "当人人都有一支AI团队",
+  "summary": "面向深圳园丁学校教师，结合真实产品、会议研究与学科案例，讨论学生、同伴、AI系统和教师之间的认知分工，以及从一个教学难点启动小规模试用的方法。",
+  "cover": "../assets/covers/student-ai-cognitive-division-garden-2026.svg",
+  "author": "辛海洋",
+  "publishedAt": "2026-08-29",
+  "eventDate": "2026-08-29",
+  "eventVenue": "深圳园丁学校",
+  "eventKind": "教师讲座",
+  "tags": [
+    "K12 Education",
+    "AI Literacy",
+    "Learning Sciences"
+  ],
+  "slideCount": 66,
+  "durationMinutes": 90,
+  "access": "public",
+  "featured": true
+}
