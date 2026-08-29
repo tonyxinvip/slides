@@ -147,7 +147,61 @@ html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(
   decks.unshift({slug:gardenSchoolSlug,title:gardenSchoolTitle,eyebrow:'K12 · AI LITERACY · LEARNING SCIENCES',summary:gardenSchoolSummary,cover:`./assets/covers/${gardenSchoolSlug}.svg`,author:'辛海洋',publishedAt:'2026-08-29',eventDate:'2026-08-29',eventVenue:'深圳园丁学校',eventKind:'教师讲座',tags:['K12 Education','AI Literacy','Learning Sciences'],slideCount:66,durationMinutes:90,access:'public',featured:true});
   return a+JSON.stringify(decks)+c;
 });
-const deckTotal=(html.match(/class="deck-card"/g)||[]).length;
-let deckNumber=0;
-html=html.replace(/<span class="deck-number">\d{2} \/ \d{2}<\/span>/g,()=>`<span class="deck-number">${String(++deckNumber).padStart(2,'0')} / ${String(deckTotal).padStart(2,'0')}</span>`);
+const galleryDoc=new DOMParser().parseFromString(html,'text/html');
+const galleryDataEl=galleryDoc.querySelector('script#slides-data');
+const galleryGrid=galleryDoc.querySelector('#deck-grid');
+if(!galleryDataEl||!galleryGrid)throw new Error('Gallery structure is incomplete');
+let galleryDecks=JSON.parse(galleryDataEl.textContent).map(deck=>deck.slug===vocationalSlug?{
+  ...deck,
+  eventDate:'2026-08-28',
+  eventVenue:'深圳城市职业学院（深圳技师学院）'
+}:deck);
+const galleryCards=[...galleryGrid.querySelectorAll('article.deck-card')];
+const cardBySlug=new Map(galleryCards.map(card=>{
+  const href=card.querySelector('a.deck-cover')?.getAttribute('href')||'';
+  const match=href.match(/^\.\/([^/]+)\/$/);
+  return [match?.[1]||href,card];
+}));
+const vocationalCard=cardBySlug.get(vocationalSlug);
+if(vocationalCard){
+  const time=vocationalCard.querySelector('time');
+  if(time){time.setAttribute('datetime','2026-08-28');time.innerHTML='<small>分享日期</small><b>2026-08-28</b>'}
+  const venue=vocationalCard.querySelector('.deck-event span');
+  if(venue)venue.innerHTML='<small>举办地点</small><b>深圳城市职业学院（深圳技师学院）</b>';
+}
+const dateKey=value=>{
+  const match=String(value||'').match(/^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?/);
+  return match?`${match[1]}-${match[2]||'01'}-${match[3]||'01'}`:'0000-01-01';
+};
+const todayParts=Object.fromEntries(new Intl.DateTimeFormat('en',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()).filter(part=>part.type!=='literal').map(part=>[part.type,part.value]));
+const todayKey=`${todayParts.year}-${todayParts.month}-${todayParts.day}`;
+const entries=galleryDecks.map((deck,index)=>({deck,index,card:cardBySlug.get(deck.slug),date:dateKey(deck.eventDate)})).filter(entry=>entry.card);
+const upcoming=entries.filter(entry=>entry.date>todayKey).sort((a,b)=>a.date.localeCompare(b.date)||a.index-b.index);
+const completed=entries.filter(entry=>entry.date<=todayKey).sort((a,b)=>b.date.localeCompare(a.date)||a.index-b.index);
+const orderedEntries=[...upcoming,...completed];
+const makeSectionTitle=(title,count)=>{
+  const heading=galleryDoc.createElement('h2');
+  heading.className='deck-section-title';
+  heading.innerHTML=`<span>${title}</span><small>${count} 项</small>`;
+  return heading;
+};
+galleryGrid.replaceChildren();
+if(upcoming.length){
+  galleryGrid.append(makeSectionTitle('即将进行',upcoming.length));
+  upcoming.forEach(entry=>galleryGrid.append(entry.card));
+}
+if(completed.length){
+  galleryGrid.append(makeSectionTitle('往期演讲',completed.length));
+  completed.forEach(entry=>galleryGrid.append(entry.card));
+}
+const unmatchedCards=galleryCards.filter(card=>!orderedEntries.some(entry=>entry.card===card));
+unmatchedCards.forEach(card=>galleryGrid.append(card));
+const orderedDecks=[...orderedEntries.map(entry=>entry.deck),...galleryDecks.filter(deck=>!orderedEntries.some(entry=>entry.deck.slug===deck.slug))];
+galleryDataEl.textContent=JSON.stringify(orderedDecks);
+const deckTotal=galleryCards.length;
+[...galleryGrid.querySelectorAll('.deck-number')].forEach((number,index)=>{number.textContent=`${String(index+1).padStart(2,'0')} / ${String(deckTotal).padStart(2,'0')}`});
+const sectionStyle=galleryDoc.createElement('style');
+sectionStyle.textContent='.deck-section-title{grid-column:1/-1;display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:34px 0 2px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);color:#f4fbff}.deck-section-title:first-child{margin-top:0;padding-top:0;border-top:0}.deck-section-title span{font-size:clamp(1.35rem,2.4vw,2rem);letter-spacing:.04em}.deck-section-title small{color:#8fa7be;font-size:.78rem;font-weight:600;letter-spacing:.08em}@media(max-width:720px){.deck-section-title{margin-top:24px;padding-top:18px}}';
+galleryDoc.head.append(sectionStyle);
+html='<!doctype html>'+galleryDoc.documentElement.outerHTML;
 document.open();document.write(html);document.close()}catch(e){document.getElementById('loading').textContent='浏览器无法载入目录，请使用最新版 Safari、Chrome 或 Edge。';console.error(e)}</script></body></html>
