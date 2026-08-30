@@ -41,14 +41,14 @@
       <aside class="speaker-note">本次分享综合两组公开材料：Uber Engineering 的 Software Factory 案例说明 Agent 如何进入生产系统；Ashwin Gopinath 的 Company Memory 系列说明组织为何需要保存决策原因、承诺、例外与结果。后续框架和实施计划属于结合可可乐博现阶段实践形成的分析建议。</aside>
     </section>
 
-    <section class="slide paper" id="slide-2" data-title="AI Native 转型改变组织运行方式" aria-hidden="true">
+    <section class="slide paper" id="slide-2" data-title="AI Native 改造的对象是工作系统" aria-hidden="true">
       <div class="slide-inner statement-composition">
         <p class="kicker ink">01 · CENTRAL JUDGMENT</p>
-        <h2>AI Native 转型改变的，<br>是组织<span>运行工作的方式</span></h2>
-        <p class="explanation">任务需要从个人会话转化为具有上下文、权限、验收、记录与责任的工作系统。模型使用率和 Agent 数量只能说明采用程度，不能证明组织能力已经形成。</p>
+        <h2>AI Native 改造的对象<br>是<span>工作系统</span></h2>
+        <p class="explanation">任务需要从个人会话转化为具有上下文、权限、验收、记录与责任的工作系统。模型使用率和 Agent 数量只能说明采用程度，不能说明这种能力已经成为组织的稳定属性。</p>
         <div class="statement-rule"><span></span><b>可理解</b><span></span><b>可执行</b><span></span><b>可验证</b><span></span><b>可学习</b></div>
       </div>
-      <aside class="speaker-note">本页给出全文判断。AI Native 不是模型接入的同义词。组织转型成立的条件，是同类工作可以在关键成员缺席时复现，可以说明结果依据，可以在失败后恢复，并能把运行结果转化为后续能力。</aside>
+      <aside class="speaker-note">本页给出全文判断：AI Native 改造的对象是工作系统，而不是单个模型或岗位。其成立条件是同类工作可以在关键成员缺席时复现，结果依据可说明，失败后可恢复，运行结果能够更新后续工作。</aside>
     </section>
 
     <section class="slide ink" id="slide-3" data-title="执行成本下降后，上下文与责任成为主要约束" aria-hidden="true">
@@ -71,27 +71,26 @@
       <aside class="speaker-note">该关系图是分析模型，不是实测曲线。其含义是：随着 Agent 执行范围扩大，组织需要处理更多授权、冲突、审批和结果责任。单次任务成本下降，并不保证整体协调成本同步下降。</aside>
     </section>
 
-    <section class="slide ink chapter-slide" id="slide-4" data-title="执行系统与组织记忆必须共同建设" aria-hidden="true">
+    <section class="slide ink chapter-slide" id="slide-4" data-title="行动能力增长快于组织控制能力" aria-hidden="true">
       <div class="slide-inner chapter-cover-composition">
         <div class="chapter-index"><span>01</span><small>WHY AI NATIVE</small></div>
         <div class="chapter-copy">
-          <p class="kicker">PART ONE · TWO FOUNDATIONS</p>
-          <h2>执行系统与组织记忆<br><span>必须共同建设</span></h2>
-          <p class="explanation light-copy">Agent 工厂解决“如何可靠行动”，Company Memory 解决“基于什么行动”。缺少任何一侧，规模都会放大返工与责任风险。</p>
+          <p class="kicker">PART ONE · ONE ORGANIZATIONAL PROBLEM</p>
+          <h2>行动能力增长快于<br><span>组织控制能力</span></h2>
+          <p class="explanation light-copy">Uber 讨论如何规模化执行；Company Memory 讨论行动依据如何保存。两组材料共同指向上下文、行动边界与结果学习的缺口。</p>
         </div>
-        <svg class="chapter-visual" viewBox="0 0 700 500" role="img" aria-label="执行系统与组织记忆共同支撑可验证结果">
-          <defs><marker id="chapterArrow1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#9beef4"/></marker></defs>
-          <rect x="55" y="92" width="245" height="260" rx="34" fill="#3867ff" fill-opacity=".28" stroke="#5f83ff" stroke-width="3"/>
-          <rect x="400" y="92" width="245" height="260" rx="34" fill="#27d4e3" fill-opacity=".17" stroke="#27d4e3" stroke-width="3"/>
-          <text x="177" y="147" text-anchor="middle" fill="#aebfff" font-size="17">SOFTWARE FACTORY</text><text x="177" y="204" text-anchor="middle" fill="white" font-size="31" font-weight="800">执行系统</text>
-          <text x="177" y="250" text-anchor="middle" fill="#cbd6f5" font-size="18">任务边界 · Benchmark</text><text x="177" y="284" text-anchor="middle" fill="#cbd6f5" font-size="18">权限 · 运行 · 验收</text>
-          <text x="522" y="147" text-anchor="middle" fill="#9beef4" font-size="17">COMPANY MEMORY</text><text x="522" y="204" text-anchor="middle" fill="white" font-size="31" font-weight="800">组织记忆</text>
-          <text x="522" y="250" text-anchor="middle" fill="#c7eef2" font-size="18">事实 · 推理 · 承诺</text><text x="522" y="284" text-anchor="middle" fill="#c7eef2" font-size="18">例外 · 历史 · 责任</text>
-          <path d="M300 220H395" stroke="#9beef4" stroke-width="4" marker-end="url(#chapterArrow1)"/><path d="M400 270H305" stroke="#ffad9f" stroke-width="4" marker-end="url(#chapterArrow1)"/>
-          <rect x="215" y="398" width="270" height="70" rx="24" fill="#fff" fill-opacity=".12" stroke="#fff" stroke-opacity=".22"/><text x="350" y="440" text-anchor="middle" fill="white" font-size="24" font-weight="750">可验证的工作结果</text>
+        <svg class="chapter-visual" viewBox="0 0 700 500" role="img" aria-label="快速增长的行动能力超过组织控制能力">
+          <defs><marker id="focusArrow1" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#27d4e3"/></marker></defs>
+          <line x1="72" y1="412" x2="642" y2="412" stroke="#536b8b" stroke-width="2"/><line x1="72" y1="70" x2="72" y2="412" stroke="#536b8b" stroke-width="2"/>
+          <path d="M90 360C220 305 320 205 610 92" fill="none" stroke="#27d4e3" stroke-width="9" marker-end="url(#focusArrow1)"/>
+          <path d="M90 372C235 350 390 300 610 246" fill="none" stroke="#ff806d" stroke-width="7" stroke-dasharray="14 10"/>
+          <text x="408" y="114" fill="#9beef4" font-size="22" font-weight="750">Agent 行动能力</text><text x="423" y="278" fill="#ffc0b6" font-size="22" font-weight="750">组织控制能力</text>
+          <path d="M485 163V242" stroke="#fff" stroke-opacity=".65" stroke-width="3"/><text x="506" y="203" fill="#fff" font-size="18">缺口扩大</text>
+          <g fill="#fff" fill-opacity=".10"><rect x="105" y="425" width="145" height="48" rx="16"/><rect x="275" y="425" width="145" height="48" rx="16"/><rect x="445" y="425" width="145" height="48" rx="16"/></g>
+          <g fill="#d3deeb" text-anchor="middle" font-size="16"><text x="177" y="456">Context</text><text x="347" y="456">Harness</text><text x="517" y="456">Loop</text></g>
         </svg>
       </div>
-      <aside class="speaker-note">第一部分把两组材料放在同一结构中。Uber 说明 Agent 如何通过任务分层、Benchmark、托管环境和人工升级进入生产；Company Memory 系列说明系统为什么必须读取决策原因、承诺、例外与历史结果。二者分别约束行动能力和行动依据。</aside>
+      <aside class="speaker-note">第一部分不分别复述两组材料，而是用它们解释同一组织问题。Uber 展示行动能力如何通过任务分层、Benchmark 和托管环境扩大；Company Memory 指出决策原因、承诺、例外与结果没有随执行能力同步进入系统。二者之间的差距构成本次分享的分析起点。</aside>
     </section>
 
     <section class="slide paper" id="slide-5" data-title="Uber 展示了 Agent 工厂的运行规模" aria-hidden="true">
@@ -114,127 +113,83 @@
       <aside class="speaker-note">来源：Uber Engineering, Running a Software Factory Efficiently at Uber Scale, 2026-08-27。文章还披露超过 70% PR 被归因于本地或云端 Agent、3,600 多个 Skills、每日 30,000 多次 Skill 执行。这些数字不能改写为“70% 代码由 AI 完成”，也不是组织生产率的外部审计证明。</aside>
     </section>
 
-    <section class="slide blue" id="slide-6" data-title="成熟度提升来自任务边界与控制权" aria-hidden="true">
-      <div class="slide-inner staircase-composition">
-        <p class="kicker">01.2 · FOUR OPERATING LAYERS</p>
-        <h2>成熟度提升来自<br><span>任务边界与控制权</span></h2>
-        <svg class="wide-visual" viewBox="0 0 1180 430" role="img" aria-label="从个人会话到专用 Agent 的四级阶梯">
-          <g font-family="-apple-system, PingFang SC, sans-serif">
-            <rect x="60" y="300" width="245" height="95" rx="18" fill="#ffffff" fill-opacity=".12"/><rect x="305" y="225" width="245" height="170" rx="18" fill="#ffffff" fill-opacity=".19"/><rect x="550" y="145" width="245" height="250" rx="18" fill="#ffffff" fill-opacity=".26"/><rect x="795" y="55" width="305" height="340" rx="18" fill="#27d4e3" fill-opacity=".92"/>
-            <text x="92" y="336" fill="white" font-size="20">01</text><text x="92" y="369" fill="white" font-size="25" font-weight="700">个人会话</text>
-            <text x="337" y="263" fill="white" font-size="20">02</text><text x="337" y="297" fill="white" font-size="25" font-weight="700">带 Skill 的会话</text><text x="337" y="333" fill="#c9d8ea" font-size="18">经验开始复用</text>
-            <text x="582" y="183" fill="white" font-size="20">03</text><text x="582" y="217" fill="white" font-size="25" font-weight="700">通用 Agent</text><text x="582" y="253" fill="#c9d8ea" font-size="18">进入托管环境</text>
-            <text x="830" y="98" fill="#071428" font-size="20">04</text><text x="830" y="137" fill="#071428" font-size="29" font-weight="800">专用 Managed Agent</text><text x="830" y="180" fill="#174156" font-size="19">窄任务 · 云端 · HITL</text><text x="830" y="220" fill="#174156" font-size="19">按 merged PR / review / alert 计量</text>
+    <section class="slide blue" id="slide-6" data-title="Agent 工厂的控制力来自任务分层与真实评测" aria-hidden="true">
+      <div class="slide-inner chain-composition">
+        <p class="kicker">01.2 · CONTROL BEFORE SCALE</p>
+        <h2>Agent 工厂的控制力来自<br><span>任务分层与真实评测</span></h2>
+        <svg class="wide-visual control-merge-svg" viewBox="0 0 1240 430" role="img" aria-label="任务分层与真实评测共同构成 Agent 工厂控制力">
+          <defs><marker id="controlArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#9beef4"/></marker></defs>
+          <g transform="translate(20 35)">
+            <text x="20" y="25" fill="#fff" font-size="18" font-weight="750">任务分层决定托管程度</text>
+            <g fill="#071428" fill-opacity=".34" stroke="#fff" stroke-opacity=".15"><rect x="20" y="245" width="125" height="90" rx="16"/><rect x="145" y="185" width="145" height="150" rx="16"/><rect x="290" y="120" width="145" height="215" rx="16"/><rect x="435" y="45" width="175" height="290" rx="16"/></g>
+            <g fill="#fff" font-size="18" font-weight="700"><text x="38" y="282">个人会话</text><text x="165" y="223">Skill 会话</text><text x="310" y="158">通用 Agent</text><text x="455" y="83">专用 Agent</text></g>
+            <g fill="#c9d8ea" font-size="14"><text x="38" y="310">人工组织任务</text><text x="165" y="251">经验可复用</text><text x="310" y="186">托管环境</text><text x="455" y="111">窄任务 · HITL</text></g>
+          </g>
+          <line x1="662" y1="60" x2="662" y2="375" stroke="#fff" stroke-opacity=".22" stroke-width="2"/>
+          <g transform="translate(705 35)">
+            <text x="0" y="25" fill="#fff" font-size="18" font-weight="750">真实评测决定模型与工作流选择</text>
+            <line x1="40" y1="325" x2="490" y2="325" stroke="#c9d8ea" stroke-width="2"/><line x1="40" y1="70" x2="40" y2="325" stroke="#c9d8ea" stroke-width="2"/>
+            <path d="M65 292C155 218 255 166 455 91" fill="none" stroke="#27d4e3" stroke-width="5" stroke-dasharray="9 8"/>
+            <g fill="#8aa5d5"><circle cx="105" cy="265" r="10"/><circle cx="195" cy="238" r="10"/><circle cx="282" cy="165" r="10"/><circle cx="366" cy="198" r="10"/></g><g fill="#fff" stroke="#27d4e3" stroke-width="4"><circle cx="72" cy="286" r="14"/><circle cx="250" cy="176" r="14"/><circle cx="458" cy="90" r="14"/></g>
+            <text x="280" y="370" text-anchor="middle" fill="#d7e1ee" font-size="15">cost / accepted result →</text><text x="6" y="200" transform="rotate(-90 6 200)" text-anchor="middle" fill="#d7e1ee" font-size="15">质量与可靠性 →</text>
+            <g fill="#fff" fill-opacity=".10"><rect x="55" y="390" width="96" height="32" rx="12"/><rect x="165" y="390" width="96" height="32" rx="12"/><rect x="275" y="390" width="96" height="32" rx="12"/><rect x="385" y="390" width="96" height="32" rx="12"/></g>
+            <g fill="#d7e1ee" text-anchor="middle" font-size="13"><text x="103" y="411">质量</text><text x="213" y="411">可靠性</text><text x="323" y="411">人工负担</text><text x="433" y="411">成本</text></g>
           </g>
         </svg>
-        <p class="under-visual">不是所有任务都需要进入最高层级。只有边界稳定、结果可观察、失败可恢复且责任明确的任务，才适合提高托管程度。</p>
+        <p class="under-visual light-copy">托管程度由任务边界、可观察性与恢复能力决定；模型选择由真实任务评测决定。</p>
       </div>
-      <aside class="speaker-note">来源：Uber 文章 Figure 3。四个层级分别是 Raw Sessions、Sessions with Skills、General Agents、Specialized Agents。这里保留其工作形态，但将“成熟度”解释为组织对任务边界、运行环境和结果责任的控制程度。</aside>
+      <aside class="speaker-note">本页合并 Uber 的四层工作形态与 Benchmark 方法。Raw Session、带 Skill 的会话、通用 Agent 和专用 Agent 的差异不只是模型能力，而是任务边界、运行环境和结果责任的控制程度。uReview 进一步说明，模型和工作流应依据真实 PR 的 precision、recall、延迟、超时、人工复核与单位结果成本选择。图中的 Pareto 曲线为方法示意，不对应 Uber 的具体点位。</aside>
     </section>
 
-    <section class="slide paper" id="slide-7" data-title="真实任务评测决定模型与工作流选择" aria-hidden="true">
-      <div class="slide-inner split-composition reverse">
-        <svg class="visual-panel" viewBox="0 0 700 500" role="img" aria-label="质量与成本的 Pareto 选择示意图">
-          <line x1="90" y1="420" x2="640" y2="420" stroke="#718094" stroke-width="2"/><line x1="90" y1="70" x2="90" y2="420" stroke="#718094" stroke-width="2"/>
-          <text x="390" y="474" text-anchor="middle" fill="#617085" font-size="18">cost / completed task →</text><text x="36" y="245" transform="rotate(-90 36 245)" text-anchor="middle" fill="#617085" font-size="18">质量与可靠性 →</text>
-          <path d="M130 365 C230 260 360 190 590 112" fill="none" stroke="#3867ff" stroke-width="5" stroke-dasharray="10 10"/>
-          <g fill="#c7d2e0"><circle cx="180" cy="330" r="13"/><circle cx="270" cy="310" r="13"/><circle cx="330" cy="235" r="13"/><circle cx="450" cy="270" r="13"/><circle cx="535" cy="155" r="13"/></g>
-          <g fill="#27c8d6" stroke="#071428" stroke-width="3"><circle cx="140" cy="352" r="17"/><circle cx="300" cy="225" r="17"/><circle cx="585" cy="108" r="17"/></g>
-          <text x="110" y="52" fill="#071428" font-size="22" font-weight="700">Pareto frontier</text>
-        </svg>
-        <div class="copy-block">
-          <p class="kicker ink">01.3 · BENCHMARK BEFORE ROUTING</p>
-          <h2>真实任务评测决定<br><span>模型与工作流选择</span></h2>
-          <p class="explanation">从历史工作建立 Benchmark，同时比较正确性、漏报与误报、延迟、超时、人工复核和结果单位成本。模型是可替换变量，评测集和验收责任属于组织。</p>
-          <div class="metric-row"><span>质量</span><span>可靠性</span><span>人类负担</span><span>成本</span></div>
-        </div>
-      </div>
-      <aside class="speaker-note">来源：Uber Software Factory 与 uReview 文章。uReview 使用带已知 Bug 的真实 PR，评估 precision、recall、F1、cost / review、延迟、超时和噪音。本页散点为方法示意，不对应 Uber Figure 5 的具体点位。</aside>
-    </section>
-
-    <section class="slide ink" id="slide-8" data-title="代码和文档不能完整保存组织推理" aria-hidden="true">
-      <div class="slide-inner iceberg-composition">
-        <div class="copy-block narrow">
-          <p class="kicker">01.4 · THE CONTEXT CEILING</p>
-          <h2>代码和文档不能完整保存<br><span>组织推理</span></h2>
-          <p class="explanation light-copy">Agent 可以读取实现，却未必知道合规约束、客户承诺、被否决方案和历史失败为何决定了当前路径。</p>
-        </div>
-        <svg class="visual-panel iceberg" viewBox="0 0 780 530" role="img" aria-label="代码文档在水面上，决策原因与隐性约束在水面下的冰山图">
-          <rect x="0" y="205" width="780" height="325" fill="#0b2c4a"/><path d="M165 205 L280 76 L505 78 L620 205 Z" fill="#d9f6fa"/><path d="M165 205 L620 205 L545 468 L260 485 Z" fill="#2f75c7"/>
-          <line x1="0" y1="205" x2="780" y2="205" stroke="#7beaf2" stroke-width="4"/>
-          <text x="392" y="132" text-anchor="middle" fill="#071428" font-size="28" font-weight="800">代码 · PRD · 流程 · 测试</text>
-          <text x="390" y="267" text-anchor="middle" fill="white" font-size="23">决策原因 · 被否决方案</text><text x="390" y="314" text-anchor="middle" fill="white" font-size="23">客户承诺 · 合规约束</text><text x="390" y="361" text-anchor="middle" fill="white" font-size="23">例外路径 · 历史失败</text><text x="390" y="408" text-anchor="middle" fill="#bceaf1" font-size="23">谁负责 · 结果如何</text>
-        </svg>
-      </div>
-      <aside class="speaker-note">来源：Ashwin Gopinath 关于 AI Coding Limitations 的公开论述，以及 Company Brain 系列。作者同时是 Sentra 创业者，其架构判断具有产品立场。本页采用冰山图表达“可见产物与组织推理之间的差异”，不是对任何企业的实测比例。</aside>
-    </section>
-
-    <section class="slide paper" id="slide-9" data-title="组织记忆包含事实、推理与行动" aria-hidden="true">
+    <section class="slide paper" id="slide-7" data-title="组织记忆需要保存事实、推理与行动" aria-hidden="true">
       <div class="slide-inner rings-composition">
-        <p class="kicker ink">01.5 · THREE MEMORIES</p>
-        <h2>组织记忆包含<br><span>事实、推理与行动</span></h2>
-        <div class="rings-layout">
-          <svg viewBox="0 0 620 520" role="img" aria-label="事实记忆、互动推理记忆与行动记忆三层同心圆">
-            <circle cx="300" cy="260" r="220" fill="#e8eef9"/><circle cx="300" cy="260" r="155" fill="#c9d9ff"/><circle cx="300" cy="260" r="88" fill="#3867ff"/>
-            <text x="300" y="255" text-anchor="middle" fill="white" font-size="27" font-weight="800">事实记忆</text><text x="300" y="286" text-anchor="middle" fill="#dce6ff" font-size="17">what · source · owner</text>
-            <text x="300" y="146" text-anchor="middle" fill="#173d7c" font-size="25" font-weight="800">互动与推理记忆</text><text x="300" y="179" text-anchor="middle" fill="#315a98" font-size="17">why · dissent · assumption</text>
-            <text x="300" y="468" text-anchor="middle" fill="#34455c" font-size="25" font-weight="800">行动记忆</text><text x="300" y="496" text-anchor="middle" fill="#65758a" font-size="17">trigger · execution · outcome</text>
+        <p class="kicker ink">01.3 · ORGANIZATIONAL MEMORY</p>
+        <h2>组织记忆需要保存<br><span>事实、推理与行动</span></h2>
+        <div class="rings-layout memory-merge-layout">
+          <svg viewBox="0 0 650 520" role="img" aria-label="可见文档之外还存在事实、推理与行动记忆">
+            <rect x="18" y="32" width="614" height="150" rx="28" fill="#e6edf8"/><text x="325" y="88" text-anchor="middle" fill="#071428" font-size="25" font-weight="800">代码 · PRD · 流程 · 测试</text><text x="325" y="128" text-anchor="middle" fill="#607086" font-size="17">可见产物保存了结果，但不总能说明原因</text>
+            <path d="M325 184V232" stroke="#3867ff" stroke-width="5"/>
+            <circle cx="325" cy="350" r="142" fill="#e8eef9"/><circle cx="325" cy="350" r="98" fill="#c9d9ff"/><circle cx="325" cy="350" r="54" fill="#3867ff"/>
+            <text x="325" y="345" text-anchor="middle" fill="#fff" font-size="20" font-weight="800">事实</text><text x="325" y="372" text-anchor="middle" fill="#dce6ff" font-size="13">what · source</text>
+            <text x="325" y="278" text-anchor="middle" fill="#173d7c" font-size="21" font-weight="800">推理</text><text x="325" y="306" text-anchor="middle" fill="#315a98" font-size="13">why · dissent</text>
+            <text x="325" y="478" text-anchor="middle" fill="#34455c" font-size="21" font-weight="800">行动</text><text x="325" y="503" text-anchor="middle" fill="#65758a" font-size="13">trigger · outcome</text>
           </svg>
           <div class="explain-stack">
-            <article><b>事实</b><p>发生了什么，证据在哪里，由谁负责，何时变化。</p></article>
-            <article><b>推理</b><p>为什么这样决定，存在什么异议，哪些假设未关闭。</p></article>
-            <article><b>行动</b><p>何时启动、等待或升级，真实路径与结果是什么。</p></article>
+            <article><b>事实记忆</b><p>发生了什么，证据在哪里，由谁负责，何时变化。</p></article>
+            <article><b>推理记忆</b><p>为什么这样决定，哪些方案被否决，什么假设仍未关闭。</p></article>
+            <article><b>行动记忆</b><p>什么条件触发工作，真实路径如何运行，结果是否符合预期。</p></article>
+            <p class="memory-boundary">这一分类来自 Company Memory 系列，属于具有商业产品立场的架构判断，不是组织效果的独立验证。</p>
           </div>
         </div>
       </div>
-      <aside class="speaker-note">来源：Ashwin Gopinath, Company Brain、Interaction Memory、Action Memory。三层不是三个彼此独立的产品，而应被视为同一组织状态的不同内容。分类本身仍需结合具体行业和工作对象验证。</aside>
+      <aside class="speaker-note">本页合并 Context Ceiling 与三类记忆。代码、PRD 和流程能够保存显式产物，却经常省略被否决方案、客户承诺、合规约束和历史失败。Ashwin Gopinath 将组织记忆区分为事实、互动与推理、行动三类。作者同时是 Sentra 创业者，因此该分类应作为可检验的架构判断，而不是普遍效果结论。</aside>
     </section>
 
-    <section class="slide blue" id="slide-10" data-title="共享状态避免每个工具形成局部真相" aria-hidden="true">
+    <section class="slide blue" id="slide-8" data-title="共享状态既要支持行动也要限制行动" aria-hidden="true">
       <div class="slide-inner shared-state-composition">
-        <p class="kicker">01.6 · MEMORY AS SHARED STATE</p>
-        <h2>共享状态避免每个工具<br><span>形成局部真相</span></h2>
-        <svg class="wide-visual shared-state-svg" viewBox="0 0 1220 450" role="img" aria-label="多个源系统进入共享状态，再由不同角色视角读取">
-          <g font-family="-apple-system, PingFang SC, sans-serif">
-            <g fill="#ffffff" fill-opacity=".14"><rect x="35" y="55" width="170" height="66" rx="18"/><rect x="35" y="145" width="170" height="66" rx="18"/><rect x="35" y="235" width="170" height="66" rx="18"/><rect x="35" y="325" width="170" height="66" rx="18"/></g>
-            <g fill="white" font-size="20" text-anchor="middle"><text x="120" y="96">会议与消息</text><text x="120" y="186">PRD 与工单</text><text x="120" y="276">代码与测试</text><text x="120" y="366">客户与运营</text></g>
-            <g stroke="#9beef4" stroke-width="3" fill="none"><path d="M215 88 C330 88 330 175 430 205"/><path d="M215 178 C320 178 340 210 430 220"/><path d="M215 268 C320 268 340 235 430 230"/><path d="M215 358 C330 358 330 275 430 245"/></g>
-            <rect x="430" y="92" width="355" height="270" rx="36" fill="#071428" stroke="#27d4e3" stroke-width="4"/>
-            <text x="608" y="145" text-anchor="middle" fill="#9beef4" font-size="19">OWNED CONTEXT</text><text x="608" y="200" text-anchor="middle" fill="white" font-size="32" font-weight="800">共享组织状态</text><text x="608" y="244" text-anchor="middle" fill="#c9d8ea" font-size="18">来源 · 版本 · 权限 · 关系 · 历史</text><text x="608" y="286" text-anchor="middle" fill="#c9d8ea" font-size="18">可检查 · 可纠正 · 可迁移</text>
-            <g stroke="#ffc0b6" stroke-width="3" fill="none"><path d="M785 190 C880 150 905 92 1005 92"/><path d="M785 225 C890 225 905 225 1005 225"/><path d="M785 262 C880 300 905 355 1005 355"/></g>
-            <g fill="#ffffff" fill-opacity=".16"><rect x="1005" y="55" width="180" height="74" rx="18"/><rect x="1005" y="188" width="180" height="74" rx="18"/><rect x="1005" y="318" width="180" height="74" rx="18"/></g>
-            <g fill="white" font-size="21" text-anchor="middle"><text x="1095" y="100">产品视角</text><text x="1095" y="233">研发视角</text><text x="1095" y="363">管理视角</text></g>
-          </g>
+        <p class="kicker">01.4 · STATE AND ACTION BOUNDARY</p>
+        <h2>共享状态既要支持行动<br><span>也要限制行动</span></h2>
+        <svg class="wide-visual state-action-svg" viewBox="0 0 1240 430" role="img" aria-label="多个信息源进入共享组织状态，再经过证据与权限检查进入执行、等待或升级">
+          <defs><marker id="stateArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#d8f7f9"/></marker></defs>
+          <g fill="#fff" fill-opacity=".13"><rect x="30" y="65" width="170" height="62" rx="18"/><rect x="30" y="152" width="170" height="62" rx="18"/><rect x="30" y="239" width="170" height="62" rx="18"/><rect x="30" y="326" width="170" height="62" rx="18"/></g>
+          <g fill="#fff" text-anchor="middle" font-size="18"><text x="115" y="103">会议与消息</text><text x="115" y="190">PRD 与工单</text><text x="115" y="277">代码与测试</text><text x="115" y="364">客户与运营</text></g>
+          <g stroke="#d8f7f9" stroke-width="3" marker-end="url(#stateArrow)"><path d="M202 96C260 96 274 161 335 174"/><path d="M202 183H330"/><path d="M202 270C263 270 278 216 335 204"/><path d="M202 357C280 357 290 240 338 218"/></g>
+          <rect x="340" y="92" width="285" height="235" rx="32" fill="#071428" stroke="#27d4e3" stroke-width="4"/><text x="482" y="138" text-anchor="middle" fill="#9beef4" font-size="16">OWNED CONTEXT</text><text x="482" y="187" text-anchor="middle" fill="#fff" font-size="28" font-weight="800">共享组织状态</text><text x="482" y="228" text-anchor="middle" fill="#c9d8ea" font-size="17">来源 · 版本 · 权限 · 关系</text><text x="482" y="263" text-anchor="middle" fill="#c9d8ea" font-size="17">可检查 · 可纠正 · 可迁移</text>
+          <path d="M628 210H720" stroke="#d8f7f9" stroke-width="5" marker-end="url(#stateArrow)"/>
+          <rect x="725" y="120" width="220" height="180" rx="30" fill="#fff" fill-opacity=".16" stroke="#fff" stroke-opacity=".35"/><text x="835" y="165" text-anchor="middle" fill="#fff" font-size="21" font-weight="800">证据与权限检查</text><text x="835" y="205" text-anchor="middle" fill="#d8f7f9" font-size="15">confidence · risk</text><text x="835" y="236" text-anchor="middle" fill="#d8f7f9" font-size="15">authority · rollback</text>
+          <g stroke="#d8f7f9" stroke-width="3" marker-end="url(#stateArrow)"><path d="M945 168C1002 143 1035 115 1075 110"/><path d="M945 210H1072"/><path d="M945 250C1002 275 1035 303 1075 309"/></g>
+          <g fill="#071428" stroke="#27d4e3" stroke-width="2"><rect x="1075" y="74" width="135" height="70" rx="20"/><rect x="1075" y="175" width="135" height="70" rx="20"/><rect x="1075" y="276" width="135" height="70" rx="20"/></g>
+          <g fill="#fff" text-anchor="middle" font-size="19" font-weight="750"><text x="1142" y="117">执行</text><text x="1142" y="218">等待 / 拒绝</text><text x="1142" y="319">升级 / 回滚</text></g>
+          <text x="805" y="390" text-anchor="middle" fill="#d8f7f9" font-size="17">每个行动与不行动都写回结果状态</text>
         </svg>
-        <p class="under-visual light-copy">同一证据可以被不同角色解释，但底层来源、版本和权限不应复制成相互漂移的多套事实。</p>
+        <p class="under-visual light-copy">技术上可以调用工具，不代表组织上已经授权；行动边界必须来自可检查的共享状态。</p>
       </div>
-      <aside class="speaker-note">来源：Ashwin Gopinath, Memory Is State, Not a Service。作者主张公司记忆应可检查、纠正、版本化、授权和迁移。我们据此建议使用“同一共享状态、多个具名视角”，而不是立即设计一张全公司万能 schema。</aside>
+      <aside class="speaker-note">本页合并共享状态与 Action Memory。多个工具不应分别形成互相漂移的局部真相；底层状态需要由组织控制来源、版本、权限和关系。状态进入行动前，还要经过证据、风险、授权和回退检查。系统必须允许执行，也必须允许等待、拒绝、升级和回滚，并把结果写回。</aside>
     </section>
 
-    <section class="slide paper" id="slide-11" data-title="可靠的 Agent 必须能够有意识地不行动" aria-hidden="true">
-      <div class="slide-inner action-composition">
-        <div class="copy-block narrow">
-          <p class="kicker ink">01.7 · ACTION MEMORY</p>
-          <h2>可靠的 Agent 必须能够<br><span>有意识地不行动</span></h2>
-          <p class="explanation">技术上可调用工具，不代表组织上已经授权。流程契约应同时定义执行、等待、拒绝、升级和回滚。</p>
-        </div>
-        <svg class="visual-panel" viewBox="0 0 760 520" role="img" aria-label="触发后根据证据与风险进入执行、等待、拒绝、升级或回滚的状态机">
-          <defs><marker id="arrow10" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#708198"/></marker></defs>
-          <rect x="270" y="34" width="220" height="72" rx="22" fill="#071428"/><text x="380" y="80" text-anchor="middle" fill="white" font-size="25" font-weight="800">Trigger</text>
-          <path d="M380 106 L380 156" stroke="#708198" stroke-width="3" marker-end="url(#arrow10)"/>
-          <rect x="245" y="158" width="270" height="82" rx="24" fill="#e8eef9" stroke="#3867ff" stroke-width="3"/><text x="380" y="193" text-anchor="middle" fill="#071428" font-size="23" font-weight="800">证据与权限检查</text><text x="380" y="222" text-anchor="middle" fill="#596b80" font-size="16">confidence · risk · authority</text>
-          <g fill="none" stroke="#708198" stroke-width="3" marker-end="url(#arrow10)"><path d="M270 240 C205 270 155 298 130 337"/><path d="M335 240 C310 280 298 300 298 337"/><path d="M425 240 C450 280 462 300 462 337"/><path d="M490 240 C555 270 605 298 630 337"/></g>
-          <g><rect x="55" y="340" width="150" height="80" rx="22" fill="#dff9fb"/><rect x="223" y="340" width="150" height="80" rx="22" fill="#f0ecff"/><rect x="387" y="340" width="150" height="80" rx="22" fill="#fff0ed"/><rect x="555" y="340" width="150" height="80" rx="22" fill="#e8eef9"/></g>
-          <g text-anchor="middle" font-size="22" font-weight="800"><text x="130" y="389" fill="#087c87">执行</text><text x="298" y="389" fill="#5f50ab">等待 / 拒绝</text><text x="462" y="389" fill="#b64a38">升级</text><text x="630" y="389" fill="#36517b">回滚</text></g>
-          <text x="380" y="486" text-anchor="middle" fill="#607084" font-size="18">每个结果都写回 Execution / Outcome Memory</text>
-        </svg>
-      </div>
-      <aside class="speaker-note">来源：Ashwin Gopinath, Action Memory。其核心主张是系统需要记住何时唤醒工作、实际怎样执行，以及结果如何。我们将其转译为工作流契约中的 wait、abstain、escalate 和 rollback。</aside>
-    </section>
-
-    <section class="slide ink" id="slide-12" data-title="Context、Harness、Loop 构成共同基础" aria-hidden="true">
+    <section class="slide ink" id="slide-9" data-title="Context、Harness、Loop 构成共同基础" aria-hidden="true">
       <div class="slide-inner chl-composition">
-        <p class="kicker">01.8 · OPERATING FOUNDATION</p>
+        <p class="kicker">01.5 · OPERATING FOUNDATION</p>
         <h2>Context、Harness、Loop<br><span>构成共同基础</span></h2>
         <div class="chl-layout">
           <svg viewBox="0 0 650 540" role="img" aria-label="Context、Harness、Loop 三个相互连接的环">
@@ -252,44 +207,27 @@
       <aside class="speaker-note">该框架来自可可乐博既有实践，并由前述两组材料进一步支持。Context 回答系统基于什么理解任务；Harness 回答它如何行动并受约束；Loop 回答一次执行怎样进入下一次工作。三者共同服务于可验证结果，而不是各自成为独立平台目标。</aside>
     </section>
 
-    <section class="slide paper" id="slide-13" data-title="AI Native 转型经历五个能力阶段" aria-hidden="true">
-      <div class="slide-inner maturity-composition">
-        <p class="kicker ink">01.9 · FIVE CAPABILITY STAGES</p>
-        <h2>AI Native 转型经历<br><span>五个能力阶段</span></h2>
-        <svg class="wide-visual maturity-svg" viewBox="0 0 1220 460" role="img" aria-label="从个人工具到持续进化的五阶段路径">
-          <defs><linearGradient id="maturityLine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b5c1cf"/><stop offset=".55" stop-color="#3867ff"/><stop offset="1" stop-color="#20c7d6"/></linearGradient></defs>
-          <path d="M90 320 C270 320 290 260 430 260 C600 260 620 205 760 205 C920 205 920 140 1090 140" fill="none" stroke="url(#maturityLine)" stroke-width="18" stroke-linecap="round"/>
-          <g><circle cx="110" cy="320" r="34" fill="#8d9baa"/><circle cx="350" cy="275" r="34" fill="#6e83b5"/><circle cx="590" cy="225" r="34" fill="#4b6de1"/><circle cx="830" cy="185" r="34" fill="#2b93d9"/><circle cx="1080" cy="140" r="34" fill="#20c7d6"/></g>
-          <g text-anchor="middle"><text x="110" y="382" fill="#071428" font-size="21" font-weight="800">个人工具</text><text x="350" y="337" fill="#071428" font-size="21" font-weight="800">工作流复用</text><text x="590" y="287" fill="#071428" font-size="21" font-weight="800">托管执行</text><text x="830" y="247" fill="#071428" font-size="21" font-weight="800">共享状态</text><text x="1080" y="202" fill="#071428" font-size="21" font-weight="800">持续进化</text></g>
-          <g text-anchor="middle" fill="#66768a" font-size="16"><text x="110" y="410">个人效率</text><text x="350" y="365">经验可复用</text><text x="590" y="315">环境受治理</text><text x="830" y="275">跨团队一致</text><text x="1080" y="230">结果更新能力</text></g>
-        </svg>
-        <p class="under-visual">阶段不等于组织规模。只有真实任务在明确责任下通过验收，才能从上一阶段晋级。</p>
-      </div>
-      <aside class="speaker-note">五阶段模型属于本文综合推断：个人工具使用、工作流沉淀、Agent 托管执行、共享组织状态、基于结果持续进化。其目的不是制造成熟度排名，而是帮助团队区分当前缺口位于复用、执行治理、共享状态还是学习机制。</aside>
-    </section>
-
-    <section class="slide blue chapter-slide" id="slide-14" data-title="产品判断与研发执行必须共享状态" aria-hidden="true">
+    <section class="slide blue chapter-slide" id="slide-10" data-title="产品判断与研发执行需要同一条状态链" aria-hidden="true">
       <div class="slide-inner chapter-cover-composition">
         <div class="chapter-index"><span>02</span><small>TEAM REDESIGN</small></div>
         <div class="chapter-copy">
-          <p class="kicker">PART TWO · SHARED WORK STATE</p>
-          <h2>产品判断与研发执行<br><span>必须共享状态</span></h2>
-          <p class="explanation light-copy">产品团队保存证据、假设与承诺；研发团队保存约束、验证与恢复。共同工作契约把两条状态链连接起来。</p>
+          <p class="kicker">PART TWO · BROKEN HANDOFFS</p>
+          <h2>产品判断与研发执行<br><span>需要同一条状态链</span></h2>
+          <p class="explanation light-copy">产品证据与工程验证通常保存在不同系统，目标、约束和结果在交接中被重新解释。团队改造需要先修复这条断裂的状态链。</p>
         </div>
-        <svg class="chapter-visual" viewBox="0 0 700 500" role="img" aria-label="产品判断链与研发执行链汇入共同工作契约">
-          <defs><marker id="chapterArrow2" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#fff"/></marker></defs>
-          <g fill="#fff" fill-opacity=".13" stroke="#fff" stroke-opacity=".25"><rect x="50" y="92" width="190" height="86" rx="24"/><rect x="50" y="320" width="190" height="86" rx="24"/><rect x="446" y="176" width="205" height="146" rx="28"/></g>
-          <text x="145" y="127" text-anchor="middle" fill="#fff" font-size="17">PRODUCT JUDGMENT</text><text x="145" y="156" text-anchor="middle" fill="#c6f5f8" font-size="22" font-weight="750">证据 → 决策</text>
-          <text x="145" y="355" text-anchor="middle" fill="#fff" font-size="17">ENGINEERING EXECUTION</text><text x="145" y="384" text-anchor="middle" fill="#c6f5f8" font-size="22" font-weight="750">约束 → 验证</text>
-          <path d="M240 135C340 135 350 220 442 231" fill="none" stroke="#fff" stroke-width="4" marker-end="url(#chapterArrow2)"/><path d="M240 363C340 363 350 280 442 267" fill="none" stroke="#fff" stroke-width="4" marker-end="url(#chapterArrow2)"/>
-          <text x="548" y="222" text-anchor="middle" fill="#9beef4" font-size="16">SHARED CONTRACT</text><text x="548" y="262" text-anchor="middle" fill="#fff" font-size="26" font-weight="800">共同工作契约</text><text x="548" y="294" text-anchor="middle" fill="#d9f6f8" font-size="16">目标 · 边界 · Owner · 回退</text>
-          <path d="M548 322V410" stroke="#fff" stroke-width="4" marker-end="url(#chapterArrow2)"/><text x="548" y="452" text-anchor="middle" fill="#fff" font-size="21">具名责任下的结果</text>
+        <svg class="chapter-visual" viewBox="0 0 700 500" role="img" aria-label="产品判断与研发执行之间存在断裂的交接">
+          <g fill="#fff" fill-opacity=".13" stroke="#fff" stroke-opacity=".25"><rect x="42" y="105" width="210" height="150" rx="28"/><rect x="448" y="245" width="210" height="150" rx="28"/></g>
+          <text x="147" y="153" text-anchor="middle" fill="#fff" font-size="17">PRODUCT JUDGMENT</text><text x="147" y="196" text-anchor="middle" fill="#c6f5f8" font-size="25" font-weight="750">证据 → 决策</text><text x="147" y="229" text-anchor="middle" fill="#dce9f5" font-size="15">假设 · 承诺 · 结果指标</text>
+          <text x="553" y="293" text-anchor="middle" fill="#fff" font-size="17">ENGINEERING EXECUTION</text><text x="553" y="336" text-anchor="middle" fill="#c6f5f8" font-size="25" font-weight="750">约束 → 验证</text><text x="553" y="369" text-anchor="middle" fill="#dce9f5" font-size="15">环境 · 证据 · 回退</text>
+          <path d="M252 180C335 180 343 262 448 319" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="5" stroke-dasharray="18 14"/>
+          <circle cx="345" cy="250" r="44" fill="#ff806d"/><path d="M323 228L367 272M367 228L323 272" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+          <g fill="#fff" fill-opacity=".10"><rect x="276" y="70" width="138" height="42" rx="15"/><rect x="278" y="390" width="138" height="42" rx="15"/></g><text x="345" y="97" text-anchor="middle" fill="#fff" font-size="15">目标重新解释</text><text x="347" y="417" text-anchor="middle" fill="#fff" font-size="15">结果未写回</text>
         </svg>
       </div>
-      <aside class="speaker-note">第二部分讨论产品和研发的具体改造。重点不是让两个团队使用同一款工具，而是让用户证据、产品判断、技术约束、验收证据、发布批准和业务结果形成一条共享状态链。Agent 生成候选内容，人类负责人保留具名确认和结果责任。</aside>
+      <aside class="speaker-note">第二部分从交接断裂开始，而不是提前给出共同契约的答案。产品团队保存用户证据、假设、承诺和结果指标；研发团队保存技术约束、验证环境、发布证据和恢复路径。如果两条链只通过 PRD 和工单连接，目标会被重新解释，发布结果也难以回到原始判断。</aside>
     </section>
 
-    <section class="slide blue" id="slide-15" data-title="产品工作需要形成可追溯判断链" aria-hidden="true">
+    <section class="slide blue" id="slide-11" data-title="产品工作需要形成可追溯判断链" aria-hidden="true">
       <div class="slide-inner chain-composition">
         <p class="kicker">02.1 · PRODUCT JUDGMENT STATE</p>
         <h2>产品工作需要形成<br><span>可追溯判断链</span></h2>
@@ -306,7 +244,7 @@
       <aside class="speaker-note">该状态链属于本文建议。它将产品材料从静态文档转为可追溯判断：原始证据与产品解释分开，异议和反例不被新版本覆盖，发布结果能够更新原始假设。AI 可以生成候选状态，但具名负责人确认后才能成为共享状态。</aside>
     </section>
 
-    <section class="slide paper" id="slide-16" data-title="产品团队的约束转向证据与决策质量" aria-hidden="true">
+    <section class="slide paper" id="slide-12" data-title="产品团队的约束转向证据与决策质量" aria-hidden="true">
       <div class="slide-inner team-change-composition">
         <p class="kicker ink">02.2 · PRODUCT TEAM</p>
         <h2>产品团队的约束转向<br><span>证据与决策质量</span></h2>
@@ -321,7 +259,7 @@
       <aside class="speaker-note">本页为实施建议。产品团队可以优先改造访谈与反馈证据化、PRD first-pass review、实验结果整理和冲突提示。涉及路线图承诺、定价、敏感用户评价和公开发布的决定，仍需要明确的人类批准。</aside>
     </section>
 
-    <section class="slide ink" id="slide-17" data-title="研发工作需要形成可验证执行链" aria-hidden="true">
+    <section class="slide ink" id="slide-13" data-title="研发工作需要形成可验证执行链" aria-hidden="true">
       <div class="slide-inner chain-composition engineering-chain">
         <p class="kicker">02.3 · ENGINEERING EXECUTION</p>
         <h2>研发工作需要形成<br><span>可验证执行链</span></h2>
@@ -338,7 +276,7 @@
       <aside class="speaker-note">该执行链属于本文建议。固定 SHA 表示验收对象需要可复现；测试证据需要区分本地、CI、Preview 和生产环境。合并后写回能力、约束、风险与技术债的变化，避免异常路径只停留在聊天记录。</aside>
     </section>
 
-    <section class="slide paper" id="slide-18" data-title="研发团队的约束转向系统设计与验证" aria-hidden="true">
+    <section class="slide paper" id="slide-14" data-title="研发团队的约束转向系统设计与验证" aria-hidden="true">
       <div class="slide-inner team-change-composition">
         <p class="kicker ink">02.4 · ENGINEERING TEAM</p>
         <h2>研发团队的约束转向<br><span>系统设计与验证</span></h2>
@@ -353,7 +291,7 @@
       <aside class="speaker-note">本页为实施建议。研发团队的价值重点从代码输入速度转向目标拆解、架构判断、上下文设计、评测和风险处理。自动修改生产数据、不可逆迁移、扩大权限和直接外部发布不适合早期托管。</aside>
     </section>
 
-    <section class="slide blue" id="slide-19" data-title="产品与研发需要共享工作契约" aria-hidden="true">
+    <section class="slide blue" id="slide-15" data-title="产品与研发需要共享工作契约" aria-hidden="true">
       <div class="slide-inner bridge-composition">
         <p class="kicker">02.5 · SHARED WORK CONTRACT</p>
         <h2>产品与研发需要<br><span>共享工作契约</span></h2>
@@ -370,27 +308,28 @@
       <aside class="speaker-note">共同工作契约的目的不是增加文档，而是减少跨团队反复重建上下文。Agent 可以检查契约完整性、寻找冲突和生成执行计划，但不能自行补写未经确认的业务目标、用户承诺或验收标准。</aside>
     </section>
 
-    <section class="slide ink chapter-slide" id="slide-20" data-title="权限扩大之前先证明结果可接受" aria-hidden="true">
+    <section class="slide ink chapter-slide" id="slide-16" data-title="权限扩大必须通过结果证据门槛" aria-hidden="true">
       <div class="slide-inner chapter-cover-composition">
         <div class="chapter-index"><span>03</span><small>TRANSFORMATION PATH</small></div>
         <div class="chapter-copy">
-          <p class="kicker">PART THREE · CONTROLLED EXPANSION</p>
-          <h2>权限扩大之前<br><span>先证明结果可接受</span></h2>
-          <p class="explanation light-copy">先建立只读状态链和人工确认，再进入影子触发与受控行动。每次晋级都取决于结果质量、责任容量和回退能力。</p>
+          <p class="kicker">PART THREE · EVIDENCE-GATED AUTHORITY</p>
+          <h2>权限扩大必须通过<br><span>结果证据门槛</span></h2>
+          <p class="explanation light-copy">自动化权限不是按时间自然增加。只有结果可靠、失败可恢复且人类责任容量足够时，工作流才适合进入下一层级。</p>
         </div>
-        <svg class="chapter-visual" viewBox="0 0 700 500" role="img" aria-label="从只读状态到受控行动的三道晋级门">
-          <path d="M70 360C190 360 205 290 315 290S435 215 540 215" fill="none" stroke="#536b8b" stroke-width="14" stroke-linecap="round"/>
-          <g><circle cx="105" cy="352" r="34" fill="#70829b"/><circle cx="318" cy="289" r="34" fill="#3867ff"/><circle cx="548" cy="214" r="34" fill="#27d4e3"/></g>
-          <g fill="#fff" font-size="19" font-weight="750" text-anchor="middle"><text x="105" y="418">只读状态</text><text x="318" y="355">确认后写回</text><text x="548" y="280">受控行动</text></g>
-          <g fill="#c9d8ea" font-size="15" text-anchor="middle"><text x="105" y="448">可追溯</text><text x="318" y="385">可纠正</text><text x="548" y="310">可恢复</text></g>
-          <g stroke="#ff806d" stroke-width="4"><line x1="212" y1="210" x2="212" y2="390"/><line x1="430" y1="150" x2="430" y2="325"/></g>
-          <g fill="#ffc0b6" font-size="16" text-anchor="middle"><text x="212" y="190">GATE 1 · 结果质量</text><text x="430" y="130">GATE 2 · 责任与回退</text></g>
+        <svg class="chapter-visual authority-formula" viewBox="0 0 700 500" role="img" aria-label="结果可靠性、可恢复性和人类责任容量共同决定可扩大权限">
+          <text x="350" y="75" text-anchor="middle" fill="#9beef4" font-size="18" letter-spacing="3">AUTHORITY GATE</text>
+          <rect x="72" y="118" width="556" height="102" rx="30" fill="#fff" fill-opacity=".10" stroke="#27d4e3" stroke-width="3"/><text x="350" y="180" text-anchor="middle" fill="#fff" font-size="34" font-weight="800">可扩大权限</text>
+          <text x="350" y="276" text-anchor="middle" fill="#ffac9f" font-size="34" font-weight="800">=</text>
+          <g fill="#fff" fill-opacity=".10" stroke="#fff" stroke-opacity=".18"><rect x="28" y="320" width="200" height="112" rx="24"/><rect x="250" y="320" width="200" height="112" rx="24"/><rect x="472" y="320" width="200" height="112" rx="24"/></g>
+          <g fill="#fff" text-anchor="middle" font-size="22" font-weight="750"><text x="128" y="369">结果可靠性</text><text x="350" y="369">可恢复性</text><text x="572" y="369">人类责任容量</text></g>
+          <g fill="#c9d8ea" text-anchor="middle" font-size="15"><text x="128" y="402">验收 · 缺陷 · 目标</text><text x="350" y="402">停止 · 回滚 · 接管</text><text x="572" y="402">审批 · 升级 · 负责</text></g>
+          <text x="238" y="386" fill="#27d4e3" font-size="28">×</text><text x="460" y="386" fill="#27d4e3" font-size="28">×</text>
         </svg>
       </div>
-      <aside class="speaker-note">第三部分将原则转化为实施顺序。自动化权限不是按时间表自然增加，而应通过验收率、人工监督时间、越权与回退记录等证据晋级。路线从只读状态链开始，再允许具名确认后的写回，随后才进入 Trigger 影子运行和单条受控 Action Loop。</aside>
+      <aside class="speaker-note">第三部分以权限晋级条件为中心。该公式是实施判断，不是数学模型。它要求在扩大 Agent 权限前，同时观察结果可靠性、失败后的恢复能力和人类审批与升级容量。后续三页分别回答如何衡量、何时晋级以及从哪条链路开始。</aside>
     </section>
 
-    <section class="slide ink" id="slide-21" data-title="衡量标准应转向可接受结果" aria-hidden="true">
+    <section class="slide ink" id="slide-17" data-title="衡量标准应转向可接受结果" aria-hidden="true">
       <div class="slide-inner metrics-composition">
         <p class="kicker">03.1 · MEASUREMENT</p>
         <h2>衡量标准应转向<br><span>可接受结果</span></h2>
@@ -406,7 +345,7 @@
       <aside class="speaker-note">北极星指标属于本文建议。它要求把人类复核负担纳入价值计算，避免只看到自动化吞吐。随着行动规模扩大，即使单次错误率下降，错误绝对数量和审批压力仍可能增加，因此需要同时观察结果、质量、责任和组织记忆。</aside>
     </section>
 
-    <section class="slide paper" id="slide-22" data-title="改造计划从共享语言推进到可迁移运行" aria-hidden="true">
+    <section class="slide paper" id="slide-18" data-title="改造计划从共享语言推进到可迁移运行" aria-hidden="true">
       <div class="slide-inner roadmap-composition">
         <p class="kicker ink">03.2 · 12-MONTH ROADMAP</p>
         <h2>改造计划从共享语言推进到<br><span>可迁移运行</span></h2>
@@ -422,7 +361,7 @@
       <aside class="speaker-note">路线图属于实施建议。M0 定义共同状态语言和基线；M1 建立只读可追溯链；M2 允许具名确认后的状态写回；M3 对触发条件影子告警；M4 运行一条受控 Action Loop；M5 检验 Context、Benchmark 和运行记录能否跨模型或 Harness 迁移。</aside>
     </section>
 
-    <section class="slide blue" id="slide-23" data-title="首个试点应打通一条真实纵向链路" aria-hidden="true">
+    <section class="slide blue" id="slide-19" data-title="首个试点应打通一条真实纵向链路" aria-hidden="true">
       <div class="slide-inner pilot-composition">
         <p class="kicker">03.3 · FIRST VERTICAL SLICE</p>
         <h2>首个试点应打通一条<br><span>真实纵向链路</span></h2>
@@ -438,22 +377,21 @@
       <aside class="speaker-note">建议选择一条正在发生、风险可控的真实功能，不建设全公司大图谱。试点需要同时覆盖产品证据、工作契约、研发执行、固定 SHA 验收、人工发布批准和结果写回，由此验证 Context、Harness、Loop 是否真正连接。</aside>
     </section>
 
-    <section class="slide paper summary-slide" id="slide-24" data-title="四个判断形成同一条逻辑链" aria-hidden="true">
+    <section class="slide paper summary-slide" id="slide-20" data-title="本次分享需要形成三个组织决策" aria-hidden="true">
       <div class="slide-inner summary-composition">
-        <p class="kicker ink">SUMMARY · THE ARGUMENT</p>
-        <h2>四个判断形成同一条<br><span>逻辑链</span></h2>
-        <div class="summary-line">
-          <article><em>01</em><div><b>约束发生转移</b><p>执行成本下降后，上下文、责任和验收成为主要约束。</p></div></article>
-          <article><em>02</em><div><b>基础设施必须成对建设</b><p>Software Factory 管理行动；Company Memory 管理行动依据。</p></div></article>
-          <article><em>03</em><div><b>团队围绕状态链重组</b><p>产品保存判断状态，研发保存执行状态，共同契约连接二者。</p></div></article>
-          <article><em>04</em><div><b>权限依据验证结果逐级扩大</b><p>从只读、确认写回到受控行动，以可接受结果和可恢复性晋级。</p></div></article>
+        <p class="kicker ink">SUMMARY · THREE DECISIONS</p>
+        <h2>本次分享需要形成<br><span>三个组织决策</span></h2>
+        <div class="decision-grid">
+          <article><em>01</em><b>选择一条真实纵向链路</b><p>选择正在发生、风险可控且结果可观察的功能，不建设全公司知识图谱。</p></article>
+          <article><em>02</em><b>定义共同工作契约</b><p>明确证据、约束、验收、Outcome Owner、Approver、观察窗口和回退条件。</p></article>
+          <article><em>03</em><b>建立基线与晋级门槛</b><p>测量通过验收的结果、人工监督时间、错误与恢复；达到门槛后再扩大权限。</p></article>
         </div>
-        <p class="summary-conclusion">因此，转型对象不是单个模型或岗位，而是工作从证据、判断、行动到结果的完整状态链。</p>
+        <p class="summary-conclusion">如果这三项不能明确，增加 Agent 数量只能说明采用扩大，不能证明组织能力已经形成。</p>
       </div>
-      <aside class="speaker-note">本页用于收束主线。第一，模型降低执行成本，但组织约束向上下文和责任转移。第二，执行系统与组织记忆需要共同建设。第三，产品和研发通过共享工作契约连接判断与执行。第四，权限应依据结果质量、人工责任容量和恢复能力逐级扩大。下一页用四个问题检验这些条件是否真正成立。</aside>
+      <aside class="speaker-note">总结不再重复概念，而是要求形成三个决策。第一，确定一条真实纵向链路。第二，为这条链路定义共同工作契约和具名责任。第三，建立结果、监督、错误与恢复基线，并据此设置权限晋级门槛。下一页提供四个长期检验问题。</aside>
     </section>
 
-    <section class="slide dark closing-slide" id="slide-25" data-title="AI Native 团队以组织复现能力接受检验" aria-hidden="true">
+    <section class="slide dark closing-slide" id="slide-21" data-title="AI Native 团队以组织复现能力接受检验" aria-hidden="true">
       <div class="slide-inner closing-composition">
         <p class="kicker">CLOSING · THE TEST</p>
         <h2>AI Native 团队以<br><span>组织复现能力</span>接受检验</h2>
@@ -473,7 +411,7 @@
   <footer class="controls">
     <button data-action="prev" type="button" aria-label="上一张">←</button>
     <button data-action="next" type="button" aria-label="下一张">→</button>
-    <div><strong id="current-number">01</strong> / <span id="total-number">25</span></div>
+    <div><strong id="current-number">01</strong> / <span id="total-number">21</span></div>
     <span class="spacer"></span>
     <button data-action="notes" type="button">备注</button>
     <button data-action="help" type="button" aria-label="帮助">?</button>
