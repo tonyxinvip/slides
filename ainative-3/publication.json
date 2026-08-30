@@ -1,0 +1,16 @@
+{
+  "slug": "ainative-3",
+  "title": "执行变便宜之后 · AI-native 团队如何重构工作系统",
+  "summary": "AI-native 系列第三篇：从 Uber Software Factory 与 Company Memory 出发，说明产品、研发团队如何用 Context、Harness、Loop 重构共享状态、行动边界与结果责任。",
+  "cover": "../assets/covers/ainative-3.svg",
+  "author": "辛海洋",
+  "publishedAt": "2026-08-31",
+  "eventDate": "2026-08-31",
+  "eventVenue": "可可乐博",
+  "eventKind": "内部分享",
+  "tags": ["AI Native", "Organization Design", "Agentic Workflow"],
+  "slideCount": 21,
+  "durationMinutes": 20,
+  "access": "public",
+  "featured": true
+}
