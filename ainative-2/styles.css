@@ -505,9 +505,9 @@ dialog form { padding:26px; }.dialog-head { display:flex; align-items:center; ju
   h1 { font-size:clamp(4rem,18vw,5.5rem); margin-top:auto; }
   h2 { font-size:clamp(2.15rem,10vw,3.25rem); }
   .title-composition { justify-content:center; }
-  .title-orbit { position:relative; right:auto; top:auto; width:190px; height:190px; margin:26px auto 0; transform:none; }
-  .title-orbit span { display:none; }.title-orbit::before{inset:30px}.title-orbit::after{inset:66px}.title-orbit i{font-size:2.4rem}
-  .title-meta { flex-wrap:wrap; margin-top:22px; }
+  .title-orbit { position:relative; right:auto; top:auto; width:130px; height:130px; margin:12px auto 0; transform:none; }
+  .title-orbit span { display:none; }.title-orbit::before{inset:20px}.title-orbit::after{inset:46px}.title-orbit i{font-size:1.8rem}
+  .title-meta { flex-wrap:wrap; margin-top:12px; margin-bottom:32px; }
   .compression-visual div { grid-template-columns:120px 1fr; }.compression-visual i { height:24px; }
   .artifact-field,.three-layer,.role-triad,.product-grid,.value-pentagon,.governance-stack,.roadmap,.five-shifts,.value-spectrum,.rare-capabilities,.research-decisions,.maturity-ladder,.paradigm-cards,.skill-contract,.responsibility-map,.talent-grid,.product-detail-grid,.principles-grid,.state-body,.workflow-contract,.model-routing,.selection-grid,.selection-pressure,.judgment-shift,.durability-map,.control-plane,.mirror-system,.hybrid-cloud,.drift-loop,.drift-controls { grid-template-columns:1fr; }
   .question-strip,.practice-findings,.rhythm-rules,.governance-strip { grid-template-columns:repeat(2,1fr); }
