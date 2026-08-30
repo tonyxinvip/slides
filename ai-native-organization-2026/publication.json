@@ -1,0 +1,16 @@
+{
+  "slug": "ai-native-organization-2026",
+  "title": "从 AI 提效到 AI Native 组织",
+  "summary": "综合 Uber Software Factory 与 Company Memory 两组材料，提出 Context、Harness、Loop 三层框架，并给出产品、研发团队的共享状态、责任机制与 12 个月改造路径。",
+  "cover": "../assets/covers/ai-native-organization-2026.svg",
+  "author": "辛海洋",
+  "publishedAt": "2026-08-31",
+  "eventDate": "2026-08-31",
+  "eventVenue": "可可乐博",
+  "eventKind": "内部分享",
+  "tags": ["AI Native", "Organization Design", "Agentic Workflow"],
+  "slideCount": 22,
+  "durationMinutes": 20,
+  "access": "public",
+  "featured": true
+}
