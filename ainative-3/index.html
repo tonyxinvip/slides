@@ -207,27 +207,42 @@
       <aside class="speaker-note">该框架来自可可乐博既有实践，并由前述两组材料进一步支持。Context 回答系统基于什么理解任务；Harness 回答它如何行动并受约束；Loop 回答一次执行怎样进入下一次工作。三者共同服务于可验证结果，而不是各自成为独立平台目标。</aside>
     </section>
 
-    <section class="slide blue chapter-slide" id="slide-10" data-title="产品判断与研发执行需要同一条状态链" aria-hidden="true">
+<section class="slide paper" id="slide-10" data-title="AI Native 转型经历五级能力演进" aria-hidden="true">
+      <div class="slide-inner maturity-composition">
+        <p class="kicker ink">01.6 · FIVE CAPABILITY LEVELS</p>
+        <h2>AI Native 转型经历<br><span>五级能力演进</span></h2>
+        <svg class="wide-visual maturity-svg" viewBox="0 0 1220 460" role="img" aria-label="从个人工具到结果驱动进化的五级能力演进">
+          <defs><linearGradient id="maturityLine25" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b5c1cf"/><stop offset=".55" stop-color="#3867ff"/><stop offset="1" stop-color="#20c7d6"/></linearGradient></defs>
+          <path d="M90 320 C270 320 290 260 430 260 C600 260 620 205 760 205 C920 205 920 140 1090 140" fill="none" stroke="url(#maturityLine25)" stroke-width="18" stroke-linecap="round"/>
+          <g><circle cx="110" cy="320" r="34" fill="#8d9baa"/><circle cx="350" cy="275" r="34" fill="#6e83b5"/><circle cx="590" cy="225" r="34" fill="#4b6de1"/><circle cx="830" cy="185" r="34" fill="#2b93d9"/><circle cx="1080" cy="140" r="34" fill="#20c7d6"/></g>
+          <g text-anchor="middle" fill="#071428" font-size="20" font-weight="800"><text x="110" y="382">L1 · 个人工具</text><text x="350" y="337">L2 · 工作流复用</text><text x="590" y="287">L3 · 托管执行</text><text x="830" y="247">L4 · 共享状态</text><text x="1080" y="202">L5 · 结果驱动进化</text></g>
+          <g text-anchor="middle" fill="#66768a" font-size="15"><text x="110" y="410">步骤提效</text><text x="350" y="365">方法可重复</text><text x="590" y="315">环境受治理</text><text x="830" y="275">跨团队一致</text><text x="1080" y="230">结果更新能力</text></g>
+        </svg>
+        <p class="under-visual">这是一种能力诊断框架，而非线性排名。晋级依据是复用、治理、共享状态与结果学习是否成立。</p>
+      </div>
+      <aside class="speaker-note">五级演进属于本文综合分析：L1 是个人工具使用；L2 将有效方法固化为可复用工作流；L3 在受治理的 Harness 中托管执行；L4 由产品、内容和研发读取同一共享状态；L5 依据真实结果更新 Context、Benchmark、Skill 与 Workflow。团队可能在不同工作流上处于不同级别，不能以统一标签替代逐项评估。</aside>
+    </section>
+
+    <section class="slide blue chapter-slide" id="slide-11" data-title="产品、内容与研发需要同一条状态链" aria-hidden="true">
       <div class="slide-inner chapter-cover-composition">
         <div class="chapter-index"><span>02</span><small>TEAM REDESIGN</small></div>
         <div class="chapter-copy">
-          <p class="kicker">PART TWO · BROKEN HANDOFFS</p>
-          <h2>产品判断与研发执行<br><span>需要同一条状态链</span></h2>
-          <p class="explanation light-copy">产品证据与工程验证通常保存在不同系统，目标、约束和结果在交接中被重新解释。团队改造需要先修复这条断裂的状态链。</p>
+          <p class="kicker">PART TWO · SHARED WORK STATE</p>
+          <h2>产品、内容与研发<br><span>需要同一条状态链</span></h2>
+          <p class="explanation light-copy">产品保存判断依据，内容保存来源与专业审查，研发保存约束与验证；三条链必须在交付结果处汇合。</p>
         </div>
-        <svg class="chapter-visual" viewBox="0 0 700 500" role="img" aria-label="产品判断与研发执行之间存在断裂的交接">
-          <g fill="#fff" fill-opacity=".13" stroke="#fff" stroke-opacity=".25"><rect x="42" y="105" width="210" height="150" rx="28"/><rect x="448" y="245" width="210" height="150" rx="28"/></g>
-          <text x="147" y="153" text-anchor="middle" fill="#fff" font-size="17">PRODUCT JUDGMENT</text><text x="147" y="196" text-anchor="middle" fill="#c6f5f8" font-size="25" font-weight="750">证据 → 决策</text><text x="147" y="229" text-anchor="middle" fill="#dce9f5" font-size="15">假设 · 承诺 · 结果指标</text>
-          <text x="553" y="293" text-anchor="middle" fill="#fff" font-size="17">ENGINEERING EXECUTION</text><text x="553" y="336" text-anchor="middle" fill="#c6f5f8" font-size="25" font-weight="750">约束 → 验证</text><text x="553" y="369" text-anchor="middle" fill="#dce9f5" font-size="15">环境 · 证据 · 回退</text>
-          <path d="M252 180C335 180 343 262 448 319" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="5" stroke-dasharray="18 14"/>
-          <circle cx="345" cy="250" r="44" fill="#ff806d"/><path d="M323 228L367 272M367 228L323 272" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
-          <g fill="#fff" fill-opacity=".10"><rect x="276" y="70" width="138" height="42" rx="15"/><rect x="278" y="390" width="138" height="42" rx="15"/></g><text x="345" y="97" text-anchor="middle" fill="#fff" font-size="15">目标重新解释</text><text x="347" y="417" text-anchor="middle" fill="#fff" font-size="15">结果未写回</text>
+        <svg class="chapter-visual" viewBox="0 0 700 500" role="img" aria-label="产品判断、内容资产与研发执行汇入共同工作契约">
+          <defs><marker id="chapterArrowTeams" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#fff"/></marker></defs>
+          <g fill="#fff" fill-opacity=".13" stroke="#fff" stroke-opacity=".25"><rect x="42" y="70" width="190" height="82" rx="22"/><rect x="42" y="205" width="190" height="82" rx="22"/><rect x="42" y="340" width="190" height="82" rx="22"/><rect x="420" y="165" width="235" height="170" rx="30"/></g>
+          <g text-anchor="middle"><text x="137" y="104" fill="#fff" font-size="15">PRODUCT</text><text x="137" y="132" fill="#c6f5f8" font-size="20" font-weight="750">证据 → 决策</text><text x="137" y="239" fill="#fff" font-size="15">CONTENT</text><text x="137" y="267" fill="#c6f5f8" font-size="20" font-weight="750">来源 → 资产</text><text x="137" y="374" fill="#fff" font-size="15">ENGINEERING</text><text x="137" y="402" fill="#c6f5f8" font-size="20" font-weight="750">约束 → 验证</text></g>
+          <g fill="none" stroke="#fff" stroke-width="4" marker-end="url(#chapterArrowTeams)"><path d="M232 111C325 111 342 205 415 220"/><path d="M232 246H414"/><path d="M232 381C325 381 342 295 415 280"/></g>
+          <text x="537" y="214" text-anchor="middle" fill="#9beef4" font-size="16">SHARED CONTRACT</text><text x="537" y="258" text-anchor="middle" fill="#fff" font-size="27" font-weight="800">共同工作契约</text><text x="537" y="297" text-anchor="middle" fill="#d9f6f8" font-size="16">目标 · 证据 · 标准 · Owner · 回退</text>
         </svg>
       </div>
-      <aside class="speaker-note">第二部分从交接断裂开始，而不是提前给出共同契约的答案。产品团队保存用户证据、假设、承诺和结果指标；研发团队保存技术约束、验证环境、发布证据和恢复路径。如果两条链只通过 PRD 和工单连接，目标会被重新解释，发布结果也难以回到原始判断。</aside>
+      <aside class="speaker-note">第二部分把团队改造扩展到产品、内容和研发三类专业工作。三者不需要使用同一款工具，但必须共享目标、证据边界、版本、验收标准和结果状态。产品负责判断链，内容负责来源、权利、专业审查与资产版本，研发负责执行环境、验证与恢复。各团队的候选输出进入共享状态前仍需具名确认。</aside>
     </section>
 
-    <section class="slide blue" id="slide-11" data-title="产品工作需要形成可追溯判断链" aria-hidden="true">
+    <section class="slide blue" id="slide-12" data-title="产品工作需要形成可追溯判断链" aria-hidden="true">
       <div class="slide-inner chain-composition">
         <p class="kicker">02.1 · PRODUCT JUDGMENT STATE</p>
         <h2>产品工作需要形成<br><span>可追溯判断链</span></h2>
@@ -244,7 +259,7 @@
       <aside class="speaker-note">该状态链属于本文建议。它将产品材料从静态文档转为可追溯判断：原始证据与产品解释分开，异议和反例不被新版本覆盖，发布结果能够更新原始假设。AI 可以生成候选状态，但具名负责人确认后才能成为共享状态。</aside>
     </section>
 
-    <section class="slide paper" id="slide-12" data-title="产品团队的约束转向证据与决策质量" aria-hidden="true">
+    <section class="slide paper" id="slide-13" data-title="产品团队的约束转向证据与决策质量" aria-hidden="true">
       <div class="slide-inner team-change-composition">
         <p class="kicker ink">02.2 · PRODUCT TEAM</p>
         <h2>产品团队的约束转向<br><span>证据与决策质量</span></h2>
@@ -259,7 +274,7 @@
       <aside class="speaker-note">本页为实施建议。产品团队可以优先改造访谈与反馈证据化、PRD first-pass review、实验结果整理和冲突提示。涉及路线图承诺、定价、敏感用户评价和公开发布的决定，仍需要明确的人类批准。</aside>
     </section>
 
-    <section class="slide ink" id="slide-13" data-title="研发工作需要形成可验证执行链" aria-hidden="true">
+    <section class="slide ink" id="slide-14" data-title="研发工作需要形成可验证执行链" aria-hidden="true">
       <div class="slide-inner chain-composition engineering-chain">
         <p class="kicker">02.3 · ENGINEERING EXECUTION</p>
         <h2>研发工作需要形成<br><span>可验证执行链</span></h2>
@@ -276,7 +291,7 @@
       <aside class="speaker-note">该执行链属于本文建议。固定 SHA 表示验收对象需要可复现；测试证据需要区分本地、CI、Preview 和生产环境。合并后写回能力、约束、风险与技术债的变化，避免异常路径只停留在聊天记录。</aside>
     </section>
 
-    <section class="slide paper" id="slide-14" data-title="研发团队的约束转向系统设计与验证" aria-hidden="true">
+    <section class="slide paper" id="slide-15" data-title="研发团队的约束转向系统设计与验证" aria-hidden="true">
       <div class="slide-inner team-change-composition">
         <p class="kicker ink">02.4 · ENGINEERING TEAM</p>
         <h2>研发团队的约束转向<br><span>系统设计与验证</span></h2>
@@ -291,24 +306,52 @@
       <aside class="speaker-note">本页为实施建议。研发团队的价值重点从代码输入速度转向目标拆解、架构判断、上下文设计、评测和风险处理。自动修改生产数据、不可逆迁移、扩大权限和直接外部发布不适合早期托管。</aside>
     </section>
 
-    <section class="slide blue" id="slide-15" data-title="产品与研发需要共享工作契约" aria-hidden="true">
-      <div class="slide-inner bridge-composition">
-        <p class="kicker">02.5 · SHARED WORK CONTRACT</p>
-        <h2>产品与研发需要<br><span>共享工作契约</span></h2>
-        <svg class="wide-visual bridge-svg" viewBox="0 0 1220 430" role="img" aria-label="产品判断链通过共享工作契约连接研发执行链">
-          <rect x="35" y="80" width="315" height="265" rx="36" fill="#ffffff" fill-opacity=".13"/><rect x="870" y="80" width="315" height="265" rx="36" fill="#ffffff" fill-opacity=".13"/>
-          <text x="192" y="132" text-anchor="middle" fill="white" font-size="28" font-weight="800">产品判断</text><text x="1028" y="132" text-anchor="middle" fill="white" font-size="28" font-weight="800">研发执行</text>
-          <g fill="#c9d8ea" font-size="19"><text x="88" y="185">证据与假设</text><text x="88" y="225">异议与非目标</text><text x="88" y="265">承诺与结果指标</text><text x="925" y="185">架构与数据约束</text><text x="925" y="225">验证环境与证据</text><text x="925" y="265">发布与回退</text></g>
-          <path d="M350 212 H470" stroke="#a8eaf0" stroke-width="6"/><path d="M750 212 H870" stroke="#a8eaf0" stroke-width="6"/>
-          <rect x="455" y="38" width="310" height="350" rx="44" fill="#071428" stroke="#27d4e3" stroke-width="4"/>
-          <text x="610" y="89" text-anchor="middle" fill="#9beef4" font-size="18">SHARED CONTRACT</text><text x="610" y="135" text-anchor="middle" fill="white" font-size="28" font-weight="800">共同工作契约</text>
-          <g fill="#dce6f2" font-size="18"><text x="505" y="190">目标结果 · 验收标准</text><text x="505" y="230">证据边界 · 风险等级</text><text x="505" y="270">Owner · Approver</text><text x="505" y="310">发布条件 · Rollback</text><text x="505" y="350">观察窗口 · 写回责任</text></g>
-        </svg>
+<section class="slide paper" id="slide-16" data-title="内容团队需要形成可追溯资产与复用结果" aria-hidden="true">
+      <div class="slide-inner team-change-composition">
+        <p class="kicker ink">02.5 · CONTENT TEAM</p>
+        <h2>内容团队需要形成<br><span>可追溯资产与复用结果</span></h2>
+        <div class="change-grid">
+          <article><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="31" fill="#dff9fb"/><path d="M24 30h32v30H24zM30 23h20" fill="none" stroke="#0a9dab" stroke-width="5"/></svg><b>来源与权利</b><p>记录来源、授权、适用对象、版本、有效期与引用范围。</p></article>
+          <article><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="31" fill="#ebe8ff"/><path d="M23 29h14v14H23zM43 29h14v14H43zM33 49h14v14H33z" fill="none" stroke="#6b5dcc" stroke-width="4"/></svg><b>结构化资产</b><p>把概念、活动、素材与评价标准拆成可检索、可组合的版本化对象。</p></article>
+          <article><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="31" fill="#fff0ed"/><path d="M22 43l11 11 25-29M20 64h40" fill="none" stroke="#e36551" stroke-width="5"/></svg><b>专业审查</b><p>事实、教学、语言、版权与安全检查由具名负责人确认后发布。</p></article>
+          <article><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="31" fill="#e8eef9"/><path d="M22 48c8-22 29-22 37-5M58 43l1 13-13-2" fill="none" stroke="#3867ff" stroke-width="5"/></svg><b>结果写回</b><p>将采用、修改、拒绝、纠错、复用与实际使用证据写回资产状态。</p></article>
+        </div>
+        <p class="under-visual">内容产量只能反映生成规模；可追溯、可审查、可复用且能根据结果修订，才构成组织能力。</p>
       </div>
-      <aside class="speaker-note">共同工作契约的目的不是增加文档，而是减少跨团队反复重建上下文。Agent 可以检查契约完整性、寻找冲突和生成执行计划，但不能自行补写未经确认的业务目标、用户承诺或验收标准。</aside>
+      <aside class="speaker-note">本页为针对可可乐博内容团队的实施建议，不是对外部来源的效果归因。AI 系统可以协助检索、拆分、标注和生成候选内容，但未经核验的来源、授权不明素材、专业判断和对外发布不能自动进入公司事实。建议从一类高频内容资产建立版本、审查记录、复用关系与使用反馈。</aside>
     </section>
 
-    <section class="slide ink chapter-slide" id="slide-16" data-title="权限扩大必须通过结果证据门槛" aria-hidden="true">
+    <section class="slide blue" id="slide-17" data-title="产品、内容与研发需要共享工作契约" aria-hidden="true">
+      <div class="slide-inner bridge-composition">
+        <p class="kicker">02.6 · SHARED WORK CONTRACT</p>
+        <h2>产品、内容与研发需要<br><span>共享工作契约</span></h2>
+        <div class="contract-team-grid">
+          <article><small>PRODUCT</small><b>判断状态</b><p>用户证据 · 假设与异议 · 承诺 · 结果指标</p></article>
+          <article><small>CONTENT</small><b>资产状态</b><p>来源与权利 · 专业标准 · 版本关系 · 复用边界</p></article>
+          <article><small>ENGINEERING</small><b>执行状态</b><p>架构约束 · 验证环境 · 固定证据 · 发布与恢复</p></article>
+        </div>
+        <div class="contract-core"><span>共同工作契约</span><b>目标结果 · 证据边界 · 验收标准 · Owner / Approver · 发布与回退 · 观察窗口 · 写回责任</b></div>
+      </div>
+      <aside class="speaker-note">共同工作契约连接三类状态，但不要求三类团队放弃专业系统。产品证据、内容资产和研发执行可以保留不同视图，底层需要共享目标、来源、版本、权限、验收、负责人和结果。AI 可以检查缺项与冲突，不能自行补写未经确认的目标、授权、专业标准或发布承诺。</aside>
+    </section>
+
+<section class="slide paper" id="slide-18" data-title="团队成员的工作重点转向四类责任" aria-hidden="true">
+      <div class="slide-inner roles-composition">
+        <p class="kicker ink">02.7 · FOUR HUMAN RESPONSIBILITIES</p>
+        <h2>团队成员的工作重点转向<br><span>四类责任</span></h2>
+        <div class="roles-layout">
+          <svg viewBox="0 0 1050 440" aria-hidden="true"><circle cx="525" cy="220" r="112" fill="#3867ff"/><circle cx="525" cy="220" r="158" fill="none" stroke="#3867ff" stroke-opacity=".25" stroke-width="3"/><g stroke="#3867ff" stroke-width="3"><line x1="420" y1="166" x2="240" y2="112"/><line x1="630" y1="166" x2="810" y2="112"/><line x1="420" y1="274" x2="240" y2="330"/><line x1="630" y1="274" x2="810" y2="330"/></g><text x="525" y="205" text-anchor="middle" fill="#fff" font-size="19">执行任务可以委托</text><text x="525" y="240" text-anchor="middle" fill="#fff" font-size="25" font-weight="800">责任仍由人承担</text></svg>
+          <article><b>目标定义</b><p>选择问题，明确成功、失败、优先级、非目标与停止条件。</p></article>
+          <article><b>证据判断</b><p>判断来源、反例、专业标准和证据是否足以支持决定。</p></article>
+          <article><b>例外处理</b><p>处理低置信、冲突、高风险、权限不足、失败恢复与升级。</p></article>
+          <article><b>结果责任</b><p>完成验收、批准发布、观察结果，并决定继续、修订或撤回。</p></article>
+        </div>
+        <p class="under-visual">这四类是责任，不是四个固定岗位；小团队可以兼任，但每项责任必须具名且可追溯。</p>
+      </div>
+      <aside class="speaker-note">四类责任统一替代此前按五个岗位命名的方案。它描述团队成员工作的重心，而不是重新设计组织架构：目标定义确保任务值得做；证据判断确保依据与专业标准成立；例外处理负责系统不能自动解决的冲突与风险；结果责任承担验收、发布和后果。岗位可以合并，但同一输出不应缺少独立证据与必要审批。</aside>
+    </section>
+
+    <section class="slide ink chapter-slide" id="slide-19" data-title="权限扩大必须通过结果证据门槛" aria-hidden="true">
       <div class="slide-inner chapter-cover-composition">
         <div class="chapter-index"><span>03</span><small>TRANSFORMATION PATH</small></div>
         <div class="chapter-copy">
@@ -329,25 +372,41 @@
       <aside class="speaker-note">第三部分以权限晋级条件为中心。该公式是实施判断，不是数学模型。它要求在扩大 Agent 权限前，同时观察结果可靠性、失败后的恢复能力和人类审批与升级容量。后续三页分别回答如何衡量、何时晋级以及从哪条链路开始。</aside>
     </section>
 
-    <section class="slide ink" id="slide-17" data-title="衡量标准应转向可接受结果" aria-hidden="true">
+    <section class="slide ink" id="slide-20" data-title="衡量方式必须覆盖结果、监督负担与风险" aria-hidden="true">
       <div class="slide-inner metrics-composition">
-        <p class="kicker">03.1 · MEASUREMENT</p>
-        <h2>衡量标准应转向<br><span>可接受结果</span></h2>
+        <p class="kicker">03.1 · MEASUREMENT SYSTEM</p>
+        <h2>衡量方式必须覆盖<br><span>结果、监督负担与风险</span></h2>
         <div class="north-star"><small>NORTH STAR</small><b>通过验收的工作结果</b><i>÷</i><b>人类监督时间</b></div>
         <div class="metric-lanes">
-          <article><span>结果</span><p>一次验收率 · Lead time · 发布后目标实现</p></article>
-          <article><span>质量</span><p>返工 · Revert · 漏报误报 · 生产缺陷</p></article>
-          <article><span>责任</span><p>审批队列 · 越权 · 无 Owner 行动 · 升级时延</p></article>
-          <article><span>记忆</span><p>来源完整率 · 重复调查 · 结果写回 · 过期状态</p></article>
+          <article><span>产品</span><p>证据链接率 · 决策周期 · 开发后变更 · 结果写回率</p></article>
+          <article><span>研发</span><p>一次验收率 · Review 时间 · Revert / 缺陷 · 恢复成功率</p></article>
+          <article><span>内容</span><p>审查通过率 · 修订量 · 有效复用率 · 纠错与撤回时延</p></article>
+          <article><span>治理</span><p>无 Owner 行动 · 越权 · 审批队列 · 升级与回退时延</p></article>
         </div>
-        <p class="under-visual light-copy">Agent 数量、Token 总量和 AI 参与率可以观察，但不能单独证明组织价值。</p>
+        <p class="under-visual light-copy">Agent 数量、Token 总量和 AI 参与率是采用指标；只有与基线、质量和风险共同解释，才能支持晋级。</p>
       </div>
-      <aside class="speaker-note">北极星指标属于本文建议。它要求把人类复核负担纳入价值计算，避免只看到自动化吞吐。随着行动规模扩大，即使单次错误率下降，错误绝对数量和审批压力仍可能增加，因此需要同时观察结果、质量、责任和组织记忆。</aside>
+      <aside class="speaker-note">衡量体系属于实施建议。北极星指标将可接受结果与人类监督负担同时纳入。产品、研发和内容需要各自建立基线，并使用治理指标约束权限扩大。不同工作流的结果单位不同，不宜直接横向排名；应先在同一工作流内比较版本变化，再决定是否扩大范围。</aside>
     </section>
 
-    <section class="slide paper" id="slide-18" data-title="改造计划从共享语言推进到可迁移运行" aria-hidden="true">
+<section class="slide paper" id="slide-21" data-title="可持续转型依赖五类可迁移资产" aria-hidden="true">
+      <div class="slide-inner staircase-composition">
+        <p class="kicker ink">03.2 · DURABLE CAPABILITY PATH</p>
+        <h2>可持续转型依赖<br><span>五类可迁移资产</span></h2>
+        <svg class="wide-visual durable-assets-svg" viewBox="0 0 1240 450" role="img" aria-label="真实任务持续形成上下文、评估、工作流、治理与结果资产">
+          <defs><marker id="durableArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#3867ff"/></marker></defs>
+          <g fill="#fff" stroke="#d5dfeb" stroke-width="2"><rect x="35" y="125" width="205" height="190" rx="28"/><rect x="275" y="125" width="205" height="190" rx="28"/><rect x="515" y="125" width="205" height="190" rx="28"/><rect x="755" y="125" width="205" height="190" rx="28"/><rect x="995" y="125" width="205" height="190" rx="28"/></g>
+          <g stroke="#3867ff" stroke-width="4" marker-end="url(#durableArrow)"><line x1="240" y1="220" x2="270" y2="220"/><line x1="480" y1="220" x2="510" y2="220"/><line x1="720" y1="220" x2="750" y2="220"/><line x1="960" y1="220" x2="990" y2="220"/></g>
+          <g text-anchor="middle"><text x="137" y="176" fill="#3867ff" font-size="16" font-weight="800">01 · CONTEXT</text><text x="137" y="214" fill="#071428" font-size="23" font-weight="800">上下文资产</text><text x="137" y="250" fill="#617085" font-size="15">来源 · 版本 · 关系</text><text x="137" y="277" fill="#617085" font-size="15">约束 · 历史状态</text><text x="377" y="176" fill="#3867ff" font-size="16" font-weight="800">02 · EVALUATION</text><text x="377" y="214" fill="#071428" font-size="23" font-weight="800">评估资产</text><text x="377" y="250" fill="#617085" font-size="15">真实任务集 · 反例</text><text x="377" y="277" fill="#617085" font-size="15">验收门槛 · 基线</text><text x="617" y="176" fill="#3867ff" font-size="16" font-weight="800">03 · EXECUTION</text><text x="617" y="214" fill="#071428" font-size="23" font-weight="800">工作流资产</text><text x="617" y="250" fill="#617085" font-size="15">Skill · Workflow</text><text x="617" y="277" fill="#617085" font-size="15">工具契约 · 运行轨迹</text><text x="857" y="176" fill="#3867ff" font-size="16" font-weight="800">04 · GOVERNANCE</text><text x="857" y="214" fill="#071428" font-size="23" font-weight="800">治理资产</text><text x="857" y="250" fill="#617085" font-size="15">身份 · 权限 · 审批</text><text x="857" y="277" fill="#617085" font-size="15">回退 · 审计 · 接管</text><text x="1097" y="176" fill="#0a9dab" font-size="16" font-weight="800">05 · OUTCOME</text><text x="1097" y="214" fill="#071428" font-size="23" font-weight="800">结果资产</text><text x="1097" y="250" fill="#617085" font-size="15">采用 · 质量 · 成本</text><text x="1097" y="277" fill="#617085" font-size="15">失败 · 修正 · 影响</text></g>
+          <path d="M1097 330C1097 405 137 405 137 330" fill="none" stroke="#20c7d6" stroke-width="4" stroke-dasharray="10 9" marker-end="url(#durableArrow)"/><text x="617" y="430" text-anchor="middle" fill="#4d6179" font-size="17">结果更新下一轮 Context、评估集与工作流版本</text>
+        </svg>
+        <p class="under-visual">模型可以替换；组织自有的上下文、评估、工作流、治理和结果资产必须持续积累并可导出。</p>
+      </div>
+      <aside class="speaker-note">本页回答可持续能力建设问题，并与下一页时间路线区分。每一条真实任务都应留下五类可迁移资产：可追溯 Context、真实任务评估集、版本化 Skill 与 Workflow、权限和恢复记录、业务结果与人工修正。若更换模型或 Harness 后这些资产无法继续使用，说明组织积累仍依赖供应商或个人经验。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-22" data-title="改造计划从共享语言推进到可迁移运行" aria-hidden="true">
       <div class="slide-inner roadmap-composition">
-        <p class="kicker ink">03.2 · 12-MONTH ROADMAP</p>
+        <p class="kicker ink">03.3 · 12-MONTH ROADMAP</p>
         <h2>改造计划从共享语言推进到<br><span>可迁移运行</span></h2>
         <svg class="wide-visual roadmap-svg" viewBox="0 0 1240 460" role="img" aria-label="从第1周到第12月的六个里程碑时间轴">
           <line x1="85" y1="230" x2="1150" y2="230" stroke="#c8d3df" stroke-width="10" stroke-linecap="round"/>
@@ -361,23 +420,23 @@
       <aside class="speaker-note">路线图属于实施建议。M0 定义共同状态语言和基线；M1 建立只读可追溯链；M2 允许具名确认后的状态写回；M3 对触发条件影子告警；M4 运行一条受控 Action Loop；M5 检验 Context、Benchmark 和运行记录能否跨模型或 Harness 迁移。</aside>
     </section>
 
-    <section class="slide blue" id="slide-19" data-title="首个试点应打通一条真实纵向链路" aria-hidden="true">
+    <section class="slide blue" id="slide-23" data-title="首个试点应打通一条真实纵向链路" aria-hidden="true">
       <div class="slide-inner pilot-composition">
-        <p class="kicker">03.3 · FIRST VERTICAL SLICE</p>
+        <p class="kicker">03.4 · FIRST VERTICAL SLICE</p>
         <h2>首个试点应打通一条<br><span>真实纵向链路</span></h2>
         <svg class="wide-visual pilot-svg" viewBox="0 0 1240 430" role="img" aria-label="用户或教师证据到结果写回的端到端纵向试点">
           <defs><marker id="arrow21" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#9beef4"/></marker></defs>
           <path d="M70 220 H1165" stroke="#9beef4" stroke-width="5" marker-end="url(#arrow21)"/>
           <g fill="#071428" stroke="#27d4e3" stroke-width="3"><circle cx="95" cy="220" r="46"/><circle cx="245" cy="220" r="46"/><circle cx="395" cy="220" r="46"/><circle cx="545" cy="220" r="46"/><circle cx="695" cy="220" r="46"/><circle cx="845" cy="220" r="46"/><circle cx="995" cy="220" r="46"/><circle cx="1145" cy="220" r="46"/></g>
-          <g text-anchor="middle" fill="white" font-size="17" font-weight="700"><text x="95" y="215">用户 / 教师</text><text x="95" y="238">证据</text><text x="245" y="226">产品判断</text><text x="395" y="226">PRD</text><text x="545" y="215">开发</text><text x="545" y="238">任务</text><text x="695" y="226">PR</text><text x="845" y="215">固定 SHA</text><text x="845" y="238">验收</text><text x="995" y="215">人工发布</text><text x="995" y="238">批准</text><text x="1145" y="215">结果</text><text x="1145" y="238">写回</text></g>
+          <g text-anchor="middle" fill="white" font-size="17" font-weight="700"><text x="95" y="215">用户 / 教师</text><text x="95" y="238">证据</text><text x="245" y="226">产品判断</text><text x="395" y="215">内容 /</text><text x="395" y="238">PRD</text><text x="545" y="215">开发</text><text x="545" y="238">任务</text><text x="695" y="226">PR</text><text x="845" y="215">固定 SHA</text><text x="845" y="238">验收</text><text x="995" y="215">人工发布</text><text x="995" y="238">批准</text><text x="1145" y="215">结果</text><text x="1145" y="238">写回</text></g>
           <g fill="#d8f7f9" font-size="16" text-anchor="middle"><text x="245" y="315">保存假设与异议</text><text x="545" y="315">读取约束与历史</text><text x="845" y="315">区分验证环境</text><text x="1080" y="315">观察实际结果</text></g>
         </svg>
         <p class="under-visual light-copy">先证明状态链可检查、可纠正、可恢复和可复现，再讨论扩大 Agent 数量与权限。</p>
       </div>
-      <aside class="speaker-note">建议选择一条正在发生、风险可控的真实功能，不建设全公司大图谱。试点需要同时覆盖产品证据、工作契约、研发执行、固定 SHA 验收、人工发布批准和结果写回，由此验证 Context、Harness、Loop 是否真正连接。</aside>
+      <aside class="speaker-note">建议选择一条正在发生、风险可控的真实功能，不建设全公司大图谱。试点需要同时覆盖产品证据、内容资产、工作契约、研发执行、固定 SHA 验收、人工发布批准和结果写回，由此验证 Context、Harness、Loop 是否真正连接。</aside>
     </section>
 
-    <section class="slide paper summary-slide" id="slide-20" data-title="本次分享需要形成三个组织决策" aria-hidden="true">
+    <section class="slide paper summary-slide" id="slide-24" data-title="本次分享需要形成三个组织决策" aria-hidden="true">
       <div class="slide-inner summary-composition">
         <p class="kicker ink">SUMMARY · THREE DECISIONS</p>
         <h2>本次分享需要形成<br><span>三个组织决策</span></h2>
@@ -391,7 +450,7 @@
       <aside class="speaker-note">总结不再重复概念，而是要求形成三个决策。第一，确定一条真实纵向链路。第二，为这条链路定义共同工作契约和具名责任。第三，建立结果、监督、错误与恢复基线，并据此设置权限晋级门槛。下一页提供四个长期检验问题。</aside>
     </section>
 
-    <section class="slide dark closing-slide" id="slide-21" data-title="AI Native 团队以组织复现能力接受检验" aria-hidden="true">
+    <section class="slide dark closing-slide" id="slide-25" data-title="AI Native 团队以组织复现能力接受检验" aria-hidden="true">
       <div class="slide-inner closing-composition">
         <p class="kicker">CLOSING · THE TEST</p>
         <h2>AI Native 团队以<br><span>组织复现能力</span>接受检验</h2>
@@ -399,7 +458,7 @@
           <article><b>关键成员缺席</b><p>同类工作能否继续完成？</p></article>
           <article><b>结果受到质疑</b><p>能否说明依据、版本与责任人？</p></article>
           <article><b>执行发生失败</b><p>能否停止、恢复并避免重复？</p></article>
-          <article><b>新证据出现</b><p>能否定位受影响的决策与承诺？</p></article>
+          <article><b>新证据出现</b><p>能否定位受影响的决策、内容版本与承诺？</p></article>
         </div>
         <div class="closing-meta"><span>辛海洋</span><span>2026年8月31日</span><span>可可乐博</span><a href="./downloads/AI_Native团队的组织改造_文字解读_20260831.pdf" target="_blank" rel="noopener">配套文字解读 PDF ↗</a></div>
       </div>
