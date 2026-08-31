@@ -408,7 +408,7 @@
         </div>
         <p class="under-visual light-copy">Agent 数量、Token 总量和 AI 参与率是采用指标；只有与基线、质量和风险共同解释，才能支持晋级。</p>
       </div>
-      <aside class="speaker-note">衡量体系属于实施建议。北极星指标将可接受结果与人类监督负担同时纳入；单位被接受成果成本还需要计入模型、工具、人工复核和返工。运行健康用于判断失败是否被正确阻断、是否只退回失败单元、重试与升级是否在预算内、轨迹能否解释结果。Review 的有效性应结合有效问题闭环、闸门后缺陷逃逸、无证据覆盖、重复问题和修复时延判断；评论数量、轮次或耗时不能单独证明审查尽职。Gate 阻断率也不能单独解释：阻断率为零可能表示上游质量高，也可能表示检查无效，必须结合错误逃逸和人工抽检。产品、研发和内容仍需建立各自基线，不宜用统一分数横向排名。</aside>
+      <aside class="speaker-note">衡量体系属于实施建议。北极星指标将可接受结果与人类监督负担同时纳入；单位被接受成果成本还需要计入模型、工具、人工复核和返工。运行健康用于判断失败是否被正确阻断、是否只退回失败单元、重试与升级是否在预算内、轨迹能否解释结果。Review 的有效性应结合有效问题闭环、闸门后缺陷逃逸、无证据覆盖、重复问题和修复时延判断；评论数量、轮次或耗时不能单独证明审查充分。测试数量、测试代码比例和绿色通过率同样不是质量本身，还应观察 Gate 能否识别静默错误、同类问题是否复发、交付状态是否一致，以及真实用户是否收到被验收的产物。Gate 阻断率为零可能表示上游质量较高，也可能表示检查无效，必须结合错误逃逸和人工抽检。Tw93 的 Mole 长帖提供了静默错误、回归测试、规则与发布状态分离的实践案例；其代码量、测试数和提交数属于作者自报，不作为团队 KPI 或效果证明。</aside>
     </section>
 
 <section class="slide paper" id="slide-21" data-title="可持续转型依赖五类可迁移资产" aria-hidden="true">
@@ -421,11 +421,21 @@
           <g stroke="#3867ff" stroke-width="4" marker-end="url(#durableArrow)"><line x1="240" y1="220" x2="270" y2="220"/><line x1="480" y1="220" x2="510" y2="220"/><line x1="720" y1="220" x2="750" y2="220"/><line x1="960" y1="220" x2="990" y2="220"/></g>
           <g text-anchor="middle"><text x="137" y="176" fill="#3867ff" font-size="16" font-weight="800">01 · CONTEXT</text><text x="137" y="214" fill="#071428" font-size="23" font-weight="800">上下文资产</text><text x="137" y="250" fill="#617085" font-size="15">来源 · 版本 · 关系</text><text x="137" y="277" fill="#617085" font-size="15">约束 · 历史状态</text><text x="377" y="176" fill="#3867ff" font-size="16" font-weight="800">02 · EVALUATION</text><text x="377" y="214" fill="#071428" font-size="23" font-weight="800">评估资产</text><text x="377" y="250" fill="#617085" font-size="15">真实任务集 · 反例</text><text x="377" y="277" fill="#617085" font-size="15">验收门槛 · 基线</text><text x="617" y="176" fill="#3867ff" font-size="16" font-weight="800">03 · EXECUTION</text><text x="617" y="214" fill="#071428" font-size="23" font-weight="800">工作流资产</text><text x="617" y="250" fill="#617085" font-size="15">Skill · Workflow</text><text x="617" y="277" fill="#617085" font-size="15">工具契约 · 运行轨迹</text><text x="857" y="176" fill="#3867ff" font-size="16" font-weight="800">04 · GOVERNANCE</text><text x="857" y="214" fill="#071428" font-size="23" font-weight="800">治理资产</text><text x="857" y="250" fill="#617085" font-size="15">身份 · 权限 · 审批</text><text x="857" y="277" fill="#617085" font-size="15">回退 · 审计 · 接管</text><text x="1097" y="176" fill="#0a9dab" font-size="16" font-weight="800">05 · OUTCOME</text><text x="1097" y="214" fill="#071428" font-size="23" font-weight="800">结果资产</text><text x="1097" y="250" fill="#617085" font-size="15">采用 · 质量 · 成本</text><text x="1097" y="277" fill="#617085" font-size="15">失败 · 修正 · 影响</text></g>
           <path d="M857 325C857 360 617 360 617 325" fill="none" stroke="#ff806d" stroke-width="4" stroke-dasharray="8 7" marker-end="url(#durableShort)"/><text x="737" y="383" text-anchor="middle" fill="#a34f40" font-size="15" font-weight="800">短纠错边：失败单元返回当前工作流</text>
-          <path d="M1097 330C1097 414 137 414 137 330" fill="none" stroke="#20c7d6" stroke-width="4" stroke-dasharray="10 9" marker-end="url(#durableLong)"/><text x="617" y="438" text-anchor="middle" fill="#38747a" font-size="16" font-weight="800">长学习边：确认后的结果更新 Context、评估集与工作流版本</text>
+          <path d="M1097 330C1097 414 137 414 137 330" fill="none" stroke="#20c7d6" stroke-width="4" stroke-dasharray="10 9" marker-end="url(#durableLong)"/><text x="617" y="438" text-anchor="middle" fill="#38747a" font-size="16" font-weight="800">长学习边：失败样本 → 回归测试 → 原因规则 → Skill / Gate 新版本</text>
         </svg>
+        <div class="mobile-diagram mobile-durable-map" aria-label="移动端五类可迁移资产与学习边">
+          <ol>
+            <li><b>01 · 上下文资产</b><span>来源 · 约束 · 历史状态</span></li>
+            <li><b>02 · 评估资产</b><span>失败样本 · 回归测试 · 基线</span></li>
+            <li><b>03 · 工作流资产</b><span>Skill · Gate · 运行轨迹</span></li>
+            <li><b>04 · 治理资产</b><span>身份 · 审批 · 恢复 · 接管</span></li>
+            <li><b>05 · 结果资产</b><span>采用 · 质量 · 修正 · 影响</span></li>
+          </ol>
+          <p>长学习边：失败样本 → 回归测试 → 原因规则 → Skill / Gate 新版本</p>
+        </div>
         <p class="under-visual">模型可以替换；组织自有的上下文、评估、工作流、治理和结果资产必须持续积累并可导出。</p>
       </div>
-      <aside class="speaker-note">本页回答可持续能力建设问题，并与下一页时间路线区分。每一条真实任务都应留下五类可迁移资产：可追溯 Context、真实任务评估集、版本化 Skill 与 Workflow、权限和恢复记录、业务结果与人工修正。Review 异议、负责人回应、测试证据与最终决定也应进入相应资产：被否决方案与理由进入 Context，反例与逃逸缺陷进入评估资产，Reviewer 配置与验证门进入工作流资产，批准、豁免和回退进入治理资产，返工与用户影响进入结果资产。两条返回路径需要区分：短纠错边修正本轮失败单元；长学习边把具名确认后的失败、修正和结果转化为下一轮 Context、评估集和工作流约束。Graph Spec、State Schema、Checkpoint 和失败轨迹分别进入工作流、治理与结果资产，不新增第六类资产。</aside>
+      <aside class="speaker-note">本页回答可持续能力建设问题，并与下一页时间路线区分。每一条真实任务都应留下五类可迁移资产：可追溯 Context、真实任务评估集、版本化 Skill 与 Workflow、权限和恢复记录、业务结果与人工修正。一次真实失败应尽量同时留下失败样本与回归测试、原因和边界规则、可复用 Skill 或 Gate、批准与恢复记录、用户影响和修正结果。短纠错边修复本轮失败单元；长学习边把经过确认的失败、修正和结果转化为下一轮 Context、评估集和工作流约束。Tw93 的 Mole 长帖为这条工程学习边提供了实践案例。Khazix 对 FDE 的访谈材料则说明，外部现场交付也需要以同样方式回流；否则 Bug 修复和客户项目都只是一次性交付。Tw93 的项目数据属于作者自报，Khazix 未披露访谈样本量，两者用于提出实践机制，不用于证明普遍效果。Graph Spec、State Schema、Checkpoint 和失败轨迹分别进入工作流、治理与结果资产，不新增第六类资产。</aside>
     </section>
 
     <section class="slide paper" id="slide-22" data-title="改造计划从共享语言推进到可迁移运行" aria-hidden="true">
@@ -456,9 +466,21 @@
           <g text-anchor="middle" fill="white" font-size="17" font-weight="700"><text x="95" y="215">用户 / 教师</text><text x="95" y="238">证据</text><text x="245" y="226">产品判断</text><text x="395" y="215">内容 /</text><text x="395" y="238">PRD</text><text x="545" y="215">开发</text><text x="545" y="238">任务</text><text x="695" y="226">PR</text><text x="845" y="215">固定 SHA</text><text x="845" y="238">验收</text><text x="995" y="215">人工发布</text><text x="995" y="238">批准</text><text x="1145" y="215">结果</text><text x="1145" y="238">写回</text></g>
           <g fill="#d8f7f9" font-size="16" text-anchor="middle"><text x="245" y="315">保存假设与异议</text><text x="545" y="315">读取约束与历史</text><text x="845" y="315">区分验证环境</text><text x="1080" y="315">观察实际结果</text></g>
         </svg>
-        <p class="under-visual light-copy">先证明状态链可检查、可纠正、可恢复和可复现，再讨论扩大 Agent 数量与权限。</p>
+        <div class="mobile-diagram mobile-pilot-flow" aria-label="移动端真实纵向试点链路">
+          <ol>
+            <li><b>01</b><span>用户 / 教师证据</span></li>
+            <li><b>02</b><span>产品判断</span></li>
+            <li><b>03</b><span>内容 / PRD</span></li>
+            <li><b>04</b><span>开发任务</span></li>
+            <li><b>05</b><span>PR</span></li>
+            <li><b>06</b><span>固定 SHA 验收</span></li>
+            <li><b>07</b><span>人工发布批准</span></li>
+            <li><b>08</b><span>结果写回</span></li>
+          </ol>
+        </div>
+        <p class="under-visual light-copy">权限扩大以三项证据为前提：一线成员获得实际收益、内部 Owner 能够接管、结果抵达真实用户。</p>
       </div>
-      <aside class="speaker-note">建议选择一条正在发生、风险可控的真实功能，不建设全公司大图谱。试点需要同时覆盖产品证据、内容资产、工作契约、研发执行、固定 SHA 验收、人工发布批准和结果写回。工程负责人还需要能够依据实现说明解释关键设计、兼容性、副作用、未覆盖情形、回退方式和结果指标；说明文档用于支持审查，不替代真实验收。由此检验 Context、Harness、Loop 是否形成有效连接。</aside>
+      <aside class="speaker-note">建议选择一条正在发生、风险可控的真实功能，不建设全公司大图谱。试点需要同时完成三项证明：一线成员在真实任务中获得可观察收益，而非只满足管理层的采购意图；内部业务 Owner 与工程 Owner 能独立理解、运行、恢复和改进工作流；固定 SHA、构建或签名产物、线上文件和用户实际收到的版本保持一致。工程负责人仍需解释关键设计、兼容性、副作用、未覆盖情形、回退方式和结果指标；说明文档用于支持审查，不替代真实验收。Khazix 的 FDE 访谈支持“管理层采购不等于组织采用”这一风险假设，Tw93 的 Mole 长帖支持区分源码、提交、产物、线上文件和用户实际版本。两篇均属于实践材料，不构成普遍效果证明。</aside>
     </section>
 
     <section class="slide paper summary-slide" id="slide-24" data-title="本次分享需要形成三个组织决策" aria-hidden="true">
