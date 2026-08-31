@@ -38,7 +38,7 @@
           <text x="100" y="405" text-anchor="middle" fill="#c8c0ff" font-size="18">LOOP</text>
         </svg>
       </div>
-      <aside class="speaker-note">这是 AI-native 系列第三篇。第一篇解释 Agent 为什么开始能接下一件事，第二篇讨论组织与产品底座应转向什么；这一篇继续追问产品与研发如何把执行能力变成可承担责任的工作系统。分享综合 Uber Engineering 的 Software Factory 案例与 Ashwin Gopinath 的 Company Memory 系列，后续框架和实施计划属于结合可可乐博现阶段实践形成的分析建议。</aside>
+      <aside class="speaker-note">这是 AI-native 系列第三篇。第一篇解释 Agent 为什么开始能接下一件事，第二篇讨论组织与产品底座应转向什么；这一篇继续分析产品与研发如何把执行能力转化为责任明确的工作系统。分享综合 Uber Engineering 的 Software Factory 案例、Ashwin Gopinath 的 Company Memory 系列，以及三篇关于 Agent Loop 与任务图的实践文章。五级演进、六类责任和实施计划属于结合可可乐博现阶段实践形成的分析建议。</aside>
     </section>
 
     <section class="slide paper" id="slide-2" data-title="AI Native 改造的对象是工作系统" aria-hidden="true">
@@ -199,12 +199,12 @@
           </svg>
           <div class="explain-stack dark-stack">
             <article><b>Context</b><p>事实、决策原因、约束、承诺和历史状态。</p></article>
-            <article><b>Harness</b><p>工具、身份、权限、预算、测试、审批和停止条件。</p></article>
+            <article><b>Harness</b><p>工具、权限、任务图、预算、验证门与停止条件。</p></article>
             <article><b>Loop</b><p>执行、验证、人工修正、结果写回、版本更新与撤销。</p></article>
           </div>
         </div>
       </div>
-      <aside class="speaker-note">该框架来自可可乐博既有实践，并由前述两组材料进一步支持。Context 回答系统基于什么理解任务；Harness 回答它如何行动并受约束；Loop 回答一次执行怎样进入下一次工作。三者共同服务于可验证结果，而不是各自成为独立平台目标。</aside>
+      <aside class="speaker-note">该框架来自可可乐博既有实践，并由本次材料进一步支持。Context 回答系统基于什么理解任务；Harness 回答工具、权限、任务图、预算与验证门如何组织行动；Loop 回答一次执行怎样被检查、修正并进入下一次工作。Graph 不是第四个基础层，而是 Harness 中组织节点状态、真实依赖、并行、汇聚和失败边界的执行拓扑。运行 State 回答这一轮执行到了哪里，组织 Context 回答行动基于哪些事实、决策、约束与历史，二者不能互相替代。</aside>
     </section>
 
 <section class="slide paper" id="slide-10" data-title="AI Native 转型经历五级能力演进" aria-hidden="true">
@@ -291,19 +291,20 @@
       <aside class="speaker-note">该执行链属于本文建议。固定 SHA 表示验收对象需要可复现；测试证据需要区分本地、CI、Preview 和生产环境。合并后写回能力、约束、风险与技术债的变化，避免异常路径只停留在聊天记录。</aside>
     </section>
 
-    <section class="slide paper" id="slide-15" data-title="研发团队的约束转向系统设计与验证" aria-hidden="true">
-      <div class="slide-inner team-change-composition">
+    <section class="slide paper" id="slide-15" data-title="研发团队需要设计可验证的任务图" aria-hidden="true">
+      <div class="slide-inner chain-composition">
         <p class="kicker ink">02.4 · ENGINEERING TEAM</p>
-        <h2>研发团队的约束转向<br><span>系统设计与验证</span></h2>
-        <div class="change-grid engineering-grid">
-          <article><b>Decision Context</b><p>读取架构原因、被否决方案、兼容性和合规边界。</p><span>避免技术上正确、组织上错误</span></article>
-          <article><b>Failure Context</b><p>保存历史事故、失败迁移、人工恢复和适用范围。</p><span>减少重复调查与重复事故</span></article>
-          <article><b>Evidence Gate</b><p>区分单测、浏览器、数据库、Preview 与生产证据。</p><span>测试通过不等于结果成立</span></article>
-          <article><b>Recovery Contract</b><p>定义停止重试、请求审批、回滚与人工接管。</p><span>自动执行不取消恢复责任</span></article>
-        </div>
-        <p class="under-visual">首批托管对象应选择可观察、可恢复的窄任务：PR 审查、CI 归因、候选修复和发布证据包。</p>
+        <h2>研发团队需要设计<br><span>可验证的任务图</span></h2>
+        <svg class="wide-visual engineering-system-svg" viewBox="0 0 1240 470" role="img" aria-label="从输入状态到拆分、并行执行、确定性归并、证据验证和验收状态的任务图">
+          <defs><marker id="engArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#3867ff"/></marker><marker id="engReturn" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#ff806d"/></marker></defs>
+          <g fill="#fff" stroke="#cdd9e7" stroke-width="2"><rect x="35" y="166" width="154" height="118" rx="24"/><rect x="235" y="166" width="154" height="118" rx="24"/><rect x="475" y="53" width="170" height="102" rx="24"/><rect x="475" y="174" width="170" height="102" rx="24"/><rect x="475" y="295" width="170" height="102" rx="24"/><rect x="714" y="166" width="168" height="118" rx="24"/><rect x="928" y="166" width="150" height="118" rx="24"/><rect x="1120" y="166" width="94" height="118" rx="24" fill="#e8fbfc" stroke="#27b8c7"/></g>
+          <g stroke="#3867ff" stroke-width="4" fill="none" marker-end="url(#engArrow)"><path d="M189 225H231"/><path d="M389 225C425 225 430 104 471 104"/><path d="M389 225H471"/><path d="M389 225C425 225 430 346 471 346"/><path d="M645 104C680 104 678 225 710 225"/><path d="M645 225H710"/><path d="M645 346C680 346 678 225 710 225"/><path d="M882 225H924"/><path d="M1078 225H1116"/></g>
+          <path d="M1003 294C1003 430 560 445 560 405" fill="none" stroke="#ff806d" stroke-width="4" stroke-dasharray="9 8" marker-end="url(#engReturn)"/>
+          <g text-anchor="middle"><text x="112" y="207" fill="#3867ff" font-size="14" font-weight="800">INPUT STATE</text><text x="112" y="242" fill="#071428" font-size="21" font-weight="800">状态契约</text><text x="112" y="266" fill="#617085" font-size="13">来源 · 版本 · 失败字段</text><text x="312" y="207" fill="#3867ff" font-size="14" font-weight="800">SPLIT</text><text x="312" y="242" fill="#071428" font-size="21" font-weight="800">依赖测试</text><text x="312" y="266" fill="#617085" font-size="13">仅保留真实数据依赖</text><text x="560" y="92" fill="#071428" font-size="19" font-weight="800">独立 Worker A</text><text x="560" y="121" fill="#617085" font-size="13">输入 / 输出可检查</text><text x="560" y="213" fill="#071428" font-size="19" font-weight="800">独立 Worker B</text><text x="560" y="242" fill="#617085" font-size="13">并行宽度受预算约束</text><text x="560" y="334" fill="#071428" font-size="19" font-weight="800">独立 Worker C</text><text x="560" y="363" fill="#617085" font-size="13">失败以单元为边界</text><text x="798" y="207" fill="#3867ff" font-size="14" font-weight="800">CODE REDUCER</text><text x="798" y="242" fill="#071428" font-size="21" font-weight="800">确定性归并</text><text x="798" y="266" fill="#617085" font-size="13">去重 · 排序 · 格式检查</text><text x="1003" y="207" fill="#3867ff" font-size="14" font-weight="800">EVIDENCE GATE</text><text x="1003" y="242" fill="#071428" font-size="21" font-weight="800">可否决验证</text><text x="1003" y="266" fill="#617085" font-size="13">证据 · 环境 · 回归</text><text x="1167" y="208" fill="#0998a5" font-size="14" font-weight="800">ACCEPT</text><text x="1167" y="244" fill="#071428" font-size="18" font-weight="800">验收</text><text x="780" y="438" fill="#a34f40" font-size="15" font-weight="800">只退回失败单元；超过重试、时间、费用上限后升级给人</text></g>
+        </svg>
+        <p class="under-visual">研发团队不只实现 Agent 节点，还要定义状态契约、依赖拓扑、失败边界与停止预算。</p>
       </div>
-      <aside class="speaker-note">本页为实施建议。研发团队的价值重点从代码输入速度转向目标拆解、架构判断、上下文设计、评测和风险处理。自动修改生产数据、不可逆迁移、扩大权限和直接外部发布不适合早期托管。</aside>
+      <aside class="speaker-note">本页将前三篇实践文章中相对一致的工作流原则收敛为研发要求。每个节点需要稳定的输入、输出、证据、版本和失败状态；每条 edge 需要说明跨节点传递的实际字段；去重、排序、格式校验等确定性转换优先使用代码；验证节点必须能够拒绝结果；失败时保留正确单元，只退回失败单元，并设置宽度、重试、时间和费用上限。Graph 属于 Harness 的执行拓扑，而不是新的组织成熟度等级。来源包括 Lunar《Graph Engineering》、Mahax 与 Hanako 的实践文章，以及 Anthropic《Building effective agents》、Anthropic 多 Agent Research 与 LangGraph Graph API；外部文章不构成效果证明。</aside>
     </section>
 
 <section class="slide paper" id="slide-16" data-title="内容团队需要形成可追溯资产与复用结果" aria-hidden="true">
@@ -335,20 +336,21 @@
       <aside class="speaker-note">共同工作契约连接三类状态，但不要求三类团队放弃专业系统。产品证据、内容资产和研发执行可以保留不同视图，底层需要共享目标、来源、版本、权限、验收、负责人和结果。AI 可以检查缺项与冲突，不能自行补写未经确认的目标、授权、专业标准或发布承诺。</aside>
     </section>
 
-<section class="slide paper" id="slide-18" data-title="团队成员的工作重点转向四类责任" aria-hidden="true">
-      <div class="slide-inner roles-composition">
-        <p class="kicker ink">02.7 · FOUR HUMAN RESPONSIBILITIES</p>
-        <h2>团队成员的工作重点转向<br><span>四类责任</span></h2>
-        <div class="roles-layout">
-          <svg viewBox="0 0 1050 440" aria-hidden="true"><circle cx="525" cy="220" r="112" fill="#3867ff"/><circle cx="525" cy="220" r="158" fill="none" stroke="#3867ff" stroke-opacity=".25" stroke-width="3"/><g stroke="#3867ff" stroke-width="3"><line x1="420" y1="166" x2="240" y2="112"/><line x1="630" y1="166" x2="810" y2="112"/><line x1="420" y1="274" x2="240" y2="330"/><line x1="630" y1="274" x2="810" y2="330"/></g><text x="525" y="205" text-anchor="middle" fill="#fff" font-size="19">执行任务可以委托</text><text x="525" y="240" text-anchor="middle" fill="#fff" font-size="25" font-weight="800">责任仍由人承担</text></svg>
-          <article><b>目标定义</b><p>选择问题，明确成功、失败、优先级、非目标与停止条件。</p></article>
-          <article><b>证据判断</b><p>判断来源、反例、专业标准和证据是否足以支持决定。</p></article>
-          <article><b>例外处理</b><p>处理低置信、冲突、高风险、权限不足、失败恢复与升级。</p></article>
-          <article><b>结果责任</b><p>完成验收、批准发布、观察结果，并决定继续、修订或撤回。</p></article>
-        </div>
-        <p class="under-visual">这四类是责任，不是四个固定岗位；小团队可以兼任，但每项责任必须具名且可追溯。</p>
+<section class="slide paper" id="slide-18" data-title="团队成员的工作重点转向六类责任" aria-hidden="true">
+      <div class="slide-inner staircase-composition responsibilities-composition">
+        <p class="kicker ink">02.7 · SIX HUMAN RESPONSIBILITIES</p>
+        <h2>团队成员的工作重点转向<br><span>六类责任</span></h2>
+        <svg class="wide-visual responsibility-map-svg" viewBox="0 0 1240 455" role="img" aria-label="Context、Harness、Loop 各对应两类人类责任">
+          <defs><marker id="responsibilityArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#3867ff"/></marker></defs>
+          <g fill="none" stroke="#3867ff" stroke-width="4" marker-end="url(#responsibilityArrow)"><path d="M380 230H430"/><path d="M810 230H860"/></g>
+          <g><rect x="30" y="52" width="350" height="340" rx="34" fill="#e6fbfc" stroke="#27b8c7" stroke-width="3"/><rect x="445" y="52" width="350" height="340" rx="34" fill="#edf1ff" stroke="#3867ff" stroke-width="3"/><rect x="860" y="52" width="350" height="340" rx="34" fill="#fff0ed" stroke="#ff806d" stroke-width="3"/></g>
+          <g text-anchor="middle"><text x="205" y="98" fill="#0998a5" font-size="17" font-weight="800" letter-spacing="2">CONTEXT</text><text x="620" y="98" fill="#3867ff" font-size="17" font-weight="800" letter-spacing="2">HARNESS</text><text x="1035" y="98" fill="#c95f4f" font-size="17" font-weight="800" letter-spacing="2">LOOP</text></g>
+          <g fill="#fff" stroke-width="2"><rect x="70" y="132" width="270" height="94" rx="22" stroke="#7cdce4"/><rect x="70" y="250" width="270" height="94" rx="22" stroke="#7cdce4"/><rect x="485" y="132" width="270" height="94" rx="22" stroke="#9fb3ff"/><rect x="485" y="250" width="270" height="94" rx="22" stroke="#9fb3ff"/><rect x="900" y="132" width="270" height="94" rx="22" stroke="#ffb0a3"/><rect x="900" y="250" width="270" height="94" rx="22" stroke="#ffb0a3"/></g>
+          <g text-anchor="middle"><text x="205" y="170" fill="#071428" font-size="22" font-weight="800">目标定义</text><text x="205" y="198" fill="#617085" font-size="14">成功 · 失败 · 非目标 · 停止条件</text><text x="205" y="288" fill="#071428" font-size="22" font-weight="800">证据判断</text><text x="205" y="316" fill="#617085" font-size="14">来源 · 反例 · 标准 · 充分性</text><text x="620" y="170" fill="#071428" font-size="22" font-weight="800">委托设计</text><text x="620" y="198" fill="#617085" font-size="14">状态 · 依赖 · 权限 · 预算 · 验证门</text><text x="620" y="288" fill="#071428" font-size="22" font-weight="800">例外处理</text><text x="620" y="316" fill="#617085" font-size="14">失败 · 冲突 · 接管 · 恢复 · 升级</text><text x="1035" y="170" fill="#071428" font-size="22" font-weight="800">结果责任</text><text x="1035" y="198" fill="#617085" font-size="14">验收 · 发布 · 观察 · 修订 · 撤回</text><text x="1035" y="288" fill="#071428" font-size="22" font-weight="800">学习与演进</text><text x="1035" y="316" fill="#617085" font-size="14">修正写回 Context · Eval · Workflow</text><text x="620" y="430" fill="#334a67" font-size="18" font-weight="800">意图 → 依据 → 委托 → 介入 → 承担 → 学习</text></g>
+        </svg>
+        <p class="under-visual">六类责任并非六个岗位；小团队可以兼任，但每项责任必须具名、可检查并可追溯。</p>
       </div>
-      <aside class="speaker-note">四类责任统一替代此前按五个岗位命名的方案。它描述团队成员工作的重心，而不是重新设计组织架构：目标定义确保任务值得做；证据判断确保依据与专业标准成立；例外处理负责系统不能自动解决的冲突与风险；结果责任承担验收、发布和后果。岗位可以合并，但同一输出不应缺少独立证据与必要审批。</aside>
+      <aside class="speaker-note">六类责任描述团队成员工作的重心，而不是新增六个岗位。Context 对应目标定义与证据判断；Harness 对应委托设计与例外处理；Loop 对应结果责任与学习演进。委托设计发生在执行之前，负责状态契约、节点、真实依赖、工具、权限、预算、验证门和停止条件；例外处理发生在运行期间，负责冲突、低置信、高风险、失败恢复与人工接管；结果责任决定验收、发布、修订或撤回；学习与演进把已确认的失败、人工修正和业务结果写回 Context、评估集与工作流版本。六类责任是本文综合判断，不是外部来源提出的统一岗位模型。</aside>
     </section>
 
     <section class="slide ink chapter-slide" id="slide-19" data-title="权限扩大必须通过结果证据门槛" aria-hidden="true">
@@ -359,7 +361,7 @@
           <h2>权限扩大必须通过<br><span>结果证据门槛</span></h2>
           <p class="explanation light-copy">自动化权限不是按时间自然增加。只有结果可靠、失败可恢复且人类责任容量足够时，工作流才适合进入下一层级。</p>
         </div>
-        <svg class="chapter-visual authority-formula" viewBox="0 0 700 500" role="img" aria-label="结果可靠性、可恢复性和人类责任容量共同决定可扩大权限">
+        <svg class="chapter-visual authority-formula" viewBox="0 0 700 555" role="img" aria-label="结果可靠性、可恢复性和人类责任容量共同决定可扩大权限，并按影响范围和可逆性分流">
           <text x="350" y="75" text-anchor="middle" fill="#9beef4" font-size="18" letter-spacing="3">AUTHORITY GATE</text>
           <rect x="72" y="118" width="556" height="102" rx="30" fill="#fff" fill-opacity=".10" stroke="#27d4e3" stroke-width="3"/><text x="350" y="180" text-anchor="middle" fill="#fff" font-size="34" font-weight="800">可扩大权限</text>
           <text x="350" y="276" text-anchor="middle" fill="#ffac9f" font-size="34" font-weight="800">=</text>
@@ -367,9 +369,10 @@
           <g fill="#fff" text-anchor="middle" font-size="22" font-weight="750"><text x="128" y="369">结果可靠性</text><text x="350" y="369">可恢复性</text><text x="572" y="369">人类责任容量</text></g>
           <g fill="#c9d8ea" text-anchor="middle" font-size="15"><text x="128" y="402">验收 · 缺陷 · 目标</text><text x="350" y="402">停止 · 回滚 · 接管</text><text x="572" y="402">审批 · 升级 · 负责</text></g>
           <text x="238" y="386" fill="#27d4e3" font-size="28">×</text><text x="460" y="386" fill="#27d4e3" font-size="28">×</text>
+          <g text-anchor="middle"><text x="128" y="486" fill="#9beef4" font-size="15" font-weight="800">局部可逆</text><text x="128" y="512" fill="#c9d8ea" font-size="13">证据通过后逐步托管</text><text x="350" y="486" fill="#9beef4" font-size="15" font-weight="800">影响面广</text><text x="350" y="512" fill="#c9d8ea" font-size="13">版本确认与人工批准</text><text x="572" y="486" fill="#ffb4a8" font-size="15" font-weight="800">难逆或高风险</text><text x="572" y="512" fill="#c9d8ea" font-size="13">保持人类决定权</text></g>
         </svg>
       </div>
-      <aside class="speaker-note">第三部分以权限晋级条件为中心。该公式是实施判断，不是数学模型。它要求在扩大 Agent 权限前，同时观察结果可靠性、失败后的恢复能力和人类审批与升级容量。后续三页分别回答如何衡量、何时晋级以及从哪条链路开始。</aside>
+      <aside class="speaker-note">第三部分以权限晋级条件为中心。该公式是实施判断，不是数学模型。扩大 Agent 权限前，需要同时观察结果可靠性、失败后的恢复能力和人类审批与升级容量；具体行动还要按影响范围与可逆性分流。高风险行动不应只依赖提示词要求模型询问，而应在系统上保持不可达，直到批准、证据与版本条件同时成立。模型自报置信度只能作为次级信号。该原则与 OpenAI Agent 指南对工具风险、可逆性和人工监督的建议一致。</aside>
     </section>
 
     <section class="slide ink" id="slide-20" data-title="衡量方式必须覆盖结果、监督负担与风险" aria-hidden="true">
@@ -378,14 +381,14 @@
         <h2>衡量方式必须覆盖<br><span>结果、监督负担与风险</span></h2>
         <div class="north-star"><small>NORTH STAR</small><b>通过验收的工作结果</b><i>÷</i><b>人类监督时间</b></div>
         <div class="metric-lanes">
-          <article><span>产品</span><p>证据链接率 · 决策周期 · 开发后变更 · 结果写回率</p></article>
-          <article><span>研发</span><p>一次验收率 · Review 时间 · Revert / 缺陷 · 恢复成功率</p></article>
-          <article><span>内容</span><p>审查通过率 · 修订量 · 有效复用率 · 纠错与撤回时延</p></article>
-          <article><span>治理</span><p>无 Owner 行动 · 越权 · 审批队列 · 升级与回退时延</p></article>
+          <article><span>结果价值</span><p>验收通过 · 业务结果 · 质量缺陷 · 结果写回</p></article>
+          <article><span>单位成本</span><p>模型 + 工具 + 人工复核 + 返工 ÷ 被接受成果</p></article>
+          <article><span>运行健康</span><p>失败单元 · 重试上限 · Gate 阻断 · 轨迹完整</p></article>
+          <article><span>治理风险</span><p>越权 · 人工介入 · 升级时延 · 回退成功</p></article>
         </div>
         <p class="under-visual light-copy">Agent 数量、Token 总量和 AI 参与率是采用指标；只有与基线、质量和风险共同解释，才能支持晋级。</p>
       </div>
-      <aside class="speaker-note">衡量体系属于实施建议。北极星指标将可接受结果与人类监督负担同时纳入。产品、研发和内容需要各自建立基线，并使用治理指标约束权限扩大。不同工作流的结果单位不同，不宜直接横向排名；应先在同一工作流内比较版本变化，再决定是否扩大范围。</aside>
+      <aside class="speaker-note">衡量体系属于实施建议。北极星指标将可接受结果与人类监督负担同时纳入；单位被接受成果成本还需要计入模型、工具、人工复核和返工。运行健康用于判断失败是否被正确阻断、是否只退回失败单元、重试与升级是否在预算内、轨迹能否解释结果。Gate 阻断率不能单独解释：阻断率为零可能表示上游质量高，也可能表示检查无效，必须结合错误逃逸和人工抽检。产品、研发和内容仍需建立各自基线，不宜用统一分数横向排名。</aside>
     </section>
 
 <section class="slide paper" id="slide-21" data-title="可持续转型依赖五类可迁移资产" aria-hidden="true">
@@ -393,15 +396,16 @@
         <p class="kicker ink">03.2 · DURABLE CAPABILITY PATH</p>
         <h2>可持续转型依赖<br><span>五类可迁移资产</span></h2>
         <svg class="wide-visual durable-assets-svg" viewBox="0 0 1240 450" role="img" aria-label="真实任务持续形成上下文、评估、工作流、治理与结果资产">
-          <defs><marker id="durableArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#3867ff"/></marker></defs>
+          <defs><marker id="durableArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#3867ff"/></marker><marker id="durableShort" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#ff806d"/></marker><marker id="durableLong" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#20c7d6"/></marker></defs>
           <g fill="#fff" stroke="#d5dfeb" stroke-width="2"><rect x="35" y="125" width="205" height="190" rx="28"/><rect x="275" y="125" width="205" height="190" rx="28"/><rect x="515" y="125" width="205" height="190" rx="28"/><rect x="755" y="125" width="205" height="190" rx="28"/><rect x="995" y="125" width="205" height="190" rx="28"/></g>
           <g stroke="#3867ff" stroke-width="4" marker-end="url(#durableArrow)"><line x1="240" y1="220" x2="270" y2="220"/><line x1="480" y1="220" x2="510" y2="220"/><line x1="720" y1="220" x2="750" y2="220"/><line x1="960" y1="220" x2="990" y2="220"/></g>
           <g text-anchor="middle"><text x="137" y="176" fill="#3867ff" font-size="16" font-weight="800">01 · CONTEXT</text><text x="137" y="214" fill="#071428" font-size="23" font-weight="800">上下文资产</text><text x="137" y="250" fill="#617085" font-size="15">来源 · 版本 · 关系</text><text x="137" y="277" fill="#617085" font-size="15">约束 · 历史状态</text><text x="377" y="176" fill="#3867ff" font-size="16" font-weight="800">02 · EVALUATION</text><text x="377" y="214" fill="#071428" font-size="23" font-weight="800">评估资产</text><text x="377" y="250" fill="#617085" font-size="15">真实任务集 · 反例</text><text x="377" y="277" fill="#617085" font-size="15">验收门槛 · 基线</text><text x="617" y="176" fill="#3867ff" font-size="16" font-weight="800">03 · EXECUTION</text><text x="617" y="214" fill="#071428" font-size="23" font-weight="800">工作流资产</text><text x="617" y="250" fill="#617085" font-size="15">Skill · Workflow</text><text x="617" y="277" fill="#617085" font-size="15">工具契约 · 运行轨迹</text><text x="857" y="176" fill="#3867ff" font-size="16" font-weight="800">04 · GOVERNANCE</text><text x="857" y="214" fill="#071428" font-size="23" font-weight="800">治理资产</text><text x="857" y="250" fill="#617085" font-size="15">身份 · 权限 · 审批</text><text x="857" y="277" fill="#617085" font-size="15">回退 · 审计 · 接管</text><text x="1097" y="176" fill="#0a9dab" font-size="16" font-weight="800">05 · OUTCOME</text><text x="1097" y="214" fill="#071428" font-size="23" font-weight="800">结果资产</text><text x="1097" y="250" fill="#617085" font-size="15">采用 · 质量 · 成本</text><text x="1097" y="277" fill="#617085" font-size="15">失败 · 修正 · 影响</text></g>
-          <path d="M1097 330C1097 405 137 405 137 330" fill="none" stroke="#20c7d6" stroke-width="4" stroke-dasharray="10 9" marker-end="url(#durableArrow)"/><text x="617" y="430" text-anchor="middle" fill="#4d6179" font-size="17">结果更新下一轮 Context、评估集与工作流版本</text>
+          <path d="M857 325C857 360 617 360 617 325" fill="none" stroke="#ff806d" stroke-width="4" stroke-dasharray="8 7" marker-end="url(#durableShort)"/><text x="737" y="383" text-anchor="middle" fill="#a34f40" font-size="15" font-weight="800">短纠错边：失败单元返回当前工作流</text>
+          <path d="M1097 330C1097 414 137 414 137 330" fill="none" stroke="#20c7d6" stroke-width="4" stroke-dasharray="10 9" marker-end="url(#durableLong)"/><text x="617" y="438" text-anchor="middle" fill="#38747a" font-size="16" font-weight="800">长学习边：确认后的结果更新 Context、评估集与工作流版本</text>
         </svg>
         <p class="under-visual">模型可以替换；组织自有的上下文、评估、工作流、治理和结果资产必须持续积累并可导出。</p>
       </div>
-      <aside class="speaker-note">本页回答可持续能力建设问题，并与下一页时间路线区分。每一条真实任务都应留下五类可迁移资产：可追溯 Context、真实任务评估集、版本化 Skill 与 Workflow、权限和恢复记录、业务结果与人工修正。若更换模型或 Harness 后这些资产无法继续使用，说明组织积累仍依赖供应商或个人经验。</aside>
+      <aside class="speaker-note">本页回答可持续能力建设问题，并与下一页时间路线区分。每一条真实任务都应留下五类可迁移资产：可追溯 Context、真实任务评估集、版本化 Skill 与 Workflow、权限和恢复记录、业务结果与人工修正。两条返回路径需要区分：短纠错边修正本轮失败单元；长学习边把具名确认后的失败、修正和结果转化为下一轮 Context、评估集和工作流约束。Graph Spec、State Schema、Checkpoint 和失败轨迹分别进入工作流、治理与结果资产，不新增第六类资产。</aside>
     </section>
 
     <section class="slide paper" id="slide-22" data-title="改造计划从共享语言推进到可迁移运行" aria-hidden="true">
@@ -414,10 +418,11 @@
           <g text-anchor="middle" fill="#071428" font-size="19" font-weight="800"><text x="105" y="172">M0</text><text x="285" y="172">M1</text><text x="465" y="172">M2</text><text x="650" y="172">M3</text><text x="850" y="172">M4</text><text x="1080" y="172">M5</text></g>
           <g text-anchor="middle" fill="#071428" font-size="18"><text x="105" y="300">共同语言</text><text x="285" y="300">只读状态链</text><text x="465" y="300">确认后写回</text><text x="650" y="300">Trigger 影子</text><text x="850" y="300">受控 Action Loop</text><text x="1080" y="300">可迁移规模化</text></g>
           <g text-anchor="middle" fill="#68788b" font-size="15"><text x="105" y="330">第1-2周</text><text x="285" y="330">第3-4周</text><text x="465" y="330">第2月</text><text x="650" y="330">第3月</text><text x="850" y="330">第4-6月</text><text x="1080" y="330">第7-12月</text></g>
-          <text x="620" y="402" text-anchor="middle" fill="#596a7e" font-size="18">每次晋级都以真实任务回放、人工责任容量与回退能力为条件</text>
+          <text x="620" y="390" text-anchor="middle" fill="#596a7e" font-size="17">每次晋级都以真实任务回放、人工责任容量与回退能力为条件</text>
+          <text x="850" y="427" text-anchor="middle" fill="#2557c9" font-size="14" font-weight="800">M4 验收：Graph Spec · State Schema · 单元恢复 · 宽度 / 重试 / 时间 / 成本上限</text>
         </svg>
       </div>
-      <aside class="speaker-note">路线图属于实施建议。M0 定义共同状态语言和基线；M1 建立只读可追溯链；M2 允许具名确认后的状态写回；M3 对触发条件影子告警；M4 运行一条受控 Action Loop；M5 检验 Context、Benchmark 和运行记录能否跨模型或 Harness 迁移。</aside>
+      <aside class="speaker-note">路线图属于实施建议。M0 定义共同状态语言和基线；M1 建立只读可追溯链；M2 允许具名确认后的状态写回；M3 对触发条件影子告警；M4 运行一条受控 Action Loop，并要求 Graph Spec 与 State Schema 完成评审、每条 edge 有明确跨节点数据、失败单元可单独恢复、宽度与重试等预算实际生效；M5 检验 Context、Benchmark 和运行记录能否跨模型或 Harness 迁移。</aside>
     </section>
 
     <section class="slide blue" id="slide-23" data-title="首个试点应打通一条真实纵向链路" aria-hidden="true">
@@ -433,7 +438,7 @@
         </svg>
         <p class="under-visual light-copy">先证明状态链可检查、可纠正、可恢复和可复现，再讨论扩大 Agent 数量与权限。</p>
       </div>
-      <aside class="speaker-note">建议选择一条正在发生、风险可控的真实功能，不建设全公司大图谱。试点需要同时覆盖产品证据、内容资产、工作契约、研发执行、固定 SHA 验收、人工发布批准和结果写回，由此验证 Context、Harness、Loop 是否真正连接。</aside>
+      <aside class="speaker-note">建议选择一条正在发生、风险可控的真实功能，不建设全公司大图谱。试点需要同时覆盖产品证据、内容资产、工作契约、研发执行、固定 SHA 验收、人工发布批准和结果写回，由此检验 Context、Harness、Loop 是否形成有效连接。</aside>
     </section>
 
     <section class="slide paper summary-slide" id="slide-24" data-title="本次分享需要形成三个组织决策" aria-hidden="true">
