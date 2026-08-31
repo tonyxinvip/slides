@@ -38,7 +38,7 @@
           <text x="100" y="405" text-anchor="middle" fill="#c8c0ff" font-size="18">LOOP</text>
         </svg>
       </div>
-      <aside class="speaker-note">这是 AI-native 系列第三篇。第一篇解释 Agent 为什么开始能接下一件事，第二篇讨论组织与产品底座应转向什么；这一篇继续分析产品与研发如何把执行能力转化为责任明确的工作系统。分享综合 Uber Engineering 的 Software Factory 案例、Ashwin Gopinath 的 Company Memory 系列，以及三篇关于 Agent Loop 与任务图的实践文章。五级演进、六类责任和实施计划属于结合可可乐博现阶段实践形成的分析建议。</aside>
+      <aside class="speaker-note">这是 AI-native 系列第三篇。第一篇解释 Agent 为什么开始能接下一件事，第二篇讨论组织与产品底座应转向什么；这一篇继续分析产品与研发如何把执行能力转化为责任明确的工作系统。分享综合 Uber Engineering 的 Software Factory 案例、Ashwin Gopinath 的 Company Memory 系列、三篇关于 Agent Loop 与任务图的实践文章，以及 Joway 关于 AI Coding 责任的实践论述。五级演进、六类责任和实施计划属于结合可可乐博现阶段实践形成的分析建议。</aside>
     </section>
 
     <section class="slide paper" id="slide-2" data-title="AI Native 改造的对象是工作系统" aria-hidden="true">
@@ -56,7 +56,7 @@
         <div class="copy-block">
           <p class="kicker">02 · THE SHIFTING BOTTLENECK</p>
           <h2>执行成本下降后，<br><span>上下文与责任</span>成为主要约束</h2>
-          <p class="explanation light-copy">生成、检索和工具调用可以扩展得很快；决策原因、权限边界、例外判断和结果责任仍需要组织明确承担。</p>
+          <p class="explanation light-copy">生成、检索和工具调用快速扩展后，团队差异不会消失，而会转移到任务定义、上下文、验证与结果责任。</p>
         </div>
         <svg class="visual-panel" viewBox="0 0 760 460" role="img" aria-label="执行成本下降而上下文与责任约束上升的关系图">
           <defs><linearGradient id="costArea" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#27d4e3" stop-opacity=".65"/><stop offset="1" stop-color="#27d4e3" stop-opacity=".05"/></linearGradient></defs>
@@ -68,7 +68,7 @@
           <text x="80" y="430" fill="#9aabc0" font-size="18">个人辅助</text><text x="610" y="430" fill="#9aabc0" font-size="18">组织级运行</text>
         </svg>
       </div>
-      <aside class="speaker-note">该关系图是分析模型，不是实测曲线。其含义是：随着 Agent 执行范围扩大，组织需要处理更多授权、冲突、审批和结果责任。单次任务成本下降，并不保证整体协调成本同步下降。</aside>
+      <aside class="speaker-note">该关系图是分析模型，不是实测曲线。其含义是：随着 Agent 执行范围扩大，组织需要处理更多授权、冲突、审批和结果责任。Joway《尽职编程》提出，即使工程师使用相近的模型与工具，工作结果仍取决于负责人是否理解关键选择并完成相称的验证；本文据此将团队差异解释为任务定义、上下文、验证和结果责任的差异。这一判断不表示已有数据证明 AI Coding 扩大了个体产出方差。单次任务成本下降，也不保证整体协调成本同步下降。</aside>
     </section>
 
     <section class="slide ink chapter-slide" id="slide-4" data-title="行动能力增长快于组织控制能力" aria-hidden="true">
@@ -286,9 +286,17 @@
           <path d="M1170 245 C1170 330 75 330 75 245" fill="none" stroke="#ffab9e" stroke-width="4" stroke-dasharray="10 10" marker-end="url(#arrow15)"/>
           <text x="620" y="365" text-anchor="middle" fill="#ffc0b6" font-size="18">异常路径、人工修正与生产结果进入 Failure / Outcome Context</text>
         </svg>
-        <p class="under-visual light-copy">代码 diff 只说明发生了变更；执行状态还要说明依据、环境、验收人、回退和实际结果。</p>
+        <div class="mobile-diagram mobile-engineering-flow" aria-label="移动端研发执行链">
+          <div class="mobile-flow-grid">
+            <span><b>01</b>目标</span><span><b>02</b>约束</span><span><b>03</b>方案</span>
+            <span><b>04</b>变更</span><span><b>05</b>测试</span><span><b>06</b>固定证据</span>
+            <span><b>07</b>批准</span><span><b>08</b>发布</span><span><b>09</b>结果写回</span>
+          </div>
+          <p>异常路径、人工修正与生产结果返回 Failure / Outcome Context。</p>
+        </div>
+        <p class="under-visual light-copy">代码 diff 只说明发生了变更；每项 AI 生成变更都应有具名工程负责人，能够说明依据、设计、副作用、验证证据与回退条件。</p>
       </div>
-      <aside class="speaker-note">该执行链属于本文建议。固定 SHA 表示验收对象需要可复现；测试证据需要区分本地、CI、Preview 和生产环境。合并后写回能力、约束、风险与技术债的变化，避免异常路径只停留在聊天记录。</aside>
+      <aside class="speaker-note">该执行链属于本文建议。固定 SHA 表示验收对象需要可复现；测试证据需要区分本地、CI、Preview 和生产环境。具名工程负责人需要理解关键设计、依赖、潜在副作用与验证证据，并记录接受或拒绝 Review 意见的依据。架构图和设计说明可以辅助理解，但不能替代对关键代码、测试与运行结果的检查。合并后还要写回能力、约束、风险与技术债的变化，避免异常路径只停留在聊天记录。来源补充：Joway《尽职编程：AI Coding 时代的个体产出差异的来源》；该文属于实践观点，不构成效果评测。</aside>
     </section>
 
     <section class="slide paper" id="slide-15" data-title="研发团队需要设计可验证的任务图" aria-hidden="true">
@@ -302,6 +310,12 @@
           <path d="M1003 294C1003 430 560 445 560 405" fill="none" stroke="#ff806d" stroke-width="4" stroke-dasharray="9 8" marker-end="url(#engReturn)"/>
           <g text-anchor="middle"><text x="112" y="207" fill="#3867ff" font-size="14" font-weight="800">INPUT STATE</text><text x="112" y="242" fill="#071428" font-size="21" font-weight="800">状态契约</text><text x="112" y="266" fill="#617085" font-size="13">来源 · 版本 · 失败字段</text><text x="312" y="207" fill="#3867ff" font-size="14" font-weight="800">SPLIT</text><text x="312" y="242" fill="#071428" font-size="21" font-weight="800">依赖测试</text><text x="312" y="266" fill="#617085" font-size="13">仅保留真实数据依赖</text><text x="560" y="92" fill="#071428" font-size="19" font-weight="800">独立 Worker A</text><text x="560" y="121" fill="#617085" font-size="13">输入 / 输出可检查</text><text x="560" y="213" fill="#071428" font-size="19" font-weight="800">独立 Worker B</text><text x="560" y="242" fill="#617085" font-size="13">并行宽度受预算约束</text><text x="560" y="334" fill="#071428" font-size="19" font-weight="800">独立 Worker C</text><text x="560" y="363" fill="#617085" font-size="13">失败以单元为边界</text><text x="798" y="207" fill="#3867ff" font-size="14" font-weight="800">CODE REDUCER</text><text x="798" y="242" fill="#071428" font-size="21" font-weight="800">确定性归并</text><text x="798" y="266" fill="#617085" font-size="13">去重 · 排序 · 格式检查</text><text x="1003" y="207" fill="#3867ff" font-size="14" font-weight="800">EVIDENCE GATE</text><text x="1003" y="242" fill="#071428" font-size="21" font-weight="800">可否决验证</text><text x="1003" y="266" fill="#617085" font-size="13">证据 · 环境 · 回归</text><text x="1167" y="208" fill="#0998a5" font-size="14" font-weight="800">ACCEPT</text><text x="1167" y="244" fill="#071428" font-size="18" font-weight="800">验收</text><text x="780" y="438" fill="#a34f40" font-size="15" font-weight="800">只退回失败单元；超过重试、时间、费用上限后升级给人</text></g>
         </svg>
+        <div class="mobile-diagram mobile-task-graph" aria-label="移动端可验证任务图">
+          <div class="mobile-task-row"><span><b>INPUT STATE</b>状态契约</span><i>→</i><span><b>SPLIT</b>依赖测试</span></div>
+          <div class="mobile-worker-stack"><span>Worker A<small>输入输出可检查</small></span><span>Worker B<small>并行宽度受预算约束</small></span><span>Worker C<small>失败以单元为边界</small></span></div>
+          <div class="mobile-task-row three"><span><b>REDUCER</b>确定性归并</span><span><b>GATE</b>可否决验证</span><span><b>ACCEPT</b>验收</span></div>
+          <p>只退回失败单元；达到重试、时间或费用上限后升级给人。</p>
+        </div>
         <p class="under-visual">研发团队不只实现 Agent 节点，还要定义状态契约、依赖拓扑、失败边界与停止预算。</p>
       </div>
       <aside class="speaker-note">本页将前三篇实践文章中相对一致的工作流原则收敛为研发要求。每个节点需要稳定的输入、输出、证据、版本和失败状态；每条 edge 需要说明跨节点传递的实际字段；去重、排序、格式校验等确定性转换优先使用代码；验证节点必须能够拒绝结果；失败时保留正确单元，只退回失败单元，并设置宽度、重试、时间和费用上限。Graph 属于 Harness 的执行拓扑，而不是新的组织成熟度等级。来源包括 Lunar《Graph Engineering》、Mahax 与 Hanako 的实践文章，以及 Anthropic《Building effective agents》、Anthropic 多 Agent Research 与 LangGraph Graph API；外部文章不构成效果证明。</aside>
@@ -346,11 +360,17 @@
           <g><rect x="30" y="52" width="350" height="340" rx="34" fill="#e6fbfc" stroke="#27b8c7" stroke-width="3"/><rect x="445" y="52" width="350" height="340" rx="34" fill="#edf1ff" stroke="#3867ff" stroke-width="3"/><rect x="860" y="52" width="350" height="340" rx="34" fill="#fff0ed" stroke="#ff806d" stroke-width="3"/></g>
           <g text-anchor="middle"><text x="205" y="98" fill="#0998a5" font-size="17" font-weight="800" letter-spacing="2">CONTEXT</text><text x="620" y="98" fill="#3867ff" font-size="17" font-weight="800" letter-spacing="2">HARNESS</text><text x="1035" y="98" fill="#c95f4f" font-size="17" font-weight="800" letter-spacing="2">LOOP</text></g>
           <g fill="#fff" stroke-width="2"><rect x="70" y="132" width="270" height="94" rx="22" stroke="#7cdce4"/><rect x="70" y="250" width="270" height="94" rx="22" stroke="#7cdce4"/><rect x="485" y="132" width="270" height="94" rx="22" stroke="#9fb3ff"/><rect x="485" y="250" width="270" height="94" rx="22" stroke="#9fb3ff"/><rect x="900" y="132" width="270" height="94" rx="22" stroke="#ffb0a3"/><rect x="900" y="250" width="270" height="94" rx="22" stroke="#ffb0a3"/></g>
-          <g text-anchor="middle"><text x="205" y="170" fill="#071428" font-size="22" font-weight="800">目标定义</text><text x="205" y="198" fill="#617085" font-size="14">成功 · 失败 · 非目标 · 停止条件</text><text x="205" y="288" fill="#071428" font-size="22" font-weight="800">证据判断</text><text x="205" y="316" fill="#617085" font-size="14">来源 · 反例 · 标准 · 充分性</text><text x="620" y="170" fill="#071428" font-size="22" font-weight="800">委托设计</text><text x="620" y="198" fill="#617085" font-size="14">状态 · 依赖 · 权限 · 预算 · 验证门</text><text x="620" y="288" fill="#071428" font-size="22" font-weight="800">例外处理</text><text x="620" y="316" fill="#617085" font-size="14">失败 · 冲突 · 接管 · 恢复 · 升级</text><text x="1035" y="170" fill="#071428" font-size="22" font-weight="800">结果责任</text><text x="1035" y="198" fill="#617085" font-size="14">验收 · 发布 · 观察 · 修订 · 撤回</text><text x="1035" y="288" fill="#071428" font-size="22" font-weight="800">学习与演进</text><text x="1035" y="316" fill="#617085" font-size="14">修正写回 Context · Eval · Workflow</text><text x="620" y="430" fill="#334a67" font-size="18" font-weight="800">意图 → 依据 → 委托 → 介入 → 承担 → 学习</text></g>
+          <g text-anchor="middle"><text x="205" y="170" fill="#071428" font-size="22" font-weight="800">目标定义</text><text x="205" y="198" fill="#617085" font-size="14">成功 · 失败 · 非目标 · 停止条件</text><text x="205" y="288" fill="#071428" font-size="22" font-weight="800">证据判断</text><text x="205" y="316" fill="#617085" font-size="14">来源 · 反例 · 标准 · 充分性</text><text x="620" y="170" fill="#071428" font-size="22" font-weight="800">委托设计</text><text x="620" y="198" fill="#617085" font-size="14">状态 · 依赖 · 权限 · 预算 · 验证门</text><text x="620" y="288" fill="#071428" font-size="22" font-weight="800">例外处理</text><text x="620" y="316" fill="#617085" font-size="14">失败 · 冲突 · 接管 · 恢复 · 升级</text><text x="1035" y="170" fill="#071428" font-size="22" font-weight="800">结果责任</text><text x="1035" y="198" fill="#617085" font-size="14">理解 · 说明 · 验收 · 观察 · 撤回</text><text x="1035" y="288" fill="#071428" font-size="22" font-weight="800">学习与演进</text><text x="1035" y="316" fill="#617085" font-size="14">修正写回 Context · Eval · Workflow</text><text x="620" y="430" fill="#334a67" font-size="18" font-weight="800">意图 → 依据 → 委托 → 介入 → 承担 → 学习</text></g>
         </svg>
+        <div class="mobile-diagram mobile-responsibility-map" aria-label="移动端六类人类责任">
+          <div class="context"><h3>CONTEXT</h3><article><b>目标定义</b><p>成功 · 失败 · 非目标 · 停止条件</p></article><article><b>证据判断</b><p>来源 · 反例 · 标准 · 充分性</p></article></div>
+          <div class="harness"><h3>HARNESS</h3><article><b>委托设计</b><p>状态 · 依赖 · 权限 · 预算 · 验证门</p></article><article><b>例外处理</b><p>失败 · 冲突 · 接管 · 恢复 · 升级</p></article></div>
+          <div class="loop"><h3>LOOP</h3><article><b>结果责任</b><p>理解 · 说明 · 验收 · 观察 · 撤回</p></article><article><b>学习与演进</b><p>修正写回 Context · Eval · Workflow</p></article></div>
+          <p class="mobile-responsibility-chain">意图 → 依据 → 委托 → 介入 → 承担 → 学习</p>
+        </div>
         <p class="under-visual">六类责任并非六个岗位；小团队可以兼任，但每项责任必须具名、可检查并可追溯。</p>
       </div>
-      <aside class="speaker-note">六类责任描述团队成员工作的重心，而不是新增六个岗位。Context 对应目标定义与证据判断；Harness 对应委托设计与例外处理；Loop 对应结果责任与学习演进。委托设计发生在执行之前，负责状态契约、节点、真实依赖、工具、权限、预算、验证门和停止条件；例外处理发生在运行期间，负责冲突、低置信、高风险、失败恢复与人工接管；结果责任决定验收、发布、修订或撤回；学习与演进把已确认的失败、人工修正和业务结果写回 Context、评估集与工作流版本。六类责任是本文综合判断，不是外部来源提出的统一岗位模型。</aside>
+      <aside class="speaker-note">六类责任描述团队成员工作的重心，而不是新增六个岗位。Context 对应目标定义与证据判断；Harness 对应委托设计与例外处理；Loop 对应结果责任与学习演进。委托设计发生在执行之前，负责状态契约、节点、真实依赖、工具、权限、预算、验证门和停止条件；例外处理发生在运行期间，负责冲突、低置信、高风险、失败恢复与人工接管；结果责任要求具名负责人理解并说明关键选择，完成验收、发布、观察、修订或撤回；学习与演进把已确认的失败、人工修正和业务结果写回 Context、评估集与工作流版本。Joway 所称“尽职编程”在本框架中是六类责任的综合表现，不单独构成第七类责任。六类责任是本文综合判断，不是外部来源提出的统一岗位模型。</aside>
     </section>
 
     <section class="slide ink chapter-slide" id="slide-19" data-title="权限扩大必须通过结果证据门槛" aria-hidden="true">
@@ -372,7 +392,7 @@
           <g text-anchor="middle"><text x="128" y="486" fill="#9beef4" font-size="15" font-weight="800">局部可逆</text><text x="128" y="512" fill="#c9d8ea" font-size="13">证据通过后逐步托管</text><text x="350" y="486" fill="#9beef4" font-size="15" font-weight="800">影响面广</text><text x="350" y="512" fill="#c9d8ea" font-size="13">版本确认与人工批准</text><text x="572" y="486" fill="#ffb4a8" font-size="15" font-weight="800">难逆或高风险</text><text x="572" y="512" fill="#c9d8ea" font-size="13">保持人类决定权</text></g>
         </svg>
       </div>
-      <aside class="speaker-note">第三部分以权限晋级条件为中心。该公式是实施判断，不是数学模型。扩大 Agent 权限前，需要同时观察结果可靠性、失败后的恢复能力和人类审批与升级容量；具体行动还要按影响范围与可逆性分流。高风险行动不应只依赖提示词要求模型询问，而应在系统上保持不可达，直到批准、证据与版本条件同时成立。模型自报置信度只能作为次级信号。该原则与 OpenAI Agent 指南对工具风险、可逆性和人工监督的建议一致。</aside>
+      <aside class="speaker-note">第三部分以权限晋级条件为中心。该公式是实施判断，不是数学模型。扩大 Agent 权限前，需要同时观察结果可靠性、失败后的恢复能力和人类审批与升级容量；具体行动还要按影响范围与可逆性分流。尽职不等于无限审查：验证深度应随影响范围、不可逆性、数据与权限风险、系统耦合度和变化速度增加。高风险行动不应只依赖提示词要求模型询问，而应在系统上保持不可达，直到批准、证据与版本条件同时成立。模型自报置信度只能作为次级信号。该原则与 OpenAI Agent 指南对工具风险、可逆性和人工监督的建议一致。</aside>
     </section>
 
     <section class="slide ink" id="slide-20" data-title="衡量方式必须覆盖结果、监督负担与风险" aria-hidden="true">
@@ -388,7 +408,7 @@
         </div>
         <p class="under-visual light-copy">Agent 数量、Token 总量和 AI 参与率是采用指标；只有与基线、质量和风险共同解释，才能支持晋级。</p>
       </div>
-      <aside class="speaker-note">衡量体系属于实施建议。北极星指标将可接受结果与人类监督负担同时纳入；单位被接受成果成本还需要计入模型、工具、人工复核和返工。运行健康用于判断失败是否被正确阻断、是否只退回失败单元、重试与升级是否在预算内、轨迹能否解释结果。Gate 阻断率不能单独解释：阻断率为零可能表示上游质量高，也可能表示检查无效，必须结合错误逃逸和人工抽检。产品、研发和内容仍需建立各自基线，不宜用统一分数横向排名。</aside>
+      <aside class="speaker-note">衡量体系属于实施建议。北极星指标将可接受结果与人类监督负担同时纳入；单位被接受成果成本还需要计入模型、工具、人工复核和返工。运行健康用于判断失败是否被正确阻断、是否只退回失败单元、重试与升级是否在预算内、轨迹能否解释结果。Review 的有效性应结合有效问题闭环、闸门后缺陷逃逸、无证据覆盖、重复问题和修复时延判断；评论数量、轮次或耗时不能单独证明审查尽职。Gate 阻断率也不能单独解释：阻断率为零可能表示上游质量高，也可能表示检查无效，必须结合错误逃逸和人工抽检。产品、研发和内容仍需建立各自基线，不宜用统一分数横向排名。</aside>
     </section>
 
 <section class="slide paper" id="slide-21" data-title="可持续转型依赖五类可迁移资产" aria-hidden="true">
@@ -405,7 +425,7 @@
         </svg>
         <p class="under-visual">模型可以替换；组织自有的上下文、评估、工作流、治理和结果资产必须持续积累并可导出。</p>
       </div>
-      <aside class="speaker-note">本页回答可持续能力建设问题，并与下一页时间路线区分。每一条真实任务都应留下五类可迁移资产：可追溯 Context、真实任务评估集、版本化 Skill 与 Workflow、权限和恢复记录、业务结果与人工修正。两条返回路径需要区分：短纠错边修正本轮失败单元；长学习边把具名确认后的失败、修正和结果转化为下一轮 Context、评估集和工作流约束。Graph Spec、State Schema、Checkpoint 和失败轨迹分别进入工作流、治理与结果资产，不新增第六类资产。</aside>
+      <aside class="speaker-note">本页回答可持续能力建设问题，并与下一页时间路线区分。每一条真实任务都应留下五类可迁移资产：可追溯 Context、真实任务评估集、版本化 Skill 与 Workflow、权限和恢复记录、业务结果与人工修正。Review 异议、负责人回应、测试证据与最终决定也应进入相应资产：被否决方案与理由进入 Context，反例与逃逸缺陷进入评估资产，Reviewer 配置与验证门进入工作流资产，批准、豁免和回退进入治理资产，返工与用户影响进入结果资产。两条返回路径需要区分：短纠错边修正本轮失败单元；长学习边把具名确认后的失败、修正和结果转化为下一轮 Context、评估集和工作流约束。Graph Spec、State Schema、Checkpoint 和失败轨迹分别进入工作流、治理与结果资产，不新增第六类资产。</aside>
     </section>
 
     <section class="slide paper" id="slide-22" data-title="改造计划从共享语言推进到可迁移运行" aria-hidden="true">
@@ -422,7 +442,7 @@
           <text x="850" y="427" text-anchor="middle" fill="#2557c9" font-size="14" font-weight="800">M4 验收：Graph Spec · State Schema · 单元恢复 · 宽度 / 重试 / 时间 / 成本上限</text>
         </svg>
       </div>
-      <aside class="speaker-note">路线图属于实施建议。M0 定义共同状态语言和基线；M1 建立只读可追溯链；M2 允许具名确认后的状态写回；M3 对触发条件影子告警；M4 运行一条受控 Action Loop，并要求 Graph Spec 与 State Schema 完成评审、每条 edge 有明确跨节点数据、失败单元可单独恢复、宽度与重试等预算实际生效；M5 检验 Context、Benchmark 和运行记录能否跨模型或 Harness 迁移。</aside>
+      <aside class="speaker-note">路线图属于实施建议。M0 定义共同状态语言和基线；M1 建立只读可追溯链；M2 允许具名确认后的状态写回；M3 对触发条件影子告警，并让独立 Review Agent 以只读方式运行，测量有效发现、误报、漏报和人工处理成本；M4 只将已经验证的高风险规则设为强制门，并运行一条受控 Action Loop，同时要求 Graph Spec 与 State Schema 完成评审、每条 edge 有明确跨节点数据、失败单元可单独恢复、宽度与重试等预算实际生效；M5 检验 Context、Benchmark 和运行记录能否跨模型或 Harness 迁移。</aside>
     </section>
 
     <section class="slide blue" id="slide-23" data-title="首个试点应打通一条真实纵向链路" aria-hidden="true">
@@ -438,7 +458,7 @@
         </svg>
         <p class="under-visual light-copy">先证明状态链可检查、可纠正、可恢复和可复现，再讨论扩大 Agent 数量与权限。</p>
       </div>
-      <aside class="speaker-note">建议选择一条正在发生、风险可控的真实功能，不建设全公司大图谱。试点需要同时覆盖产品证据、内容资产、工作契约、研发执行、固定 SHA 验收、人工发布批准和结果写回，由此检验 Context、Harness、Loop 是否形成有效连接。</aside>
+      <aside class="speaker-note">建议选择一条正在发生、风险可控的真实功能，不建设全公司大图谱。试点需要同时覆盖产品证据、内容资产、工作契约、研发执行、固定 SHA 验收、人工发布批准和结果写回。工程负责人还需要能够依据实现说明解释关键设计、兼容性、副作用、未覆盖情形、回退方式和结果指标；说明文档用于支持审查，不替代真实验收。由此检验 Context、Harness、Loop 是否形成有效连接。</aside>
     </section>
 
     <section class="slide paper summary-slide" id="slide-24" data-title="本次分享需要形成三个组织决策" aria-hidden="true">
