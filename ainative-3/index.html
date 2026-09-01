@@ -38,7 +38,7 @@
           <text x="100" y="405" text-anchor="middle" fill="#c8c0ff" font-size="18">LOOP</text>
         </svg>
       </div>
-      <aside class="speaker-note">这是 AI-native 系列第三篇。第一篇解释 Agent 为什么开始能接下一件事，第二篇讨论组织与产品底座应转向什么；这一篇继续分析产品与研发如何把执行能力转化为责任明确的工作系统。分享综合 Uber Engineering 的 Software Factory 案例、Ashwin Gopinath 的 Company Memory 系列、三篇关于 Agent Loop 与任务图的实践文章，以及 Joway 关于 AI Coding 责任的实践论述。五级演进、六类责任和实施计划属于结合可可乐博现阶段实践形成的分析建议。</aside>
+      <aside class="speaker-note">这是 AI-native 系列第三篇。第一篇解释 Agent 为什么开始能接下一件事，第二篇讨论组织与产品底座应转向什么；这一篇继续分析产品与研发如何把执行能力转化为责任明确的工作系统。分享综合 Uber Engineering 的 Software Factory 案例、Ashwin Gopinath 的 Company Memory 系列、Agent Loop 与任务图实践，以及 Joway、Tw93、Alex Lieberman 和 David Ondrej 关于工程责任、运行闭环与组织特征的实践论述。五级演进、六类责任和实施计划属于结合可可乐博现阶段实践形成的分析建议；外部清单与个人工具栈不构成效果证明。</aside>
     </section>
 
     <section class="slide paper" id="slide-2" data-title="AI Native 改造的对象是工作系统" aria-hidden="true">
@@ -162,7 +162,7 @@
           </div>
         </div>
       </div>
-      <aside class="speaker-note">本页合并 Context Ceiling 与三类记忆。代码、PRD 和流程能够保存显式产物，却经常省略被否决方案、客户承诺、合规约束和历史失败。Ashwin Gopinath 将组织记忆区分为事实、互动与推理、行动三类。作者同时是 Sentra 创业者，因此该分类应作为可检验的架构判断，而不是普遍效果结论。</aside>
+      <aside class="speaker-note">本页合并 Context Ceiling 与三类记忆。代码、PRD 和流程能够保存显式产物，却经常省略被否决方案、客户承诺、合规约束和历史失败。Ashwin Gopinath 将组织记忆区分为事实、互动与推理、行动三类。组织记忆并不等于记录一切；进入共享状态的信息应具有明确目的、来源、权限、有效期和保留期限，并排除与任务无关或未经授权的个人、客户与课堂数据。作者同时是 Sentra 创业者，因此该分类应作为可检验的架构判断，而不是普遍效果结论。</aside>
     </section>
 
     <section class="slide blue" id="slide-8" data-title="共享状态既要支持行动也要限制行动" aria-hidden="true">
@@ -220,7 +220,7 @@
         </svg>
         <p class="under-visual">这是一种能力诊断框架，而非线性排名。晋级依据是复用、治理、共享状态与结果学习是否成立。</p>
       </div>
-      <aside class="speaker-note">五级演进属于本文综合分析：L1 是个人工具使用；L2 将有效方法固化为可复用工作流；L3 在受治理的 Harness 中托管执行；L4 由产品、内容和研发读取同一共享状态；L5 依据真实结果更新 Context、Benchmark、Skill 与 Workflow。团队可能在不同工作流上处于不同级别，不能以统一标签替代逐项评估。</aside>
+      <aside class="speaker-note">五级演进属于本文综合分析：L1 是个人工具使用；L2 将有效方法固化为可复用工作流；L3 在受治理的 Harness 中托管执行；L4 由产品、内容和研发读取同一共享状态；L5 依据真实结果更新 Context、Benchmark、Skill 与 Workflow。团队可能在不同工作流上处于不同级别，不能以统一标签替代逐项评估。L1-L5 描述能力状态；第 22 页的 M0-M5 描述实施顺序，两者不要求一一对应，也不应合并为统一组织等级。</aside>
     </section>
 
     <section class="slide blue chapter-slide" id="slide-11" data-title="产品、内容与研发需要同一条状态链" aria-hidden="true">
@@ -392,7 +392,7 @@
           <g text-anchor="middle"><text x="128" y="486" fill="#9beef4" font-size="15" font-weight="800">局部可逆</text><text x="128" y="512" fill="#c9d8ea" font-size="13">证据通过后逐步托管</text><text x="350" y="486" fill="#9beef4" font-size="15" font-weight="800">影响面广</text><text x="350" y="512" fill="#c9d8ea" font-size="13">版本确认与人工批准</text><text x="572" y="486" fill="#ffb4a8" font-size="15" font-weight="800">难逆或高风险</text><text x="572" y="512" fill="#c9d8ea" font-size="13">保持人类决定权</text></g>
         </svg>
       </div>
-      <aside class="speaker-note">第三部分以权限晋级条件为中心。该公式是实施判断，不是数学模型。扩大 Agent 权限前，需要同时观察结果可靠性、失败后的恢复能力和人类审批与升级容量；具体行动还要按影响范围与可逆性分流。尽职不等于无限审查：验证深度应随影响范围、不可逆性、数据与权限风险、系统耦合度和变化速度增加。高风险行动不应只依赖提示词要求模型询问，而应在系统上保持不可达，直到批准、证据与版本条件同时成立。模型自报置信度只能作为次级信号。该原则与 OpenAI Agent 指南对工具风险、可逆性和人工监督的建议一致。</aside>
+      <aside class="speaker-note">第三部分以权限晋级条件为中心。该公式是实施判断，不是数学模型。扩大 Agent 权限前，需要同时观察结果可靠性、失败后的恢复能力和人类审批与升级容量；具体行动还要按影响范围与可逆性分流。人类判断并非只出现在流程首尾；冲突、低置信、阻塞、权限不足和高后果行动都可能在运行中触发介入。尽职不等于无限审查：验证深度应随影响范围、不可逆性、数据与权限风险、系统耦合度和变化速度增加。高风险行动不应只依赖提示词要求模型询问，而应在系统上保持不可达，直到批准、证据与版本条件同时成立。模型自报置信度只能作为次级信号。该原则与 OpenAI Agent 指南对工具风险、可逆性和人工监督的建议一致。</aside>
     </section>
 
     <section class="slide ink" id="slide-20" data-title="衡量方式必须覆盖结果、监督负担与风险" aria-hidden="true">
@@ -404,11 +404,11 @@
           <article><span>结果价值</span><p>验收通过 · 业务结果 · 质量缺陷 · 结果写回</p></article>
           <article><span>单位成本</span><p>模型 + 工具 + 人工复核 + 返工 ÷ 被接受成果</p></article>
           <article><span>运行健康</span><p>失败单元 · 重试上限 · Gate 阻断 · 轨迹完整</p></article>
-          <article><span>治理风险</span><p>越权 · 人工介入 · 升级时延 · 回退成功</p></article>
+          <article><span>治理风险</span><p>越权 · 注意力队列 · 升级时延 · 回退成功</p></article>
         </div>
         <p class="under-visual light-copy">Agent 数量、Token 总量和 AI 参与率是采用指标；只有与基线、质量和风险共同解释，才能支持晋级。</p>
       </div>
-      <aside class="speaker-note">衡量体系属于实施建议。北极星指标将可接受结果与人类监督负担同时纳入；单位被接受成果成本还需要计入模型、工具、人工复核和返工。运行健康用于判断失败是否被正确阻断、是否只退回失败单元、重试与升级是否在预算内、轨迹能否解释结果。Review 的有效性应结合有效问题闭环、闸门后缺陷逃逸、无证据覆盖、重复问题和修复时延判断；评论数量、轮次或耗时不能单独证明审查充分。测试数量、测试代码比例和绿色通过率同样不是质量本身，还应观察 Gate 能否识别静默错误、同类问题是否复发、交付状态是否一致，以及真实用户是否收到被验收的产物。Gate 阻断率为零可能表示上游质量较高，也可能表示检查无效，必须结合错误逃逸和人工抽检。Tw93 的 Mole 长帖提供了静默错误、回归测试、规则与发布状态分离的实践案例；其代码量、测试数和提交数属于作者自报，不作为团队 KPI 或效果证明。</aside>
+      <aside class="speaker-note">衡量体系属于实施建议。北极星指标将可接受结果与人类监督负担同时纳入；单位被接受成果成本还需要计入模型、工具、人工复核和返工。多 Agent 并发还会形成等待人处理的注意力队列，应按影响范围、阻塞关系、待批准状态和时限排序，并观察高优先级等待时长、积压和升级时延。Review 的有效性应结合有效问题闭环、闸门后缺陷逃逸、无证据覆盖、重复问题和修复时延判断；同时按风险设定最大轮次、时间与证据停止条件，避免递归审查持续制造低价值问题。评论数量、轮次或耗时不能单独证明审查充分。测试数量、测试代码比例和绿色通过率同样不是质量本身，还应观察 Gate 能否识别静默错误、同类问题是否复发、交付状态是否一致，以及真实用户是否收到被验收的产物。Gate 阻断率为零可能表示上游质量较高，也可能表示检查无效，必须结合错误逃逸和人工抽检。Tw93 的 Mole 长帖提供静默错误与回归闭环案例；David Ondrej 的文章提供状态优先级与停止审查的个人实践。两者均不作为效果证明或团队 KPI。</aside>
     </section>
 
 <section class="slide paper" id="slide-21" data-title="可持续转型依赖五类可迁移资产" aria-hidden="true">
@@ -425,7 +425,7 @@
         </svg>
         <div class="mobile-diagram mobile-durable-map" aria-label="移动端五类可迁移资产与学习边">
           <ol>
-            <li><b>01 · 上下文资产</b><span>来源 · 约束 · 历史状态</span></li>
+            <li><b>01 · 上下文资产</b><span>来源 · 权限 · 有效期</span></li>
             <li><b>02 · 评估资产</b><span>失败样本 · 回归测试 · 基线</span></li>
             <li><b>03 · 工作流资产</b><span>Skill · Gate · 运行轨迹</span></li>
             <li><b>04 · 治理资产</b><span>身份 · 审批 · 恢复 · 接管</span></li>
@@ -433,9 +433,9 @@
           </ol>
           <p>长学习边：失败样本 → 回归测试 → 原因规则 → Skill / Gate 新版本</p>
         </div>
-        <p class="under-visual">模型可以替换；组织自有的上下文、评估、工作流、治理和结果资产必须持续积累并可导出。</p>
+        <p class="under-visual">模型可以替换；组织只保存支持复现、问责与学习所需的最小资产，并确保可导出。</p>
       </div>
-      <aside class="speaker-note">本页回答可持续能力建设问题，并与下一页时间路线区分。每一条真实任务都应留下五类可迁移资产：可追溯 Context、真实任务评估集、版本化 Skill 与 Workflow、权限和恢复记录、业务结果与人工修正。一次真实失败应尽量同时留下失败样本与回归测试、原因和边界规则、可复用 Skill 或 Gate、批准与恢复记录、用户影响和修正结果。短纠错边修复本轮失败单元；长学习边把经过确认的失败、修正和结果转化为下一轮 Context、评估集和工作流约束。Tw93 的 Mole 长帖为这条工程学习边提供了实践案例。Khazix 对 FDE 的访谈材料则说明，外部现场交付也需要以同样方式回流；否则 Bug 修复和客户项目都只是一次性交付。Tw93 的项目数据属于作者自报，Khazix 未披露访谈样本量，两者用于提出实践机制，不用于证明普遍效果。Graph Spec、State Schema、Checkpoint 和失败轨迹分别进入工作流、治理与结果资产，不新增第六类资产。</aside>
+      <aside class="speaker-note">本页回答可持续能力建设问题，并与下一页时间路线区分。每一条真实任务都应留下五类可迁移资产，但记录范围需要遵守目的限定、数据最小化、访问权限、有效期和删除要求。建议以最小运行记录连接这些资产：task、attempt、Agent/Skill/Model、tools/permissions、change、tests/evidence、human intervention、result、cost、approval。重大架构选择可用短 ADR 保存当时 Context、决定、原因和后果；决定变化时新增取代记录，不重写历史。一次真实失败应尽量留下失败样本与回归测试、原因和边界规则、可复用 Skill 或 Gate、批准与恢复记录、用户影响和修正结果。短纠错边修复本轮失败单元；长学习边改变下一轮 Context、评估集和工作流约束。Alex Lieberman 的清单支持将具体运行与反馈关联；David Ondrej 的文章提供 ADR 实践。两者属于作者观点，不构成效果证明。Graph Spec、State Schema、Checkpoint 和失败轨迹分别进入既有资产，不新增第六类资产。</aside>
     </section>
 
     <section class="slide paper" id="slide-22" data-title="改造计划从共享语言推进到可迁移运行" aria-hidden="true">
@@ -449,10 +449,21 @@
           <g text-anchor="middle" fill="#071428" font-size="18"><text x="105" y="300">共同语言</text><text x="285" y="300">只读状态链</text><text x="465" y="300">确认后写回</text><text x="650" y="300">Trigger 影子</text><text x="850" y="300">受控 Action Loop</text><text x="1080" y="300">可迁移规模化</text></g>
           <g text-anchor="middle" fill="#68788b" font-size="15"><text x="105" y="330">第1-2周</text><text x="285" y="330">第3-4周</text><text x="465" y="330">第2月</text><text x="650" y="330">第3月</text><text x="850" y="330">第4-6月</text><text x="1080" y="330">第7-12月</text></g>
           <text x="620" y="390" text-anchor="middle" fill="#596a7e" font-size="17">每次晋级都以真实任务回放、人工责任容量与回退能力为条件</text>
-          <text x="850" y="427" text-anchor="middle" fill="#2557c9" font-size="14" font-weight="800">M4 验收：Graph Spec · State Schema · 单元恢复 · 宽度 / 重试 / 时间 / 成本上限</text>
+          <text x="850" y="427" text-anchor="middle" fill="#2557c9" font-size="14" font-weight="800">M4 验收：Graph / State 契约 · 失败域隔离 · 并发预算 · 单一合并 / 发布 Owner</text>
         </svg>
+        <div class="mobile-diagram mobile-roadmap" aria-label="移动端十二个月改造路线">
+          <ol>
+            <li><b>M0</b><span>共同语言</span><small>第 1–2 周</small></li>
+            <li><b>M1</b><span>只读状态链</span><small>第 3–4 周</small></li>
+            <li><b>M2</b><span>确认后写回</span><small>第 2 月</small></li>
+            <li><b>M3</b><span>Trigger 影子</span><small>第 3 月</small></li>
+            <li><b>M4</b><span>受控 Action Loop</span><small>第 4–6 月</small></li>
+            <li><b>M5</b><span>可迁移规模化</span><small>第 7–12 月</small></li>
+          </ol>
+          <p><b>M4 验收</b><span>Graph / State 契约 · 失败域隔离 · 并发预算 · 单一合并 / 发布 Owner</span></p>
+        </div>
       </div>
-      <aside class="speaker-note">路线图属于实施建议。M0 定义共同状态语言和基线；M1 建立只读可追溯链；M2 允许具名确认后的状态写回；M3 对触发条件影子告警，并让独立 Review Agent 以只读方式运行，测量有效发现、误报、漏报和人工处理成本；M4 只将已经验证的高风险规则设为强制门，并运行一条受控 Action Loop，同时要求 Graph Spec 与 State Schema 完成评审、每条 edge 有明确跨节点数据、失败单元可单独恢复、宽度与重试等预算实际生效；M5 检验 Context、Benchmark 和运行记录能否跨模型或 Harness 迁移。</aside>
+      <aside class="speaker-note">路线图属于实施建议，不是第二套成熟度等级。L1-L5 描述一条工作流当前具备的能力，M0-M5 描述改造实施顺序。M0 定义共同状态语言和基线；M1 建立只读可追溯链；M2 允许具名确认后的状态写回；M3 对触发条件影子告警，并让独立 Review Agent 以只读方式运行，测量有效发现、误报、漏报和人工处理成本；M4 只将经过验证的高风险规则设为强制门，并运行一条受控 Action Loop。并发修改同一仓库时，不同 Agent 使用隔离 checkout 或 worktree 与独立分支，由单一 merge/publish Owner 依次完成合并、固定 SHA 验收、CI、部署和健康检查；只有冲突、回退与发布锁演练通过后才提高并发宽度。M5 检验 Context、Benchmark 和运行记录能否跨模型或 Harness 迁移。David Ondrej 的公开 Skills 可验证 worktree 与 guardrail 流程存在，但不能证明其个人效率或适用于所有团队。</aside>
     </section>
 
     <section class="slide blue" id="slide-23" data-title="首个试点应打通一条真实纵向链路" aria-hidden="true">
