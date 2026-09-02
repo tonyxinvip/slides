@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="当 AI 进入现场之后：AI-native 组织如何把一次性交付转化为可接管、可复用的内部能力。辛海洋，2026年9月2日，可可乐博。">
+  <meta name="theme-color" content="#071428">
+  <title>当 AI 进入现场之后 · AI-native 组织能力转移 · 辛海洋</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="deck-header">
+    <a href="../" class="brand">辛海洋 · ONLINE SLIDES</a>
+    <div class="header-actions">
+      <a class="pdf-link" href="./downloads/AI_Native4_从现场交付到组织内生能力_文字解读_20260902.pdf" target="_blank" rel="noopener">文字解读</a>
+      <button data-action="overview" type="button">总览</button>
+      <button data-action="fullscreen" type="button">全屏</button>
+    </div>
+  </header>
+
+  <main class="deck" id="deck" aria-live="polite">
+    <section class="slide dark cover-slide is-active" id="slide-1" data-title="当 AI 进入现场之后" aria-hidden="false">
+      <div class="slide-inner cover-composition">
+        <p class="kicker">AI-NATIVE FIELD NOTES · 04 · INTERNAL SHARING</p>
+        <h1>当 AI 进入<br><span>现场之后</span></h1>
+        <p class="lead">AI-native 组织如何把一次性交付转化为可接管、可复用的内部能力</p>
+        <div class="cover-meta"><span>辛海洋</span><span>2026年9月2日</span><span>可可乐博</span></div>
+        <svg class="cover-orbit transfer-cover" viewBox="0 0 560 520" role="img" aria-label="外部交付跨越现场进入组织内生能力的桥梁">
+          <defs><linearGradient id="bridgeGlow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#27d4e3"/><stop offset="1" stop-color="#3867ff"/></linearGradient></defs>
+          <path d="M55 330C155 145 405 145 505 330" fill="none" stroke="url(#bridgeGlow)" stroke-width="22" stroke-linecap="round"/>
+          <path d="M72 330H488" stroke="#fff" stroke-opacity=".16" stroke-width="2"/>
+          <g fill="#071428" stroke="#27d4e3" stroke-width="3"><circle cx="78" cy="330" r="38"/><circle cx="280" cy="175" r="42"/><circle cx="482" cy="330" r="38"/></g>
+          <g fill="#fff" text-anchor="middle" font-size="16" font-weight="750"><text x="78" y="326">外部</text><text x="78" y="347">交付</text><text x="280" y="171">现场</text><text x="280" y="192">证据</text><text x="482" y="326">内部</text><text x="482" y="347">接管</text></g>
+          <g fill="#9beef4" text-anchor="middle" font-size="14"><text x="175" y="246">共同契约</text><text x="385" y="246">能力转移</text></g>
+          <path d="M90 420H470" stroke="#ff806d" stroke-width="4" stroke-dasharray="8 9"/>
+          <text x="280" y="455" text-anchor="middle" fill="#ffc0b6" font-size="17">供应商离场后，组织仍能运行与学习</text>
+        </svg>
+      </div>
+      <aside class="speaker-note">前三篇分别讨论 Agent 的工作条件、产品与组织底座，以及团队的受治理工作系统。第四篇转向项目交付后的组织所有权：外部团队完成项目时，内部团队是否已经具备独立判断、运行、恢复和改进的能力。材料主要来自 Hedy Zhang 的 FDE 全周期实践、Khazix 的 FDE 访谈，以及 NIST、英国政府、Anthropic 与 OpenAI 的治理和评估资料。前两项属于一线实践观点，不构成普遍效果证明。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-2" data-title="规模化的单位是能力转移" aria-hidden="true">
+      <div class="slide-inner statement-composition">
+        <p class="kicker ink">01 · CENTRAL JUDGMENT</p>
+        <h2>规模化的单位不是部署数量<br>而是<span>能力转移</span></h2>
+        <p class="explanation">一条工作流只有被现场采用、由内部 Owner 接管，并在外部团队离场后仍能运行、恢复和改进，才成为组织能力。</p>
+        <div class="statement-rule transfer-rule"><b>可验收</b><span></span><b>可采用</b><span></span><b>可接管</b><span></span><b>可持续</b></div>
+      </div>
+      <aside class="speaker-note">上线数量、Agent 数量和项目验收数量描述的是交付规模，不能证明能力已经归组织所有。能力转移至少包括真实使用者采用、内部负责人获得必要权限与证据、能够处理中断和失败，并能根据新结果更新工作流。该判断延续 AI Native 3 对内部 Owner 与可迁移资产的要求，并将供应商离场后的独立运行纳入验收。</aside>
+    </section>
+
+    <section class="slide ink" id="slide-3" data-title="采用与接管需要单独证明" aria-hidden="true">
+      <div class="slide-inner series-composition">
+        <p class="kicker">02 · SERIES CONTINUITY</p>
+        <h2>即使技术可执行、系统可治理<br><span>采用与接管仍需单独证明</span></h2>
+        <div class="series-line">
+          <article><em>01</em><b>为什么能工作</b><p>环境、工具、反馈与恢复</p></article>
+          <article><em>02</em><b>长期建设什么</b><p>状态、证据与控制平面</p></article>
+          <article><em>03</em><b>团队如何改造</b><p>共同契约与结果责任</p></article>
+          <article class="active"><em>04</em><b>能力如何归组织</b><p>现场采用、内部接管与离场测试</p></article>
+        </div>
+      </div>
+      <aside class="speaker-note">第四篇沿用 Context、Harness、Loop、六类责任和五类资产，不再重复定义。分析重点转向交付后的责任配置：外部 FDE、平台团队或跨职能小组完成一条现场工作流后，谁维护上下文，谁拥有评估集和权限，谁承担异常接管，以及这些能力是否会随项目结束而消失。</aside>
+    </section>
+
+    <section class="slide ink chapter-slide" id="slide-4" data-title="现场暴露需求之间的差距" aria-hidden="true">
+      <div class="slide-inner chapter-cover-composition">
+        <div class="chapter-index"><span>01</span><small>THE FIELD GAP</small></div>
+        <div class="chapter-copy"><p class="kicker">PART ONE · RECONSTRUCT THE REAL WORK</p><h2>现场暴露<br><span>需求之间的差距</span></h2><p class="explanation light-copy">决策者意图、制度文档、系统记录与一线实际工作可能分别成立，却并不一致。</p></div>
+        <svg class="chapter-visual" viewBox="0 0 700 500" role="img" aria-label="四类需求来源在现场发生错位">
+          <g fill="#fff" fill-opacity=".11" stroke="#fff" stroke-opacity=".22"><rect x="40" y="70" width="205" height="100" rx="22"/><rect x="455" y="70" width="205" height="100" rx="22"/><rect x="40" y="330" width="205" height="100" rx="22"/><rect x="455" y="330" width="205" height="100" rx="22"/></g>
+          <g fill="#fff" text-anchor="middle"><text x="142" y="110" font-size="15">EXECUTIVE</text><text x="142" y="143" font-size="21" font-weight="800">决策者意图</text><text x="557" y="110" font-size="15">POLICY</text><text x="557" y="143" font-size="21" font-weight="800">制度与文档</text><text x="142" y="370" font-size="15">SYSTEM</text><text x="142" y="403" font-size="21" font-weight="800">系统与数据</text><text x="557" y="370" font-size="15">PRACTICE</text><text x="557" y="403" font-size="21" font-weight="800">实际工作</text></g>
+          <circle cx="350" cy="250" r="74" fill="#071428" stroke="#27d4e3" stroke-width="4"/><text x="350" y="242" text-anchor="middle" fill="#9beef4" font-size="15">FIELD</text><text x="350" y="275" text-anchor="middle" fill="#fff" font-size="23" font-weight="800">现场核对</text>
+          <g stroke="#27d4e3" stroke-width="3" stroke-dasharray="7 7"><path d="M245 150L302 205"/><path d="M455 150L398 205"/><path d="M245 350L302 295"/><path d="M455 350L398 295"/></g>
+        </svg>
+      </div>
+      <aside class="speaker-note">Hedy 的文章强调，企业最初提出的“做 Agent”或“做知识库”通常只是方向、预算或想象；实际需求要在现场访谈决策者、负责人和执行者，并核对资料、系统、例外和口传规则后才能形成。该判断来自作者实践，不提供样本量。NIST AI RMF 的更一般要求是明确使用情境、利益相关者、假设、限制和部署风险。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-5" data-title="Agent 不是可交付需求" aria-hidden="true">
+      <div class="slide-inner split-composition">
+        <div class="copy-block"><p class="kicker ink">01.1 · FROM DIRECTION TO CONTRACT</p><h2>“做一个 Agent”<br><span>尚未构成可交付需求</span></h2><p class="explanation">方向必须被收敛为具体使用者、当前损失、目标结果、非目标、证据和停止条件。</p><p class="source-badge">实践来源 · Hedy Zhang FDE 长文</p></div>
+        <svg class="visual-panel" viewBox="0 0 760 500" role="img" aria-label="模糊方向经过六项问题收敛为可验证结果">
+          <rect x="55" y="70" width="260" height="360" rx="34" fill="#eef2f8"/><text x="185" y="145" text-anchor="middle" fill="#607086" font-size="15">DIRECTION</text><text x="185" y="220" text-anchor="middle" fill="#071428" font-size="34" font-weight="800">做一个</text><text x="185" y="270" text-anchor="middle" fill="#3867ff" font-size="50" font-weight="850">Agent</text><text x="185" y="340" text-anchor="middle" fill="#7a8999" font-size="16">尚未定义结果与责任</text>
+          <path d="M340 250H440" stroke="#3867ff" stroke-width="6"/><path d="M425 232L455 250L425 268" fill="#3867ff"/>
+          <g fill="#fff" stroke="#d6e0eb" stroke-width="2"><rect x="470" y="55" width="235" height="56" rx="16"/><rect x="470" y="123" width="235" height="56" rx="16"/><rect x="470" y="191" width="235" height="56" rx="16"/><rect x="470" y="259" width="235" height="56" rx="16"/><rect x="470" y="327" width="235" height="56" rx="16"/><rect x="470" y="395" width="235" height="56" rx="16"/></g>
+          <g fill="#071428" font-size="16" font-weight="750"><text x="492" y="89">谁在使用</text><text x="492" y="157">当前损失</text><text x="492" y="225">目标结果</text><text x="492" y="293">明确非目标</text><text x="492" y="361">验收证据</text><text x="492" y="429">停止与退出</text></g>
+        </svg>
+      </div>
+      <aside class="speaker-note">技术方向与工作契约需要分别表达。一个可执行的第一阶段需要说明具体使用者、当前流程、可观察损失、预期改变、不可触碰范围、验收证据和停止条件。Hedy 的 FDE 文章提供了这一实践结构；文章没有公开合同、评估集或前后指标，因此不能据此判断项目效果。</aside>
+    </section>
+
+    <section class="slide blue" id="slide-6" data-title="现场同时存在三套流程" aria-hidden="true">
+      <div class="slide-inner flow-layers-composition">
+        <p class="kicker">01.2 · THREE PROCESS LAYERS</p>
+        <h2>现场同时存在<br><span>三套不完全一致的流程</span></h2>
+        <div class="process-layers">
+          <article><small>POLICY</small><b>制度流程</b><p>职责、审批、标准与正式文档</p><span>应当怎样运行</span></article>
+          <article><small>SYSTEM</small><b>系统流程</b><p>字段、接口、权限与日志记录</p><span>系统允许怎样运行</span></article>
+          <article><small>PRACTICE</small><b>实际流程</b><p>口传规则、例外、群聊与个人表格</p><span>工作实际上怎样完成</span></article>
+        </div>
+        <p class="under-visual light-copy">工作流设计必须保存三者的差异、原因与适用范围，而不是选一份文档作为唯一真相。</p>
+      </div>
+      <aside class="speaker-note">制度、系统和实际工作分别保存不同类型的事实。制度可能没有覆盖例外，系统可能迫使成员绕行，实际做法也可能过时或违反规范。现场调研需要记录来源、版本、冲突、例外和责任，再由具名负责人判断哪些内容进入当前工作契约。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-7" data-title="准确执行也可能产生错误结果" aria-hidden="true">
+      <div class="slide-inner wrong-knowledge-composition">
+        <div class="copy-block narrow"><p class="kicker ink">01.3 · ACCURATE EXECUTION, FALSE KNOWLEDGE</p><h2>准确执行<br><span>也可能产生错误结果</span></h2><p class="explanation">模型、检索和解析链路都可以正常运行，但上游资料本身可能错误、过期或缺少口传例外。</p><p class="source-badge">匿名案例 · 只能说明风险机制</p></div>
+        <svg class="visual-panel" viewBox="0 0 760 500" role="img" aria-label="错误文档经过正确检索与生成形成错误答案">
+          <defs><marker id="badArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#3867ff"/></marker></defs>
+          <g fill="#fff" stroke="#d5dfeb" stroke-width="2"><rect x="35" y="175" width="155" height="145" rx="24"/><rect x="245" y="175" width="155" height="145" rx="24"/><rect x="455" y="175" width="155" height="145" rx="24"/></g>
+          <rect x="655" y="175" width="75" height="145" rx="24" fill="#fff0ed" stroke="#ff806d" stroke-width="3"/>
+          <g stroke="#3867ff" stroke-width="4" marker-end="url(#badArrow)"><line x1="190" y1="247" x2="240" y2="247"/><line x1="400" y1="247" x2="450" y2="247"/><line x1="610" y1="247" x2="650" y2="247"/></g>
+          <g text-anchor="middle"><text x="112" y="215" fill="#e36551" font-size="15" font-weight="800">SOURCE</text><text x="112" y="254" fill="#071428" font-size="21" font-weight="800">错误旧文档</text><text x="112" y="285" fill="#617085" font-size="13">未经版本核对</text><text x="322" y="215" fill="#3867ff" font-size="15" font-weight="800">RETRIEVAL</text><text x="322" y="254" fill="#071428" font-size="21" font-weight="800">正确召回</text><text x="322" y="285" fill="#617085" font-size="13">链路无报错</text><text x="532" y="215" fill="#3867ff" font-size="15" font-weight="800">GENERATION</text><text x="532" y="254" fill="#071428" font-size="21" font-weight="800">忠实生成</text><text x="532" y="285" fill="#617085" font-size="13">符合错误来源</text><text x="692" y="236" fill="#c95f4f" font-size="15" font-weight="800">FALSE</text><text x="692" y="270" fill="#071428" font-size="18" font-weight="800">错误</text><text x="692" y="294" fill="#071428" font-size="18" font-weight="800">结果</text></g>
+          <path d="M112 145C210 60 590 60 692 145" fill="none" stroke="#20c7d6" stroke-width="4" stroke-dasharray="9 8"/>
+          <text x="402" y="82" text-anchor="middle" fill="#28747b" font-size="16" font-weight="800">需要来源、版本、例外与有效期检查</text>
+        </svg>
+      </div>
+      <aside class="speaker-note">Hedy 描述了一个匿名知识库项目：系统错误最终来自多年以前的一处错误纸质文档，而非模型或召回链路。该案例无法验证发生频率，只能说明一种风险机制——系统可能准确执行错误知识。它支持 AI Native 3 对事实、推理与行动记忆的区分，也说明现场经验本身仍需来源和时效校准。</aside>
+    </section>
+
+    <section class="slide ink" id="slide-8" data-title="第一阶段只改变一个结果" aria-hidden="true">
+      <div class="slide-inner slice-composition">
+        <p class="kicker">01.4 · FIRST FIELD SLICE</p>
+        <h2>第一阶段应聚焦<br><span>一个可观察结果</span></h2>
+        <svg class="wide-visual slice-svg" viewBox="0 0 1240 430" role="img" aria-label="从组织大愿望收窄到单一现场工作结果">
+          <path d="M80 75H1160L860 355H380Z" fill="#fff" fill-opacity=".08" stroke="#27d4e3" stroke-width="3"/>
+          <g text-anchor="middle"><text x="620" y="126" fill="#c9d8ea" font-size="18">全公司 AI 化</text><text x="620" y="190" fill="#d7e1ee" font-size="18">一条业务流程</text><text x="620" y="254" fill="#fff" font-size="20" font-weight="750">一个有边界的工作单元</text><text x="620" y="330" fill="#9beef4" font-size="27" font-weight="850">一个可观察结果</text></g>
+          <g fill="#071428" stroke="#27d4e3" stroke-width="2"><rect x="60" y="345" width="250" height="62" rx="18"/><rect x="930" y="345" width="250" height="62" rx="18"/></g>
+          <g fill="#fff" text-anchor="middle" font-size="15"><text x="185" y="382">风险可控 · 可停止</text><text x="1055" y="382">Owner 具名 · 证据可得</text></g>
+        </svg>
+        <p class="under-visual light-copy">第一阶段不承诺组织终局，只证明某一步的等待、错误、返工、质量或采用发生可验证变化。</p>
+      </div>
+      <aside class="speaker-note">第一阶段需要把愿景转化为可以失败和学习的工作单元，并明确当前基线、使用者、结果单位、风险边界、Owner、观察窗口和停止条件。Hedy 的文章建议把首个阶段缩到数周内可验证；该周期属于作者经验，不能作为统一门槛。</aside>
+    </section>
+
+    <section class="slide blue chapter-slide" id="slide-9" data-title="交付建立共同证据" aria-hidden="true">
+      <div class="slide-inner chapter-cover-composition">
+        <div class="chapter-index"><span>02</span><small>SHARED EVIDENCE</small></div>
+        <div class="chapter-copy"><p class="kicker">PART TWO · CONTRACT BEFORE AUTOMATION</p><h2>交付需要形成<br><span>可检查的共同证据</span></h2><p class="explanation light-copy">目标、依赖、非目标、评估和变更机制需要在开发之前形成可检查契约。</p></div>
+        <svg class="chapter-visual" viewBox="0 0 700 500" role="img" aria-label="多方观点通过共同契约汇入可验证交付">
+          <g fill="#fff" fill-opacity=".12"><rect x="40" y="55" width="200" height="76" rx="20"/><rect x="40" y="170" width="200" height="76" rx="20"/><rect x="40" y="285" width="200" height="76" rx="20"/><rect x="40" y="400" width="200" height="60" rx="20"/></g>
+          <g fill="#fff" text-anchor="middle" font-size="17" font-weight="750"><text x="140" y="101">管理层目标</text><text x="140" y="216">一线工作事实</text><text x="140" y="331">技术与数据边界</text><text x="140" y="437">专业与治理要求</text></g>
+          <g stroke="#d8f7f9" stroke-width="3"><path d="M240 93L355 205"/><path d="M240 208L355 229"/><path d="M240 323L355 253"/><path d="M240 430L355 277"/></g>
+          <rect x="350" y="160" width="300" height="180" rx="30" fill="#071428" stroke="#27d4e3" stroke-width="4"/><text x="500" y="210" text-anchor="middle" fill="#9beef4" font-size="15">SHARED CONTRACT</text><text x="500" y="253" text-anchor="middle" fill="#fff" font-size="27" font-weight="800">共同工作契约</text><text x="500" y="292" text-anchor="middle" fill="#d8f7f9" font-size="16">结果 · 证据 · 责任 · 退出</text>
+        </svg>
+      </div>
+      <aside class="speaker-note">第二部分讨论如何将现场发现转化为共同证据。FDE、业务、产品、研发和专业人员不需要共享同一套工具，但需要对目标结果、数据权限、前置依赖、验收方式、变更和退出形成具名契约。合同文本只是载体，关键在于这些条件能否阻断不符合要求的交付。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-10" data-title="FDE 翻译跨域歧义" aria-hidden="true">
+      <div class="slide-inner translator-composition">
+        <p class="kicker ink">02.1 · THE TRANSLATION FUNCTION</p>
+        <h2>FDE 将跨域分歧<br><span>转化为可验证契约</span></h2>
+        <div class="translation-grid">
+          <article><small>BUSINESS</small><b>业务语言</b><p>损失、目标、承诺与优先级</p></article>
+          <article><small>DOMAIN</small><b>专业语言</b><p>事实、标准、例外与不可替代判断</p></article>
+          <article><small>ENGINEERING</small><b>系统语言</b><p>数据、接口、权限、验证与恢复</p></article>
+          <div class="translation-core"><span>FIELD TRANSLATION</span><b>记录差异、责任与验收条件</b></div>
+        </div>
+        <p class="under-visual">该功能可以由外部 FDE、内部跨职能小组或产品研发团队承担；重点是责任，不是职位名称。</p>
+      </div>
+      <aside class="speaker-note">FDE 在此被定义为一种跨域转译功能，而非固定的外部岗位。其任务是把业务损失和承诺、领域标准和例外、工程数据和权限边界写入同一份可执行契约。Khazix 的访谈材料显示 FDE 常位于销售、产品与工程之间，但样本和方法未披露，因此只能用于识别组织问题，不能用于定义统一岗位。</aside>
+    </section>
+
+    <section class="slide ink" id="slide-11" data-title="SOW 需要稳定层与演进层" aria-hidden="true">
+      <div class="slide-inner dual-contract-composition">
+        <p class="kicker">02.2 · TWO-LAYER SOW</p>
+        <h2>SOW 同时容纳<br><span>稳定边界与受控演进</span></h2>
+        <div class="dual-contract">
+          <article class="stable"><small>STABLE LAYER</small><b>稳定层</b><p>目标 · 用户 · 非目标 · 风险 · 数据权限 · 预算上限 · 责任 · 验收 · 退出</p></article>
+          <div class="contract-joint"><span>具名变更记录</span><i>↕</i><small>版本 · 理由 · 影响 · 批准</small></div>
+          <article class="evolving"><small>EVOLVING LAYER</small><b>演进层</b><p>假设 · 实现方案 · 模型 · Prompt · 评估集 · Workflow · 阶段范围</p></article>
+        </div>
+      </div>
+      <aside class="speaker-note">固定功能清单难以容纳 AI 项目中逐步暴露的数据质量、模型边界和现场例外；完全开放的范围则会削弱预算与责任控制。双层契约据此区分稳定层和演进层：前者规定目标、风险、权限和退出条件，后者允许实现与评估方案通过具名记录迭代。英国政府 AI 采购指南也强调清晰的问题陈述、迭代开发、内部能力和合同结束流程。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-12" data-title="评估设计必须先于交付" aria-hidden="true">
+      <div class="slide-inner eval-before-build-composition">
+        <div class="copy-block"><p class="kicker ink">02.3 · EVALUATION BEFORE DELIVERY</p><h2>评估设计<br><span>先于交付</span></h2><p class="explanation">测试集不仅验证正常答案，还要覆盖拒答、权限、重复写入、失败接管和版本变化后的回归。</p></div>
+        <div class="eval-matrix" role="img" aria-label="评估设计覆盖六类测试">
+          <article><b>正向</b><span>正确输入与目标结果</span></article><article><b>反向</b><span>错误输入与拒绝条件</span></article><article><b>边界</b><span>资料不足与冲突版本</span></article><article><b>权限</b><span>越权读取与高风险写入</span></article><article><b>恢复</b><span>失败、重复写入与人工接管</span></article><article><b>回归</b><span>模型、Prompt、知识或 Workflow 变化</span></article>
+        </div>
+      </div>
+      <aside class="speaker-note">Hedy 建议在交付前建立正向、反向和边界测试，并由业务人员定义正确结果。本篇将权限、恢复和版本回归纳入同一评估结构。由于单一业务专家可能继承局部利益或过时规则，评估还需要领域专家、Outcome Owner、真实使用者和必要的独立评估共同校准。Anthropic 的 Agent Evals 区分 transcript 与外部 outcome，并强调平衡测试集、持续维护和生产监控。</aside>
+    </section>
+
+    <section class="slide blue" id="slide-13" data-title="验收包含四个不同层次" aria-hidden="true">
+      <div class="slide-inner acceptance-composition">
+        <p class="kicker">02.4 · FOUR ACCEPTANCE LAYERS</p>
+        <h2>“验收通过”包含<br><span>四个不同层次</span></h2>
+        <div class="acceptance-stairs">
+          <article><em>01</em><b>合同验收</b><p>约定范围和交付证据成立</p></article>
+          <article><em>02</em><b>系统验收</b><p>功能、权限、恢复与性能达标</p></article>
+          <article><em>03</em><b>采用验收</b><p>真实使用者愿意且能够进入工作</p></article>
+          <article><em>04</em><b>结果验收</b><p>业务或学习结果在观察窗口内成立</p></article>
+        </div>
+        <p class="under-visual light-copy">四类证据相互关联但不能替代；每次结论都应说明采用的是哪一层口径。</p>
+      </div>
+      <aside class="speaker-note">合同验收、系统验收、采用验收和结果验收对应四类不同证据。供应商完成合同并不证明系统安全可靠；系统通过技术测试不证明一线采用；采用发生也不证明长期业务或学习结果。Hedy 的文章主要从交付、验收和回款组织叙事，因而需要用这四类证据校准“可验收结果”的含义。四层用于保存项目证据，不构成新的成熟度模型。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-14" data-title="重要变化必须显式更新约束" aria-hidden="true">
+      <div class="slide-inner constraint-triangle-composition">
+        <p class="kicker ink">02.5 · NAMED CHANGE CONTROL</p>
+        <h2>重要变化必须显式更新<br><span>预算、周期、范围或风险批准</span></h2>
+        <svg class="wide-visual triangle-svg" viewBox="0 0 1000 450" role="img" aria-label="预算周期范围三角约束与变更记录">
+          <path d="M500 55L180 365H820Z" fill="#3867ff" fill-opacity=".08" stroke="#3867ff" stroke-width="5"/>
+          <g fill="#fff" stroke="#d4deea" stroke-width="2"><circle cx="500" cy="75" r="64"/><circle cx="190" cy="360" r="64"/><circle cx="810" cy="360" r="64"/></g>
+          <g text-anchor="middle" fill="#071428" font-size="23" font-weight="850"><text x="500" y="84">预算</text><text x="190" y="369">周期</text><text x="810" y="369">范围</text></g>
+          <rect x="366" y="220" width="268" height="82" rx="22" fill="#071428"/><text x="500" y="252" text-anchor="middle" fill="#9beef4" font-size="14">CHANGE RECORD</text><text x="500" y="281" text-anchor="middle" fill="#fff" font-size="19" font-weight="800">原因 · 影响 · 决定 · 批准</text>
+        </svg>
+        <p class="under-visual">新增数据、用户、接口、权限或高风险动作时，不能靠沉默、加班或降低验收标准吸收变化。</p>
+      </div>
+      <aside class="speaker-note">Hedy 的文章提出需求增加时，预算、周期和范围至少要改变一项。该判断适合作为项目约束，不是财务公式，也不意味着每个小改动都要重签价格或日期。新增数据源、用户群、系统接口、权限、输出责任或高风险动作时，应显式更新预算、周期、交付范围或风险批准中的至少一项，并记录新证据、影响、负责人与批准。</aside>
+    </section>
+
+    <section class="slide ink chapter-slide" id="slide-15" data-title="交付完成不等于组织接管" aria-hidden="true">
+      <div class="slide-inner chapter-cover-composition">
+        <div class="chapter-index"><span>03</span><small>CAPABILITY TRANSFER</small></div>
+        <div class="chapter-copy"><p class="kicker">PART THREE · OWNERSHIP AFTER DELIVERY</p><h2>交付完成不等于<br><span>组织已经接管</span></h2><p class="explanation light-copy">培训、文档和源码移交只能证明材料交付；能力转移需要内部团队实际运行和恢复。</p></div>
+        <svg class="chapter-visual" viewBox="0 0 700 500" role="img" aria-label="交付物跨越能力断点进入内部接管">
+          <g fill="#fff" fill-opacity=".12"><rect x="40" y="120" width="220" height="260" rx="30"/><rect x="440" y="120" width="220" height="260" rx="30"/></g>
+          <g text-anchor="middle"><text x="150" y="175" fill="#9beef4" font-size="15">DELIVERY</text><text x="150" y="225" fill="#fff" font-size="24" font-weight="800">文档 · 源码</text><text x="150" y="267" fill="#fff" font-size="24" font-weight="800">培训 · 账号</text><text x="150" y="325" fill="#c9d8ea" font-size="15">材料已经交付</text><text x="550" y="175" fill="#9beef4" font-size="15">OWNERSHIP</text><text x="550" y="225" fill="#fff" font-size="24" font-weight="800">运行 · 判断</text><text x="550" y="267" fill="#fff" font-size="24" font-weight="800">恢复 · 演进</text><text x="550" y="325" fill="#c9d8ea" font-size="15">内部可以独立负责</text></g>
+          <path d="M270 250H430" stroke="#ff806d" stroke-width="6" stroke-dasharray="9 9"/><text x="350" y="223" text-anchor="middle" fill="#ffc0b6" font-size="15" font-weight="800">CAPABILITY GAP</text><text x="350" y="294" text-anchor="middle" fill="#fff" font-size="17">必须通过真实运行跨越</text>
+        </svg>
+      </div>
+      <aside class="speaker-note">Hedy 的文章在结尾提出，企业需要确认供应商离场后系统能否继续运行，但文章没有提供内部接管的验收方法或离场后的运行数据。文档、源码、培训和账号只能证明材料交付；组织所有权还需由内部负责人独立运行、判断异常、恢复和修改来验证。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-16" data-title="交接需要转移运行权与恢复能力" aria-hidden="true">
+      <div class="slide-inner handoff-composition">
+        <p class="kicker ink">03.1 · HANDOFF AS OPERATING TRANSFER</p>
+        <h2>交接需要转移<br><span>运行权与恢复能力</span></h2>
+        <div class="handoff-grid">
+          <article><small>IDENTITY</small><b>身份与权限</b><p>具名账号、最小权限、批准与撤权</p></article>
+          <article><small>CONTEXT</small><b>上下文与来源</b><p>版本、有效期、例外和未关闭假设</p></article>
+          <article><small>EVIDENCE</small><b>评估与证据</b><p>基线、测试集、失败样本和观察窗口</p></article>
+          <article><small>OPERATIONS</small><b>运行与恢复</b><p>告警、接管、回退、停用和支持边界</p></article>
+        </div>
+        <p class="under-visual">培训说明“怎样操作”；能力转移还要证明“谁能负责、何时接管、失败后如何恢复”。</p>
+      </div>
+      <aside class="speaker-note">文件只是交接载体。内部 Owner 还需要受控身份、必要权限、可核查 Context、评估集、运行记录、告警和恢复路径；供应商身份需要撤销或降权，凭据需要轮换。英国政府 AI 采购指南强调内部能力、供应商锁定与合同结束安排；这些要求支持该设计方向，但不证明任一具体项目已完成能力转移。</aside>
+    </section>
+
+    <section class="slide blue" id="slide-17" data-title="离场测试检验内部独立运行" aria-hidden="true">
+      <div class="slide-inner exit-test-composition">
+        <p class="kicker">03.2 · SUPPLIER EXIT TEST</p>
+        <h2>供应商离场测试检验<br><span>内部独立运行</span></h2>
+        <div class="exit-chain">
+          <article><em>01</em><b>解释</b><p>说明目标、来源、约束与关键选择</p></article>
+          <article><em>02</em><b>运行</b><p>以内部身份完成真实任务</p></article>
+          <article><em>03</em><b>发现</b><p>识别失败、越权和结果偏差</p></article>
+          <article><em>04</em><b>恢复</b><p>接管、回退并保持一致状态</p></article>
+          <article><em>05</em><b>演进</b><p>修改、重新评估并可停用</p></article>
+        </div>
+        <div class="exit-window"><span>30 / 60 / 90 DAYS</span><b>观察外部团队退出后的稳定运行、例外处理和结果保持</b></div>
+      </div>
+      <aside class="speaker-note">离场测试在明确支持边界的条件下，验证组织能否独立承担日常运行。观察内容包括内部 Owner 对契约的解释、以内部身份运行、识别错误、完成恢复，以及在模型或流程变化后重新评估。30、60、90 天只是观察窗口示例；具体周期应根据任务频率、风险和结果延迟确定。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-18" data-title="外部交付必须连接三个内部 Owner" aria-hidden="true">
+      <div class="slide-inner owner-map-composition">
+        <p class="kicker ink">03.3 · OWNERSHIP MAP</p>
+        <h2>外部交付落实<br><span>三类内部 Owner</span></h2>
+        <svg class="wide-visual owner-map-svg" viewBox="0 0 1240 450" role="img" aria-label="外部FDE连接结果运行和证据治理三个内部负责人">
+          <rect x="35" y="130" width="250" height="190" rx="30" fill="#071428"/><text x="160" y="180" text-anchor="middle" fill="#9beef4" font-size="15">EXTERNAL / PLATFORM</text><text x="160" y="225" text-anchor="middle" fill="#fff" font-size="27" font-weight="850">FDE / 交付团队</text><text x="160" y="268" text-anchor="middle" fill="#c9d8ea" font-size="15">发现 · 转译 · 实现 · 移交</text>
+          <g fill="#fff" stroke="#d5dfeb" stroke-width="2"><rect x="405" y="45" width="330" height="110" rx="24"/><rect x="405" y="170" width="330" height="110" rx="24"/><rect x="405" y="295" width="330" height="110" rx="24"/></g>
+          <g><text x="435" y="84" fill="#3867ff" font-size="14" font-weight="800">OUTCOME OWNER</text><text x="435" y="119" fill="#071428" font-size="23" font-weight="800">结果 Owner</text><text x="435" y="143" fill="#617085" font-size="13">目标 · 采用 · 业务结果 · 撤回</text><text x="435" y="209" fill="#3867ff" font-size="14" font-weight="800">WORKFLOW OWNER</text><text x="435" y="244" fill="#071428" font-size="23" font-weight="800">运行 Owner</text><text x="435" y="268" fill="#617085" font-size="13">权限 · 运行 · 告警 · 恢复 · 版本</text><text x="435" y="334" fill="#3867ff" font-size="14" font-weight="800">EVIDENCE / GOVERNANCE OWNER</text><text x="435" y="369" fill="#071428" font-size="23" font-weight="800">证据与治理 Owner</text><text x="435" y="393" fill="#617085" font-size="13">来源 · 评估 · 专业标准 · 风险边界</text></g>
+          <g stroke="#3867ff" stroke-width="4"><path d="M285 190C340 190 350 100 400 100"/><path d="M285 225H400"/><path d="M285 260C340 260 350 350 400 350"/></g>
+          <rect x="850" y="130" width="335" height="190" rx="30" fill="#e7fbfc" stroke="#27b8c7" stroke-width="3"/><text x="1017" y="182" text-anchor="middle" fill="#0998a5" font-size="15">INTERNAL CAPABILITY</text><text x="1017" y="228" text-anchor="middle" fill="#071428" font-size="27" font-weight="850">内部共同接管</text><text x="1017" y="269" text-anchor="middle" fill="#52657b" font-size="15">责任可以兼任，但不能缺失</text>
+          <g stroke="#27b8c7" stroke-width="4"><path d="M735 100C790 100 800 190 845 190"/><path d="M735 225H845"/><path d="M735 350C790 350 800 260 845 260"/></g>
+        </svg>
+      </div>
+      <aside class="speaker-note">三个 Owner 是责任组合，不是新增岗位模型。结果 Owner 对目标、一线采用和业务结果负责；运行 Owner 对身份、权限、告警、恢复和版本负责；证据与治理 Owner 对来源、评估、专业标准和风险边界负责。小团队可以兼任，但外部 FDE 不能永久替代这三项内部责任。</aside>
+    </section>
+
+    <section class="slide ink" id="slide-19" data-title="Citizen Builder 需要受控生产路径" aria-hidden="true">
+      <div class="slide-inner citizen-path-composition">
+        <p class="kicker">03.4 · CONTROLLED CITIZEN BUILDING</p>
+        <h2>Citizen Builder 进入生产<br><span>采用受控路径</span></h2>
+        <svg class="wide-visual citizen-svg" viewBox="0 0 1240 420" role="img" aria-label="业务人员规格经过沙箱评估批准和可逆发布进入生产">
+          <defs><marker id="citizenArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#27d4e3"/></marker></defs>
+          <g fill="#fff" fill-opacity=".10" stroke="#fff" stroke-opacity=".18"><rect x="20" y="135" width="190" height="120" rx="24"/><rect x="265" y="135" width="190" height="120" rx="24"/><rect x="510" y="135" width="190" height="120" rx="24"/><rect x="755" y="135" width="190" height="120" rx="24"/><rect x="1000" y="135" width="215" height="120" rx="24"/></g>
+          <g stroke="#27d4e3" stroke-width="4" marker-end="url(#citizenArrow)"><line x1="210" y1="195" x2="260" y2="195"/><line x1="455" y1="195" x2="505" y2="195"/><line x1="700" y1="195" x2="750" y2="195"/><line x1="945" y1="195" x2="995" y2="195"/></g>
+          <g text-anchor="middle"><text x="115" y="176" fill="#9beef4" font-size="14">SPECIFICATION</text><text x="115" y="215" fill="#fff" font-size="22" font-weight="800">可执行规格</text><text x="360" y="176" fill="#9beef4" font-size="14">SANDBOX</text><text x="360" y="215" fill="#fff" font-size="22" font-weight="800">隔离试运行</text><text x="605" y="176" fill="#9beef4" font-size="14">EVALUATION</text><text x="605" y="215" fill="#fff" font-size="22" font-weight="800">证据与反例</text><text x="850" y="176" fill="#9beef4" font-size="14">APPROVAL</text><text x="850" y="215" fill="#fff" font-size="22" font-weight="800">具名批准</text><text x="1107" y="176" fill="#9beef4" font-size="14">REVERSIBLE RELEASE</text><text x="1107" y="215" fill="#fff" font-size="22" font-weight="800">可逆发布</text></g>
+          <text x="620" y="330" text-anchor="middle" fill="#ffc0b6" font-size="17" font-weight="800">生产权限来自评估与责任，不来自工具可用性或个人热情</text>
+        </svg>
+      </div>
+      <aside class="speaker-note">业务人员使用 AI Coding 或可视化工具制作 Demo，可以降低表达和试错成本，但不能绕过工程、数据和专业治理进入生产。Citizen Builder 的受控路径包括可执行规格、隔离环境、真实评估、具名批准和可逆发布。Alex Lieberman 将 Citizen Developer SDLC 列为 AI-native 公司特征；本篇仅保留其中的治理问题，不把“所有人都是 Builder”作为组织定义。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-20" data-title="客户资产与供应商方法必须分界" aria-hidden="true">
+      <div class="slide-inner asset-boundary-composition">
+        <p class="kicker ink">03.5 · ASSET OWNERSHIP</p>
+        <h2>客户资产与供应商方法<br><span>必须明确分界</span></h2>
+        <div class="asset-boundary">
+          <article class="customer"><small>CUSTOMER-CONTROLLED</small><b>客户专属资产</b><p>业务事实 · 决策与例外 · 专属数据 · 评估集 · 权限 · 运行记录 · 结果</p><span>可导出 · 可更正 · 可删除 · 可撤权</span></article>
+          <div class="boundary-line"><b>合同与数据边界</b><span>权属 · 许可 · 保留期 · 重识别风险 · 退出删除</span></div>
+          <article class="supplier"><small>SUPPLIER-GENERAL</small><b>供应商通用方法</b><p>经许可去除客户特定内容的模板、Skill、工具组件与交付方法</p><span>不能复制客户 Context 充当通用经验</span></article>
+        </div>
+      </div>
+      <aside class="speaker-note">Hedy 建议每单结束形成可复用的模板、测试结构、组件和匿名案例。该方向只有在资产边界明确时成立。客户专属 Context、数据、评估、权限和运行记录应由客户控制；供应商只能复用合同允许且去除客户特定内容的通用方法。匿名不等于无法重识别，公开案例仍需明确许可。离场时还要验证导出、删除、撤权和凭据轮换。</aside>
+    </section>
+
+    <section class="slide blue chapter-slide" id="slide-21" data-title="只扩展可复现和可接管的能力" aria-hidden="true">
+      <div class="slide-inner chapter-cover-composition">
+        <div class="chapter-index"><span>04</span><small>SCALE WHAT TRANSFERS</small></div>
+        <div class="chapter-copy"><p class="kicker">PART FOUR · EVIDENCE-GATED SCALE</p><h2>规模化以能力复现<br><span>与内部接管为前提</span></h2><p class="explanation light-copy">一次成功项目是证据起点；规模化需要跨场景复现、持续采用和组织所有权同时成立。</p></div>
+        <svg class="chapter-visual" viewBox="0 0 700 500" role="img" aria-label="单点项目通过证据门成为可扩展能力">
+          <g fill="#fff" fill-opacity=".11"><circle cx="130" cy="250" r="84"/><circle cx="570" cy="250" r="118"/></g>
+          <text x="130" y="239" text-anchor="middle" fill="#9beef4" font-size="15">ONE PROJECT</text><text x="130" y="275" text-anchor="middle" fill="#fff" font-size="24" font-weight="800">一次成功</text>
+          <path d="M230 250H448" stroke="#27d4e3" stroke-width="8"/><path d="M425 225L460 250L425 275" fill="#27d4e3"/>
+          <rect x="275" y="160" width="130" height="180" rx="24" fill="#071428" stroke="#27d4e3" stroke-width="3"/><text x="340" y="205" text-anchor="middle" fill="#9beef4" font-size="13">SCALE GATE</text><g fill="#fff" text-anchor="middle" font-size="14"><text x="340" y="238">复现</text><text x="340" y="267">采用</text><text x="340" y="296">接管</text><text x="340" y="325">成本与风险</text></g>
+          <text x="570" y="220" text-anchor="middle" fill="#9beef4" font-size="15">ORG CAPABILITY</text><text x="570" y="262" text-anchor="middle" fill="#fff" font-size="25" font-weight="800">可扩展能力</text><text x="570" y="298" text-anchor="middle" fill="#c9d8ea" font-size="15">不同场景仍可验证</text>
+        </svg>
+      </div>
+      <aside class="speaker-note">单一案例可以说明机制可能成立，不能证明规模化效果。扩大范围前，需要在不同实例中复现工作契约和结果，确认真实使用者持续采用，内部 Owner 能独立接管，并观察单位持续结果成本与风险。该原则延续 AI Native 3 的证据晋级，不按日历或项目数量自动扩大权限。</aside>
+    </section>
+
+    <section class="slide paper" id="slide-22" data-title="共同控制面只统一最小运行条件" aria-hidden="true">
+      <div class="slide-inner control-plane-composition">
+        <p class="kicker ink">04.1 · FEDERATED CONTROL PLANE</p>
+        <h2>共同控制面统一<br><span>最小运行条件</span></h2>
+        <svg class="wide-visual control-plane-svg" viewBox="0 0 1240 445" role="img" aria-label="分域数据通过最小控制面支持多个现场工作流">
+          <g fill="#eef2f8" stroke="#d5dfeb" stroke-width="2"><rect x="25" y="55" width="230" height="105" rx="24"/><rect x="25" y="185" width="230" height="105" rx="24"/><rect x="25" y="315" width="230" height="105" rx="24"/></g>
+          <g text-anchor="middle"><text x="140" y="97" fill="#3867ff" font-size="14">PRODUCT DOMAIN</text><text x="140" y="130" fill="#071428" font-size="21" font-weight="800">产品与用户证据</text><text x="140" y="227" fill="#3867ff" font-size="14">CONTENT DOMAIN</text><text x="140" y="260" fill="#071428" font-size="21" font-weight="800">内容与专业资产</text><text x="140" y="357" fill="#3867ff" font-size="14">ENGINEERING DOMAIN</text><text x="140" y="390" fill="#071428" font-size="21" font-weight="800">代码与运行证据</text></g>
+          <rect x="365" y="65" width="510" height="345" rx="34" fill="#071428"/><text x="620" y="112" text-anchor="middle" fill="#9beef4" font-size="15">MINIMAL CONTROL PLANE</text>
+          <g fill="#fff" fill-opacity=".10"><rect x="405" y="145" width="190" height="80" rx="20"/><rect x="645" y="145" width="190" height="80" rx="20"/><rect x="405" y="265" width="190" height="80" rx="20"/><rect x="645" y="265" width="190" height="80" rx="20"/></g>
+          <g fill="#fff" text-anchor="middle" font-size="19" font-weight="750"><text x="500" y="194">身份与权限</text><text x="740" y="194">政策与批准</text><text x="500" y="314">评估与版本</text><text x="740" y="314">运行状态与审计</text></g>
+          <g stroke="#3867ff" stroke-width="3"><path d="M255 107H360"/><path d="M255 237H360"/><path d="M255 367H360"/></g>
+          <g fill="#e7fbfc" stroke="#27b8c7" stroke-width="2"><rect x="970" y="75" width="240" height="90" rx="22"/><rect x="970" y="190" width="240" height="90" rx="22"/><rect x="970" y="305" width="240" height="90" rx="22"/></g>
+          <g text-anchor="middle"><text x="1090" y="112" fill="#0998a5" font-size="13">WORKFLOW A</text><text x="1090" y="142" fill="#071428" font-size="19" font-weight="800">销售支持</text><text x="1090" y="227" fill="#0998a5" font-size="13">WORKFLOW B</text><text x="1090" y="257" fill="#071428" font-size="19" font-weight="800">内容生产</text><text x="1090" y="342" fill="#0998a5" font-size="13">WORKFLOW C</text><text x="1090" y="372" fill="#071428" font-size="19" font-weight="800">研发交付</text></g>
+          <g stroke="#27b8c7" stroke-width="3"><path d="M880 120H965"/><path d="M880 235H965"/><path d="M880 350H965"/></g>
+        </svg>
+        <p class="under-visual">共享身份、政策、评估和运行状态；原始证据按领域保留来源、权限与删除边界。</p>
+      </div>
+      <aside class="speaker-note">规模化不要求把所有原始数据集中到一个公司大脑。最小控制面统一身份、权限、政策、批准、评估版本、运行状态和审计引用；产品、内容和研发证据可以继续分域保存。跨域工作流通过具名引用和最小状态契约读取必要信息，避免共享状态变成无限收集或单一解释。</aside>
+    </section>
+
+    <section class="slide ink" id="slide-23" data-title="规模化需要五项证据同时成立" aria-hidden="true">
+      <div class="slide-inner scale-gate-composition">
+        <p class="kicker">04.2 · FIVE SCALE CONDITIONS</p>
+        <h2>五类证据共同约束<br><span>规模化决策</span></h2>
+        <div class="scale-gates">
+          <article><em>01</em><b>现场采用</b><p>真实成员持续使用，绕开与拒绝被记录</p></article>
+          <article><em>02</em><b>内部接管</b><p>Owner 能独立运行、恢复、修改和停用</p></article>
+          <article><em>03</em><b>结果复现</b><p>不同实例仍通过相同证据门槛</p></article>
+          <article><em>04</em><b>成本持续</b><p>模型、工具、监督、返工和支持均计入</p></article>
+          <article><em>05</em><b>风险受控</b><p>越权、缺陷、回退与数据边界可检查</p></article>
+        </div>
+        <p class="under-visual light-copy">五项是必要条件，不是相互补偿的总分；任一项不成立，都应保持当前范围或缩小权限。</p>
+      </div>
+      <aside class="speaker-note">扩大范围前需要同时检查五类证据：真实采用、内部接管、结果复现、持续成本和风险控制。采用数据应区分真实工作与演示；内部接管通过离场测试验证；结果复现需要固定评估和观察窗口；成本包括人工与支持；风险需要真实回放和审计。五项不能相互补偿，例如高采用不能抵消越权，高准确率也不能替代恢复能力。</aside>
+    </section>
+
+    <section class="slide paper summary-slide" id="slide-24" data-title="第四篇要求形成三个组织决策" aria-hidden="true">
+      <div class="slide-inner summary-composition">
+        <p class="kicker ink">SUMMARY · THREE DECISIONS</p>
+        <h2>能力转移形成<br><span>三个组织决策</span></h2>
+        <div class="decision-grid">
+          <article><em>01</em><b>选择一条现场工作流</b><p>具有真实使用者、可观察结果、风险边界和进入条件。</p></article>
+          <article><em>02</em><b>指定三个内部 Owner</b><p>分别承担结果、运行、证据与治理责任；允许兼任，不允许缺失。</p></article>
+          <article><em>03</em><b>开发前定义离场测试</b><p>明确内部接管动作、支持边界、观察窗口和不通过后的处理。</p></article>
+        </div>
+        <p class="summary-conclusion">如果能力只能在外部团队持续介入时成立，组织获得的是项目依赖，而不是 AI-native 能力。</p>
+      </div>
+      <aside class="speaker-note">三个决策把能力转移落实到项目入口。第一，确定一条正在发生的现场工作流，不从公司级平台开始。第二，指定结果、运行、证据与治理责任，外部交付团队不能替代内部 Owner。第三，在开发前定义供应商离场后的验证动作和观察窗口，使能力转移进入正式交付条件。</aside>
+    </section>
+
+    <section class="slide dark closing-slide" id="slide-25" data-title="外部团队离场后组织仍能运行与学习" aria-hidden="true">
+      <div class="slide-inner closing-composition">
+        <p class="kicker">CLOSING · THE OWNERSHIP TEST</p>
+        <h2>外部团队离场后<br><span>组织仍能运行与学习吗？</span></h2>
+        <div class="closing-tests">
+          <article><b>现场发生例外</b><p>内部成员能否识别、升级并继续工作？</p></article>
+          <article><b>系统出现失败</b><p>能否接管、恢复并保持一致状态？</p></article>
+          <article><b>新证据出现</b><p>能否更新 Context、评估和 Workflow？</p></article>
+          <article><b>供应商不再参与</b><p>能否独立运行、修改、重新验收或停用？</p></article>
+        </div>
+        <div class="closing-meta"><span>辛海洋</span><span>2026年9月2日</span><span>可可乐博</span><a href="./downloads/AI_Native4_从现场交付到组织内生能力_文字解读_20260902.pdf" target="_blank" rel="noopener">配套文字解读 PDF ↗</a></div>
+      </div>
+      <aside class="speaker-note">结论回到组织所有权。项目交付可以由外部团队推动，能力是否形成则由供应商离场后的运行、恢复、修改和学习证明。Hedy 与 Khazix 的材料提供了现场摩擦和内部接管风险；本篇提出的双层 SOW、四层验收、三个内部 Owner、离场测试和五项规模化条件属于结合可可乐博既有框架形成的分析建议，尚需用真实纵向试点检验。</aside>
+    </section>
+  </main>
+
+  <div class="progress"><span id="progress"></span></div>
+  <footer class="controls">
+    <button data-action="prev" type="button" aria-label="上一张">←</button>
+    <button data-action="next" type="button" aria-label="下一张">→</button>
+    <div><strong id="current-number">01</strong> / <span id="total-number">25</span></div>
+    <span class="spacer"></span>
+    <button data-action="notes" type="button">备注</button>
+    <button data-action="help" type="button" aria-label="帮助">?</button>
+  </footer>
+
+  <div class="overview" id="overview" hidden><div class="overlay-head"><h2>选择一张幻灯片</h2><button data-action="overview-close" type="button">关闭 ×</button></div><div class="overview-grid" id="overview-grid"></div></div>
+  <aside class="notes" id="notes" hidden><div><strong>演讲者备注</strong><button data-action="notes-close" type="button">关闭 ×</button></div><p id="notes-content"></p></aside>
+  <dialog id="help-dialog"><form method="dialog"><h2>快捷键</h2><p>← / → 翻页 · Space 下一张 · O 总览 · F 全屏 · N 备注 · Home / End 首尾</p><button value="close">关闭</button></form></dialog>
+  <script src="./slides.js"></script>
+</body>
+</html>

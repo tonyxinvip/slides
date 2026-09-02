@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">当 AI 进入现场之后</title>
+  <desc id="desc">外部交付经过共同契约与能力转移，抵达内部接管。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071428"/><stop offset="1" stop-color="#0b213d"/></linearGradient>
+    <linearGradient id="bridge" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#27d4e3"/><stop offset="1" stop-color="#3867ff"/></linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <path d="M870 560C1040 245 1360 245 1518 560" fill="none" stroke="url(#bridge)" stroke-width="34" stroke-linecap="round"/>
+  <path d="M900 560H1490" stroke="#fff" stroke-opacity=".16" stroke-width="3"/>
+  <g fill="#071428" stroke="#27d4e3" stroke-width="5"><circle cx="910" cy="560" r="58"/><circle cx="1190" cy="325" r="66"/><circle cx="1480" cy="560" r="58"/></g>
+  <g fill="#fff" font-family="Inter, PingFang SC, sans-serif" text-anchor="middle" font-size="25" font-weight="700"><text x="910" y="552">外部</text><text x="910" y="584">交付</text><text x="1190" y="317">现场</text><text x="1190" y="351">证据</text><text x="1480" y="552">内部</text><text x="1480" y="584">接管</text></g>
+  <g font-family="Inter, PingFang SC, sans-serif">
+    <text x="115" y="135" fill="#27d4e3" font-size="22" font-weight="800" letter-spacing="5">AI-NATIVE FIELD NOTES · 04</text>
+    <text x="115" y="300" fill="#fff" font-size="100" font-weight="800">当 AI 进入</text>
+    <text x="115" y="414" fill="#27d4e3" font-size="100" font-weight="800">现场之后</text>
+    <text x="115" y="505" fill="#c9d8ea" font-size="31">从一次性交付到可接管、可复用的内部能力</text>
+    <text x="115" y="790" fill="#8fa3bd" font-size="22">辛海洋 · 2026年9月2日 · 可可乐博</text>
+  </g>
+  <path d="M900 720H1490" stroke="#ff806d" stroke-width="5" stroke-dasharray="14 14"/>
+  <text x="1195" y="770" fill="#ffc0b6" font-family="Inter, PingFang SC, sans-serif" text-anchor="middle" font-size="24">供应商离场后，组织仍能运行与学习</text>
+</svg>
