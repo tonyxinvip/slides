@@ -1,243 +1,90 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#071428"><meta name="description" content="辛海洋在线演讲、课程与专题材料"><title>辛海洋 · Online Slides</title><link rel="icon" href="./assets/favicon.svg" type="image/svg+xml"></head><body style="margin:0;background:#071428;color:#eef7fa;font-family:system-ui;display:grid;place-items:center;min-height:100vh"><p id="loading">正在载入演讲目录……</p><script type="module">try{const files=['home-payload-0.txt','home-payload-1.txt'];const parts=await Promise.all(files.map(async f=>{const r=await fetch(f);if(!r.ok)throw new Error(f);return r.text()}));const bytes=Uint8Array.from(atob(parts.join('')),c=>c.charCodeAt(0));const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));let html=await new Response(stream).text();const summary='面向一线小学科学教师，围绕“看不见、做不了、评不准”三个真实课堂难题，讨论 AI 如何支持科学探究，同时保留教师判断与学生思考。';const cover='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900"><rect width="1600" height="900" fill="#071428"/><circle cx="1280" cy="160" r="260" fill="#12345a"/><circle cx="1320" cy="110" r="140" fill="#1e5b85" opacity=".65"/><text x="120" y="330" fill="#7dd3fc" font-size="34" font-family="Arial,sans-serif" letter-spacing="5">PRIMARY SCIENCE · TEACHER AI</text><text x="120" y="445" fill="#f4fbff" font-size="72" font-weight="700" font-family="Arial,'PingFang SC',sans-serif">AI 赋能小学科学</text><text x="120" y="535" fill="#f4fbff" font-size="46" font-family="Arial,'PingFang SC',sans-serif">人机协同，素养共生</text><text x="120" y="700" fill="#9fb4c7" font-size="30" font-family="Arial,'PingFang SC',sans-serif">辛海洋 · 2026-08-21 · 深圳技术大学</text></svg>`);if(!html.includes('href="./ai4science/"')){const card=`<article class="deck-card" data-tags="education|science education|teacher ai" data-search="ai 赋能小学科学——人机协同，素养共生 ${summary} 深圳技术大学 2026-08-21 education science education teacher ai"><a class="deck-cover" href="./ai4science/" aria-label="打开 AI 赋能小学科学——人机协同，素养共生"><img src="${cover}" alt="AI 赋能小学科学——人机协同，素养共生封面" width="1600" height="900"><span class="deck-number">00 / 00</span><span class="access-badge">公开</span></a><div class="deck-content"><p class="deck-eyebrow">PRIMARY SCIENCE · TEACHER AI</p><div class="deck-title-row"><h3>AI 赋能小学科学——人机协同，素养共生</h3><i aria-hidden="true">↗</i></div><p class="deck-summary">${summary}</p><div class="deck-event"><time datetime="2026-08-21"><small>培训日期</small><b>2026-08-21</b></time><span><small>举办地点</small><b>深圳技术大学</b></span></div><div class="deck-meta"><span><b>60</b> 张</span><span><b>90</b> 分钟</span><span>辛海洋</span></div><div class="deck-tags"><span>Education</span><span>Science Education</span><span>Teacher AI</span></div></div></article>`;const anchor=html.indexOf('teacher-agent-creators');if(anchor>=0){const end=html.indexOf('</article>',anchor);if(end>=0)html=html.slice(0,end+10)+'\n'+card+html.slice(end+10)}}const total=(html.match(/class="deck-card"/g)||[]).length;let n=0;html=html.replace(/<span class="deck-number">\d{2} \/ \d{2}<\/span>/g,()=>`<span class="deck-number">${String(++n).padStart(2,'0')} / ${String(total).padStart(2,'0')}</span>`);html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(_,a,b,c)=>{const d=JSON.parse(b).filter(x=>x.slug!=='troscience');if(!d.some(x=>x.slug==='ai4science')){const i=d.findIndex(x=>x.slug==='teacher-agent-creators');d.splice(i>=0?i+1:d.length,0,{slug:'ai4science',title:'AI 赋能小学科学——人机协同，素养共生',eyebrow:'PRIMARY SCIENCE · TEACHER AI',summary,cover:'',author:'辛海洋',publishedAt:'2026-08-19',eventDate:'2026-08-21',eventVenue:'深圳技术大学',eventKind:'培训',tags:['Education','Science Education','Teacher AI'],slideCount:60,durationMinutes:90,access:'public',featured:true})}return a+JSON.stringify(d)+c});
-const newTitle='AI赋能小学科学教与学';
-const newSummary='面向小学科学教师，以“学习机会增量—认知责任保留—学习证据检验—课堂编排落实”为主线，结合日食、食盐溶解与铝箔船案例，分析AI介入的条件、证据与责任边界。';
-const oldCardHref='href="./ai4science/"';
-const cardAt=html.indexOf(oldCardHref);
-if(cardAt>=0){
-  const cardStart=html.lastIndexOf('<article',cardAt);
-  const cardEnd=html.indexOf('</article>',cardAt);
-  if(cardStart>=0&&cardEnd>=0){
-    let cardHtml=html.slice(cardStart,cardEnd+10);
-    cardHtml=cardHtml
-      .replace(oldCardHref,'href="./aiscience/"')
-      .replaceAll('AI 赋能小学科学——人机协同，素养共生',newTitle)
-      .replace(/<p class="deck-summary">[\s\S]*?<\/p>/,'<p class="deck-summary">'+newSummary+'</p>')
-      .replace('<b>60</b> 张','<b>47</b> 张')
-      .replace(/<img src="[^"]+"/,'<img src="./assets/covers/aiscience.svg"');
-    html=html.slice(0,cardStart)+cardHtml+html.slice(cardEnd+10);
-  }
-}
-html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(_,a,b,c)=>{
-  const decks=JSON.parse(b).map(deck=>deck.slug==='ai4science'?{
-    ...deck,
-    slug:'aiscience',
-    title:newTitle,
-    summary:newSummary,
-    cover:'./assets/covers/aiscience.svg',
-    publishedAt:'2026-08-21',
-    eventDate:'2026-08-21',
-    eventVenue:'深圳技术大学',
-    slideCount:47
-  }:deck);
-  return a+JSON.stringify(decks)+c;
-});
-const comprehensiveSummary='面向综合实践活动教师，说明做中学领航行动与课程目标的关系，并以六个完整案例呈现人工智能在任务链条中的适用位置、过程证据与责任边界。';
-const comprehensiveCardHref='href="./comprehensive-practice-ai/"';
-const comprehensiveAt=html.indexOf(comprehensiveCardHref);
-if(comprehensiveAt>=0){
-  const cardStart=html.lastIndexOf('<article',comprehensiveAt);
-  const cardEnd=html.indexOf('</article>',comprehensiveAt);
-  if(cardStart>=0&&cardEnd>=0){
-    let cardHtml=html.slice(cardStart,cardEnd+10);
-    cardHtml=cardHtml
-      .replace(/<p class="deck-summary">[\s\S]*?<\/p>/,`<p class="deck-summary">${comprehensiveSummary}</p>`)
-      .replace(/<time datetime="[^"]+"><small>[^<]*日期<\/small><b>[^<]+<\/b><\/time>/,'<time datetime="2026-08-25"><small>讲座日期</small><b>2026-08-25</b></time>')
-      .replace(/<span><small>举办地点<\/small><b>[^<]+<\/b><\/span>/,'<span><small>举办地点</small><b>深圳技术大学</b></span>')
-      .replace(/<b>\d+<\/b> 张/,'<b>71</b> 张');
-    html=html.slice(0,cardStart)+cardHtml+html.slice(cardEnd+10);
-  }
-}
-html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(_,a,b,c)=>{
-  const decks=JSON.parse(b).map(deck=>deck.slug==='comprehensive-practice-ai'?{
-    ...deck,
-    summary:comprehensiveSummary,
-    publishedAt:'2026-08-22',
-    eventDate:'2026-08-25',
-    eventVenue:'深圳技术大学',
-    slideCount:71,
-    durationMinutes:90
-  }:deck);
-  return a+JSON.stringify(decks)+c;
-});
-const huayiSlug='huayi-agentic-ai-2026';
-const huayiTitle='AI时代，学校如何培养人、组织工作？';
-const huayiSummary='面向 K12 学校管理层，从未来人才需求、AI-native 管理判断与 WorkBuddy 任务实践出发，说明学校如何以低风险、可检查的真实任务建立 Agentic AI 实践，并保留人的判断与责任。';
-if(!html.includes(`href="./${huayiSlug}/"`)){
-  const huayiCard=`<article class="deck-card" data-tags="k12 education|agentic ai|school management" data-search="${huayiTitle} ${huayiSummary} 华一学校 2026-08-26 k12 education agentic ai school management"><a class="deck-cover" href="./${huayiSlug}/" aria-label="打开 ${huayiTitle}"><img src="./assets/covers/${huayiSlug}.svg" alt="${huayiTitle}封面" width="1600" height="900"><span class="deck-number">00 / 00</span><span class="access-badge">公开</span></a><div class="deck-content"><p class="deck-eyebrow">K12 · AGENTIC AI · SCHOOL MANAGEMENT</p><div class="deck-title-row"><h3>${huayiTitle}</h3><i aria-hidden="true">↗</i></div><p class="deck-summary">${huayiSummary}</p><div class="deck-event"><time datetime="2026-08-26"><small>培训日期</small><b>2026-08-26</b></time><span><small>举办地点</small><b>华一学校</b></span></div><div class="deck-meta"><span><b>65</b> 张</span><span><b>180</b> 分钟</span><span>辛海洋</span></div><div class="deck-tags"><span>K12 Education</span><span>Agentic AI</span><span>School Management</span></div></div></article>`;
-  const preferred=html.indexOf('href="./vocational-ai-literacy-2026/"');
-  const fallback=html.indexOf('href="./comprehensive-practice-ai/"');
-  const anchor=preferred>=0?preferred:fallback;
-  if(anchor>=0){
-    const end=html.indexOf('</article>',anchor);
-    if(end>=0)html=html.slice(0,end+10)+'\n'+huayiCard+html.slice(end+10);
-  }
-}
-html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(_,a,b,c)=>{
-  const decks=JSON.parse(b);
-  if(!decks.some(deck=>deck.slug===huayiSlug)){
-    const huayiDeck={slug:huayiSlug,title:huayiTitle,eyebrow:'K12 · AGENTIC AI · SCHOOL MANAGEMENT',summary:huayiSummary,cover:`./assets/covers/${huayiSlug}.svg`,author:'辛海洋',publishedAt:'2026-08-26',eventDate:'2026-08-26',eventVenue:'华一学校',eventKind:'培训',tags:['K12 Education','Agentic AI','School Management'],slideCount:65,durationMinutes:180,access:'public',featured:true};
-    const anchor=decks.findIndex(deck=>deck.slug==='vocational-ai-literacy-2026');
-    decks.splice(anchor>=0?anchor+1:0,0,huayiDeck);
-  }
-  return a+JSON.stringify(decks)+c;
-});
-const bohuiSlug='bohui-education-agentic-ai-2026';
-const bohuiTitle='AI时代，教育集团如何培养人、组织工作？';
-const bohuiSummary='面向博汇集团、华一学校与智理技工学校管理层，从未来人才需求、AIBP 与 Workflow Steward、Workflow Portfolio 和 WorkBuddy 任务实践出发，讨论教育集团如何在共享治理与学校专业责任之间建立可验证的 AI-native 工作流。';
-const bohuiCard=`<article class="deck-card" data-tags="education group|agentic ai|workflow portfolio" data-search="${bohuiTitle} ${bohuiSummary} 博汇集团 华一学校 智理技工学校 2026-08-26 education group agentic ai workflow portfolio"><a class="deck-cover" href="./${bohuiSlug}/" aria-label="打开 ${bohuiTitle}"><img src="./assets/covers/${bohuiSlug}.svg" alt="${bohuiTitle}封面" width="1600" height="900"><span class="deck-number">00 / 00</span><span class="access-badge">公开</span></a><div class="deck-content"><p class="deck-eyebrow">EDUCATION GROUP · AGENTIC AI · WORKFLOW PORTFOLIO</p><div class="deck-title-row"><h3>${bohuiTitle}</h3><i aria-hidden="true">↗</i></div><p class="deck-summary">${bohuiSummary}</p><div class="deck-event"><time datetime="2026-08-26"><small>培训日期</small><b>2026-08-26</b></time><span><small>举办地点</small><b>博汇集团</b></span></div><div class="deck-meta"><span><b>56</b> 张</span><span><b>180</b> 分钟</span><span>辛海洋</span></div><div class="deck-tags"><span>Education Group</span><span>Agentic AI</span><span>Workflow Portfolio</span></div></div></article>`;
-const existingBohui=html.indexOf(`href="./${bohuiSlug}/"`);
-const existingHuayi=html.indexOf(`href="./${huayiSlug}/"`);
-if(existingBohui<0&&existingHuayi>=0){
-  const cardStart=html.lastIndexOf('<article',existingHuayi);
-  const cardEnd=html.indexOf('</article>',existingHuayi);
-  if(cardStart>=0&&cardEnd>=0)html=html.slice(0,cardStart)+bohuiCard+html.slice(cardEnd+10);
-}else if(existingBohui<0){
-  const anchor=html.indexOf('href="./vocational-ai-literacy-2026/"');
-  if(anchor>=0){const end=html.indexOf('</article>',anchor);if(end>=0)html=html.slice(0,end+10)+'\n'+bohuiCard+html.slice(end+10)}
-}
-html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(_,a,b,c)=>{
-  const decks=JSON.parse(b);
-  const oldIndex=decks.findIndex(deck=>deck.slug===huayiSlug);
-  const filtered=decks.filter(deck=>deck.slug!==huayiSlug&&deck.slug!==bohuiSlug);
-  const bohuiDeck={slug:bohuiSlug,title:bohuiTitle,eyebrow:'EDUCATION GROUP · AGENTIC AI · WORKFLOW PORTFOLIO',summary:bohuiSummary,cover:`./assets/covers/${bohuiSlug}.svg`,author:'辛海洋',publishedAt:'2026-08-26',eventDate:'2026-08-26',eventVenue:'博汇集团',eventKind:'培训',tags:['Education Group','Agentic AI','Workflow Portfolio'],slideCount:56,durationMinutes:180,access:'public',featured:true};
-  filtered.splice(oldIndex>=0?Math.min(oldIndex,filtered.length):0,0,bohuiDeck);
-  return a+JSON.stringify(filtered)+c;
-});
-const studentAiSlug='student-ai-cognitive-division-2026';
-const studentAiTitle='当人人都有一支AI团队';
-const studentAiSummary='面向深圳外国语学校全学科教师，围绕学生、同伴、AI系统与教师的认知分工，讨论AI介入的能力目标、时机、学习证据与责任边界。';
-if(!html.includes(`href="./${studentAiSlug}/"`)){
-  const studentAiCard=`<article class="deck-card" data-tags="k12 education|ai literacy|learning sciences" data-search="${studentAiTitle} 学生与AI的认知分工 ${studentAiSummary} 深圳外国语学校 2026-08-27 k12 education ai literacy learning sciences"><a class="deck-cover" href="./${studentAiSlug}/" aria-label="打开 ${studentAiTitle}"><img src="./assets/covers/${studentAiSlug}.svg" alt="${studentAiTitle}封面" width="1600" height="900"><span class="deck-number">00 / 00</span><span class="access-badge">公开</span></a><div class="deck-content"><p class="deck-eyebrow">K12 · AI LITERACY · LEARNING SCIENCES</p><div class="deck-title-row"><h3>${studentAiTitle}</h3><i aria-hidden="true">↗</i></div><p class="deck-summary">${studentAiSummary}</p><div class="deck-event"><time datetime="2026-08-27"><small>培训日期</small><b>2026-08-27</b></time><span><small>举办地点</small><b>深圳外国语学校</b></span></div><div class="deck-meta"><span><b>53</b> 张</span><span><b>45</b> 分钟</span><span>辛海洋</span></div><div class="deck-tags"><span>K12 Education</span><span>AI Literacy</span><span>Learning Sciences</span></div></div></article>`;
-  const bohuiAt=html.indexOf(`href="./${bohuiSlug}/"`);
-  const firstCard=html.indexOf('<article class="deck-card"');
-  const anchor=bohuiAt>=0?html.lastIndexOf('<article',bohuiAt):firstCard;
-  if(anchor>=0)html=html.slice(0,anchor)+studentAiCard+'\n'+html.slice(anchor);
-}
-html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(_,a,b,c)=>{
-  const decks=JSON.parse(b).filter(deck=>deck.slug!==studentAiSlug);
-  decks.unshift({slug:studentAiSlug,title:studentAiTitle,eyebrow:'K12 · AI LITERACY · LEARNING SCIENCES',summary:studentAiSummary,cover:`./assets/covers/${studentAiSlug}.svg`,author:'辛海洋',publishedAt:'2026-08-27',eventDate:'2026-08-27',eventVenue:'深圳外国语学校',eventKind:'教师培训',tags:['K12 Education','AI Literacy','Learning Sciences'],slideCount:53,durationMinutes:45,access:'public',featured:true});
-  return a+JSON.stringify(decks)+c;
-});
-const vocationalSlug='vocational-ai-literacy-2026';
-const vocationalAt=html.indexOf(`href="./${vocationalSlug}/"`);
-if(vocationalAt>=0){
-  const cardStart=html.lastIndexOf('<article',vocationalAt);
-  const cardEnd=html.indexOf('</article>',vocationalAt);
-  if(cardStart>=0&&cardEnd>=0){
-    let cardHtml=html.slice(cardStart,cardEnd+10);
-    cardHtml=cardHtml.replace(/<b>\d+<\/b> 张/,'<b>28</b> 张');
-    html=html.slice(0,cardStart)+cardHtml+html.slice(cardEnd+10);
-  }
-}
-html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(_,a,b,c)=>{
-  const decks=JSON.parse(b).map(deck=>deck.slug===vocationalSlug?{...deck,slideCount:28}:deck);
-  return a+JSON.stringify(decks)+c;
-});
-const gardenSchoolSlug='student-ai-cognitive-division-garden-2026';
-const gardenSchoolTitle='当人人都有一支AI团队';
-const gardenSchoolSummary='面向深圳园丁学校教师，结合真实产品、会议研究与学科案例，讨论学生、同伴、AI系统和教师之间的认知分工，以及从一个教学难点启动小规模试用的方法。';
-if(!html.includes(`href="./${gardenSchoolSlug}/"`)){
-  const gardenSchoolCard=`<article class="deck-card" data-tags="k12 education|ai literacy|learning sciences" data-search="${gardenSchoolTitle} 学生与AI的认知分工 ${gardenSchoolSummary} 深圳园丁学校 2026-08-29 k12 education ai literacy learning sciences"><a class="deck-cover" href="./${gardenSchoolSlug}/" aria-label="打开 ${gardenSchoolTitle}"><img src="./assets/covers/${gardenSchoolSlug}.svg" alt="${gardenSchoolTitle}封面" width="1600" height="900"><span class="deck-number">00 / 00</span><span class="access-badge">公开</span></a><div class="deck-content"><p class="deck-eyebrow">K12 · AI LITERACY · LEARNING SCIENCES</p><div class="deck-title-row"><h3>${gardenSchoolTitle}</h3><i aria-hidden="true">↗</i></div><p class="deck-summary">${gardenSchoolSummary}</p><div class="deck-event"><time datetime="2026-08-29"><small>讲座日期</small><b>2026-08-29</b></time><span><small>举办地点</small><b>深圳园丁学校</b></span></div><div class="deck-meta"><span><b>66</b> 张</span><span><b>90</b> 分钟</span><span>辛海洋</span></div><div class="deck-tags"><span>K12 Education</span><span>AI Literacy</span><span>Learning Sciences</span></div></div></article>`;
-  const studentAt=html.indexOf('href="./student-ai-cognitive-division-2026/"');
-  const anchor=studentAt>=0?html.lastIndexOf('<article',studentAt):html.indexOf('<article class="deck-card"');
-  if(anchor>=0)html=html.slice(0,anchor)+gardenSchoolCard+'\n'+html.slice(anchor);
-}
-html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(_,a,b,c)=>{
-  const decks=JSON.parse(b).filter(deck=>deck.slug!==gardenSchoolSlug);
-  decks.unshift({slug:gardenSchoolSlug,title:gardenSchoolTitle,eyebrow:'K12 · AI LITERACY · LEARNING SCIENCES',summary:gardenSchoolSummary,cover:`./assets/covers/${gardenSchoolSlug}.svg`,author:'辛海洋',publishedAt:'2026-08-29',eventDate:'2026-08-29',eventVenue:'深圳园丁学校',eventKind:'教师讲座',tags:['K12 Education','AI Literacy','Learning Sciences'],slideCount:66,durationMinutes:90,access:'public',featured:true});
-  return a+JSON.stringify(decks)+c;
-});
-const aiNativeOrgSlug='ainative-3';
-const aiNativeOrgTitle='执行成本降低后 · AI-native 团队如何重构工作系统';
-const aiNativeOrgSummary='AI-native 系列第三篇：从组织记忆与五级演进出发，说明产品、内容、研发团队如何以 Context、Harness、Loop 建立共享状态、可验证任务图、六类责任、评估方式与可持续能力路径。';
-if(!html.includes(`href="./${aiNativeOrgSlug}/"`)){
-  const aiNativeOrgCard=`<article class="deck-card" data-tags="ai native|organization design|agentic workflow" data-search="${aiNativeOrgTitle} ${aiNativeOrgSummary} 辛海洋 可可乐博 2026-08-31 ai native organization design agentic workflow"><a class="deck-cover" href="./${aiNativeOrgSlug}/" aria-label="打开 ${aiNativeOrgTitle}"><img src="./assets/covers/${aiNativeOrgSlug}.svg" alt="${aiNativeOrgTitle}封面" width="1600" height="900"><span class="deck-number">00 / 00</span><span class="access-badge">公开</span></a><div class="deck-content"><p class="deck-eyebrow">AI-NATIVE FIELD NOTES · 03</p><div class="deck-title-row"><h3>${aiNativeOrgTitle}</h3><i aria-hidden="true">↗</i></div><p class="deck-summary">${aiNativeOrgSummary}</p><div class="deck-event"><time datetime="2026-08-31"><small>分享日期</small><b>2026-08-31</b></time><span><small>举办地点</small><b>可可乐博</b></span></div><div class="deck-meta"><span><b>25</b> 张</span><span><b>25</b> 分钟</span><span>辛海洋</span></div><div class="deck-tags"><span>AI Native</span><span>Organization Design</span><span>Agentic Workflow</span></div></div></article>`;
-  const firstCard=html.indexOf('<article class="deck-card"');
-  if(firstCard>=0)html=html.slice(0,firstCard)+aiNativeOrgCard+'\n'+html.slice(firstCard);
-}
-html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(_,a,b,c)=>{
-  const decks=JSON.parse(b).filter(deck=>deck.slug!==aiNativeOrgSlug);
-  decks.unshift({slug:aiNativeOrgSlug,title:aiNativeOrgTitle,eyebrow:'AI-NATIVE FIELD NOTES · 03',summary:aiNativeOrgSummary,cover:`./assets/covers/${aiNativeOrgSlug}.svg`,author:'辛海洋',publishedAt:'2026-08-31',eventDate:'2026-08-31',eventVenue:'可可乐博',eventKind:'内部分享',tags:['AI Native','Organization Design','Agentic Workflow'],slideCount:25,durationMinutes:25,access:'public',featured:true});
-  return a+JSON.stringify(decks)+c;
-});
-const aiNativeTransferSlug='ainative-4';
-const aiNativeTransferTitle='当 AI 进入现场之后';
-const aiNativeTransferSummary='AI-native 系列第四篇：从现场差距、双层 SOW 与四层验收出发，说明外部或平台团队如何把一次性交付转化为真实采用、内部接管，并在供应商离场后仍可运行与学习的组织能力。';
-if(!html.includes(`href="./${aiNativeTransferSlug}/"`)){
-  const aiNativeTransferCard=`<article class="deck-card" data-tags="ai native|capability transfer|fde" data-search="${aiNativeTransferTitle} ${aiNativeTransferSummary} 辛海洋 可可乐博 2026-09-02 ai native capability transfer fde"><a class="deck-cover" href="./${aiNativeTransferSlug}/" aria-label="打开 ${aiNativeTransferTitle}"><img src="./${aiNativeTransferSlug}/cover.svg" alt="${aiNativeTransferTitle}封面" width="1600" height="900"><span class="deck-number">00 / 00</span><span class="access-badge">公开</span></a><div class="deck-content"><p class="deck-eyebrow">AI-NATIVE FIELD NOTES · 04</p><div class="deck-title-row"><h3>${aiNativeTransferTitle}</h3><i aria-hidden="true">↗</i></div><p class="deck-summary">${aiNativeTransferSummary}</p><div class="deck-event"><time datetime="2026-09-02"><small>分享日期</small><b>2026-09-02</b></time><span><small>举办地点</small><b>可可乐博</b></span></div><div class="deck-meta"><span><b>25</b> 张</span><span><b>30</b> 分钟</span><span>辛海洋</span></div><div class="deck-tags"><span>AI Native</span><span>Capability Transfer</span><span>FDE</span></div></div></article>`;
-  const firstCard=html.indexOf('<article class="deck-card"');
-  if(firstCard>=0)html=html.slice(0,firstCard)+aiNativeTransferCard+'\n'+html.slice(firstCard);
-}
-html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(_,a,b,c)=>{
-  const decks=JSON.parse(b).filter(deck=>deck.slug!==aiNativeTransferSlug);
-  decks.unshift({slug:aiNativeTransferSlug,title:aiNativeTransferTitle,eyebrow:'AI-NATIVE FIELD NOTES · 04',summary:aiNativeTransferSummary,cover:`./${aiNativeTransferSlug}/cover.svg`,author:'辛海洋',publishedAt:'2026-09-02',eventDate:'2026-09-02',eventVenue:'可可乐博',eventKind:'内部分享',tags:['AI Native','Capability Transfer','FDE'],slideCount:25,durationMinutes:30,access:'public',featured:true});
-  return a+JSON.stringify(decks)+c;
-});
-html=html.replace(/(<div>本页更新：<time datetime=")[^"]+(">)[^<]+(<\/time><\/div>)/,(_,a,b,c)=>`${a}2026-09-02${b}2026-09-02${c}`);
-const galleryDoc=new DOMParser().parseFromString(html,'text/html');
-const galleryDataEl=galleryDoc.querySelector('script#slides-data');
-const galleryGrid=galleryDoc.querySelector('#deck-grid');
-if(!galleryDataEl||!galleryGrid)throw new Error('Gallery structure is incomplete');
-const aiNativeSeriesVenueSlugs=new Set(['ainative-1','ainative-2']);
-let galleryDecks=JSON.parse(galleryDataEl.textContent).map(deck=>deck.slug===vocationalSlug?{
-  ...deck,
-  eventDate:'2026-08-28',
-  eventVenue:'深圳城市职业学院（深圳技师学院）'
-}:aiNativeSeriesVenueSlugs.has(deck.slug)?{
-  ...deck,
-  eventVenue:'可可乐博'
-}:deck);
-const galleryCards=[...galleryGrid.querySelectorAll('article.deck-card')];
-const cardBySlug=new Map(galleryCards.map(card=>{
-  const href=card.querySelector('a.deck-cover')?.getAttribute('href')||'';
-  const match=href.match(/^\.\/([^/]+)\/$/);
-  return [match?.[1]||href,card];
-}));
-const vocationalCard=cardBySlug.get(vocationalSlug);
-if(vocationalCard){
-  const time=vocationalCard.querySelector('time');
-  if(time){time.setAttribute('datetime','2026-08-28');time.innerHTML='<small>分享日期</small><b>2026-08-28</b>'}
-  const venue=vocationalCard.querySelector('.deck-event span');
-  if(venue)venue.innerHTML='<small>举办地点</small><b>深圳城市职业学院（深圳技师学院）</b>';
-}
-aiNativeSeriesVenueSlugs.forEach(slug=>{
-  const card=cardBySlug.get(slug);
-  const venue=card?.querySelector('.deck-event span');
-  if(venue)venue.innerHTML='<small>举办地点</small><b>可可乐博</b>';
-});
-const dateKey=value=>{
-  const match=String(value||'').match(/^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?/);
-  return match?`${match[1]}-${match[2]||'01'}-${match[3]||'01'}`:'0000-01-01';
-};
-const todayParts=Object.fromEntries(new Intl.DateTimeFormat('en',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()).filter(part=>part.type!=='literal').map(part=>[part.type,part.value]));
-const todayKey=`${todayParts.year}-${todayParts.month}-${todayParts.day}`;
-const entries=galleryDecks.map((deck,index)=>({deck,index,card:cardBySlug.get(deck.slug),date:dateKey(deck.eventDate)})).filter(entry=>entry.card);
-const upcoming=entries.filter(entry=>entry.date>todayKey).sort((a,b)=>a.date.localeCompare(b.date)||a.index-b.index);
-const completed=entries.filter(entry=>entry.date<=todayKey).sort((a,b)=>b.date.localeCompare(a.date)||a.index-b.index);
-const orderedEntries=[...upcoming,...completed];
-const makeSectionTitle=(title,count)=>{
-  const heading=galleryDoc.createElement('h2');
-  heading.className='deck-section-title';
-  heading.innerHTML=`<span>${title}</span><small>${count} 项</small>`;
-  return heading;
-};
-galleryGrid.replaceChildren();
-if(upcoming.length){
-  galleryGrid.append(makeSectionTitle('即将进行',upcoming.length));
-  upcoming.forEach(entry=>galleryGrid.append(entry.card));
-}
-if(completed.length){
-  galleryGrid.append(makeSectionTitle('往期演讲',completed.length));
-  completed.forEach(entry=>galleryGrid.append(entry.card));
-}
-const unmatchedCards=galleryCards.filter(card=>!orderedEntries.some(entry=>entry.card===card));
-unmatchedCards.forEach(card=>galleryGrid.append(card));
-const orderedDecks=[...orderedEntries.map(entry=>entry.deck),...galleryDecks.filter(deck=>!orderedEntries.some(entry=>entry.deck.slug===deck.slug))];
-galleryDataEl.textContent=JSON.stringify(orderedDecks);
-const deckTotal=galleryCards.length;
-[...galleryGrid.querySelectorAll('.deck-number')].forEach((number,index)=>{number.textContent=`${String(index+1).padStart(2,'0')} / ${String(deckTotal).padStart(2,'0')}`});
-const sectionStyle=galleryDoc.createElement('style');
-sectionStyle.textContent='.deck-section-title{grid-column:1/-1;display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:34px 0 2px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);color:#f4fbff}.deck-section-title:first-child{margin-top:0;padding-top:0;border-top:0}.deck-section-title span{font-size:clamp(1.35rem,2.4vw,2rem);letter-spacing:.04em}.deck-section-title small{color:#8fa7be;font-size:.78rem;font-weight:600;letter-spacing:.08em}@media(max-width:720px){.deck-section-title{margin-top:24px;padding-top:18px}}';
-galleryDoc.head.append(sectionStyle);
-html='<!doctype html>'+galleryDoc.documentElement.outerHTML;
-document.open();document.write(html);document.close()}catch(e){document.getElementById('loading').textContent='浏览器无法载入目录，请使用最新版 Safari、Chrome 或 Edge。';console.error(e)}</script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#071428">
+  <meta name="description" content="辛海洋的在线演讲、AI Native 系列、教育研究与课程专题档案。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="辛海洋 · Online Slides">
+  <meta property="og:description" content="在线演讲、AI Native 系列、教育研究与课程专题材料。">
+  <meta property="og:url" content="https://tonyxinvip.github.io/slides/">
+  <meta property="og:image" content="https://tonyxinvip.github.io/slides/ainative-4/cover.svg">
+  <title>辛海洋 · Online Slides</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="preload" href="./decks.json" as="fetch" crossorigin>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#collection">跳到演讲目录</a>
+  <canvas class="sky" id="sky" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="identity" href="./" aria-label="返回 Online Slides 首页">
+      <span class="identity-mark">X</span>
+      <span><b>辛海洋</b><small>ONLINE SLIDES</small></span>
+    </a>
+    <nav aria-label="页面导航">
+      <a href="#series">AI Native 系列</a>
+      <a href="#collection">演讲档案</a>
+      <a href="https://github.com/tonyxinvip/slides" rel="noreferrer">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="kicker"><span></span> ONLINE PRESENTATION ARCHIVE</p>
+        <h1 id="hero-title">在线演讲与<br><em>专题材料</em></h1>
+        <p class="hero-intro">收录 Agent 工程、AI-native 产品、教育研究与课程材料，侧重方法、案例与实践框架。</p>
+        <div class="hero-actions">
+          <a class="primary-action" href="#collection"><span>查看演讲目录</span><i>↘</i></a>
+          <a class="series-action" href="#series"><span>连续阅读</span><b>AI Native 01—04</b></a>
+        </div>
+      </div>
+      <div class="hero-orbit" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="signal-card signal-a"><small>RESEARCH</small><b>研究</b><span>Evidence and analysis.</span></div>
+        <div class="signal-card signal-b"><small>METHODS</small><b>方法</b><span>Frameworks and systems.</span></div>
+        <div class="signal-card signal-c"><small>PRACTICE</small><b>应用</b><span>Decisions and implementation.</span></div>
+        <div class="pulse-core"><span>SLIDES</span></div>
+      </div>
+      <div class="hero-index"><span>01</span><i></i><span>PRESENTATION ARCHIVE</span></div>
+    </section>
+
+    <section class="collection" id="collection" aria-labelledby="collection-title">
+      <div class="section-heading">
+        <div><p class="kicker"><span></span> PRESENTATIONS</p><h2 id="collection-title">演讲目录</h2></div>
+        <p>按讲座或课程时间排列，保留内容摘要、举办地点、发布日期与独立访问链接。</p>
+      </div>
+
+      <section class="series-feature" id="series" aria-labelledby="series-title" hidden>
+        <div class="series-heading">
+          <div><small>SERIES · 01—04</small><h2 id="series-title">AI Native Field Notes</h2></div>
+          <p>从 Agent 的工作条件，到组织底座、团队改造，再到现场交付后的能力转移。</p>
+        </div>
+        <div class="series-grid" id="series-grid"></div>
+      </section>
+
+      <div class="filter-bar" role="group" aria-label="筛选演讲">
+        <div class="filters" id="filters"></div>
+        <label class="search"><span class="sr-only">搜索演讲</span><input id="search" type="search" placeholder="搜索标题、系列或标签" autocomplete="off"><i aria-hidden="true">⌕</i></label>
+      </div>
+
+      <div class="deck-grid" id="deck-grid" aria-live="polite" aria-busy="true"></div>
+      <p class="empty-state" id="empty-state" hidden>未找到符合当前条件的演讲。</p>
+      <p class="load-error" id="load-error" hidden>演讲目录暂时无法载入，请稍后刷新页面。</p>
+    </section>
+  </main>
+
+  <footer class="publication-footer">
+    <div>作者：<b>辛海洋</b></div>
+    <div>本页更新：<time id="site-updated">—</time></div>
+  </footer>
+
+  <noscript><p class="noscript-note">此页面需要 JavaScript 来读取公开演讲目录。</p></noscript>
+</body>
+</html>
