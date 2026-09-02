@@ -173,6 +173,7 @@ html=html.replace(/(<script[^>]*id="slides-data"[^>]*>)([\s\S]*?)(<\/script>)/,(
   decks.unshift({slug:aiNativeTransferSlug,title:aiNativeTransferTitle,eyebrow:'AI-NATIVE FIELD NOTES · 04',summary:aiNativeTransferSummary,cover:`./${aiNativeTransferSlug}/cover.svg`,author:'辛海洋',publishedAt:'2026-09-02',eventDate:'2026-09-02',eventVenue:'可可乐博',eventKind:'内部分享',tags:['AI Native','Capability Transfer','FDE'],slideCount:25,durationMinutes:30,access:'public',featured:true});
   return a+JSON.stringify(decks)+c;
 });
+html=html.replace(/(<div>本页更新：<time datetime=")[^"]+(">)[^<]+(<\/time><\/div>)/,(_,a,b,c)=>`${a}2026-09-02${b}2026-09-02${c}`);
 const galleryDoc=new DOMParser().parseFromString(html,'text/html');
 const galleryDataEl=galleryDoc.querySelector('script#slides-data');
 const galleryGrid=galleryDoc.querySelector('#deck-grid');
