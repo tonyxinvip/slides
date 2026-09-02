@@ -1,0 +1,20 @@
+{
+  "slug": "ainative-4",
+  "series": "AI-NATIVE FIELD NOTES · 04",
+  "title": "当 AI 进入现场之后",
+  "subtitle": "AI-native 组织如何把一次性交付转化为可接管、可复用的内部能力",
+  "summary": "AI-native 系列第四篇：从现场差距、双层 SOW 与四层验收出发，说明外部或平台团队如何把一次性交付转化为真实采用、内部接管，并在供应商离场后仍可运行与学习的组织能力。",
+  "cover": "./cover.svg",
+  "author": "辛海洋",
+  "date": "2026-09-02",
+  "publishedAt": "2026-09-02",
+  "venue": "可可乐博",
+  "slides": 25,
+  "slideCount": 25,
+  "durationMinutes": 30,
+  "tags": ["AI Native", "Capability Transfer", "FDE"],
+  "access": "public",
+  "featured": true,
+  "status": "approved-to-publish",
+  "pdf": "./downloads/AI_Native4_从现场交付到组织内生能力_文字解读_20260902.pdf"
+}
