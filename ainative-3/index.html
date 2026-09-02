@@ -38,17 +38,17 @@
           <text x="100" y="405" text-anchor="middle" fill="#c8c0ff" font-size="18">LOOP</text>
         </svg>
       </div>
-      <aside class="speaker-note">这是 AI-native 系列第三篇。第一篇解释 Agent 为什么开始能接下一件事，第二篇讨论组织与产品底座应转向什么；这一篇继续分析产品与研发如何把执行能力转化为责任明确的工作系统。分享综合 Uber Engineering 的 Software Factory 案例、Ashwin Gopinath 的 Company Memory 系列、Agent Loop 与任务图实践，以及 Joway、Tw93、Alex Lieberman 和 David Ondrej 关于工程责任、运行闭环与组织特征的实践论述。五级演进、六类责任和实施计划属于结合可可乐博现阶段实践形成的分析建议；外部清单与个人工具栈不构成效果证明。</aside>
+      <aside class="speaker-note">AI-native 系列第一篇解释 Agent 为什么开始能接下一件事，第二篇讨论组织与产品底座应转向什么；第三篇继续分析产品、内容与研发如何把执行能力转化为责任明确的工作系统。分享综合 Uber Engineering 的 Software Factory 案例、Ashwin Gopinath 的 Company Memory 系列、Agent Loop 与任务图实践，以及 Joway、Tw93、Alex Lieberman 和 David Ondrej 关于工程责任、运行闭环与组织特征的实践论述。五级演进、六类责任和实施计划属于结合可可乐博现阶段实践形成的分析建议；外部清单与个人工具栈不构成效果证明。</aside>
     </section>
 
     <section class="slide paper" id="slide-2" data-title="AI Native 改造的对象是工作系统" aria-hidden="true">
       <div class="slide-inner statement-composition">
         <p class="kicker ink">01 · CENTRAL JUDGMENT</p>
         <h2>AI Native 改造的对象<br>是<span>工作系统</span></h2>
-        <p class="explanation">任务需要从个人会话转化为具有上下文、权限、验收、记录与责任的工作系统。模型使用率和 Agent 数量只能说明采用程度，不能说明这种能力已经成为组织的稳定属性。</p>
+        <p class="explanation">工作系统是组织改造对象；用户、业务或学习结果仍是改造目的。任务需要从个人会话转化为具有上下文、权限、验收、记录与责任的工作系统。</p>
         <div class="statement-rule"><span></span><b>可理解</b><span></span><b>可执行</b><span></span><b>可验证</b><span></span><b>可学习</b></div>
       </div>
-      <aside class="speaker-note">本页给出全文判断：AI Native 改造的对象是工作系统，而不是单个模型或岗位。其成立条件是同类工作可以在关键成员缺席时复现，结果依据可说明，失败后可恢复，运行结果能够更新后续工作。</aside>
+      <aside class="speaker-note">AI Native 改造的对象是工作系统，而不是单个模型或岗位；用户、业务或学习结果仍是改造目的。其成立条件是同类工作可以在关键成员缺席时复现，结果依据可说明，失败后可恢复，运行结果能够更新后续工作。模型使用率和 Agent 数量只能说明采用程度，不能证明组织能力已经形成。</aside>
     </section>
 
     <section class="slide ink" id="slide-3" data-title="执行成本下降后，上下文与责任成为主要约束" aria-hidden="true">
@@ -56,7 +56,7 @@
         <div class="copy-block">
           <p class="kicker">02 · THE SHIFTING BOTTLENECK</p>
           <h2>执行成本下降后，<br><span>上下文与责任</span>成为主要约束</h2>
-          <p class="explanation light-copy">生成、检索和工具调用快速扩展后，团队差异不会消失，而会转移到任务定义、上下文、验证与结果责任。</p>
+          <p class="explanation light-copy">候选生成与工具调用的边际成本正在下降，但单位被接受成果的总成本还包括上下文准备、审查、协调、返工与恢复。</p>
         </div>
         <svg class="visual-panel" viewBox="0 0 760 460" role="img" aria-label="执行成本下降而上下文与责任约束上升的关系图">
           <defs><linearGradient id="costArea" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#27d4e3" stop-opacity=".65"/><stop offset="1" stop-color="#27d4e3" stop-opacity=".05"/></linearGradient></defs>
@@ -138,7 +138,7 @@
         </svg>
         <p class="under-visual light-copy">托管程度由任务边界、可观察性与恢复能力决定；模型选择由真实任务评测决定。</p>
       </div>
-      <aside class="speaker-note">本页合并 Uber 的四层工作形态与 Benchmark 方法。Raw Session、带 Skill 的会话、通用 Agent 和专用 Agent 的差异不只是模型能力，而是任务边界、运行环境和结果责任的控制程度。uReview 进一步说明，模型和工作流应依据真实 PR 的 precision、recall、延迟、超时、人工复核与单位结果成本选择。图中的 Pareto 曲线为方法示意，不对应 Uber 的具体点位。</aside>
+      <aside class="speaker-note">Uber 的四层工作形态与 Benchmark 方法共同说明控制如何形成。Raw Session、带 Skill 的会话、通用 Agent 和专用 Agent 的差异不只是模型能力，而是任务边界、运行环境和结果责任的控制程度。uReview 进一步说明，模型和工作流应依据真实 PR 的 precision、recall、延迟、超时、人工复核与单位结果成本选择。图中的 Pareto 曲线为方法示意，不对应 Uber 的具体点位。</aside>
     </section>
 
     <section class="slide paper" id="slide-7" data-title="组织记忆需要保存事实、推理与行动" aria-hidden="true">
@@ -162,7 +162,7 @@
           </div>
         </div>
       </div>
-      <aside class="speaker-note">本页合并 Context Ceiling 与三类记忆。代码、PRD 和流程能够保存显式产物，却经常省略被否决方案、客户承诺、合规约束和历史失败。Ashwin Gopinath 将组织记忆区分为事实、互动与推理、行动三类。组织记忆并不等于记录一切；进入共享状态的信息应具有明确目的、来源、权限、有效期和保留期限，并排除与任务无关或未经授权的个人、客户与课堂数据。作者同时是 Sentra 创业者，因此该分类应作为可检验的架构判断，而不是普遍效果结论。</aside>
+      <aside class="speaker-note">Context Ceiling 与三类记忆共同解释可见产物之外的缺口。代码、PRD 和流程能够保存显式产物，却经常省略被否决方案、客户承诺、合规约束和历史失败。Ashwin Gopinath 将组织记忆区分为事实、互动与推理、行动三类。组织记忆并不等于记录一切；进入共享状态的信息应具有明确目的、来源、权限、有效期和保留期限，并排除与任务无关或未经授权的个人、客户与课堂数据。作者同时是 Sentra 创业者，因此该分类应作为可检验的架构判断，而不是普遍效果结论。</aside>
     </section>
 
     <section class="slide blue" id="slide-8" data-title="共享状态既要支持行动也要限制行动" aria-hidden="true">
@@ -182,9 +182,9 @@
           <g fill="#fff" text-anchor="middle" font-size="19" font-weight="750"><text x="1142" y="117">执行</text><text x="1142" y="218">等待 / 拒绝</text><text x="1142" y="319">升级 / 回滚</text></g>
           <text x="805" y="390" text-anchor="middle" fill="#d8f7f9" font-size="17">每个行动与不行动都写回结果状态</text>
         </svg>
-        <p class="under-visual light-copy">技术上可以调用工具，不代表组织上已经授权；行动边界必须来自可检查的共享状态。</p>
+        <p class="under-visual light-copy">共享的是跨团队行动所需的最小契约、引用与状态关系；原始证据可以分域保存，异议不能被统一状态覆盖。</p>
       </div>
-      <aside class="speaker-note">本页合并共享状态与 Action Memory。多个工具不应分别形成互相漂移的局部真相；底层状态需要由组织控制来源、版本、权限和关系。状态进入行动前，还要经过证据、风险、授权和回退检查。系统必须允许执行，也必须允许等待、拒绝、升级和回滚，并把结果写回。</aside>
+      <aside class="speaker-note">共享状态不等于把全部原始材料汇入中央库。组织需要共享的是跨团队行动所需的最小契约、引用与状态关系；原始证据可以留在各自受控的专业系统中，并保留权限、异议与不同解释。状态进入行动前还要经过证据、风险、授权和回退检查。系统必须允许执行，也必须允许等待、拒绝、升级和回滚，并把结果写回。</aside>
     </section>
 
     <section class="slide ink" id="slide-9" data-title="Context、Harness、Loop 构成共同基础" aria-hidden="true">
@@ -204,7 +204,7 @@
           </div>
         </div>
       </div>
-      <aside class="speaker-note">该框架来自可可乐博既有实践，并由本次材料进一步支持。Context 回答系统基于什么理解任务；Harness 回答工具、权限、任务图、预算与验证门如何组织行动；Loop 回答一次执行怎样被检查、修正并进入下一次工作。Graph 不是第四个基础层，而是 Harness 中组织节点状态、真实依赖、并行、汇聚和失败边界的执行拓扑。运行 State 回答这一轮执行到了哪里，组织 Context 回答行动基于哪些事实、决策、约束与历史，二者不能互相替代。</aside>
+      <aside class="speaker-note">该框架来自可可乐博既有实践，并由本次材料进一步支持。Context 回答系统基于什么理解任务；Harness 回答工具、权限、任务图、预算与验证门如何组织行动；Loop 回答一次执行怎样被检查、修正并进入下一次工作。Graph 不是第四个基础层，而是 Harness 中组织节点状态、真实依赖、并行、汇聚和失败边界的执行拓扑。运行 State 回答这一轮执行到了哪里，组织 Context 回答行动基于哪些事实、决策、约束与历史，二者不能互相替代。Arvind Jain 在 Glean:GO 总结中将角色、目标与日常任务等组织 Context 视为 AI 从响应式工具转向主动建议的条件之一；本文仅将其作为架构方向。主动建议不自动获得行动权限，执行仍受 Harness 的身份、权限、预算与验证门约束。该材料来自 Glean CEO 对客户活动的总结，不构成独立效果验证。来源：https://x.com/jainarvind/status/2094901374714597630</aside>
     </section>
 
 <section class="slide paper" id="slide-10" data-title="AI Native 转型经历五级能力演进" aria-hidden="true">
@@ -218,17 +218,17 @@
           <g text-anchor="middle" fill="#071428" font-size="20" font-weight="800"><text x="110" y="382">L1 · 个人工具</text><text x="350" y="337">L2 · 工作流复用</text><text x="590" y="287">L3 · 托管执行</text><text x="830" y="247">L4 · 共享状态</text><text x="1080" y="202">L5 · 结果驱动进化</text></g>
           <g text-anchor="middle" fill="#66768a" font-size="15"><text x="110" y="410">步骤提效</text><text x="350" y="365">方法可重复</text><text x="590" y="315">环境受治理</text><text x="830" y="275">跨团队一致</text><text x="1080" y="230">结果更新能力</text></g>
         </svg>
-        <p class="under-visual">这是一种能力诊断框架，而非线性排名。晋级依据是复用、治理、共享状态与结果学习是否成立。</p>
+        <p class="under-visual">五级用于诊断单条工作流的能力缺口，不用于给组织打总分；高风险任务也不以更高自治为终点。</p>
       </div>
       <aside class="speaker-note">五级演进属于本文综合分析：L1 是个人工具使用；L2 将有效方法固化为可复用工作流；L3 在受治理的 Harness 中托管执行；L4 由产品、内容和研发读取同一共享状态；L5 依据真实结果更新 Context、Benchmark、Skill 与 Workflow。团队可能在不同工作流上处于不同级别，不能以统一标签替代逐项评估。L1-L5 描述能力状态；第 22 页的 M0-M5 描述实施顺序，两者不要求一一对应，也不应合并为统一组织等级。</aside>
     </section>
 
-    <section class="slide blue chapter-slide" id="slide-11" data-title="产品、内容与研发需要同一条状态链" aria-hidden="true">
+    <section class="slide blue chapter-slide" id="slide-11" data-title="产品、内容与研发共享同一条状态链" aria-hidden="true">
       <div class="slide-inner chapter-cover-composition">
         <div class="chapter-index"><span>02</span><small>TEAM REDESIGN</small></div>
         <div class="chapter-copy">
           <p class="kicker">PART TWO · SHARED WORK STATE</p>
-          <h2>产品、内容与研发<br><span>需要同一条状态链</span></h2>
+          <h2>产品、内容与研发<br><span>共享同一条状态链</span></h2>
           <p class="explanation light-copy">产品保存判断依据，内容保存来源与专业审查，研发保存约束与验证；三条链必须在交付结果处汇合。</p>
         </div>
         <svg class="chapter-visual" viewBox="0 0 700 500" role="img" aria-label="产品判断、内容资产与研发执行汇入共同工作契约">
@@ -242,10 +242,10 @@
       <aside class="speaker-note">第二部分把团队改造扩展到产品、内容和研发三类专业工作。三者不需要使用同一款工具，但必须共享目标、证据边界、版本、验收标准和结果状态。产品负责判断链，内容负责来源、权利、专业审查与资产版本，研发负责执行环境、验证与恢复。各团队的候选输出进入共享状态前仍需具名确认。</aside>
     </section>
 
-    <section class="slide blue" id="slide-12" data-title="产品工作需要形成可追溯判断链" aria-hidden="true">
+    <section class="slide blue" id="slide-12" data-title="产品工作形成可追溯判断链" aria-hidden="true">
       <div class="slide-inner chain-composition">
         <p class="kicker">02.1 · PRODUCT JUDGMENT STATE</p>
-        <h2>产品工作需要形成<br><span>可追溯判断链</span></h2>
+        <h2>产品工作形成<br><span>可追溯判断链</span></h2>
         <svg class="wide-visual chain-svg" viewBox="0 0 1240 390" role="img" aria-label="从证据到结果的产品判断链">
           <defs><marker id="arrow13" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#a8eaf0"/></marker></defs>
           <g fill="#ffffff" fill-opacity=".14" stroke="#ffffff" stroke-opacity=".18"><rect x="20" y="135" width="125" height="100" rx="22"/><rect x="170" y="135" width="125" height="100" rx="22"/><rect x="320" y="135" width="125" height="100" rx="22"/><rect x="470" y="135" width="125" height="100" rx="22"/><rect x="620" y="135" width="125" height="100" rx="22"/><rect x="770" y="135" width="125" height="100" rx="22"/><rect x="920" y="135" width="125" height="100" rx="22"/><rect x="1070" y="135" width="145" height="100" rx="22"/></g>
@@ -271,13 +271,13 @@
         </div>
         <p class="under-visual">产品系统可以准备证据和候选方案，但不能替代对用户承诺、优先级和结果的责任。</p>
       </div>
-      <aside class="speaker-note">本页为实施建议。产品团队可以优先改造访谈与反馈证据化、PRD first-pass review、实验结果整理和冲突提示。涉及路线图承诺、定价、敏感用户评价和公开发布的决定，仍需要明确的人类批准。</aside>
+      <aside class="speaker-note">产品团队可以优先改造访谈与反馈证据化、PRD first-pass review、实验结果整理和冲突提示。涉及路线图承诺、定价、敏感用户评价和公开发布的决定，仍需要明确的人类批准。这些内容属于实施建议，不代表外部案例已经验证其效果。</aside>
     </section>
 
-    <section class="slide ink" id="slide-14" data-title="研发工作需要形成可验证执行链" aria-hidden="true">
+    <section class="slide ink" id="slide-14" data-title="研发工作形成可验证执行链" aria-hidden="true">
       <div class="slide-inner chain-composition engineering-chain">
         <p class="kicker">02.3 · ENGINEERING EXECUTION</p>
-        <h2>研发工作需要形成<br><span>可验证执行链</span></h2>
+        <h2>研发工作形成<br><span>可验证执行链</span></h2>
         <svg class="wide-visual chain-svg" viewBox="0 0 1240 400" role="img" aria-label="从目标到结果写回的研发执行链">
           <defs><marker id="arrow15" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#9beef4"/></marker></defs>
           <g fill="#ffffff" fill-opacity=".13" stroke="#ffffff" stroke-opacity=".18"><rect x="15" y="135" width="120" height="96" rx="20"/><rect x="150" y="135" width="120" height="96" rx="20"/><rect x="285" y="135" width="120" height="96" rx="20"/><rect x="420" y="135" width="120" height="96" rx="20"/><rect x="555" y="135" width="120" height="96" rx="20"/><rect x="690" y="135" width="140" height="96" rx="20"/><rect x="845" y="135" width="120" height="96" rx="20"/><rect x="980" y="135" width="120" height="96" rx="20"/><rect x="1115" y="135" width="110" height="96" rx="20"/></g>
@@ -299,32 +299,32 @@
       <aside class="speaker-note">该执行链属于本文建议。固定 SHA 表示验收对象需要可复现；测试证据需要区分本地、CI、Preview 和生产环境。具名工程负责人需要理解关键设计、依赖、潜在副作用与验证证据，并记录接受或拒绝 Review 意见的依据。架构图和设计说明可以辅助理解，但不能替代对关键代码、测试与运行结果的检查。合并后还要写回能力、约束、风险与技术债的变化，避免异常路径只停留在聊天记录。来源补充：Joway《尽职编程：AI Coding 时代的个体产出差异的来源》；该文属于实践观点，不构成效果评测。</aside>
     </section>
 
-    <section class="slide paper" id="slide-15" data-title="研发团队需要设计可验证的任务图" aria-hidden="true">
+    <section class="slide paper" id="slide-15" data-title="研发团队设计可验证的任务图" aria-hidden="true">
       <div class="slide-inner chain-composition">
         <p class="kicker ink">02.4 · ENGINEERING TEAM</p>
-        <h2>研发团队需要设计<br><span>可验证的任务图</span></h2>
+        <h2>研发团队设计<br><span>可验证的任务图</span></h2>
         <svg class="wide-visual engineering-system-svg" viewBox="0 0 1240 470" role="img" aria-label="从输入状态到拆分、并行执行、确定性归并、证据验证和验收状态的任务图">
           <defs><marker id="engArrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#3867ff"/></marker><marker id="engReturn" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#ff806d"/></marker></defs>
           <g fill="#fff" stroke="#cdd9e7" stroke-width="2"><rect x="35" y="166" width="154" height="118" rx="24"/><rect x="235" y="166" width="154" height="118" rx="24"/><rect x="475" y="53" width="170" height="102" rx="24"/><rect x="475" y="174" width="170" height="102" rx="24"/><rect x="475" y="295" width="170" height="102" rx="24"/><rect x="714" y="166" width="168" height="118" rx="24"/><rect x="928" y="166" width="150" height="118" rx="24"/><rect x="1120" y="166" width="94" height="118" rx="24" fill="#e8fbfc" stroke="#27b8c7"/></g>
           <g stroke="#3867ff" stroke-width="4" fill="none" marker-end="url(#engArrow)"><path d="M189 225H231"/><path d="M389 225C425 225 430 104 471 104"/><path d="M389 225H471"/><path d="M389 225C425 225 430 346 471 346"/><path d="M645 104C680 104 678 225 710 225"/><path d="M645 225H710"/><path d="M645 346C680 346 678 225 710 225"/><path d="M882 225H924"/><path d="M1078 225H1116"/></g>
           <path d="M1003 294C1003 430 560 445 560 405" fill="none" stroke="#ff806d" stroke-width="4" stroke-dasharray="9 8" marker-end="url(#engReturn)"/>
-          <g text-anchor="middle"><text x="112" y="207" fill="#3867ff" font-size="14" font-weight="800">INPUT STATE</text><text x="112" y="242" fill="#071428" font-size="21" font-weight="800">状态契约</text><text x="112" y="266" fill="#617085" font-size="13">来源 · 版本 · 失败字段</text><text x="312" y="207" fill="#3867ff" font-size="14" font-weight="800">SPLIT</text><text x="312" y="242" fill="#071428" font-size="21" font-weight="800">依赖测试</text><text x="312" y="266" fill="#617085" font-size="13">仅保留真实数据依赖</text><text x="560" y="92" fill="#071428" font-size="19" font-weight="800">独立 Worker A</text><text x="560" y="121" fill="#617085" font-size="13">输入 / 输出可检查</text><text x="560" y="213" fill="#071428" font-size="19" font-weight="800">独立 Worker B</text><text x="560" y="242" fill="#617085" font-size="13">并行宽度受预算约束</text><text x="560" y="334" fill="#071428" font-size="19" font-weight="800">独立 Worker C</text><text x="560" y="363" fill="#617085" font-size="13">失败以单元为边界</text><text x="798" y="207" fill="#3867ff" font-size="14" font-weight="800">CODE REDUCER</text><text x="798" y="242" fill="#071428" font-size="21" font-weight="800">确定性归并</text><text x="798" y="266" fill="#617085" font-size="13">去重 · 排序 · 格式检查</text><text x="1003" y="207" fill="#3867ff" font-size="14" font-weight="800">EVIDENCE GATE</text><text x="1003" y="242" fill="#071428" font-size="21" font-weight="800">可否决验证</text><text x="1003" y="266" fill="#617085" font-size="13">证据 · 环境 · 回归</text><text x="1167" y="208" fill="#0998a5" font-size="14" font-weight="800">ACCEPT</text><text x="1167" y="244" fill="#071428" font-size="18" font-weight="800">验收</text><text x="780" y="438" fill="#a34f40" font-size="15" font-weight="800">只退回失败单元；超过重试、时间、费用上限后升级给人</text></g>
+          <g text-anchor="middle"><text x="112" y="207" fill="#3867ff" font-size="14" font-weight="800">INPUT STATE</text><text x="112" y="242" fill="#071428" font-size="21" font-weight="800">状态契约</text><text x="112" y="266" fill="#617085" font-size="13">来源 · 版本 · 失败字段</text><text x="312" y="207" fill="#3867ff" font-size="14" font-weight="800">SPLIT</text><text x="312" y="242" fill="#071428" font-size="21" font-weight="800">依赖测试</text><text x="312" y="266" fill="#617085" font-size="13">仅保留真实数据依赖</text><text x="560" y="92" fill="#071428" font-size="19" font-weight="800">独立 Worker A</text><text x="560" y="121" fill="#617085" font-size="13">输入 / 输出可检查</text><text x="560" y="213" fill="#071428" font-size="19" font-weight="800">独立 Worker B</text><text x="560" y="242" fill="#617085" font-size="13">并行宽度受预算约束</text><text x="560" y="334" fill="#071428" font-size="19" font-weight="800">独立 Worker C</text><text x="560" y="363" fill="#617085" font-size="13">失败以单元为边界</text><text x="798" y="207" fill="#3867ff" font-size="14" font-weight="800">CODE REDUCER</text><text x="798" y="242" fill="#071428" font-size="21" font-weight="800">确定性归并</text><text x="798" y="266" fill="#617085" font-size="13">去重 · 排序 · 格式检查</text><text x="1003" y="207" fill="#3867ff" font-size="14" font-weight="800">EVIDENCE GATE</text><text x="1003" y="242" fill="#071428" font-size="21" font-weight="800">可否决验证</text><text x="1003" y="266" fill="#617085" font-size="13">证据 · 环境 · 回归</text><text x="1167" y="208" fill="#0998a5" font-size="14" font-weight="800">ACCEPT</text><text x="1167" y="244" fill="#071428" font-size="18" font-weight="800">验收</text><text x="620" y="438" fill="#a34f40" font-size="14" font-weight="800">失败域可证明隔离时，仅重试失败单元；否则回退到最近一致状态并重新验证受影响范围</text></g>
         </svg>
         <div class="mobile-diagram mobile-task-graph" aria-label="移动端可验证任务图">
           <div class="mobile-task-row"><span><b>INPUT STATE</b>状态契约</span><i>→</i><span><b>SPLIT</b>依赖测试</span></div>
           <div class="mobile-worker-stack"><span>Worker A<small>输入输出可检查</small></span><span>Worker B<small>并行宽度受预算约束</small></span><span>Worker C<small>失败以单元为边界</small></span></div>
           <div class="mobile-task-row three"><span><b>REDUCER</b>确定性归并</span><span><b>GATE</b>可否决验证</span><span><b>ACCEPT</b>验收</span></div>
-          <p>只退回失败单元；达到重试、时间或费用上限后升级给人。</p>
+          <p>失败域可证明隔离时，仅重试失败单元；否则回退到最近一致状态并重新验证受影响范围。</p>
         </div>
         <p class="under-visual">研发团队不只实现 Agent 节点，还要定义状态契约、依赖拓扑、失败边界与停止预算。</p>
       </div>
-      <aside class="speaker-note">本页将前三篇实践文章中相对一致的工作流原则收敛为研发要求。每个节点需要稳定的输入、输出、证据、版本和失败状态；每条 edge 需要说明跨节点传递的实际字段；去重、排序、格式校验等确定性转换优先使用代码；验证节点必须能够拒绝结果；失败时保留正确单元，只退回失败单元，并设置宽度、重试、时间和费用上限。Graph 属于 Harness 的执行拓扑，而不是新的组织成熟度等级。来源包括 Lunar《Graph Engineering》、Mahax 与 Hanako 的实践文章，以及 Anthropic《Building effective agents》、Anthropic 多 Agent Research 与 LangGraph Graph API；外部文章不构成效果证明。</aside>
+      <aside class="speaker-note">每个节点需要稳定的输入、输出、证据、版本和失败状态；每条 edge 需要说明跨节点传递的实际字段；去重、排序、格式校验等确定性转换优先使用代码；验证节点必须能够拒绝结果。只有在输入输出契约稳定、共享状态未被污染、失败域可证明隔离且全局不变量仍成立时，才仅重试失败单元；否则回退到最近一致状态并重新验证受影响范围。有副作用的节点还需具备幂等或补偿机制，并设置宽度、重试、时间和费用上限。Graph 属于 Harness 的执行拓扑，不是新的组织成熟度等级。来源包括 Lunar《Graph Engineering》、Mahax 与 Hanako 的实践文章，以及 Anthropic《Building effective agents》、Anthropic 多 Agent Research 与 LangGraph Graph API；外部文章不构成效果证明。</aside>
     </section>
 
-<section class="slide paper" id="slide-16" data-title="内容团队需要形成可追溯资产与复用结果" aria-hidden="true">
+<section class="slide paper" id="slide-16" data-title="内容团队管理可追溯资产与复用结果" aria-hidden="true">
       <div class="slide-inner team-change-composition">
         <p class="kicker ink">02.5 · CONTENT TEAM</p>
-        <h2>内容团队需要形成<br><span>可追溯资产与复用结果</span></h2>
+        <h2>内容团队管理<br><span>可追溯资产与复用结果</span></h2>
         <div class="change-grid">
           <article><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="31" fill="#dff9fb"/><path d="M24 30h32v30H24zM30 23h20" fill="none" stroke="#0a9dab" stroke-width="5"/></svg><b>来源与权利</b><p>记录来源、授权、适用对象、版本、有效期与引用范围。</p></article>
           <article><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="31" fill="#ebe8ff"/><path d="M23 29h14v14H23zM43 29h14v14H43zM33 49h14v14H33z" fill="none" stroke="#6b5dcc" stroke-width="4"/></svg><b>结构化资产</b><p>把概念、活动、素材与评价标准拆成可检索、可组合的版本化对象。</p></article>
@@ -333,13 +333,13 @@
         </div>
         <p class="under-visual">内容产量只能反映生成规模；可追溯、可审查、可复用且能根据结果修订，才构成组织能力。</p>
       </div>
-      <aside class="speaker-note">本页为针对可可乐博内容团队的实施建议，不是对外部来源的效果归因。AI 系统可以协助检索、拆分、标注和生成候选内容，但未经核验的来源、授权不明素材、专业判断和对外发布不能自动进入公司事实。建议从一类高频内容资产建立版本、审查记录、复用关系与使用反馈。</aside>
+      <aside class="speaker-note">可可乐博内容团队可以从一类高频内容资产开始，建立版本、审查记录、复用关系与使用反馈。AI 系统可以协助检索、拆分、标注和生成候选内容，但未经核验的来源、授权不明素材、专业判断和对外发布不能自动进入公司事实。这是实施建议，不是对外部来源的效果归因。</aside>
     </section>
 
-    <section class="slide blue" id="slide-17" data-title="产品、内容与研发需要共享工作契约" aria-hidden="true">
+    <section class="slide blue" id="slide-17" data-title="产品、内容与研发共享工作契约" aria-hidden="true">
       <div class="slide-inner bridge-composition">
         <p class="kicker">02.6 · SHARED WORK CONTRACT</p>
-        <h2>产品、内容与研发需要<br><span>共享工作契约</span></h2>
+        <h2>产品、内容与研发<br><span>共享工作契约</span></h2>
         <div class="contract-team-grid">
           <article><small>PRODUCT</small><b>判断状态</b><p>用户证据 · 假设与异议 · 承诺 · 结果指标</p></article>
           <article><small>CONTENT</small><b>资产状态</b><p>来源与权利 · 专业标准 · 版本关系 · 复用边界</p></article>
@@ -368,47 +368,47 @@
           <div class="loop"><h3>LOOP</h3><article><b>结果责任</b><p>理解 · 说明 · 验收 · 观察 · 撤回</p></article><article><b>学习与演进</b><p>修正写回 Context · Eval · Workflow</p></article></div>
           <p class="mobile-responsibility-chain">意图 → 依据 → 委托 → 介入 → 承担 → 学习</p>
         </div>
-        <p class="under-visual">六类责任并非六个岗位；小团队可以兼任，但每项责任必须具名、可检查并可追溯。</p>
+        <p class="under-visual">六类责任是责任全集；高风险、跨团队与长期工作流完整记录，低风险短任务可以合并责任，但保留结果责任与必要证据。</p>
       </div>
-      <aside class="speaker-note">六类责任描述团队成员工作的重心，而不是新增六个岗位。Context 对应目标定义与证据判断；Harness 对应委托设计与例外处理；Loop 对应结果责任与学习演进。委托设计发生在执行之前，负责状态契约、节点、真实依赖、工具、权限、预算、验证门和停止条件；例外处理发生在运行期间，负责冲突、低置信、高风险、失败恢复与人工接管；结果责任要求具名负责人理解并说明关键选择，完成验收、发布、观察、修订或撤回；学习与演进把已确认的失败、人工修正和业务结果写回 Context、评估集与工作流版本。Joway 所称“尽职编程”在本框架中是六类责任的综合表现，不单独构成第七类责任。六类责任是本文综合判断，不是外部来源提出的统一岗位模型。</aside>
+      <aside class="speaker-note">六类责任描述团队成员工作的重心，不是新增六个岗位。Context 对应目标定义与证据判断；Harness 对应委托设计与例外处理；Loop 对应结果责任与学习演进。高风险、跨团队和长期工作流应完整记录责任链；低风险短任务可以由同一人合并多项责任并简化记录，但不能取消结果责任和必要证据。同一个 Agent 不应同时生成、验收并批准自己的结果。Joway 所称“尽职编程”是六类责任的综合表现，不单独构成第七类责任。Arvind Jain 提出 AI 转型需要明确所有权，并将 CAIO 作为一种常见组织形式；本文仅吸收具名所有权这一原则，不将 CAIO 设为必要岗位。六类责任是本文综合判断，不是外部来源提出的统一岗位模型。来源：https://x.com/jainarvind/status/2094901374714597630</aside>
     </section>
 
-    <section class="slide ink chapter-slide" id="slide-19" data-title="权限扩大必须通过结果证据门槛" aria-hidden="true">
+    <section class="slide ink chapter-slide" id="slide-19" data-title="权限扩大通过联合证据门" aria-hidden="true">
       <div class="slide-inner chapter-cover-composition">
         <div class="chapter-index"><span>03</span><small>TRANSFORMATION PATH</small></div>
         <div class="chapter-copy">
           <p class="kicker">PART THREE · EVIDENCE-GATED AUTHORITY</p>
-          <h2>权限扩大必须通过<br><span>结果证据门槛</span></h2>
-          <p class="explanation light-copy">自动化权限不是按时间自然增加。只有结果可靠、失败可恢复且人类责任容量足够时，工作流才适合进入下一层级。</p>
+          <h2>权限扩大通过<br><span>联合证据门</span></h2>
+          <p class="explanation light-copy">自动化权限按证据晋级。结果证据、可恢复性和人类批准与接管能力，是不可相互补偿的必要条件。</p>
         </div>
-        <svg class="chapter-visual authority-formula" viewBox="0 0 700 555" role="img" aria-label="结果可靠性、可恢复性和人类责任容量共同决定可扩大权限，并按影响范围和可逆性分流">
+        <svg class="chapter-visual authority-formula" viewBox="0 0 700 555" role="img" aria-label="结果证据、可恢复性和人类批准与接管能力三项不可相互补偿的条件共同决定权限是否扩大">
           <text x="350" y="75" text-anchor="middle" fill="#9beef4" font-size="18" letter-spacing="3">AUTHORITY GATE</text>
           <rect x="72" y="118" width="556" height="102" rx="30" fill="#fff" fill-opacity=".10" stroke="#27d4e3" stroke-width="3"/><text x="350" y="180" text-anchor="middle" fill="#fff" font-size="34" font-weight="800">可扩大权限</text>
-          <text x="350" y="276" text-anchor="middle" fill="#ffac9f" font-size="34" font-weight="800">=</text>
+          <text x="350" y="276" text-anchor="middle" fill="#ffac9f" font-size="22" font-weight="800" letter-spacing="3">AND GATE</text>
           <g fill="#fff" fill-opacity=".10" stroke="#fff" stroke-opacity=".18"><rect x="28" y="320" width="200" height="112" rx="24"/><rect x="250" y="320" width="200" height="112" rx="24"/><rect x="472" y="320" width="200" height="112" rx="24"/></g>
-          <g fill="#fff" text-anchor="middle" font-size="22" font-weight="750"><text x="128" y="369">结果可靠性</text><text x="350" y="369">可恢复性</text><text x="572" y="369">人类责任容量</text></g>
-          <g fill="#c9d8ea" text-anchor="middle" font-size="15"><text x="128" y="402">验收 · 缺陷 · 目标</text><text x="350" y="402">停止 · 回滚 · 接管</text><text x="572" y="402">审批 · 升级 · 负责</text></g>
-          <text x="238" y="386" fill="#27d4e3" font-size="28">×</text><text x="460" y="386" fill="#27d4e3" font-size="28">×</text>
+          <g fill="#fff" text-anchor="middle" font-size="22" font-weight="750"><text x="128" y="369">结果证据</text><text x="350" y="369">可恢复性</text><text x="572" y="369">批准与接管能力</text></g>
+          <g fill="#c9d8ea" text-anchor="middle" font-size="15"><text x="128" y="402">验收 · 缺陷 · 目标</text><text x="350" y="402">停止 · 回滚 · 恢复</text><text x="572" y="402">审批 · 升级 · 接管</text></g>
+          <text x="238" y="386" fill="#27d4e3" font-size="15" font-weight="800">AND</text><text x="460" y="386" fill="#27d4e3" font-size="15" font-weight="800">AND</text>
           <g text-anchor="middle"><text x="128" y="486" fill="#9beef4" font-size="15" font-weight="800">局部可逆</text><text x="128" y="512" fill="#c9d8ea" font-size="13">证据通过后逐步托管</text><text x="350" y="486" fill="#9beef4" font-size="15" font-weight="800">影响面广</text><text x="350" y="512" fill="#c9d8ea" font-size="13">版本确认与人工批准</text><text x="572" y="486" fill="#ffb4a8" font-size="15" font-weight="800">难逆或高风险</text><text x="572" y="512" fill="#c9d8ea" font-size="13">保持人类决定权</text></g>
         </svg>
       </div>
-      <aside class="speaker-note">第三部分以权限晋级条件为中心。该公式是实施判断，不是数学模型。扩大 Agent 权限前，需要同时观察结果可靠性、失败后的恢复能力和人类审批与升级容量；具体行动还要按影响范围与可逆性分流。人类判断并非只出现在流程首尾；冲突、低置信、阻塞、权限不足和高后果行动都可能在运行中触发介入。尽职不等于无限审查：验证深度应随影响范围、不可逆性、数据与权限风险、系统耦合度和变化速度增加。高风险行动不应只依赖提示词要求模型询问，而应在系统上保持不可达，直到批准、证据与版本条件同时成立。模型自报置信度只能作为次级信号。该原则与 OpenAI Agent 指南对工具风险、可逆性和人工监督的建议一致。</aside>
+      <aside class="speaker-note">权限扩大采用联合证据门，而不是可以加权补偿的总分。结果证据、可恢复性、人类批准与接管能力三项必须同时成立；任何一项缺失都不应靠另外两项的高分抵消。具体行动仍按影响范围与可逆性分流。人类判断并非只出现在流程首尾；冲突、低置信、阻塞、权限不足和高后果行动都可能在运行中触发介入。验证深度随影响范围、不可逆性、数据与权限风险、系统耦合度和变化速度增加。高风险行动在批准、证据和目标版本同时满足前，应在系统上保持不可达。模型自报置信度只能作为次级信号。</aside>
     </section>
 
-    <section class="slide ink" id="slide-20" data-title="衡量方式必须覆盖结果、监督负担与风险" aria-hidden="true">
+    <section class="slide ink" id="slide-20" data-title="衡量体系联合观察结果、监督负担与风险" aria-hidden="true">
       <div class="slide-inner metrics-composition">
         <p class="kicker">03.1 · MEASUREMENT SYSTEM</p>
-        <h2>衡量方式必须覆盖<br><span>结果、监督负担与风险</span></h2>
-        <div class="north-star"><small>NORTH STAR</small><b>通过验收的工作结果</b><i>÷</i><b>人类监督时间</b></div>
+        <h2>衡量体系联合观察<br><span>结果、监督负担与风险</span></h2>
+        <div class="north-star joint-readout"><small>JOINT READOUT</small><b>结果与真实价值</b><i>+</i><b>监督与等待</b><i>+</i><b>缺陷、越权与恢复</b></div>
         <div class="metric-lanes">
-          <article><span>结果价值</span><p>验收通过 · 业务结果 · 质量缺陷 · 结果写回</p></article>
-          <article><span>单位成本</span><p>模型 + 工具 + 人工复核 + 返工 ÷ 被接受成果</p></article>
-          <article><span>运行健康</span><p>失败单元 · 重试上限 · Gate 阻断 · 轨迹完整</p></article>
-          <article><span>治理风险</span><p>越权 · 注意力队列 · 升级时延 · 回退成功</p></article>
+          <article><span>验收层次</span><p>合同 · 系统 · 一线采用 · 业务 / 学习结果</p></article>
+          <article><span>监督负担</span><p>人工复核 · 等待 · 升级 · 接管</p></article>
+          <article><span>单位成本</span><p>模型 · 工具 · 人工 · 返工 ÷ 对应层次结果</p></article>
+          <article><span>风险与恢复</span><p>缺陷 · 越权 · 回退 · 恢复成功</p></article>
         </div>
-        <p class="under-visual light-copy">Agent 数量、Token 总量和 AI 参与率是采用指标；只有与基线、质量和风险共同解释，才能支持晋级。</p>
+        <p class="under-visual light-copy">四组指标需要联合解释，不能相互抵消；监督时间是需要优化的成本，不是应被无条件压低的目标。</p>
       </div>
-      <aside class="speaker-note">衡量体系属于实施建议。北极星指标将可接受结果与人类监督负担同时纳入；单位被接受成果成本还需要计入模型、工具、人工复核和返工。多 Agent 并发还会形成等待人处理的注意力队列，应按影响范围、阻塞关系、待批准状态和时限排序，并观察高优先级等待时长、积压和升级时延。Review 的有效性应结合有效问题闭环、闸门后缺陷逃逸、无证据覆盖、重复问题和修复时延判断；同时按风险设定最大轮次、时间与证据停止条件，避免递归审查持续制造低价值问题。评论数量、轮次或耗时不能单独证明审查充分。测试数量、测试代码比例和绿色通过率同样不是质量本身，还应观察 Gate 能否识别静默错误、同类问题是否复发、交付状态是否一致，以及真实用户是否收到被验收的产物。Gate 阻断率为零可能表示上游质量较高，也可能表示检查无效，必须结合错误逃逸和人工抽检。Tw93 的 Mole 长帖提供静默错误与回归闭环案例；David Ondrej 的文章提供状态优先级与停止审查的个人实践。两者均不作为效果证明或团队 KPI。</aside>
+      <aside class="speaker-note">衡量体系不采用单一北极星比率。合同验收说明约定交付物是否满足，系统验收说明技术状态是否成立，一线采用说明成员是否在真实工作中使用，业务或学习结果说明预期价值是否发生；四者不能互相替代。结果、监督负担、单位成本和风险恢复需要联合观察，且不能用一项改善抵消另一项失守。监督时间是需要优化的成本，但高风险任务所需的判断与批准不能被无条件压低。Agent 数量、Token 总量和 AI 参与率只说明采用程度。Review 评论量、测试数量、绿色通过率和 Gate 阻断率也需与错误逃逸、人工抽检、恢复结果及真实交付共同解释。Arvind Jain 提出应衡量结果而非活动量，与本页方向一致；其文中关于客户节省工作时间的数字未说明完整计算口径，因此不作为本页量化证据。来源：https://x.com/jainarvind/status/2094901374714597630</aside>
     </section>
 
 <section class="slide paper" id="slide-21" data-title="可持续转型依赖五类可迁移资产" aria-hidden="true">
@@ -435,7 +435,7 @@
         </div>
         <p class="under-visual">模型可以替换；组织只保存支持复现、问责与学习所需的最小资产，并确保可导出。</p>
       </div>
-      <aside class="speaker-note">本页回答可持续能力建设问题，并与下一页时间路线区分。每一条真实任务都应留下五类可迁移资产，但记录范围需要遵守目的限定、数据最小化、访问权限、有效期和删除要求。建议以最小运行记录连接这些资产：task、attempt、Agent/Skill/Model、tools/permissions、change、tests/evidence、human intervention、result、cost、approval。重大架构选择可用短 ADR 保存当时 Context、决定、原因和后果；决定变化时新增取代记录，不重写历史。一次真实失败应尽量留下失败样本与回归测试、原因和边界规则、可复用 Skill 或 Gate、批准与恢复记录、用户影响和修正结果。短纠错边修复本轮失败单元；长学习边改变下一轮 Context、评估集和工作流约束。Alex Lieberman 的清单支持将具体运行与反馈关联；David Ondrej 的文章提供 ADR 实践。两者属于作者观点，不构成效果证明。Graph Spec、State Schema、Checkpoint 和失败轨迹分别进入既有资产，不新增第六类资产。</aside>
+      <aside class="speaker-note">五类资产回答长期积累什么，下一页路线图回答按什么顺序实施。每一条真实任务都应留下五类可迁移资产，但记录范围需要遵守目的限定、数据最小化、访问权限、有效期和删除要求。建议以最小运行记录连接这些资产：task、attempt、Agent/Skill/Model、tools/permissions、change、tests/evidence、human intervention、result、cost、approval。重大架构选择可用短 ADR 保存当时 Context、决定、原因和后果；决定变化时新增取代记录，不重写历史。一次真实失败应尽量留下失败样本与回归测试、原因和边界规则、可复用 Skill 或 Gate、批准与恢复记录、用户影响和修正结果。短纠错边修复本轮失败单元；长学习边改变下一轮 Context、评估集和工作流约束。Alex Lieberman 的清单支持将具体运行与反馈关联；David Ondrej 的文章提供 ADR 实践。两者属于作者观点，不构成效果证明。Graph Spec、State Schema、Checkpoint 和失败轨迹分别进入既有资产，不新增第六类资产。</aside>
     </section>
 
     <section class="slide paper" id="slide-22" data-title="改造计划从共享语言推进到可迁移运行" aria-hidden="true">
@@ -449,7 +449,8 @@
           <g text-anchor="middle" fill="#071428" font-size="18"><text x="105" y="300">共同语言</text><text x="285" y="300">只读状态链</text><text x="465" y="300">确认后写回</text><text x="650" y="300">Trigger 影子</text><text x="850" y="300">受控 Action Loop</text><text x="1080" y="300">可迁移规模化</text></g>
           <g text-anchor="middle" fill="#68788b" font-size="15"><text x="105" y="330">第1-2周</text><text x="285" y="330">第3-4周</text><text x="465" y="330">第2月</text><text x="650" y="330">第3月</text><text x="850" y="330">第4-6月</text><text x="1080" y="330">第7-12月</text></g>
           <text x="620" y="390" text-anchor="middle" fill="#596a7e" font-size="17">每次晋级都以真实任务回放、人工责任容量与回退能力为条件</text>
-          <text x="850" y="427" text-anchor="middle" fill="#2557c9" font-size="14" font-weight="800">M4 验收：Graph / State 契约 · 失败域隔离 · 并发预算 · 单一合并 / 发布 Owner</text>
+          <text x="620" y="417" text-anchor="middle" fill="#2557c9" font-size="14" font-weight="800">M4 验收：Graph / State 契约 · 失败域隔离 · 并发预算 · 单一合并 / 发布 Owner</text>
+          <text x="620" y="448" text-anchor="middle" fill="#0a8894" font-size="13" font-weight="800">M5 验收：内部 Owner 独立运行 · 识别失败 · 恢复 · 修改 · 重新评估 · 停用</text>
         </svg>
         <div class="mobile-diagram mobile-roadmap" aria-label="移动端十二个月改造路线">
           <ol>
@@ -461,9 +462,10 @@
             <li><b>M5</b><span>可迁移规模化</span><small>第 7–12 月</small></li>
           </ol>
           <p><b>M4 验收</b><span>Graph / State 契约 · 失败域隔离 · 并发预算 · 单一合并 / 发布 Owner</span></p>
+          <p><b>M5 验收</b><span>内部 Owner 独立运行 · 识别失败 · 恢复 · 修改 · 重新评估 · 停用</span></p>
         </div>
       </div>
-      <aside class="speaker-note">路线图属于实施建议，不是第二套成熟度等级。L1-L5 描述一条工作流当前具备的能力，M0-M5 描述改造实施顺序。M0 定义共同状态语言和基线；M1 建立只读可追溯链；M2 允许具名确认后的状态写回；M3 对触发条件影子告警，并让独立 Review Agent 以只读方式运行，测量有效发现、误报、漏报和人工处理成本；M4 只将经过验证的高风险规则设为强制门，并运行一条受控 Action Loop。并发修改同一仓库时，不同 Agent 使用隔离 checkout 或 worktree 与独立分支，由单一 merge/publish Owner 依次完成合并、固定 SHA 验收、CI、部署和健康检查；只有冲突、回退与发布锁演练通过后才提高并发宽度。M5 检验 Context、Benchmark 和运行记录能否跨模型或 Harness 迁移。David Ondrej 的公开 Skills 可验证 worktree 与 guardrail 流程存在，但不能证明其个人效率或适用于所有团队。</aside>
+      <aside class="speaker-note">路线图是实施顺序，不是第二套成熟度等级。L1-L5 描述一条工作流当前具备的能力，M0-M5 描述改造先后。M0 定义共同状态语言和基线；M1 建立只读可追溯链；M2 允许具名确认后的状态写回；M3 进行触发条件和独立 Review 的影子运行；M4 只将经过验证的高风险规则设为强制门，并运行一条受控 Action Loop。M5 不只检查文件能否导出或模型能否替换，还要完成供应商退出测试：内部 Owner 能独立解释契约、运行工作流、识别失败、接管与恢复、修改规则、重新评估并在必要时停用。若这些能力仍依赖外部供应商，工作流尚未成为组织能力。</aside>
     </section>
 
     <section class="slide blue" id="slide-23" data-title="首个试点应打通一条真实纵向链路" aria-hidden="true">
@@ -494,18 +496,18 @@
       <aside class="speaker-note">建议选择一条正在发生、风险可控的真实功能，不建设全公司大图谱。试点需要同时完成三项证明：一线成员在真实任务中获得可观察收益，而非只满足管理层的采购意图；内部业务 Owner 与工程 Owner 能独立理解、运行、恢复和改进工作流；固定 SHA、构建或签名产物、线上文件和用户实际收到的版本保持一致。工程负责人仍需解释关键设计、兼容性、副作用、未覆盖情形、回退方式和结果指标；说明文档用于支持审查，不替代真实验收。Khazix 的 FDE 访谈支持“管理层采购不等于组织采用”这一风险假设，Tw93 的 Mole 长帖支持区分源码、提交、产物、线上文件和用户实际版本。两篇均属于实践材料，不构成普遍效果证明。</aside>
     </section>
 
-    <section class="slide paper summary-slide" id="slide-24" data-title="本次分享需要形成三个组织决策" aria-hidden="true">
+    <section class="slide paper summary-slide" id="slide-24" data-title="本次分享形成三个组织决策" aria-hidden="true">
       <div class="slide-inner summary-composition">
         <p class="kicker ink">SUMMARY · THREE DECISIONS</p>
-        <h2>本次分享需要形成<br><span>三个组织决策</span></h2>
+        <h2>本次分享形成<br><span>三个组织决策</span></h2>
         <div class="decision-grid">
           <article><em>01</em><b>选择一条真实纵向链路</b><p>选择正在发生、风险可控且结果可观察的功能，不建设全公司知识图谱。</p></article>
           <article><em>02</em><b>定义共同工作契约</b><p>明确证据、约束、验收、Outcome Owner、Approver、观察窗口和回退条件。</p></article>
-          <article><em>03</em><b>建立基线与晋级门槛</b><p>测量通过验收的结果、人工监督时间、错误与恢复；达到门槛后再扩大权限。</p></article>
+          <article><em>03</em><b>建立基线与晋级门槛</b><p>分别记录合同、系统、采用与结果证据，并建立监督、错误和恢复基线。</p></article>
         </div>
         <p class="summary-conclusion">如果这三项不能明确，增加 Agent 数量只能说明采用扩大，不能证明组织能力已经形成。</p>
       </div>
-      <aside class="speaker-note">总结不再重复概念，而是要求形成三个决策。第一，确定一条真实纵向链路。第二，为这条链路定义共同工作契约和具名责任。第三，建立结果、监督、错误与恢复基线，并据此设置权限晋级门槛。下一页提供四个长期检验问题。</aside>
+      <aside class="speaker-note">三个组织决策构成试点起点：确定一条真实纵向链路；为这条链路定义共同工作契约和具名责任；分别记录合同验收、系统验收、一线采用与业务或学习结果，并建立监督、错误与恢复基线。权限扩大需通过三项不可相互补偿的联合证据门。</aside>
     </section>
 
     <section class="slide dark closing-slide" id="slide-25" data-title="AI Native 团队以组织复现能力接受检验" aria-hidden="true">
@@ -520,7 +522,7 @@
         </div>
         <div class="closing-meta"><span>辛海洋</span><span>2026年8月31日</span><span>可可乐博</span><a href="./downloads/AI_Native团队的组织改造_文字解读_20260831.pdf" target="_blank" rel="noopener">配套文字解读 PDF ↗</a></div>
       </div>
-      <aside class="speaker-note">结论回到组织能力，而不是工具数量。判断转型是否成立，应观察工作能否复现、证据能否追溯、失败能否恢复、新证据能否更新决策。Uber 的数据与 Ashwin 的架构判断都具有适用边界；本次分享建议从一条真实纵向链路开始验证。</aside>
+      <aside class="speaker-note">判断转型是否成立，应观察工作能否复现、证据能否追溯、失败能否恢复、新证据能否更新决策。Uber 的数据与 Ashwin 的架构判断都具有适用边界；可可乐博应从一条真实纵向链路开始验证，而不是以工具数量或自动化比例代替组织能力。</aside>
     </section>
   </main>
 
@@ -528,7 +530,7 @@
   <footer class="controls">
     <button data-action="prev" type="button" aria-label="上一张">←</button>
     <button data-action="next" type="button" aria-label="下一张">→</button>
-    <div><strong id="current-number">01</strong> / <span id="total-number">21</span></div>
+    <div><strong id="current-number">01</strong> / <span id="total-number">25</span></div>
     <span class="spacer"></span>
     <button data-action="notes" type="button">备注</button>
     <button data-action="help" type="button" aria-label="帮助">?</button>
