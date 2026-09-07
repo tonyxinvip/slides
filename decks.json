@@ -1,5 +1,26 @@
 [
   {
+    "slug": "teacher-agent-creators-8min",
+    "title": "From AI Tool Users to AI Agent Creators · 8-minute edition",
+    "eyebrow": "UNESCO · PRACTICE & RESEARCH",
+    "summary": "联合国教科文组织演讲精简版：13页，约8分钟。先实践、后学术；保留完整提示句、英文演讲稿与中文记忆提示。英中法三语。",
+    "cover": "./assets/covers/teacher-agent-creators.svg",
+    "author": "辛海洋",
+    "publishedAt": "2026-09-07",
+    "eventDate": "2026-09-08",
+    "eventVenue": "UNESCO 总部，巴黎",
+    "eventKind": "活动",
+    "tags": [
+      "Education",
+      "Research",
+      "Teacher AI"
+    ],
+    "slideCount": 13,
+    "durationMinutes": 8,
+    "access": "public",
+    "featured": true
+  },
+  {
     "slug": "teacher-agent-creators",
     "title": "From AI Tool Users to AI Agent Creators",
     "eyebrow": "BOUNDARY LEARNING · TEACHER AI",

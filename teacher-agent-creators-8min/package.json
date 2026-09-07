@@ -1,0 +1,5 @@
+{
+  "name": "teacher-agent-creators-8min",
+  "private": true,
+  "scripts": { "dev": "node preview.mjs" }
+}

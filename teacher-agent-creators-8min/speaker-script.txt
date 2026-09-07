@@ -1,0 +1,60 @@
+UNESCO Digital Learning Week 2026 — 8-minute edition
+13 slides | Practice first, research second
+
+English script: 787 words. Budget: 8:00, including transitions. Rehearse at your own pace; the schedule is an estimate, not a measured recording.
+The English delivery script and Chinese recall cues are also available in Notes on every slide.
+
+01. From AI Tool Users to  AI Agent Creators | 00:00–00:20
+中文提示：开场：我今天先讲实践，再讲研究。
+Good morning. I’m Haiyang Xin from CocoRobo. We help teachers create pedagogical AI agents. Today I’ll share two perspectives: first, how we organized this work in practice; then, what our research suggests about teacher learning and agency.
+
+02. Who decides how AI participates? | 00:20–00:50
+中文提示：核心问题：AI开始参与教学，谁来决定它怎么参与？两部分只在这里预告。
+Our question is simple: when AI starts guiding students and giving feedback, who decides what it should do? Teachers need more than the ability to operate a tool. They need to shape its role in learning. I’ll begin with the practical work, so you can see what teachers actually did before we discuss the research.
+
+03. A year of building, testing and redesign | 00:50–01:35
+中文提示：实践开始：1000+是触达，12个月三轮；不要讲成三年。
+The programme ran from April twenty twenty-five to April twenty twenty-six. Its implementation reached over one thousand teachers across four Shenzhen districts and partner schools. We began with prompts and first agents, expanded into subject communities and multi-agent workflows, and then examined design traces and continued participation. Each round informed the next. That one-thousand figure describes reach; I’ll explain the research evidence separately in the second part.
+
+04. Support continues beyond the workshop | 01:35–02:15
+中文提示：支持体系：区—校—学科—课堂；教师反复做、试、改。
+The practical unit was a support system. District workshops connected with school-based seed teachers, subject communities and classroom trials. Teachers could build an agent, test it, share it with colleagues and revise it. This matters because the difficult questions often appear after the workshop, when an agent meets a real lesson. Continuing support gives teachers somewhere to bring those questions and improve their designs.
+
+05. Biology: support inquiry and preserve judgment | 02:15–03:00
+中文提示：具体案例：生物探究。AI辅助诊断和改进，探究与判断由人保留。
+Here is a biology inquiry example from a school seminar. The AI supported diagnosis and design refinement, without producing the final answer. The teacher’s work was to define what kind of help the agent could give, while keeping inquiry and judgment with people. This is a concrete design decision: assistance has a purpose and a limit. The example illustrates classroom practice; it is not, by itself, evidence of improved student learning.
+
+06. Different subjects need different AI roles | 03:00–03:40
+中文提示：另两个案例：口语扩展反馈能力；信息技术防止认知外包。实践部分到此结束。
+In speaking assessment, multi-agent workflows expanded opportunities for practice and feedback, while teachers retained the standards and final judgment. In information technology, teachers designed scaffolds while guarding against cognitive outsourcing. These examples serve different teaching purposes. Their common feature is that teachers configure the contribution of AI and protect the work people still need to do. That completes the practical perspective.
+
+07. What did we study about teacher learning? | 03:40–04:15
+中文提示：明确转场：下面转向学术。三批坪山教师、多源数据；研究的是教师学习。
+Now I’ll turn to the academic perspective. The systematic evidence comes from three Pingshan cohorts. We examined agent artifacts, workflows and revisions, alongside platform logs, surveys, presentations and interviews. These sources help us study how teachers design and participate. They do not establish causal gains in student learning. With that scope clear, I’ll highlight two findings and the framework we are developing.
+
+08. Creating agents makes pedagogy visible | 04:15–05:00
+中文提示：发现一：创设让隐性教学判断显性化；看作品和修改，而不只问自信。
+The first finding concerns learning through creation. Building an agent asks teachers to make their teaching judgments explicit: what should it do, in what sequence, and with what limits? Testing and revision then make those choices available for reflection. We can examine the integration of AI, pedagogy and subject knowledge in the design itself. This gives us evidence of competence beyond asking teachers how confident they feel about using AI.
+
+09. Creation needs continuing support | 05:00–05:40
+中文提示：发现二：培训后参与分化。能力之外，还要时间、同伴、学校支持。
+The second finding is about participation. After training, teachers showed different patterns: active creation, browsing, or low engagement. The studies also point to autonomy, competence, relatedness and school support. So knowing how to build an agent is only part of the story. Teachers need time, colleagues and a setting in which creation can continue. This connects the research back to the support system I described earlier.
+
+10. Boundary Learning: deciding how AI participates | 05:40–06:25
+中文提示：现在才提出边界学习：任务、模型、责任、配置。这是发展中的框架。
+These studies lead us to an emerging framework called Boundary Learning. It brings together four judgments. First, where is AI useful for the task? Second, what can the model actually do, and where does it fail? Third, which responsibilities belong to teachers, students and peers? Fourth, how do we turn those judgments into roles, constraints and timing? This is a working synthesis, still under development, rather than a fully validated theory.
+
+11. Good AI design protects students’ thinking | 06:25–07:05
+中文提示：把框架讲具体：先尝试、先同伴、必要时关闭AI。这里是设计启示，不是新增实验结果。
+The framework becomes concrete in design choices. If AI gives answers too early, require a student attempt first. If it replaces student voice, bring in peer critique before AI revision. If it ends a discussion, pause its participation. These are design implications, not additional experimental findings. The aim is to preserve the effort and dialogue that learning requires, and give teachers the authority to make those choices.
+
+12. Three priorities for education systems | 07:05–07:35
+中文提示：收束：做作品、看证据、给支持；让教师有权决定AI的参与。
+For education systems, I would emphasize three priorities. Organize professional learning around creation. Assess the designs and revisions teachers produce. And sustain the time, peer support and decision-making authority they need. Together, these move professional development toward teachers actively shaping how AI participates in education.
+
+13. Teachers shape AI’s role in learning. | 07:35–08:00
+中文提示：最后回到核心问题：AI何时前进、何时退后，教师能决定吗？停顿，致谢。
+I’ll close with the question we began with. Can teachers decide when AI should step forward, and when it should step back? Our practical work builds opportunities to make those decisions. Our research examines how teachers learn to do so. The supporting page has the full evidence and studies. Thank you.
+
+Sources: original 18-slide deck and its linked supporting page.
+https://cocorobo.hk/unesco2026/teacher/
