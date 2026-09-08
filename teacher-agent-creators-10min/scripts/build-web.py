@@ -36,7 +36,7 @@ header=re.sub(r'UNESCO_Teacher_AI_Agents_EN\.(pptx|pdf)',r'UNESCO_Teacher_AI_Age
 if 'class="download-link"' not in header:
     header=header.replace('      <div class="language-switcher"','      <a class="download-link" href="./downloads/UNESCO_Teacher_AI_Agents_EN.pptx" download>PowerPoint ↓</a>\n      <a class="download-link" href="./downloads/UNESCO_Teacher_AI_Agents_EN.pdf" download>PDF ↓</a>\n      <div class="language-switcher"')
 footer='  <div class="progress">'+current.split('  <div class="progress">',1)[1]
-footer=re.sub(r'src="\./i18n\.js(?:\?[^\"]*)?"','src="./i18n.js?v=20260908-cover"',footer)
+footer=re.sub(r'src="\./i18n\.js(?:\?[^\"]*)?"','src="./i18n.js?v=20260908-spacing"',footer)
 footer=footer.replace('</body>','  <script src="./fit-canvas.js"></script>\n</body>') if './fit-canvas.js' not in footer else footer
 sections=[]
 for i,p in enumerate(talk['slides']):
