@@ -1,0 +1,64 @@
+SOURCE RECORD — UNESCO 15-slide edition
+
+The four uploaded source packages are used as evidence of reported practices. The takeaways are interpretations for sharing. Awards, rankings and broad promotional claims are not needed for the argument.
+No student-effect or measurement-validity claims are inferred from these case materials.
+
+01. From AI Tool Users to  AI Agent Creators
+Original 18-slide presentation, slide(s) 1. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/
+Evidence scope follows the original deck. Design implications are not additional experimental findings.
+
+02. Who decides how AI participates?
+Original 18-slide presentation, slide(s) 2–3. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/
+Evidence scope follows the original deck. Design implications are not additional experimental findings.
+
+03. A year of learning, building and testing
+Original 18-slide presentation, slide(s) 4–6. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/
+Evidence scope follows the original deck. Design implications are not additional experimental findings.
+
+04. Shenzhen: access and chances to create
+素材2.pptx, slides 1–2. Institutional source supplied by the presenter as the Shenzhen Municipal Education Bureau material.
+Slide 1 reports launch in August 2023, access for 1,191 primary and secondary schools, 10 approved learning platforms, and 依效付费. It does not define the payment metric. Slide 2 reports three teacher cloud-application contests from 2024, over 2,000 participating teachers and 93 selected works. Reach and selected works are implementation outputs, not estimates of learning effects.
+
+05. Pingshan: help teachers lead AI use
+AI-Empowered_Education（英文168）.pptx, slide 1. Supplied as the Pingshan District Education Bureau case. The existing programme timeline is documented in the original deck, slides 4–7.
+The supplied slide describes three training cohorts, a progression from prompts to teacher-created agents, and a primary English speaking class with instant AI feedback and teacher-set standards. Its 1,000+ training figure is not used as a research sample or added to other reach figures. Awards and claims of national ranking are omitted. The slide mentions a 66-second field case; this talk uses the supplied still image and does not budget a video.
+
+06. Liyuan: teachers help shape the standards
+集团AI成果展示(1).zip → 荔园教育集团AI教育成果展示-英文版.pptx, slide 3; Chinese version, slide 3 embedded process graphic. Teacher support described in slide 2 and PPT稿件中英文版.docx.
+The five-stage process describes expert drafting of a four-level indicator system, scoring by about 50 teachers, finalization by a nine-person research group, AI model and tool development, and classroom testing with revision using teacher feedback. Do not present the design and trial process as established measurement validity. The support system also includes self-study micro-courses, group training, visiting coaching and technical Q&A. International recognition and pilot-school claims are not needed for this takeaway.
+
+07. Bao’an: give each agent a clear job
+案例PPT（罗老师）.pptx, slides 1–2. User identifies this as the Bao’an English subject case. The workflow screenshot credits 罗敏 (Luo Min), 宝安小学（集团）红树林外国语小学.
+TASK means Tasksheets, Assessments, Standards and Key competences. The material describes an oral-assessment model and a CocoRobo workflow with four agents: T supports task design; A combines oral practice and assessment; S matches activities to standards; K provides feedback using data analysis. The figure documents four roles, not a verified linear routing sequence. The talk describes intended functions, not measured assessment accuracy, fairness or student gains.
+
+08. In class, students still need to think
+Original 18-slide presentation, slide(s) 8. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/
+Evidence scope follows the original deck. Design implications are not additional experimental findings.
+
+09. What did we learn from the research?
+Original 18-slide presentation, slide(s) 4, 9–10, 17. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/
+Evidence scope follows the original deck. Design implications are not additional experimental findings.
+
+10. Building agents makes teaching ideas visible
+Original 18-slide presentation, slide(s) 11, 13. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/
+Evidence scope follows the original deck. Design implications are not additional experimental findings.
+
+11. Teachers need support to keep creating
+Original 18-slide presentation, slide(s) 12–13. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/
+Evidence scope follows the original deck. Design implications are not additional experimental findings.
+
+12. Boundary Learning: four questions
+Original 18-slide presentation, slide(s) 3, 14. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/
+Evidence scope follows the original deck. Design implications are not additional experimental findings.
+
+13. Good AI design protects students’ thinking
+Original 18-slide presentation, slide(s) 15. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/
+Evidence scope follows the original deck. Design implications are not additional experimental findings.
+
+14. Three priorities for education systems
+Original 18-slide presentation, slide(s) 16. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/
+Evidence scope follows the original deck. Design implications are not additional experimental findings.
+
+15. Teachers shape AI’s role in learning.
+Original 18-slide presentation, slide(s) 18. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/
+Evidence scope follows the original deck. Design implications are not additional experimental findings.
