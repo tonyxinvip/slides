@@ -41,7 +41,7 @@ function layout(p){
  function image(src,x,y,w,h){el.push({kind:'image',src,x,y,w,h});}
  function header(){
   tx(p.kicker||p.section,72,47,900,22,true,C.blue,{noWrap:true});
-  image('assets/cocorobo-logo.png',1055,42,153,36);
+  image('assets/cocorobo-logo-navy.png',1055,42,153,36);
   tx(p.title,72,110,1136,48,true,C.ink,{noWrap:true,h:80,role:'title'});
  }
  function takeaway(str=p.question){if(str){rect(72,608,1136,1);tx(str,72,626,1136,25,true,C.blue,{h:43});}}
@@ -52,14 +52,14 @@ function layout(p){
   tx(`${String(p.id).padStart(2,'0')} / 36`,1110,684,98,19,true,C.muted,{align:'right',noWrap:true,h:27,role:'footer'});
  }
  if(p.type==='cover'){
-  image('assets/cocorobo-logo.png',72,56,213,51);
+  image('assets/cocorobo-logo-navy.png',72,56,213,51);
   tx('学习的价值 · 人的成长 · 教师的判断',72,155,1100,25,true,C.blue);
   tx(p.title,72,237,1136,80,true,C.ink,{lh:1.18,h:206});
   tx(p.lead.replace('\n',''),72,484,1136,32,false,C.muted);
   rect(72,612,1136,1);
   tx('辛海洋 Tony Xin',72,637,600,27,true);tx('CocoRobo',850,637,358,25,false,C.muted,{align:'right'});
  }else if(p.type==='closing'){
-  image('assets/cocorobo-logo.png',72,47,185,44);
+  image('assets/cocorobo-logo-navy.png',72,47,185,44);
   tx('把问题带回课堂',72,142,900,24,true,C.blue);
   tx('教育要成就什么？',72,232,1136,76,true,C.ink,{noWrap:true,h:114});
   tx(p.lead,72,377,1030,34,false,C.muted,{lh:1.5});
@@ -110,8 +110,8 @@ function layout(p){
 }
 
 // Derive a web-safe raster from the exact, already corrected brand mark.
-const brand=path.resolve(root,'../teacher-agent-creators-10min/assets/cocorobo-full-dark.svg');
-await sharp(brand).resize({width:1200}).png().toFile(path.join(root,'assets/cocorobo-logo.png'));
+const brand=path.resolve(root,'assets/cocorobo-logo-navy.svg');
+await sharp(brand).resize({width:1200}).png().toFile(path.join(root,'assets/cocorobo-logo-navy.png'));
 const models=pages.map(layout);
 await fs.writeFile(path.join(root,'slide-layouts.json'),JSON.stringify(models,null,2)+'\n');
 const issues=[];
@@ -130,7 +130,7 @@ for(const m of models){
 await fs.writeFile(path.join(tmp,'layout-check.json'),JSON.stringify(issues,null,2));
 if(issues.length){console.log(JSON.stringify(issues,null,2));throw new Error(`Resolve ${issues.length} layout warnings before export`);}
 const pres=Presentation.create({slideSize:{width:1280,height:720}});
-const logo=await fs.readFile(path.join(root,'assets/cocorobo-logo.png'));
+const logo=await fs.readFile(path.join(root,'assets/cocorobo-logo-navy.png'));
 for(const m of models){
  const slide=pres.slides.add();slide.background.fill=m.background;
  for(const [i,e] of m.elements.entries()){
