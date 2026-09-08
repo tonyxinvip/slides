@@ -1,0 +1,1105 @@
+{
+  "title": "From AI Tool Users to AI Agent Creators",
+  "version": "2026-09-08-concept-and-visit",
+  "url": "https://tonyxinvip.github.io/slides/teacher-agent-creators-10min/",
+  "supportUrl": "https://cocorobo.hk/unesco2026/teacher/",
+  "apecSource": "https://fao.sz.gov.cn/xxgk/zyxw/content/post_1961390.html",
+  "seconds": 565,
+  "wordCount": 873,
+  "slides": [
+    {
+      "layout": "cover",
+      "theme": "dark",
+      "en": {
+        "title": "From AI Tool Users\nto AI Agent Creators",
+        "kicker": "TEACHER AGENCY · PRACTICE & RESEARCH",
+        "lead": "Helping teachers shape AI support for learning.",
+        "blocks": [],
+        "takeaway": "",
+        "caption": ""
+      },
+      "zh": {
+        "title": "从 AI 工具使用者\n到 AI 智能体创设者",
+        "kicker": "教师能动性 · 实践与研究",
+        "lead": "支持教师设计 AI 如何参与学习。",
+        "blocks": [],
+        "takeaway": "",
+        "caption": ""
+      },
+      "fr": {
+        "title": "Utiliser l’IA.\nCréer des agents.",
+        "kicker": "POUVOIR D’AGIR ENSEIGNANT · PRATIQUE ET RECHERCHE",
+        "lead": "Aider les enseignants à concevoir le rôle de l’IA dans les apprentissages.",
+        "blocks": [],
+        "takeaway": "",
+        "caption": ""
+      },
+      "speech": "Good morning. I’m Haiyang Xin from CocoRobo. We work with teachers to build AI support for learning. Today, I will share what we have done in Shenzhen, and what we have learned.",
+      "cue": "开场：我是辛海洋。分享深圳的实践，以及我们从中学到的东西。",
+      "seconds": 20,
+      "sources": "Original 18-slide presentation, slide(s) 1. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.",
+      "assets": [
+        "teacher-creators.jpeg"
+      ],
+      "number": 1,
+      "start": 0,
+      "end": 20,
+      "note_en": "00:00–00:20 | 20 seconds\n\nGood morning. I’m Haiyang Xin from CocoRobo. We work with teachers to build AI support for learning. Today, I will share what we have done in Shenzhen, and what we have learned.\n\n[Sources]\nOriginal 18-slide presentation, slide(s) 1. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.",
+      "note": "00:00–00:20 | 20s\n中文提示：开场：我是辛海洋。分享深圳的实践，以及我们从中学到的东西。\n\nEnglish speaking script:\nGood morning. I’m Haiyang Xin from CocoRobo. We work with teachers to build AI support for learning. Today, I will share what we have done in Shenzhen, and what we have learned.\n\n[Sources]\nOriginal 18-slide presentation, slide(s) 1. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings."
+    },
+    {
+      "layout": "concept",
+      "theme": "paper",
+      "en": {
+        "title": "What is a pedagogical AI agent?",
+        "kicker": "A SHARED STARTING POINT",
+        "lead": "An AI helper set up for a clear teaching or learning goal.",
+        "blocks": [
+          {
+            "title": "Teachers shape it",
+            "body": "They set its role, materials, steps and limits."
+          },
+          {
+            "title": "It supports learning",
+            "body": "It asks questions, guides practice and gives feedback."
+          },
+          {
+            "title": "Why use one?",
+            "body": "Turn a teaching plan into support that can be tested, reused and revised."
+          }
+        ],
+        "takeaway": "The teacher sets the purpose. The agent provides the agreed support.",
+        "caption": "English speaking practice · Pingshan",
+        "tag": "In our work, “pedagogical” means for teaching and learning."
+      },
+      "zh": {
+        "title": "什么是教学 AI 智能体？",
+        "kicker": "先建立共同理解",
+        "lead": "为明确的教学或学习目标而设置的 AI 助手。",
+        "blocks": [
+          {
+            "title": "教师设计它",
+            "body": "设定角色、材料、步骤和限制。"
+          },
+          {
+            "title": "它支持学习",
+            "body": "提问、引导练习，并提供反馈。"
+          },
+          {
+            "title": "为什么需要？",
+            "body": "将教学计划转成可以测试、复用和修改的学习支持。"
+          }
+        ],
+        "takeaway": "教师设定目的，智能体提供约定的支持。",
+        "caption": "坪山 · 英语口语练习",
+        "tag": "这里的“教学”，指服务于教与学。"
+      },
+      "fr": {
+        "title": "Qu’est-ce qu’un agent d’IA pédagogique ?",
+        "kicker": "UN POINT DE DÉPART COMMUN",
+        "lead": "Une aide d’IA conçue pour un objectif pédagogique précis.",
+        "blocks": [
+          {
+            "title": "L’enseignant le conçoit",
+            "body": "Il définit le rôle, les ressources, les étapes et les limites."
+          },
+          {
+            "title": "Il soutient l’apprentissage",
+            "body": "Il pose des questions, guide la pratique et donne un retour."
+          },
+          {
+            "title": "Pourquoi en créer un ?",
+            "body": "Transformer un projet pédagogique en aide à tester, réutiliser et améliorer."
+          }
+        ],
+        "takeaway": "L’enseignant fixe le but. L’agent fournit l’aide prévue.",
+        "caption": "Pratique de l’anglais oral · Pingshan",
+        "tag": "Ici, « pédagogique » signifie au service de l’enseignement et de l’apprentissage."
+      },
+      "speech": "First, what do I mean by a pedagogical AI agent? It is an AI helper with a clear teaching or learning goal. A teacher sets its role, materials, steps and limits. For example, an English practice agent can ask a question, listen and give feedback. Why use one? It turns a teaching plan into support that students can use. Teachers can test that support, use it again and change it. The purpose comes from the teacher.",
+      "cue": "概念：有明确教学目标的AI助手。教师设角色、材料、步骤、限制。用途：提问、练习、反馈。必要性：把教学计划变成可测试、复用、修改的支持。",
+      "seconds": 55,
+      "sources": "Working definition used in this talk, based on the presenter’s teacher-designed agent programme. This is an operational definition, not a claim that all pedagogical agents have the same architecture or are fully autonomous.\nPhoto and English-class example: Pingshan Education Bureau, AI-Empowered Education source deck, slide 1 (district-s1-img2.jpeg). Reuse and revision are design affordances, not claims of proven learning gains.",
+      "assets": [
+        "pingshan-classroom.webp"
+      ],
+      "number": 2,
+      "start": 20,
+      "end": 75,
+      "note_en": "00:20–01:15 | 55 seconds\n\nFirst, what do I mean by a pedagogical AI agent? It is an AI helper with a clear teaching or learning goal. A teacher sets its role, materials, steps and limits. For example, an English practice agent can ask a question, listen and give feedback. Why use one? It turns a teaching plan into support that students can use. Teachers can test that support, use it again and change it. The purpose comes from the teacher.\n\n[Sources]\nWorking definition used in this talk, based on the presenter’s teacher-designed agent programme. This is an operational definition, not a claim that all pedagogical agents have the same architecture or are fully autonomous.\nPhoto and English-class example: Pingshan Education Bureau, AI-Empowered Education source deck, slide 1 (district-s1-img2.jpeg). Reuse and revision are design affordances, not claims of proven learning gains.",
+      "note": "00:20–01:15 | 55s\n中文提示：概念：有明确教学目标的AI助手。教师设角色、材料、步骤、限制。用途：提问、练习、反馈。必要性：把教学计划变成可测试、复用、修改的支持。\n\nEnglish speaking script:\nFirst, what do I mean by a pedagogical AI agent? It is an AI helper with a clear teaching or learning goal. A teacher sets its role, materials, steps and limits. For example, an English practice agent can ask a question, listen and give feedback. Why use one? It turns a teaching plan into support that students can use. Teachers can test that support, use it again and change it. The purpose comes from the teacher.\n\n[Sources]\nWorking definition used in this talk, based on the presenter’s teacher-designed agent programme. This is an operational definition, not a claim that all pedagogical agents have the same architecture or are fully autonomous.\nPhoto and English-class example: Pingshan Education Bureau, AI-Empowered Education source deck, slide 1 (district-s1-img2.jpeg). Reuse and revision are design affordances, not claims of proven learning gains."
+    },
+    {
+      "layout": "roadmap",
+      "theme": "blue",
+      "en": {
+        "title": "One goal. Two views.",
+        "kicker": "TEACHERS SHAPE AI’S ROLE",
+        "lead": "Teacher agency means having the ability and room to make teaching choices.",
+        "blocks": [
+          {
+            "title": "1 · Practice",
+            "body": "How can a city, a district, a school group and a teacher support this work?"
+          },
+          {
+            "title": "2 · Research",
+            "body": "What do teachers learn as they build agents? What helps them keep creating?"
+          }
+        ],
+        "takeaway": "Our teacher development work: April 2025–April 2026",
+        "caption": "",
+        "metric": "1,000+",
+        "metricLabel": "teachers reached across four Shenzhen districts and partner schools"
+      },
+      "zh": {
+        "title": "一个目标，两个视角。",
+        "kicker": "教师决定 AI 如何参与",
+        "lead": "教师能动性：有能力，也有空间作出教学选择。",
+        "blocks": [
+          {
+            "title": "1 · 实践视角",
+            "body": "城市、区、教育集团与教师，可以怎样推进？"
+          },
+          {
+            "title": "2 · 学术视角",
+            "body": "创设智能体时，教师学到了什么？什么支持持续创设？"
+          }
+        ],
+        "takeaway": "教师发展实践：2025年4月—2026年4月",
+        "caption": "",
+        "metric": "1,000+",
+        "metricLabel": "教师参与，覆盖深圳四个区及合作学校"
+      },
+      "fr": {
+        "title": "Un objectif. Deux regards.",
+        "kicker": "LES ENSEIGNANTS DÉFINISSENT LE RÔLE DE L’IA",
+        "lead": "Le pouvoir d’agir, c’est avoir la capacité et la marge de décision pour enseigner.",
+        "blocks": [
+          {
+            "title": "1 · Pratique",
+            "body": "Comment une ville, un district, un groupe scolaire et un enseignant soutiennent-ils ce travail ?"
+          },
+          {
+            "title": "2 · Recherche",
+            "body": "Qu’apprennent les enseignants en créant des agents ? Comment soutenir leur engagement ?"
+          }
+        ],
+        "takeaway": "Notre travail de formation : avril 2025–avril 2026",
+        "caption": "",
+        "metric": "1 000+",
+        "metricLabel": "enseignants touchés dans quatre districts de Shenzhen et des écoles partenaires"
+      },
+      "speech": "This brings us to teacher agency. In simple words, teachers need the ability and room to make teaching choices. We will look at this in two ways. First, practice: four cases at different levels. Then, research: what teachers learn and what keeps them creating. Our wider teacher development work reached over one thousand teachers across four districts and partner schools.",
+      "cue": "承接概念：教师能动性=有能力、有空间作教学选择。先实践四案例，再研究教师学习。整体工作覆盖四区和合作学校、千余教师。",
+      "seconds": 35,
+      "sources": "Original 18-slide presentation, slide(s) 2–3. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.\nOriginal 18-slide presentation, slide(s) 4–6. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.",
+      "assets": [],
+      "number": 3,
+      "start": 75,
+      "end": 110,
+      "note_en": "01:15–01:50 | 35 seconds\n\nThis brings us to teacher agency. In simple words, teachers need the ability and room to make teaching choices. We will look at this in two ways. First, practice: four cases at different levels. Then, research: what teachers learn and what keeps them creating. Our wider teacher development work reached over one thousand teachers across four districts and partner schools.\n\n[Sources]\nOriginal 18-slide presentation, slide(s) 2–3. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.\nOriginal 18-slide presentation, slide(s) 4–6. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.",
+      "note": "01:15–01:50 | 35s\n中文提示：承接概念：教师能动性=有能力、有空间作教学选择。先实践四案例，再研究教师学习。整体工作覆盖四区和合作学校、千余教师。\n\nEnglish speaking script:\nThis brings us to teacher agency. In simple words, teachers need the ability and room to make teaching choices. We will look at this in two ways. First, practice: four cases at different levels. Then, research: what teachers learn and what keeps them creating. Our wider teacher development work reached over one thousand teachers across four districts and partner schools.\n\n[Sources]\nOriginal 18-slide presentation, slide(s) 2–3. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.\nOriginal 18-slide presentation, slide(s) 4–6. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings."
+    },
+    {
+      "layout": "city",
+      "theme": "paper",
+      "en": {
+        "title": "Shenzhen: access and chances to create",
+        "kicker": "1 · PRACTICE / SHENZHEN MUNICIPAL EDUCATION BUREAU",
+        "lead": "",
+        "blocks": [
+          {
+            "title": "A shared starting point",
+            "body": "Shenjiao AI brings together 10 approved learning platforms."
+          },
+          {
+            "title": "Teachers create applications",
+            "body": "Three city contests drew over 2,000 teachers."
+          }
+        ],
+        "takeaway": "Give teachers access to tools—and chances to build with them.",
+        "caption": "City platform and teacher application contest"
+      },
+      "zh": {
+        "title": "深圳：开放资源，也给教师创作机会",
+        "kicker": "1 · 实践视角 / 深圳市教育局",
+        "lead": "",
+        "blocks": [
+          {
+            "title": "提供共同入口",
+            "body": "深教AI整合了10款经审核入驻的学习平台。"
+          },
+          {
+            "title": "支持教师开发应用",
+            "body": "三届全市教师云应用开发大赛，吸引超过2,000名教师参与。"
+          }
+        ],
+        "takeaway": "提供工具入口，也创造让教师动手设计的机会。",
+        "caption": "市级平台与教师应用开发大赛"
+      },
+      "fr": {
+        "title": "Shenzhen : accès et possibilités de créer",
+        "kicker": "1 · PRATIQUE / BUREAU MUNICIPAL DE L’ÉDUCATION DE SHENZHEN",
+        "lead": "",
+        "blocks": [
+          {
+            "title": "Un point d’accès commun",
+            "body": "Shenjiao AI réunit 10 plateformes d’apprentissage agréées."
+          },
+          {
+            "title": "Les enseignants créent des applications",
+            "body": "Trois concours municipaux ont réuni plus de 2 000 enseignants."
+          }
+        ],
+        "takeaway": "Donner accès aux outils et offrir des occasions de créer.",
+        "caption": "Plateforme municipale et concours d’applications enseignantes"
+      },
+      "speech": "First, the city level. Shenzhen built a shared platform called Shenjiao AI. It brings together ten approved learning platforms. The city also held three contests for teacher-made applications. More than two thousand teachers took part. This gives teachers both access to tools and a chance to create. The lesson for other cities is to connect access with teacher creation.",
+      "cue": "深圳：10个平台共同入口＋三届开发大赛、两千余教师。启示：工具入口与创作机会一起提供。",
+      "seconds": 40,
+      "sources": "素材2.pptx, slides 1–2. Institutional source supplied by the presenter as the Shenzhen Municipal Education Bureau material.\n\nEvidence and interpretation:\nSlide 1 reports launch in August 2023, access for 1,191 primary and secondary schools, 10 approved learning platforms, and 依效付费. It does not define the payment metric. Slide 2 reports three teacher cloud-application contests from 2024, over 2,000 participating teachers and 93 selected works. Reach and selected works are implementation outputs, not estimates of learning effects.\nThe “Lesson to share” is our interpretation of the documented approach, not a measured causal finding.\nImages: Shenzhen Education Bureau source deck, slide 1 (city-s1-img1.png) and slide 2 (city-s2-img4.jpeg).",
+      "assets": [
+        "city-platform.webp",
+        "city-contest.webp"
+      ],
+      "number": 4,
+      "start": 110,
+      "end": 150,
+      "note_en": "01:50–02:30 | 40 seconds\n\nFirst, the city level. Shenzhen built a shared platform called Shenjiao AI. It brings together ten approved learning platforms. The city also held three contests for teacher-made applications. More than two thousand teachers took part. This gives teachers both access to tools and a chance to create. The lesson for other cities is to connect access with teacher creation.\n\n[Sources]\n素材2.pptx, slides 1–2. Institutional source supplied by the presenter as the Shenzhen Municipal Education Bureau material.\n\nEvidence and interpretation:\nSlide 1 reports launch in August 2023, access for 1,191 primary and secondary schools, 10 approved learning platforms, and 依效付费. It does not define the payment metric. Slide 2 reports three teacher cloud-application contests from 2024, over 2,000 participating teachers and 93 selected works. Reach and selected works are implementation outputs, not estimates of learning effects.\nThe “Lesson to share” is our interpretation of the documented approach, not a measured causal finding.\nImages: Shenzhen Education Bureau source deck, slide 1 (city-s1-img1.png) and slide 2 (city-s2-img4.jpeg).",
+      "note": "01:50–02:30 | 40s\n中文提示：深圳：10个平台共同入口＋三届开发大赛、两千余教师。启示：工具入口与创作机会一起提供。\n\nEnglish speaking script:\nFirst, the city level. Shenzhen built a shared platform called Shenjiao AI. It brings together ten approved learning platforms. The city also held three contests for teacher-made applications. More than two thousand teachers took part. This gives teachers both access to tools and a chance to create. The lesson for other cities is to connect access with teacher creation.\n\n[Sources]\n素材2.pptx, slides 1–2. Institutional source supplied by the presenter as the Shenzhen Municipal Education Bureau material.\n\nEvidence and interpretation:\nSlide 1 reports launch in August 2023, access for 1,191 primary and secondary schools, 10 approved learning platforms, and 依效付费. It does not define the payment metric. Slide 2 reports three teacher cloud-application contests from 2024, over 2,000 participating teachers and 93 selected works. Reach and selected works are implementation outputs, not estimates of learning effects.\nThe “Lesson to share” is our interpretation of the documented approach, not a measured causal finding.\nImages: Shenzhen Education Bureau source deck, slide 1 (city-s1-img1.png) and slide 2 (city-s2-img4.jpeg)."
+    },
+    {
+      "layout": "pingshan",
+      "theme": "dark",
+      "en": {
+        "title": "Pingshan: help teachers lead AI use",
+        "kicker": "1 · PRACTICE / PINGSHAN DISTRICT EDUCATION BUREAU",
+        "lead": "",
+        "blocks": [
+          {
+            "title": "Learn, build and improve",
+            "body": "Three groups of teachers moved from prompts to teaching agents."
+          },
+          {
+            "title": "Teachers decide",
+            "body": "In English practice, AI gives feedback. Teachers set the standards."
+          }
+        ],
+        "takeaway": "Help teachers build AI support and decide how to use it.",
+        "caption": "Teachers discuss their agent designs · Pingshan",
+        "steps": [
+          "Write prompts",
+          "Build agents",
+          "Test and revise"
+        ]
+      },
+      "zh": {
+        "title": "坪山：培养能够带领 AI 的教师",
+        "kicker": "1 · 实践视角 / 坪山区教育局",
+        "lead": "",
+        "blocks": [
+          {
+            "title": "三批教师，持续培养",
+            "body": "从编写提示词，走向创设自己的教学智能体。"
+          },
+          {
+            "title": "课堂仍由教师主导",
+            "body": "英语口语课中，AI提供反馈，教师确定评价标准。"
+          }
+        ],
+        "takeaway": "帮助教师设计 AI 支持，也帮助他们决定怎样使用。",
+        "caption": "坪山 · 教师交流智能体设计",
+        "steps": [
+          "编写提示词",
+          "创设智能体",
+          "测试与修改"
+        ]
+      },
+      "fr": {
+        "title": "Pingshan : les enseignants aux commandes",
+        "kicker": "1 · PRATIQUE / BUREAU DE L’ÉDUCATION DE PINGSHAN",
+        "lead": "",
+        "blocks": [
+          {
+            "title": "Former trois cohortes d’enseignants",
+            "body": "Passer des prompts à la création d’agents pédagogiques."
+          },
+          {
+            "title": "Garder la maîtrise de l’enseignement",
+            "body": "En anglais, l’IA donne un retour. Les enseignants fixent les critères."
+          }
+        ],
+        "takeaway": "Aider les enseignants à concevoir l’aide de l’IA et à en décider l’usage.",
+        "caption": "Échanges sur les agents créés · Pingshan",
+        "steps": [
+          "Écrire des prompts",
+          "Créer des agents",
+          "Tester et réviser"
+        ]
+      },
+      "speech": "Access is the first step. Teachers also need ways to learn. In Pingshan, three groups moved from writing prompts to building teaching agents. They shared their designs and improved them. In the English class shown earlier, AI gives feedback. Teachers set the standards. The lesson is to develop teachers as designers who decide how AI should help.",
+      "cue": "从市到区：有入口，还需要教师学习。三批教师，从提示词到智能体；教师交流设计并修改。课堂AI反馈、教师定标准。",
+      "seconds": 40,
+      "sources": "AI-Empowered_Education（英文168）.pptx, slide 1. Supplied as the Pingshan District Education Bureau case. The existing programme timeline is documented in the original deck, slides 4–7.\n\nEvidence and interpretation:\nThe supplied slide describes three training cohorts, a progression from prompts to teacher-created agents, and a primary English speaking class with instant AI feedback and teacher-set standards. Its 1,000+ training figure is not used as a research sample or added to other reach figures. Awards and claims of national ranking are omitted. The slide mentions a 66-second field case; this talk uses the supplied still image and does not budget a video.\nThe “Lesson to share” is our interpretation of the documented approach, not a measured causal finding.\nPhoto: pingshan-training.webp from the original presentation, programme context. It shows teachers discussing designs. The classroom image on slide 2 is the supplied Pingshan case.",
+      "assets": [
+        "pingshan-training.webp"
+      ],
+      "number": 5,
+      "start": 150,
+      "end": 190,
+      "note_en": "02:30–03:10 | 40 seconds\n\nAccess is the first step. Teachers also need ways to learn. In Pingshan, three groups moved from writing prompts to building teaching agents. They shared their designs and improved them. In the English class shown earlier, AI gives feedback. Teachers set the standards. The lesson is to develop teachers as designers who decide how AI should help.\n\n[Sources]\nAI-Empowered_Education（英文168）.pptx, slide 1. Supplied as the Pingshan District Education Bureau case. The existing programme timeline is documented in the original deck, slides 4–7.\n\nEvidence and interpretation:\nThe supplied slide describes three training cohorts, a progression from prompts to teacher-created agents, and a primary English speaking class with instant AI feedback and teacher-set standards. Its 1,000+ training figure is not used as a research sample or added to other reach figures. Awards and claims of national ranking are omitted. The slide mentions a 66-second field case; this talk uses the supplied still image and does not budget a video.\nThe “Lesson to share” is our interpretation of the documented approach, not a measured causal finding.\nPhoto: pingshan-training.webp from the original presentation, programme context. It shows teachers discussing designs. The classroom image on slide 2 is the supplied Pingshan case.",
+      "note": "02:30–03:10 | 40s\n中文提示：从市到区：有入口，还需要教师学习。三批教师，从提示词到智能体；教师交流设计并修改。课堂AI反馈、教师定标准。\n\nEnglish speaking script:\nAccess is the first step. Teachers also need ways to learn. In Pingshan, three groups moved from writing prompts to building teaching agents. They shared their designs and improved them. In the English class shown earlier, AI gives feedback. Teachers set the standards. The lesson is to develop teachers as designers who decide how AI should help.\n\n[Sources]\nAI-Empowered_Education（英文168）.pptx, slide 1. Supplied as the Pingshan District Education Bureau case. The existing programme timeline is documented in the original deck, slides 4–7.\n\nEvidence and interpretation:\nThe supplied slide describes three training cohorts, a progression from prompts to teacher-created agents, and a primary English speaking class with instant AI feedback and teacher-set standards. Its 1,000+ training figure is not used as a research sample or added to other reach figures. Awards and claims of national ranking are omitted. The slide mentions a 66-second field case; this talk uses the supplied still image and does not budget a video.\nThe “Lesson to share” is our interpretation of the documented approach, not a measured causal finding.\nPhoto: pingshan-training.webp from the original presentation, programme context. It shows teachers discussing designs. The classroom image on slide 2 is the supplied Pingshan case."
+    },
+    {
+      "layout": "liyuan",
+      "theme": "paper",
+      "en": {
+        "title": "Liyuan: teachers shape the standards",
+        "kicker": "1 · PRACTICE / LIYUAN EDUCATION GROUP, FUTIAN",
+        "lead": "",
+        "blocks": [
+          {
+            "title": "Agree on the criteria",
+            "body": "Experts draft indicators. Teachers rate them. The team finalizes the set."
+          },
+          {
+            "title": "Build, test and revise",
+            "body": "Turn the criteria into an AI analysis tool. Try it in class and use teacher feedback."
+          }
+        ],
+        "takeaway": "Involve teachers in the standards that guide AI.",
+        "caption": "Teachers develop shared practices · Liyuan"
+      },
+      "zh": {
+        "title": "荔园：让教师参与制定评价标准",
+        "kicker": "1 · 实践视角 / 福田区荔园教育集团",
+        "lead": "",
+        "blocks": [
+          {
+            "title": "共同形成标准",
+            "body": "专家初拟指标，教师参与评分，课题组复核定稿。"
+          },
+          {
+            "title": "转化、试用、再修改",
+            "body": "将标准转成AI分析工具，在课堂试用，并根据教师反馈修改。"
+          }
+        ],
+        "takeaway": "让教师参与制定 AI 据以评价的标准。",
+        "caption": "荔园 · 教师共同研讨与设计"
+      },
+      "fr": {
+        "title": "Liyuan : les enseignants contribuent aux critères",
+        "kicker": "1 · PRATIQUE / GROUPE SCOLAIRE LIYUAN, FUTIAN",
+        "lead": "",
+        "blocks": [
+          {
+            "title": "Définir les critères ensemble",
+            "body": "Des experts les proposent. Les enseignants les évaluent. L’équipe les finalise."
+          },
+          {
+            "title": "Créer, tester et réviser",
+            "body": "Transformer les critères en outil d’analyse IA. Le tester en classe et recueillir les retours."
+          }
+        ],
+        "takeaway": "Associer les enseignants aux critères qui guident l’IA.",
+        "caption": "Des pratiques conçues ensemble · Liyuan"
+      },
+      "speech": "Skills matter. Shared standards matter too. At Liyuan Education Group, experts first drafted classroom criteria. Teachers rated them. The team reviewed the results and agreed on the final set. These criteria became an AI tool for classroom observation. The team tried it in lessons and revised it with teacher feedback. The lesson is to involve teachers in the standards that guide AI.",
+      "cue": "从区到集团：不只培训技能，还共同定标准。专家初拟、教师评分、团队定稿、开发工具、课堂试用。",
+      "seconds": 45,
+      "sources": "集团AI成果展示(1).zip → 荔园教育集团AI教育成果展示-英文版.pptx, slide 3; Chinese version, slide 3 embedded process graphic. Teacher support described in slide 2 and PPT稿件中英文版.docx.\n\nEvidence and interpretation:\nThe five-stage process describes expert drafting of a four-level indicator system, scoring by about 50 teachers, finalization by a nine-person research group, AI model and tool development, and classroom testing with revision using teacher feedback. Do not present the design and trial process as established measurement validity. The support system also includes self-study micro-courses, group training, visiting coaching and technical Q&A. International recognition and pilot-school claims are not needed for this takeaway.\nThe “Lesson to share” is our interpretation of the documented approach, not a measured causal finding.\nPhoto: Liyuan Education Group source deck, slide 2 (group-s2-img3.jpeg, teacher collaboration). The five-stage process is documented in slide 3.",
+      "assets": [
+        "liyuan-collaboration.webp"
+      ],
+      "number": 6,
+      "start": 190,
+      "end": 235,
+      "note_en": "03:10–03:55 | 45 seconds\n\nSkills matter. Shared standards matter too. At Liyuan Education Group, experts first drafted classroom criteria. Teachers rated them. The team reviewed the results and agreed on the final set. These criteria became an AI tool for classroom observation. The team tried it in lessons and revised it with teacher feedback. The lesson is to involve teachers in the standards that guide AI.\n\n[Sources]\n集团AI成果展示(1).zip → 荔园教育集团AI教育成果展示-英文版.pptx, slide 3; Chinese version, slide 3 embedded process graphic. Teacher support described in slide 2 and PPT稿件中英文版.docx.\n\nEvidence and interpretation:\nThe five-stage process describes expert drafting of a four-level indicator system, scoring by about 50 teachers, finalization by a nine-person research group, AI model and tool development, and classroom testing with revision using teacher feedback. Do not present the design and trial process as established measurement validity. The support system also includes self-study micro-courses, group training, visiting coaching and technical Q&A. International recognition and pilot-school claims are not needed for this takeaway.\nThe “Lesson to share” is our interpretation of the documented approach, not a measured causal finding.\nPhoto: Liyuan Education Group source deck, slide 2 (group-s2-img3.jpeg, teacher collaboration). The five-stage process is documented in slide 3.",
+      "note": "03:10–03:55 | 45s\n中文提示：从区到集团：不只培训技能，还共同定标准。专家初拟、教师评分、团队定稿、开发工具、课堂试用。\n\nEnglish speaking script:\nSkills matter. Shared standards matter too. At Liyuan Education Group, experts first drafted classroom criteria. Teachers rated them. The team reviewed the results and agreed on the final set. These criteria became an AI tool for classroom observation. The team tried it in lessons and revised it with teacher feedback. The lesson is to involve teachers in the standards that guide AI.\n\n[Sources]\n集团AI成果展示(1).zip → 荔园教育集团AI教育成果展示-英文版.pptx, slide 3; Chinese version, slide 3 embedded process graphic. Teacher support described in slide 2 and PPT稿件中英文版.docx.\n\nEvidence and interpretation:\nThe five-stage process describes expert drafting of a four-level indicator system, scoring by about 50 teachers, finalization by a nine-person research group, AI model and tool development, and classroom testing with revision using teacher feedback. Do not present the design and trial process as established measurement validity. The support system also includes self-study micro-courses, group training, visiting coaching and technical Q&A. International recognition and pilot-school claims are not needed for this takeaway.\nThe “Lesson to share” is our interpretation of the documented approach, not a measured causal finding.\nPhoto: Liyuan Education Group source deck, slide 2 (group-s2-img3.jpeg, teacher collaboration). The five-stage process is documented in slide 3."
+    },
+    {
+      "layout": "task",
+      "theme": "paper",
+      "en": {
+        "title": "Bao’an: give each agent a clear job",
+        "kicker": "1 · PRACTICE / ENGLISH · TEACHER LUO MIN",
+        "lead": "",
+        "blocks": [
+          {
+            "title": "T · Task design",
+            "body": "Help the teacher create speaking tasks."
+          },
+          {
+            "title": "A · Practice and assessment",
+            "body": "Act as an AI speaking examiner."
+          },
+          {
+            "title": "S · Standards",
+            "body": "Match activities to the criteria."
+          },
+          {
+            "title": "K · Feedback",
+            "body": "Use learning data to give feedback."
+          }
+        ],
+        "takeaway": "Start with the teaching method. Then give AI clear roles.",
+        "caption": "Ms Luo’s TASK workflow · CocoRobo",
+        "tag": "TASK = Tasksheets · Assessments · Standards · Key competences"
+      },
+      "zh": {
+        "title": "宝安：让每个智能体各有明确分工",
+        "kicker": "1 · 实践视角 / 英语学科 · 罗敏老师",
+        "lead": "",
+        "blocks": [
+          {
+            "title": "T · 命题",
+            "body": "辅助教师设计情景化口语评价任务。"
+          },
+          {
+            "title": "A · 测练",
+            "body": "担任测练结合的AI口语考官。"
+          },
+          {
+            "title": "S · 匹配",
+            "body": "将评价活动与标准进行匹配。"
+          },
+          {
+            "title": "K · 反馈",
+            "body": "通过学习数据分析提供反馈。"
+          }
+        ],
+        "takeaway": "先明确教学方法，再给 AI 安排清楚的角色。",
+        "caption": "罗老师的TASK多智能体工作流 · 可可乐博",
+        "tag": "TASK：任务单 · 评价 · 标准 · 关键能力"
+      },
+      "fr": {
+        "title": "Bao’an : un rôle clair pour chaque agent",
+        "kicker": "1 · PRATIQUE / ANGLAIS · ENSEIGNANTE LUO MIN",
+        "lead": "",
+        "blocks": [
+          {
+            "title": "T · Tâches",
+            "body": "Aider à concevoir les tâches d’expression orale."
+          },
+          {
+            "title": "A · Pratique et évaluation",
+            "body": "Jouer le rôle d’examinateur oral."
+          },
+          {
+            "title": "S · Critères",
+            "body": "Relier les activités aux critères."
+          },
+          {
+            "title": "K · Retour",
+            "body": "Utiliser les données pour fournir un retour."
+          }
+        ],
+        "takeaway": "Partir de la méthode pédagogique, puis définir les rôles de l’IA.",
+        "caption": "Le dispositif TASK de Mme Luo · CocoRobo",
+        "tag": "TASK : tâches · évaluations · critères · compétences clés"
+      },
+      "speech": "Standards become useful when they guide a real task. In Bao’an, Ms Luo designed an English speaking method called TASK. Her workflow has four AI agents. T helps design speaking tasks. A supports practice and assessment. S matches activities to the standards. K gives feedback from learning data. Each has a clear job. Start with the teaching method. Then decide where AI can help.",
+      "cue": "从集团到学科：标准落实到真实任务。罗老师TASK：命题、测练、标准匹配、数据反馈。教学方法在前，AI分工在后。",
+      "seconds": 45,
+      "sources": "案例PPT（罗老师）.pptx, slides 1–2. User identifies this as the Bao’an English subject case. The workflow screenshot credits 罗敏 (Luo Min), 宝安小学（集团）红树林外国语小学.\n\nEvidence and interpretation:\nTASK means Tasksheets, Assessments, Standards and Key competences. The material describes an oral-assessment model and a CocoRobo workflow with four agents: T supports task design; A combines oral practice and assessment; S matches activities to standards; K provides feedback using data analysis. The figure documents four roles, not a verified linear routing sequence. The talk describes intended functions, not measured assessment accuracy, fairness or student gains.\nThe “Lesson to share” is our interpretation of the documented approach, not a measured causal finding.",
+      "assets": [
+        "luo-task.webp"
+      ],
+      "number": 7,
+      "start": 235,
+      "end": 280,
+      "note_en": "03:55–04:40 | 45 seconds\n\nStandards become useful when they guide a real task. In Bao’an, Ms Luo designed an English speaking method called TASK. Her workflow has four AI agents. T helps design speaking tasks. A supports practice and assessment. S matches activities to the standards. K gives feedback from learning data. Each has a clear job. Start with the teaching method. Then decide where AI can help.\n\n[Sources]\n案例PPT（罗老师）.pptx, slides 1–2. User identifies this as the Bao’an English subject case. The workflow screenshot credits 罗敏 (Luo Min), 宝安小学（集团）红树林外国语小学.\n\nEvidence and interpretation:\nTASK means Tasksheets, Assessments, Standards and Key competences. The material describes an oral-assessment model and a CocoRobo workflow with four agents: T supports task design; A combines oral practice and assessment; S matches activities to standards; K provides feedback using data analysis. The figure documents four roles, not a verified linear routing sequence. The talk describes intended functions, not measured assessment accuracy, fairness or student gains.\nThe “Lesson to share” is our interpretation of the documented approach, not a measured causal finding.",
+      "note": "03:55–04:40 | 45s\n中文提示：从集团到学科：标准落实到真实任务。罗老师TASK：命题、测练、标准匹配、数据反馈。教学方法在前，AI分工在后。\n\nEnglish speaking script:\nStandards become useful when they guide a real task. In Bao’an, Ms Luo designed an English speaking method called TASK. Her workflow has four AI agents. T helps design speaking tasks. A supports practice and assessment. S matches activities to the standards. K gives feedback from learning data. Each has a clear job. Start with the teaching method. Then decide where AI can help.\n\n[Sources]\n案例PPT（罗老师）.pptx, slides 1–2. User identifies this as the Bao’an English subject case. The workflow screenshot credits 罗敏 (Luo Min), 宝安小学（集团）红树林外国语小学.\n\nEvidence and interpretation:\nTASK means Tasksheets, Assessments, Standards and Key competences. The material describes an oral-assessment model and a CocoRobo workflow with four agents: T supports task design; A combines oral practice and assessment; S matches activities to standards; K provides feedback using data analysis. The figure documents four roles, not a verified linear routing sequence. The talk describes intended functions, not measured assessment accuracy, fairness or student gains.\nThe “Lesson to share” is our interpretation of the documented approach, not a measured causal finding."
+    },
+    {
+      "layout": "classroom",
+      "theme": "paper",
+      "en": {
+        "title": "AI supports the task. Students still think.",
+        "kicker": "1 · PRACTICE / THE CLASSROOM",
+        "lead": "",
+        "blocks": [
+          {
+            "title": "AI helps",
+            "body": "Ask questions and help improve an inquiry design."
+          },
+          {
+            "title": "Teachers decide",
+            "body": "Set the kind and amount of help."
+          },
+          {
+            "title": "Students think",
+            "body": "Explain their ideas and make a judgment."
+          }
+        ],
+        "takeaway": "Across all four cases, the aim is support that fits teaching and learning.",
+        "caption": "Biology inquiry · Futian Liyuan Primary School"
+      },
+      "zh": {
+        "title": "AI 支持任务，学生仍须思考。",
+        "kicker": "1 · 实践视角 / 回到课堂",
+        "lead": "",
+        "blocks": [
+          {
+            "title": "AI 提供支持",
+            "body": "提问，并支持改进探究设计。"
+          },
+          {
+            "title": "教师决定",
+            "body": "设定支持的方式与程度。"
+          },
+          {
+            "title": "学生思考",
+            "body": "解释自己的想法，作出判断。"
+          }
+        ],
+        "takeaway": "四个案例的共同目标：让支持真正服务于教与学。",
+        "caption": "生物探究 · 福田荔园小学"
+      },
+      "fr": {
+        "title": "L’IA aide. Les élèves réfléchissent.",
+        "kicker": "1 · PRATIQUE / DANS LA CLASSE",
+        "lead": "",
+        "blocks": [
+          {
+            "title": "L’IA aide",
+            "body": "Questionner et améliorer l’enquête."
+          },
+          {
+            "title": "L’enseignant décide",
+            "body": "Définir la nature et la quantité de l’aide."
+          },
+          {
+            "title": "L’élève réfléchit",
+            "body": "Expliquer ses idées et porter un jugement."
+          }
+        ],
+        "takeaway": "Le but commun : une aide adaptée à l’enseignement et aux apprentissages.",
+        "caption": "Enquête en biologie · École primaire Liyuan, Futian"
+      },
+      "speech": "Across these cases, the aim is support that fits the classroom. In this biology example, AI helped students improve an inquiry design. It did not give the final answer. Students still had to explain their ideas and make a judgment. The teacher set the limits. These cases show what we can put in place. But what do teachers learn through this work?",
+      "cue": "实践收束：所有支持最终落到课堂。生物探究中，AI辅助，教师设限，学生解释和判断。过渡：教师在这些实践中学到了什么？",
+      "seconds": 35,
+      "sources": "Original 18-slide presentation, slide(s) 8. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.",
+      "assets": [
+        "biology-inquiry.webp"
+      ],
+      "number": 8,
+      "start": 280,
+      "end": 315,
+      "note_en": "04:40–05:15 | 35 seconds\n\nAcross these cases, the aim is support that fits the classroom. In this biology example, AI helped students improve an inquiry design. It did not give the final answer. Students still had to explain their ideas and make a judgment. The teacher set the limits. These cases show what we can put in place. But what do teachers learn through this work?\n\n[Sources]\nOriginal 18-slide presentation, slide(s) 8. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.",
+      "note": "04:40–05:15 | 35s\n中文提示：实践收束：所有支持最终落到课堂。生物探究中，AI辅助，教师设限，学生解释和判断。过渡：教师在这些实践中学到了什么？\n\nEnglish speaking script:\nAcross these cases, the aim is support that fits the classroom. In this biology example, AI helped students improve an inquiry design. It did not give the final answer. Students still had to explain their ideas and make a judgment. The teacher set the limits. These cases show what we can put in place. But what do teachers learn through this work?\n\n[Sources]\nOriginal 18-slide presentation, slide(s) 8. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings."
+    },
+    {
+      "layout": "evidence",
+      "theme": "dark",
+      "en": {
+        "title": "What did we study about teacher learning?",
+        "kicker": "2 · RESEARCH / THE EVIDENCE",
+        "lead": "Three teacher groups in Pingshan.",
+        "blocks": [
+          {
+            "title": "Designs",
+            "body": "Agents, workflows and revisions"
+          },
+          {
+            "title": "Participation",
+            "body": "Platform use and patterns of engagement"
+          },
+          {
+            "title": "Teacher views",
+            "body": "Surveys, presentations and interviews"
+          }
+        ],
+        "takeaway": "This evidence concerns teacher learning. It does not establish student learning gains.",
+        "caption": "Teacher agent-building session · programme material"
+      },
+      "zh": {
+        "title": "我们怎样研究教师学习？",
+        "kicker": "2 · 学术视角 / 证据",
+        "lead": "对坪山三批教师开展系统性研究。",
+        "blocks": [
+          {
+            "title": "设计证据",
+            "body": "智能体、工作流与修改记录"
+          },
+          {
+            "title": "参与证据",
+            "body": "平台使用与投入模式"
+          },
+          {
+            "title": "教师陈述",
+            "body": "问卷、展示与访谈"
+          }
+        ],
+        "takeaway": "这些证据支持对教师学习的分析，尚不能建立学生学习增益的结论。",
+        "caption": "教师创设智能体 · 项目现场资料"
+      },
+      "fr": {
+        "title": "Comment étudier l’apprentissage enseignant ?",
+        "kicker": "2 · RECHERCHE / LES DONNÉES",
+        "lead": "Trois groupes d’enseignants à Pingshan.",
+        "blocks": [
+          {
+            "title": "Conceptions",
+            "body": "Agents, flux de travail et révisions"
+          },
+          {
+            "title": "Participation",
+            "body": "Usages de la plateforme et engagement"
+          },
+          {
+            "title": "Parole enseignante",
+            "body": "Questionnaires, présentations et entretiens"
+          }
+        ],
+        "takeaway": "Ces données éclairent l’apprentissage enseignant, sans établir des gains chez les élèves.",
+        "caption": "Atelier de création d’agents · documentation du programme"
+      },
+      "speech": "I will now turn to the research. The four cases are examples of practice. Our research evidence comes from three teacher groups in Pingshan. We studied their agents, design changes and platform use. We also used surveys and interviews. This lets us look at both what teachers say and what they do. It does not prove that AI improved student learning.",
+      "cue": "明确进入研究：四个案例是实践展示；研究证据来自坪山三批教师。作品、日志、教师陈述相互补充。不把参与规模当作学习成效。",
+      "seconds": 40,
+      "sources": "Original 18-slide presentation, slide(s) 4, 9–10, 17. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.\nThe four practice cases are not four research cohorts. As reported in the original deck, the research programme includes four accepted conference papers and an ongoing Boundary Learning synthesis. Related preprints: https://arxiv.org/abs/2605.13906 and https://arxiv.org/abs/2605.12934 .\nImage: it-training.jpeg from the original presentation. It illustrates the programme setting, not a chart or additional research result.",
+      "assets": [
+        "it-training.jpeg"
+      ],
+      "number": 9,
+      "start": 315,
+      "end": 355,
+      "note_en": "05:15–05:55 | 40 seconds\n\nI will now turn to the research. The four cases are examples of practice. Our research evidence comes from three teacher groups in Pingshan. We studied their agents, design changes and platform use. We also used surveys and interviews. This lets us look at both what teachers say and what they do. It does not prove that AI improved student learning.\n\n[Sources]\nOriginal 18-slide presentation, slide(s) 4, 9–10, 17. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.\nThe four practice cases are not four research cohorts. As reported in the original deck, the research programme includes four accepted conference papers and an ongoing Boundary Learning synthesis. Related preprints: https://arxiv.org/abs/2605.13906 and https://arxiv.org/abs/2605.12934 .\nImage: it-training.jpeg from the original presentation. It illustrates the programme setting, not a chart or additional research result.",
+      "note": "05:15–05:55 | 40s\n中文提示：明确进入研究：四个案例是实践展示；研究证据来自坪山三批教师。作品、日志、教师陈述相互补充。不把参与规模当作学习成效。\n\nEnglish speaking script:\nI will now turn to the research. The four cases are examples of practice. Our research evidence comes from three teacher groups in Pingshan. We studied their agents, design changes and platform use. We also used surveys and interviews. This lets us look at both what teachers say and what they do. It does not prove that AI improved student learning.\n\n[Sources]\nOriginal 18-slide presentation, slide(s) 4, 9–10, 17. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.\nThe four practice cases are not four research cohorts. As reported in the original deck, the research programme includes four accepted conference papers and an ongoing Boundary Learning synthesis. Related preprints: https://arxiv.org/abs/2605.13906 and https://arxiv.org/abs/2605.12934 .\nImage: it-training.jpeg from the original presentation. It illustrates the programme setting, not a chart or additional research result."
+    },
+    {
+      "layout": "visible",
+      "theme": "blue",
+      "en": {
+        "title": "Building agents makes teaching choices visible",
+        "kicker": "2 · RESEARCH / FINDING 1",
+        "lead": "A teaching idea becomes a design that can be tested and changed.",
+        "blocks": [
+          {
+            "title": "Make choices clear",
+            "body": "What should the agent do? What should the student do?"
+          },
+          {
+            "title": "Learn through testing",
+            "body": "Test it. Discuss what happens. Improve it."
+          }
+        ],
+        "takeaway": "Look at what teachers build and revise, as well as what they report.",
+        "caption": "Teacher-made application · city contest example"
+      },
+      "zh": {
+        "title": "创设智能体，让教学选择变得可见",
+        "kicker": "2 · 学术视角 / 发现一",
+        "lead": "教学想法变成可以测试、修改的设计。",
+        "blocks": [
+          {
+            "title": "把选择说清楚",
+            "body": "智能体做什么？学生保留什么？"
+          },
+          {
+            "title": "通过测试学习",
+            "body": "运行设计，讨论实际表现，再作修改。"
+          }
+        ],
+        "takeaway": "既看教师如何表述，也看他们创设和修改了什么。",
+        "caption": "教师开发的应用 · 市级大赛资料中的示例"
+      },
+      "fr": {
+        "title": "Créer des agents rend les choix visibles",
+        "kicker": "2 · RECHERCHE / RÉSULTAT 1",
+        "lead": "Une idée pédagogique devient une conception à tester et à modifier.",
+        "blocks": [
+          {
+            "title": "Expliciter les choix",
+            "body": "Que fait l’agent ? Que doit faire l’élève ?"
+          },
+          {
+            "title": "Apprendre par les essais",
+            "body": "Tester, discuter le fonctionnement, puis améliorer."
+          }
+        ],
+        "takeaway": "Étudier ce que les enseignants créent et révisent, ainsi que leurs déclarations.",
+        "caption": "Application créée par un enseignant · illustration issue du concours municipal"
+      },
+      "speech": "The first finding is about learning by making. Teachers must explain their choices when they build an agent. What should it do? What should it leave to the student? They can test the design and change it. Their teaching ideas become easier to see and discuss. So we should study what teachers build and revise, as well as what they say.",
+      "cue": "发现一：教学判断变成设计，就能运行、测试、讨论和修改。图为作品示例；研究结论仍来自前页说明的研究。",
+      "seconds": 35,
+      "sources": "Original 18-slide presentation, slide(s) 11, 13. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.\nImage: Shenzhen Education Bureau source deck, slide 2 (city-s2-img5.png). This teacher-made application is an illustration of a design artifact; it is not presented as part of the Pingshan research sample.",
+      "assets": [
+        "teacher-application.webp"
+      ],
+      "number": 10,
+      "start": 355,
+      "end": 390,
+      "note_en": "05:55–06:30 | 35 seconds\n\nThe first finding is about learning by making. Teachers must explain their choices when they build an agent. What should it do? What should it leave to the student? They can test the design and change it. Their teaching ideas become easier to see and discuss. So we should study what teachers build and revise, as well as what they say.\n\n[Sources]\nOriginal 18-slide presentation, slide(s) 11, 13. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.\nImage: Shenzhen Education Bureau source deck, slide 2 (city-s2-img5.png). This teacher-made application is an illustration of a design artifact; it is not presented as part of the Pingshan research sample.",
+      "note": "05:55–06:30 | 35s\n中文提示：发现一：教学判断变成设计，就能运行、测试、讨论和修改。图为作品示例；研究结论仍来自前页说明的研究。\n\nEnglish speaking script:\nThe first finding is about learning by making. Teachers must explain their choices when they build an agent. What should it do? What should it leave to the student? They can test the design and change it. Their teaching ideas become easier to see and discuss. So we should study what teachers build and revise, as well as what they say.\n\n[Sources]\nOriginal 18-slide presentation, slide(s) 11, 13. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.\nImage: Shenzhen Education Bureau source deck, slide 2 (city-s2-img5.png). This teacher-made application is an illustration of a design artifact; it is not presented as part of the Pingshan research sample."
+    },
+    {
+      "layout": "support",
+      "theme": "amber",
+      "en": {
+        "title": "Teachers need support to keep creating",
+        "kicker": "2 · RESEARCH / FINDING 2",
+        "lead": "",
+        "blocks": [
+          {
+            "title": "Some create and revise",
+            "body": "Others explore. Some take little part."
+          },
+          {
+            "title": "Training is only a start",
+            "body": "Choice, skills, belonging and school support matter."
+          }
+        ],
+        "takeaway": "Give teachers time, trusted peers and people they can turn to for help.",
+        "caption": "Teachers reviewing an English-assessment task · programme material"
+      },
+      "zh": {
+        "title": "持续创设，有赖持续支持",
+        "kicker": "2 · 学术视角 / 发现二",
+        "lead": "",
+        "blocks": [
+          {
+            "title": "参与方式不同",
+            "body": "有人创设与修改，有人浏览，也有人很少参与。"
+          },
+          {
+            "title": "培训只是起点",
+            "body": "选择、能力、归属感与学校支持都很重要。"
+          }
+        ],
+        "takeaway": "提供时间、可信赖的同伴，以及遇到问题时可以求助的人。",
+        "caption": "教师讨论英语评价任务 · 项目资料"
+      },
+      "fr": {
+        "title": "Créer dans la durée demande du soutien",
+        "kicker": "2 · RECHERCHE / RÉSULTAT 2",
+        "lead": "",
+        "blocks": [
+          {
+            "title": "Des engagements différents",
+            "body": "Certains créent et révisent. D’autres explorent ou participent peu."
+          },
+          {
+            "title": "La formation est un début",
+            "body": "Le choix, les compétences, les relations et l’école comptent."
+          }
+        ],
+        "takeaway": "Donner du temps, des pairs de confiance et des personnes à qui demander de l’aide.",
+        "caption": "Échanges sur une tâche d’évaluation en anglais · documentation du programme"
+      },
+      "speech": "The second finding is about continued creation. Some teachers kept building and revising. Others mainly explored. Some took little part. Training alone did not make everyone an active creator. The studies point to choice, skills, belonging and school support. Teachers need time and people they can ask for help. Building an agent is one step. Keeping teachers able to create is a longer task.",
+      "cue": "发现二：参加培训不等于持续创设。选择、能力、归属感、学校支持。核心：要持续支持教师，而非只完成一次培训。",
+      "seconds": 40,
+      "sources": "Original 18-slide presentation, slide(s) 12–13. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.\nPhoto: english-assessment.webp from the original presentation, slide 9 classroom example.",
+      "assets": [
+        "english-assessment.webp"
+      ],
+      "number": 11,
+      "start": 390,
+      "end": 430,
+      "note_en": "06:30–07:10 | 40 seconds\n\nThe second finding is about continued creation. Some teachers kept building and revising. Others mainly explored. Some took little part. Training alone did not make everyone an active creator. The studies point to choice, skills, belonging and school support. Teachers need time and people they can ask for help. Building an agent is one step. Keeping teachers able to create is a longer task.\n\n[Sources]\nOriginal 18-slide presentation, slide(s) 12–13. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.\nPhoto: english-assessment.webp from the original presentation, slide 9 classroom example.",
+      "note": "06:30–07:10 | 40s\n中文提示：发现二：参加培训不等于持续创设。选择、能力、归属感、学校支持。核心：要持续支持教师，而非只完成一次培训。\n\nEnglish speaking script:\nThe second finding is about continued creation. Some teachers kept building and revising. Others mainly explored. Some took little part. Training alone did not make everyone an active creator. The studies point to choice, skills, belonging and school support. Teachers need time and people they can ask for help. Building an agent is one step. Keeping teachers able to create is a longer task.\n\n[Sources]\nOriginal 18-slide presentation, slide(s) 12–13. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.\nPhoto: english-assessment.webp from the original presentation, slide 9 classroom example."
+    },
+    {
+      "layout": "boundary",
+      "theme": "dark",
+      "en": {
+        "title": "Boundary Learning: deciding where AI belongs",
+        "kicker": "2 · RESEARCH / A WORKING FRAMEWORK",
+        "lead": "Teachers learn to decide when AI should help—and when it should step back.",
+        "blocks": [
+          {
+            "title": "Task",
+            "body": "Is this a good task for AI?"
+          },
+          {
+            "title": "AI limits",
+            "body": "Can it do the task well?"
+          },
+          {
+            "title": "Responsibility",
+            "body": "Who should make the key decisions?"
+          },
+          {
+            "title": "Design",
+            "body": "What roles, steps and limits should we set?"
+          }
+        ],
+        "takeaway": "Example: if AI answers too soon, ask students to try first.",
+        "caption": "",
+        "tag": "A working framework, still under development."
+      },
+      "zh": {
+        "title": "边界学习：判断 AI 应在哪里参与",
+        "kicker": "2 · 学术视角 / 发展中的框架",
+        "lead": "教师学习判断：AI 何时应该帮助，何时应该退后。",
+        "blocks": [
+          {
+            "title": "任务",
+            "body": "这个任务适合 AI 吗？"
+          },
+          {
+            "title": "AI 的局限",
+            "body": "它能把任务做好吗？"
+          },
+          {
+            "title": "责任",
+            "body": "关键决定应该由谁作出？"
+          },
+          {
+            "title": "设计",
+            "body": "如何设置角色、步骤和限制？"
+          }
+        ],
+        "takeaway": "例如：AI 过早给出答案，就要求学生先尝试。",
+        "caption": "",
+        "tag": "这是工作性框架，仍在发展中。"
+      },
+      "fr": {
+        "title": "Boundary Learning : situer le rôle de l’IA",
+        "kicker": "2 · RECHERCHE / UN CADRE DE TRAVAIL",
+        "lead": "Apprendre à décider quand l’IA doit aider et quand elle doit s’effacer.",
+        "blocks": [
+          {
+            "title": "Tâche",
+            "body": "Cette tâche convient-elle à l’IA ?"
+          },
+          {
+            "title": "Limites de l’IA",
+            "body": "Peut-elle bien la réaliser ?"
+          },
+          {
+            "title": "Responsabilité",
+            "body": "Qui prend les décisions clés ?"
+          },
+          {
+            "title": "Conception",
+            "body": "Quels rôles, étapes et limites définir ?"
+          }
+        ],
+        "takeaway": "Exemple : si l’IA répond trop tôt, demander d’abord un essai à l’élève.",
+        "caption": "",
+        "tag": "Un cadre de travail encore en développement."
+      },
+      "speech": "Together, these findings lead us to a working idea called Boundary Learning. It means learning where AI belongs. We ask four questions. Is the task right for AI? Can it do the task well? Who should make the key decisions? How should we set its roles and limits? For example, if AI answers too soon, ask students to try first. The framework is still developing. Its purpose is to help teachers protect student thinking.",
+      "cue": "发现汇总为边界学习：任务、模型能力、责任、具体设计。例子：AI答太早，就先让学生尝试。框架仍在发展，目的保护学生思考。",
+      "seconds": 50,
+      "sources": "Original 18-slide presentation, slide(s) 3, 14. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.\nOriginal 18-slide presentation, slide(s) 15. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.",
+      "assets": [],
+      "number": 12,
+      "start": 430,
+      "end": 480,
+      "note_en": "07:10–08:00 | 50 seconds\n\nTogether, these findings lead us to a working idea called Boundary Learning. It means learning where AI belongs. We ask four questions. Is the task right for AI? Can it do the task well? Who should make the key decisions? How should we set its roles and limits? For example, if AI answers too soon, ask students to try first. The framework is still developing. Its purpose is to help teachers protect student thinking.\n\n[Sources]\nOriginal 18-slide presentation, slide(s) 3, 14. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.\nOriginal 18-slide presentation, slide(s) 15. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.",
+      "note": "07:10–08:00 | 50s\n中文提示：发现汇总为边界学习：任务、模型能力、责任、具体设计。例子：AI答太早，就先让学生尝试。框架仍在发展，目的保护学生思考。\n\nEnglish speaking script:\nTogether, these findings lead us to a working idea called Boundary Learning. It means learning where AI belongs. We ask four questions. Is the task right for AI? Can it do the task well? Who should make the key decisions? How should we set its roles and limits? For example, if AI answers too soon, ask students to try first. The framework is still developing. Its purpose is to help teachers protect student thinking.\n\n[Sources]\nOriginal 18-slide presentation, slide(s) 3, 14. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.\nOriginal 18-slide presentation, slide(s) 15. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings."
+    },
+    {
+      "layout": "priorities",
+      "theme": "paper",
+      "en": {
+        "title": "Three ways to support teacher agency",
+        "kicker": "WHAT OTHERS CAN TAKE AWAY",
+        "lead": "Teachers shape AI’s role in learning.",
+        "blocks": [
+          {
+            "title": "Create room to build",
+            "body": "Offer access, real teaching tasks and chances to test agents."
+          },
+          {
+            "title": "Learn from designs and revisions",
+            "body": "Use teacher-made work and peer review to guide learning."
+          },
+          {
+            "title": "Support teachers over time",
+            "body": "Provide time and help. Let teachers limit or pause AI."
+          }
+        ],
+        "takeaway": "Support teachers as designers and decision-makers.",
+        "caption": ""
+      },
+      "zh": {
+        "title": "支持教师能动性的三个抓手",
+        "kicker": "可以借鉴的经验",
+        "lead": "教师决定 AI 如何参与学习。",
+        "blocks": [
+          {
+            "title": "创造动手设计的空间",
+            "body": "提供工具入口、真实教学任务与测试机会。"
+          },
+          {
+            "title": "从作品与修改中学习",
+            "body": "用教师作品与同伴评议来支持专业学习。"
+          },
+          {
+            "title": "持续支持教师",
+            "body": "提供时间与帮助，允许教师限制或暂停 AI。"
+          }
+        ],
+        "takeaway": "支持教师成为设计者，也成为决策者。",
+        "caption": ""
+      },
+      "fr": {
+        "title": "Trois pistes pour le pouvoir d’agir enseignant",
+        "kicker": "À RETENIR",
+        "lead": "Les enseignants définissent le rôle de l’IA dans l’apprentissage.",
+        "blocks": [
+          {
+            "title": "Donner les moyens de créer",
+            "body": "Offrir des outils, des tâches réelles et des occasions de tester."
+          },
+          {
+            "title": "Apprendre des créations et révisions",
+            "body": "S’appuyer sur les productions et les échanges entre pairs."
+          },
+          {
+            "title": "Soutenir dans la durée",
+            "body": "Donner du temps et de l’aide. Permettre de limiter ou suspendre l’IA."
+          }
+        ],
+        "takeaway": "Accompagner les enseignants comme concepteurs et décideurs.",
+        "caption": ""
+      },
+      "speech": "So what can others take away? First, give teachers access and real chances to build. Second, use their designs, tests and revisions as part of professional learning. Third, provide support over time, and let teachers limit or pause AI. These lessons connect our practice and research. They help teachers become both designers and decision-makers.",
+      "cue": "收束实践与研究：能动手做、从作品与修改中学习、长期有支持且能决定AI边界。教师是设计者和决策者。",
+      "seconds": 35,
+      "sources": "Original 18-slide presentation, slide(s) 16. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.\nThe three recommendations synthesize the four supplied practice cases and the reported teacher-learning studies. They are recommendations, not additional measured outcomes.",
+      "assets": [],
+      "number": 13,
+      "start": 480,
+      "end": 515,
+      "note_en": "08:00–08:35 | 35 seconds\n\nSo what can others take away? First, give teachers access and real chances to build. Second, use their designs, tests and revisions as part of professional learning. Third, provide support over time, and let teachers limit or pause AI. These lessons connect our practice and research. They help teachers become both designers and decision-makers.\n\n[Sources]\nOriginal 18-slide presentation, slide(s) 16. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.\nThe three recommendations synthesize the four supplied practice cases and the reported teacher-learning studies. They are recommendations, not additional measured outcomes.",
+      "note": "08:00–08:35 | 35s\n中文提示：收束实践与研究：能动手做、从作品与修改中学习、长期有支持且能决定AI边界。教师是设计者和决策者。\n\nEnglish speaking script:\nSo what can others take away? First, give teachers access and real chances to build. Second, use their designs, tests and revisions as part of professional learning. Third, provide support over time, and let teachers limit or pause AI. These lessons connect our practice and research. They help teachers become both designers and decision-makers.\n\n[Sources]\nOriginal 18-slide presentation, slide(s) 16. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/\n\nEvidence and interpretation:\nEvidence scope follows the original deck. Design implications are not additional experimental findings.\nThe three recommendations synthesize the four supplied practice cases and the reported teacher-learning studies. They are recommendations, not additional measured outcomes."
+    },
+    {
+      "layout": "invite",
+      "theme": "blue",
+      "en": {
+        "title": "You are welcome in Shenzhen.",
+        "kicker": "LET’S LEARN FROM EACH OTHER",
+        "lead": "Visit our schools. Meet the teachers. See their work in real lessons.",
+        "blocks": [
+          {
+            "title": "APEC Economic Leaders’ Meeting",
+            "body": "18–19 November 2026 · Shenzhen, China"
+          }
+        ],
+        "takeaway": "Contact me to explore a school visit and exchange ideas.",
+        "caption": "Shenzhen teacher community · city application contest",
+        "tag": "Shenzhen is honoured to host APEC this year."
+      },
+      "zh": {
+        "title": "欢迎来深圳。",
+        "kicker": "期待彼此学习",
+        "lead": "走进学校，与教师交流，亲自看看真实课堂。",
+        "blocks": [
+          {
+            "title": "APEC 领导人非正式会议",
+            "body": "2026年11月18—19日 · 中国深圳"
+          }
+        ],
+        "takeaway": "欢迎联系我，一起安排学校参访与交流。",
+        "caption": "深圳教师共同体 · 市级应用开发大赛",
+        "tag": "今年，深圳荣幸举办 APEC 会议。"
+      },
+      "fr": {
+        "title": "Bienvenue à Shenzhen.",
+        "kicker": "APPRENONS LES UNS DES AUTRES",
+        "lead": "Venez dans nos écoles, rencontrez les enseignants et découvrez leurs classes.",
+        "blocks": [
+          {
+            "title": "Sommet de l’APEC",
+            "body": "18–19 novembre 2026 · Shenzhen, Chine"
+          }
+        ],
+        "takeaway": "Contactez-moi pour envisager une visite d’école et échanger.",
+        "caption": "Communauté enseignante de Shenzhen · concours municipal",
+        "tag": "Shenzhen a l’honneur d’accueillir l’APEC cette année."
+      },
+      "speech": "I would also like to invite you to Shenzhen. This year, the city is honoured to host the APEC leaders’ meeting, on November eighteenth and nineteenth. Come and see our schools. Meet the teachers and see their work in real lessons. Please contact me if you would like to arrange a visit. We would love to learn from you too.",
+      "cue": "邀请来深圳。APEC领导人会议：2026年11月18—19日，深圳。欢迎联系安排学校参访，双向学习。",
+      "seconds": 30,
+      "sources": "APEC dates and host city: Shenzhen Municipal Foreign Affairs Office, 12 August 2026, https://fao.sz.gov.cn/xxgk/zyxw/content/post_1961390.html (checked 8 September 2026). Also APEC Secretariat, 12 December 2025: https://www.apec.org/press/news-releases/2025/china-unveils-apec-2026-theme-and-priorities-in-shenzhen . The slide identifies the announced city, not an unconfirmed building or official school-visit programme.\nPhoto: Shenzhen Education Bureau source deck, slide 2 (city-s2-img3.jpeg), teacher application-contest community. This photo is not an APEC venue or event.",
+      "assets": [
+        "shenzhen-teachers.webp"
+      ],
+      "number": 14,
+      "start": 515,
+      "end": 545,
+      "note_en": "08:35–09:05 | 30 seconds\n\nI would also like to invite you to Shenzhen. This year, the city is honoured to host the APEC leaders’ meeting, on November eighteenth and nineteenth. Come and see our schools. Meet the teachers and see their work in real lessons. Please contact me if you would like to arrange a visit. We would love to learn from you too.\n\n[Sources]\nAPEC dates and host city: Shenzhen Municipal Foreign Affairs Office, 12 August 2026, https://fao.sz.gov.cn/xxgk/zyxw/content/post_1961390.html (checked 8 September 2026). Also APEC Secretariat, 12 December 2025: https://www.apec.org/press/news-releases/2025/china-unveils-apec-2026-theme-and-priorities-in-shenzhen . The slide identifies the announced city, not an unconfirmed building or official school-visit programme.\nPhoto: Shenzhen Education Bureau source deck, slide 2 (city-s2-img3.jpeg), teacher application-contest community. This photo is not an APEC venue or event.",
+      "note": "08:35–09:05 | 30s\n中文提示：邀请来深圳。APEC领导人会议：2026年11月18—19日，深圳。欢迎联系安排学校参访，双向学习。\n\nEnglish speaking script:\nI would also like to invite you to Shenzhen. This year, the city is honoured to host the APEC leaders’ meeting, on November eighteenth and nineteenth. Come and see our schools. Meet the teachers and see their work in real lessons. Please contact me if you would like to arrange a visit. We would love to learn from you too.\n\n[Sources]\nAPEC dates and host city: Shenzhen Municipal Foreign Affairs Office, 12 August 2026, https://fao.sz.gov.cn/xxgk/zyxw/content/post_1961390.html (checked 8 September 2026). Also APEC Secretariat, 12 December 2025: https://www.apec.org/press/news-releases/2025/china-unveils-apec-2026-theme-and-priorities-in-shenzhen . The slide identifies the announced city, not an unconfirmed building or official school-visit programme.\nPhoto: Shenzhen Education Bureau source deck, slide 2 (city-s2-img3.jpeg), teacher application-contest community. This photo is not an APEC venue or event."
+    },
+    {
+      "layout": "contact",
+      "theme": "dark",
+      "en": {
+        "title": "Let’s keep learning together.",
+        "kicker": "VISIT · SHARE · COLLABORATE",
+        "lead": "Scan the slides or explore the full submission and research.",
+        "blocks": [
+          {
+            "title": "This presentation",
+            "body": "Online slides · current version"
+          },
+          {
+            "title": "Submission materials",
+            "body": "UNESCO submission · studies and evidence"
+          }
+        ],
+        "takeaway": "Contact me to arrange a school visit.",
+        "caption": "",
+        "tag": "Haiyang Xin · Founder & CEO, CocoRobo Ltd."
+      },
+      "zh": {
+        "title": "期待继续交流，共同学习。",
+        "kicker": "来访 · 分享 · 合作",
+        "lead": "扫码查看本次演讲，或阅读完整申报材料与研究。",
+        "blocks": [
+          {
+            "title": "本次演讲",
+            "body": "当前新版 · 在线幻灯片"
+          },
+          {
+            "title": "申报材料",
+            "body": "UNESCO 申报 · 研究与证据"
+          }
+        ],
+        "takeaway": "欢迎联系我，安排学校参访与交流。",
+        "caption": "",
+        "tag": "辛海洋 · CocoRobo 创始人兼 CEO"
+      },
+      "fr": {
+        "title": "Poursuivons cet apprentissage ensemble.",
+        "kicker": "VISITER · PARTAGER · COLLABORER",
+        "lead": "Retrouvez les diapositives, le dossier de candidature et les études.",
+        "blocks": [
+          {
+            "title": "Cette présentation",
+            "body": "Diapositives en ligne · version actuelle"
+          },
+          {
+            "title": "Dossier de candidature",
+            "body": "Candidature UNESCO · études et données"
+          }
+        ],
+        "takeaway": "Contactez-moi pour organiser une visite d’école.",
+        "caption": "",
+        "tag": "Haiyang Xin · Fondateur et PDG, CocoRobo Ltd."
+      },
+      "speech": "These two codes link to this presentation and our submission materials. My email is on the screen. Please stay in touch, and come to Shenzhen. Thank you.",
+      "cue": "左码是本次新版PPT，右码是申报材料。留下邮箱，欢迎来深圳，感谢。",
+      "seconds": 20,
+      "sources": "Presenter-supplied contact: tony@cocorobo.cc. QR destinations: https://tonyxinvip.github.io/slides/teacher-agent-creators-10min/ and https://cocorobo.hk/unesco2026/teacher/. QR codes encode these exact URLs; they are not third-party tracking links.",
+      "assets": [
+        "current-talk-qr.png",
+        "submission-qr.png"
+      ],
+      "number": 15,
+      "start": 545,
+      "end": 565,
+      "note_en": "09:05–09:25 | 20 seconds\n\nThese two codes link to this presentation and our submission materials. My email is on the screen. Please stay in touch, and come to Shenzhen. Thank you.\n\n[Sources]\nPresenter-supplied contact: tony@cocorobo.cc. QR destinations: https://tonyxinvip.github.io/slides/teacher-agent-creators-10min/ and https://cocorobo.hk/unesco2026/teacher/. QR codes encode these exact URLs; they are not third-party tracking links.",
+      "note": "09:05–09:25 | 20s\n中文提示：左码是本次新版PPT，右码是申报材料。留下邮箱，欢迎来深圳，感谢。\n\nEnglish speaking script:\nThese two codes link to this presentation and our submission materials. My email is on the screen. Please stay in touch, and come to Shenzhen. Thank you.\n\n[Sources]\nPresenter-supplied contact: tony@cocorobo.cc. QR destinations: https://tonyxinvip.github.io/slides/teacher-agent-creators-10min/ and https://cocorobo.hk/unesco2026/teacher/. QR codes encode these exact URLs; they are not third-party tracking links."
+    }
+  ]
+}

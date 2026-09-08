@@ -1,96 +1,124 @@
 UNESCO Digital Learning Week 2026
 15-slide edition | Plain English + Chinese recall cues
 
-872 English words. Planned duration: 9:20, leaving 40 seconds within a 10-minute slot.
-Timing is an estimate. Rehearse once at your own pace. No video is included in the timing.
-Slides 4–7 each present one institutional or subject case. Research starts on slide 9.
+873 English words. Planned duration: 09:25. Timing is an estimate; rehearse at your own pace.
+Practice: slides 4–8. Research: slides 9–12. Shared takeaways: slide 13. Invitation and resources: slides 14–15.
 
-01. From AI Tool Users to  AI Agent Creators
-00:00–00:20 | 20 seconds
-中文提示：开场：我是辛海洋。先讲四个实践，再讲研究。
+01. From AI Tool Users to AI Agent Creators
+00:00–00:20 | 20s
+中文提示：开场：我是辛海洋。分享深圳的实践，以及我们从中学到的东西。
 
-Good morning. I’m Haiyang Xin from CocoRobo. We work with teachers to build AI learning agents. Today I will share four cases from Shenzhen. Then I will explain what our research has taught us.
+English speaking script:
+Good morning. I’m Haiyang Xin from CocoRobo. We work with teachers to build AI support for learning. Today, I will share what we have done in Shenzhen, and what we have learned.
 
-02. Who decides how AI participates?
-00:20–00:50 | 30 seconds
-中文提示：核心问题：AI会引导和反馈，教师还能决定什么？
 
-AI can guide students. It can ask questions and give feedback. But who decides what it should do? We want teachers to keep making these choices. They know their students and their teaching goals. I will first show how different groups support this work. Then I will turn to the research.
+02. What is a pedagogical AI agent?
+00:20–01:15 | 55s
+中文提示：概念：有明确教学目标的AI助手。教师设角色、材料、步骤、限制。用途：提问、练习、反馈。必要性：把教学计划变成可测试、复用、修改的支持。
 
-03. A year of learning, building and testing
-00:50–01:20 | 30 seconds
-中文提示：项目背景：一年、三轮；四个案例是不同场域，不是一条行政实施链。
+English speaking script:
+First, what do I mean by a pedagogical AI agent? It is an AI helper with a clear teaching or learning goal. A teacher sets its role, materials, steps and limits. For example, an English practice agent can ask a question, listen and give feedback. Why use one? It turns a teaching plan into support that students can use. Teachers can test that support, use it again and change it. The purpose comes from the teacher.
 
-Our programme ran for one year, with three rounds of teacher development. We started with prompts. We then moved to teaching agents and more complex designs. Each round helped us plan the next. The four cases show different settings in Shenzhen. They are examples of support, not steps in one single project.
+
+03. One goal. Two views.
+01:15–01:50 | 35s
+中文提示：承接概念：教师能动性=有能力、有空间作教学选择。先实践四案例，再研究教师学习。整体工作覆盖四区和合作学校、千余教师。
+
+English speaking script:
+This brings us to teacher agency. In simple words, teachers need the ability and room to make teaching choices. We will look at this in two ways. First, practice: four cases at different levels. Then, research: what teachers learn and what keeps them creating. Our wider teacher development work reached over one thousand teachers across four districts and partner schools.
+
 
 04. Shenzhen: access and chances to create
-01:20–02:05 | 45 seconds
-中文提示：深圳：共同入口＋审核平台＋教师应用大赛。启示：有工具，也要有创作机会。
+01:50–02:30 | 40s
+中文提示：深圳：10个平台共同入口＋三届开发大赛、两千余教师。启示：工具入口与创作机会一起提供。
 
-First, the city level. Shenzhen built a shared platform called Shenjiao AI. It brings together ten learning platforms. Providers must pass a review before they join. The city also held three contests for teacher-made applications. More than two thousand teachers took part. So teachers had both access to tools and a chance to build something themselves. For other cities, the lesson is to connect access with teacher creation.
+English speaking script:
+First, the city level. Shenzhen built a shared platform called Shenjiao AI. It brings together ten approved learning platforms. The city also held three contests for teacher-made applications. More than two thousand teachers took part. This gives teachers both access to tools and a chance to create. The lesson for other cities is to connect access with teacher creation.
+
 
 05. Pingshan: help teachers lead AI use
-02:05–02:50 | 45 seconds
-中文提示：坪山：三批教师，从提示词到智能体。课堂AI给反馈，教师定标准。
+02:30–03:10 | 40s
+中文提示：从市到区：有入口，还需要教师学习。三批教师，从提示词到智能体；教师交流设计并修改。课堂AI反馈、教师定标准。
 
-Next is Pingshan District. Its work covered three groups of teachers. The training moved from writing prompts to building teaching agents. The classroom example shows what this can look like. Students practise speaking English. AI gives quick feedback. Teachers set the standards. The lesson is to help teachers build AI support and decide how to use it. The district’s role goes beyond providing a tool.
+English speaking script:
+Access is the first step. Teachers also need ways to learn. In Pingshan, three groups moved from writing prompts to building teaching agents. They shared their designs and improved them. In the English class shown earlier, AI gives feedback. Teachers set the standards. The lesson is to develop teachers as designers who decide how AI should help.
 
-06. Liyuan: teachers help shape the standards
-02:50–03:40 | 50 seconds
-中文提示：荔园：专家初拟→教师评分→团队定稿→工具开发→课堂试用。重点是教师共同参与标准制定。
 
-At Liyuan Education Group, I want to highlight the way classroom standards were developed. Experts first drafted the criteria. Teachers then rated them. The team reviewed the results and agreed on the final set. These criteria were turned into an AI tool for classroom observation. The team tried it in real lessons and used teacher feedback to revise it. Here, teachers helped shape the standards that guide AI. Other school groups can learn from this shared design process.
+06. Liyuan: teachers shape the standards
+03:10–03:55 | 45s
+中文提示：从区到集团：不只培训技能，还共同定标准。专家初拟、教师评分、团队定稿、开发工具、课堂试用。
+
+English speaking script:
+Skills matter. Shared standards matter too. At Liyuan Education Group, experts first drafted classroom criteria. Teachers rated them. The team reviewed the results and agreed on the final set. These criteria became an AI tool for classroom observation. The team tried it in lessons and revised it with teacher feedback. The lesson is to involve teachers in the standards that guide AI.
+
 
 07. Bao’an: give each agent a clear job
-03:40–04:30 | 50 seconds
-中文提示：宝安罗敏老师：TASK先有教学方法，再分配命题、测练、匹配和反馈四个角色。不要把四角色讲成已验证的线性流程。
+03:55–04:40 | 45s
+中文提示：从集团到学科：标准落实到真实任务。罗老师TASK：命题、测练、标准匹配、数据反馈。教学方法在前，AI分工在后。
 
-The fourth case is from English teaching in Bao’an. Ms Luo developed a speaking assessment method called TASK. She then built a workflow with four AI agents. T helps design speaking tasks. A supports practice and assessment. S matches activities to the standards. K gives feedback from learning data. Each agent has a clear job. The lesson is to start with the teaching method. Then decide which parts AI can support.
+English speaking script:
+Standards become useful when they guide a real task. In Bao’an, Ms Luo designed an English speaking method called TASK. Her workflow has four AI agents. T helps design speaking tasks. A supports practice and assessment. S matches activities to the standards. K gives feedback from learning data. Each has a clear job. Start with the teaching method. Then decide where AI can help.
 
-08. In class, students still need to think
-04:30–05:05 | 35 seconds
-中文提示：课堂落点：生物探究，AI支持设计，学生仍须解释和判断。实践到这里结束。
 
-Now let us look at what this means for students. In this biology example, AI helped students improve an inquiry design. It did not give the final answer. Students still had to explain their ideas and make a judgment. The teacher decided how much help AI should give. This brings us to the purpose of all this support: better teaching decisions.
+08. AI supports the task. Students still think.
+04:40–05:15 | 35s
+中文提示：实践收束：所有支持最终落到课堂。生物探究中，AI辅助，教师设限，学生解释和判断。过渡：教师在这些实践中学到了什么？
 
-09. What did we learn from the research?
-05:05–05:40 | 35 seconds
-中文提示：转学术：四个案例是实践例子；研究证据另来自坪山三批教师。研究不证明学生学习效果。
+English speaking script:
+Across these cases, the aim is support that fits the classroom. In this biology example, AI helped students improve an inquiry design. It did not give the final answer. Students still had to explain their ideas and make a judgment. The teacher set the limits. These cases show what we can put in place. But what do teachers learn through this work?
 
-I will now turn to the research. The four cases are examples of practice. Our research evidence comes from three teacher groups in Pingshan. We studied their agents, design changes and platform use. We also used surveys and interviews. These data help us understand teacher learning. They do not prove that AI improved student learning.
 
-10. Building agents makes teaching ideas visible
-05:40–06:20 | 40 seconds
-中文提示：发现一：做智能体，让教学判断变成可看、可试、可改的设计。
+09. What did we study about teacher learning?
+05:15–05:55 | 40s
+中文提示：明确进入研究：四个案例是实践展示；研究证据来自坪山三批教师。作品、日志、教师陈述相互补充。不把参与规模当作学习成效。
 
-The first finding is about learning by making. When teachers build an agent, they must explain their teaching choices. What should it do? What should it leave to the student? They can then test the agent and change the design. This makes their ideas easier to see and discuss. We can study what they build, as well as what they say.
+English speaking script:
+I will now turn to the research. The four cases are examples of practice. Our research evidence comes from three teacher groups in Pingshan. We studied their agents, design changes and platform use. We also used surveys and interviews. This lets us look at both what teachers say and what they do. It does not prove that AI improved student learning.
+
+
+10. Building agents makes teaching choices visible
+05:55–06:30 | 35s
+中文提示：发现一：教学判断变成设计，就能运行、测试、讨论和修改。图为作品示例；研究结论仍来自前页说明的研究。
+
+English speaking script:
+The first finding is about learning by making. Teachers must explain their choices when they build an agent. What should it do? What should it leave to the student? They can test the design and change it. Their teaching ideas become easier to see and discuss. So we should study what teachers build and revise, as well as what they say.
+
 
 11. Teachers need support to keep creating
-06:20–07:00 | 40 seconds
-中文提示：发现二：有人创设，有人浏览，有人很少参与。持续创设需要选择、信心、同伴与学校支持。
+06:30–07:10 | 40s
+中文提示：发现二：参加培训不等于持续创设。选择、能力、归属感、学校支持。核心：要持续支持教师，而非只完成一次培训。
 
-The second finding is about continued use. Some teachers kept creating and revising agents. Others mainly looked around. Some took little part. Training alone did not make everyone an active creator. Our studies point to the need for choice, skills, a sense of belonging and school support. Teachers also need time and people they can turn to for help.
+English speaking script:
+The second finding is about continued creation. Some teachers kept building and revising. Others mainly explored. Some took little part. Training alone did not make everyone an active creator. The studies point to choice, skills, belonging and school support. Teachers need time and people they can ask for help. Building an agent is one step. Keeping teachers able to create is a longer task.
 
-12. Boundary Learning: four questions
-07:00–07:45 | 45 seconds
-中文提示：边界学习四问：任务适合吗？AI能做到吗？谁来决定？怎样设置？这是发展中的框架。
 
-We bring these ideas together in a working framework called Boundary Learning. It asks four questions. Is this a good task for AI? Can the AI do it well? Who should make the key decisions? How do we turn those choices into the agent’s roles and limits? The framework is still developing. Its focus is how teachers learn to decide where AI belongs.
+12. Boundary Learning: deciding where AI belongs
+07:10–08:00 | 50s
+中文提示：发现汇总为边界学习：任务、模型能力、责任、具体设计。例子：AI答太早，就先让学生尝试。框架仍在发展，目的保护学生思考。
 
-13. Good AI design protects students’ thinking
-07:45–08:25 | 40 seconds
-中文提示：设计启示：先尝试、先同伴、必要时暂停AI。保护学生要做的思考。
+English speaking script:
+Together, these findings lead us to a working idea called Boundary Learning. It means learning where AI belongs. We ask four questions. Is the task right for AI? Can it do the task well? Who should make the key decisions? How should we set its roles and limits? For example, if AI answers too soon, ask students to try first. The framework is still developing. Its purpose is to help teachers protect student thinking.
 
-Here are three design choices that follow from this idea. If AI gives answers too soon, ask students to try first. If AI replaces their own words, ask for peer feedback first. If AI stops a useful discussion, pause it. These are ways to protect student thinking. Teachers need the power to make these choices. Sometimes good AI use means using less AI.
 
-14. Three priorities for education systems
-08:25–08:55 | 30 seconds
-中文提示：三个建议：让教师动手做；看设计和修改；给时间、同伴和决策权。
+13. Three ways to support teacher agency
+08:00–08:35 | 35s
+中文提示：收束实践与研究：能动手做、从作品与修改中学习、长期有支持且能决定AI边界。教师是设计者和决策者。
 
-For education systems, I suggest three priorities. Let teachers build and test agents. Look at their designs and how they change them. Give teachers time, peer support and the right to limit AI. These are practical ways to support teacher agency: the ability to make choices and act on them.
+English speaking script:
+So what can others take away? First, give teachers access and real chances to build. Second, use their designs, tests and revisions as part of professional learning. Third, provide support over time, and let teachers limit or pause AI. These lessons connect our practice and research. They help teachers become both designers and decision-makers.
 
-15. Teachers shape AI’s role in learning.
-08:55–09:20 | 25 seconds
-中文提示：结尾：AI何时介入、何时退后，教师应有权决定。致谢。
 
-I will end with one simple question. Can teachers decide when AI should step forward, and when it should step back? Our work aims to help them do both. You can find the full studies on the supporting page. Thank you.
+14. You are welcome in Shenzhen.
+08:35–09:05 | 30s
+中文提示：邀请来深圳。APEC领导人会议：2026年11月18—19日，深圳。欢迎联系安排学校参访，双向学习。
+
+English speaking script:
+I would also like to invite you to Shenzhen. This year, the city is honoured to host the APEC leaders’ meeting, on November eighteenth and nineteenth. Come and see our schools. Meet the teachers and see their work in real lessons. Please contact me if you would like to arrange a visit. We would love to learn from you too.
+
+
+15. Let’s keep learning together.
+09:05–09:25 | 20s
+中文提示：左码是本次新版PPT，右码是申报材料。留下邮箱，欢迎来深圳，感谢。
+
+English speaking script:
+These two codes link to this presentation and our submission materials. My email is on the screen. Please stay in touch, and come to Shenzhen. Thank you.
