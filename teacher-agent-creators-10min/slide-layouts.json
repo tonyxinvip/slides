@@ -161,7 +161,7 @@
           "text": "A SHARED STARTING POINT",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -371,6 +371,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s2-offline-meta-16"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s2-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -382,7 +394,7 @@
           "text": "TEACHERS SHAPE AI’S ROLE",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -563,6 +575,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s3-offline-meta-14"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s3-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -574,7 +598,7 @@
           "text": "1 · PRACTICE / PROVINCIAL POLICY",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -787,6 +811,18 @@
           "h": 232.83763277693475,
           "fit": "contain",
           "alt": "Guangdong Department of Education official notice, published 10 April 2025."
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s4-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -798,7 +834,7 @@
           "text": "1 · PRACTICE / SHENZHEN MUNICIPAL EDUCATION BUREAU",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -962,6 +998,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s5-offline-meta-13"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s5-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -973,7 +1021,7 @@
           "text": "1 · PRACTICE / PINGSHAN DISTRICT EDUCATION BUREAU",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -1141,6 +1189,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s6-offline-meta-13"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s6-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -1152,7 +1212,7 @@
           "text": "1 · PRACTICE / LIYUAN EDUCATION GROUP, FUTIAN",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -1306,6 +1366,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s7-offline-meta-12"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s7-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -1317,7 +1389,7 @@
           "text": "1 · PRACTICE / ENGLISH · TEACHER LUO MIN",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -1541,6 +1613,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s8-offline-meta-17"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s8-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -1552,7 +1636,7 @@
           "text": "PRACTICE → RESEARCH",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -1748,6 +1832,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s9-offline-meta-15"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s9-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -1759,7 +1855,7 @@
           "text": "2 · RESEARCH / TIMELINE & OUTPUTS",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -2037,6 +2133,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s10-offline-meta-22"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s10-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -2048,7 +2156,7 @@
           "text": "2 · RESEARCH / FINDING 1",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -2216,6 +2324,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s11-offline-meta-13"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s11-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -2227,7 +2347,7 @@
           "text": "2 · RESEARCH / FINDING 2",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -2381,6 +2501,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s12-offline-meta-12"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s12-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -2392,7 +2524,7 @@
           "text": "2 · RESEARCH / A WORKING FRAMEWORK",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -2662,6 +2794,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s13-offline-meta-20"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s13-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -2673,7 +2817,7 @@
           "text": "OUR MODEL / RESEARCH–PRACTICE PARTNERSHIP",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -2909,6 +3053,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s14-offline-meta-19"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s14-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -2920,7 +3076,7 @@
           "text": "WHAT OTHERS CAN TAKE AWAY",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -3134,6 +3290,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s15-offline-meta-16"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s15-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -3145,7 +3313,7 @@
           "text": "LET’S LEARN FROM EACH OTHER",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -3300,6 +3468,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s16-offline-meta-12"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s16-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -3311,7 +3491,7 @@
           "text": "VISIT · SHARE · COLLABORATE",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -3475,6 +3655,18 @@
           "line": 1.2,
           "align": "left",
           "sourceName": "s17-contact-prompt-12"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s17-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     }
@@ -3641,7 +3833,7 @@
           "text": "先建立共同理解",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -3851,6 +4043,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s2-offline-meta-16"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s2-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -3862,7 +4066,7 @@
           "text": "教师决定 AI 如何参与",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -4043,6 +4247,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s3-offline-meta-14"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s3-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -4054,7 +4270,7 @@
           "text": "1 · 实践 / 省级政策",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -4267,6 +4483,18 @@
           "h": 232.83763277693475,
           "fit": "contain",
           "alt": "Guangdong Department of Education official notice, published 10 April 2025."
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s4-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -4278,7 +4506,7 @@
           "text": "1 · 实践视角 / 深圳市教育局",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -4442,6 +4670,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s5-offline-meta-13"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s5-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -4453,7 +4693,7 @@
           "text": "1 · 实践视角 / 坪山区教育局",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -4621,6 +4861,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s6-offline-meta-13"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s6-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -4632,7 +4884,7 @@
           "text": "1 · 实践视角 / 福田区荔园教育集团",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -4786,6 +5038,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s7-offline-meta-12"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s7-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -4797,7 +5061,7 @@
           "text": "1 · 实践视角 / 英语学科 · 罗敏老师",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -5021,6 +5285,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s8-offline-meta-17"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s8-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -5032,7 +5308,7 @@
           "text": "实践 → 研究",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -5228,6 +5504,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s9-offline-meta-15"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s9-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -5239,7 +5527,7 @@
           "text": "2 · 研究 / 时间线与成果",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -5517,6 +5805,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s10-offline-meta-22"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s10-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -5528,7 +5828,7 @@
           "text": "2 · 学术视角 / 发现一",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -5696,6 +5996,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s11-offline-meta-13"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s11-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -5707,7 +6019,7 @@
           "text": "2 · 学术视角 / 发现二",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -5861,6 +6173,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s12-offline-meta-12"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s12-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -5872,7 +6196,7 @@
           "text": "2 · 学术视角 / 发展中的框架",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -6142,6 +6466,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s13-offline-meta-20"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s13-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -6153,7 +6489,7 @@
           "text": "我们的模式 / 研究—实践伙伴关系（RPP）",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -6389,6 +6725,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s14-offline-meta-19"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s14-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -6400,7 +6748,7 @@
           "text": "可借鉴的经验",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -6614,6 +6962,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s15-offline-meta-16"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s15-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -6625,7 +6985,7 @@
           "text": "期待彼此学习",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -6780,6 +7140,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s16-offline-meta-12"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s16-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -6791,7 +7163,7 @@
           "text": "来访 · 分享 · 合作",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -6955,6 +7327,18 @@
           "line": 1.2,
           "align": "left",
           "sourceName": "s17-contact-prompt-12"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s17-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     }
@@ -7121,7 +7505,7 @@
           "text": "UN POINT DE DÉPART COMMUN",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -7331,6 +7715,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s2-offline-meta-16"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s2-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -7342,7 +7738,7 @@
           "text": "LES ENSEIGNANTS DÉFINISSENT LE RÔLE DE L’IA",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -7523,6 +7919,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s3-offline-meta-14"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s3-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -7534,7 +7942,7 @@
           "text": "1 · PRATIQUE / POLITIQUE PROVINCIALE",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -7747,6 +8155,18 @@
           "h": 232.83763277693475,
           "fit": "contain",
           "alt": "Guangdong Department of Education official notice, published 10 April 2025."
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s4-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -7758,7 +8178,7 @@
           "text": "1 · PRATIQUE / BUREAU MUNICIPAL DE L’ÉDUCATION DE SHENZHEN",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -7922,6 +8342,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s5-offline-meta-13"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s5-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -7933,7 +8365,7 @@
           "text": "1 · PRATIQUE / BUREAU DE L’ÉDUCATION DE PINGSHAN",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -8101,6 +8533,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s6-offline-meta-13"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s6-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -8112,7 +8556,7 @@
           "text": "1 · PRATIQUE / GROUPE SCOLAIRE LIYUAN, FUTIAN",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -8266,6 +8710,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s7-offline-meta-12"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s7-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -8277,7 +8733,7 @@
           "text": "1 · PRATIQUE / ANGLAIS · ENSEIGNANTE LUO MIN",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -8501,6 +8957,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s8-offline-meta-17"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s8-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -8512,7 +8980,7 @@
           "text": "PRATIQUE → RECHERCHE",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -8708,6 +9176,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s9-offline-meta-15"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s9-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -8719,7 +9199,7 @@
           "text": "2 · RECHERCHE / PARCOURS & RÉSULTATS",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -8997,6 +9477,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s10-offline-meta-22"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s10-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -9008,7 +9500,7 @@
           "text": "2 · RECHERCHE / RÉSULTAT 1",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -9176,6 +9668,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s11-offline-meta-13"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s11-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -9187,7 +9691,7 @@
           "text": "2 · RECHERCHE / RÉSULTAT 2",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -9341,6 +9845,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s12-offline-meta-12"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s12-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -9352,7 +9868,7 @@
           "text": "2 · RECHERCHE / UN CADRE DE TRAVAIL",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -9622,6 +10138,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s13-offline-meta-20"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s13-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -9633,7 +10161,7 @@
           "text": "NOTRE MODÈLE / PARTENARIAT RECHERCHE–PRATIQUE",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -9869,6 +10397,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s14-offline-meta-19"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s14-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -9880,7 +10420,7 @@
           "text": "CE QUE D’AUTRES PEUVENT RETENIR",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -10094,6 +10634,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s15-offline-meta-16"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-dark.svg",
+          "sourceName": "s15-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -10105,7 +10657,7 @@
           "text": "APPRENONS LES UNS DES AUTRES",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -10260,6 +10812,18 @@
           "line": 1.2,
           "align": "right",
           "sourceName": "s16-offline-meta-12"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s16-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     },
@@ -10271,7 +10835,7 @@
           "text": "VISITER · PARTAGER · COLLABORER",
           "x": 56,
           "y": 43,
-          "w": 1168,
+          "w": 1010,
           "h": 25,
           "size": 16,
           "bold": true,
@@ -10435,6 +10999,18 @@
           "line": 1.2,
           "align": "left",
           "sourceName": "s17-contact-prompt-12"
+        },
+        {
+          "kind": "image",
+          "role": "brand",
+          "asset": "cocorobo-wordmark-light.svg",
+          "sourceName": "s17-brand-added",
+          "x": 1112,
+          "y": 47,
+          "w": 112,
+          "h": 17,
+          "fit": "contain",
+          "alt": "CocoRobo"
         }
       ]
     }
