@@ -1,5 +1,5 @@
 /* The online viewer and the editable English files share one 1280 × 720 canvas. */
-body{font-family:Arial,"Helvetica Neue",sans-serif;--deck-scale:1}
+body{font-family:Arial,"Helvetica Neue",sans-serif;--deck-scale:1;--navy:#10283f;--paper:#f8fafc;--cyan:#64d2c4}
 .visual-slide .slide-inner{position:absolute;left:50%;top:50%;width:1280px;height:720px;max-width:none;min-width:1280px;margin:0;padding:0;display:block;transform:translate(-50%,-50%) scale(var(--deck-scale));transform-origin:center;overflow:hidden}
 .canvas-elt{position:absolute;box-sizing:border-box}
 .canvas-text{display:block;padding:0;margin:0;max-width:none;font-family:Arial,"Helvetica Neue",sans-serif;letter-spacing:normal;white-space:pre-wrap;text-transform:none}
@@ -10,7 +10,7 @@ body{font-family:Arial,"Helvetica Neue",sans-serif;--deck-scale:1}
 .canvas-image img{object-position:center}
 .header-actions{gap:13px}
 .download-link{font-size:.72rem;text-decoration:none;white-space:nowrap}
-.deck-header{height:46px;mix-blend-mode:normal;background:rgba(7,20,40,.9)}
+.deck-header{height:46px;mix-blend-mode:normal;background:rgba(16,40,63,.96)}
 .deck-header .brand{font-size:.59rem}
 .deck-header .language-button{font-size:.57rem;min-width:30px;padding:3px 6px}
 .header-actions .language-button.is-active{background:#fff;color:#071428}
