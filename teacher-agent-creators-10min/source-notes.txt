@@ -6,6 +6,7 @@ Original 18-slide presentation, slide(s) 1. https://tonyxinvip.github.io/slides/
 
 Evidence and interpretation:
 Evidence scope follows the original deck. Design implications are not additional experimental findings.
+Cover photo: user-supplied IMG_3940.gif, a teacher workshop discussion in Pingshan. A still frame is used; no people or scene elements were generated.
 
 02. What is a pedagogical AI agent?
 Working definition used in this talk, based on the presenter’s teacher-designed agent programme. This is an operational definition, not a claim that all pedagogical agents have the same architecture or are fully autonomous.
@@ -25,7 +26,7 @@ Evidence scope follows the original deck. Design implications are not additional
 Official Guangdong Department of Education notice, dated 9 April 2025, republished by Xinhui Education Bureau on 11 April 2025: https://www.xinhui.gov.cn/gzjg/qzfgzbm/jmsxhqjyj/zcwj/content/post_3281407.html .
 Exact titles: 广东省中小学教师人工智能素养框架（试行）; 广东省中小学学生人工智能素养框架（试行）; 广东省中小学人工智能课程指导纲要（试行）. The notice has a fourth attachment on integrating the national platform; this slide focuses on the requested 2+1 package. The third provincial document is a curriculum outline, not the separately issued national AI general-education guide.
 Official PDFs: https://www.xinhui.gov.cn/attachment/0/336/336265/3281407.pdf ; https://www.xinhui.gov.cn/attachment/0/336/336266/3281407.pdf ; https://www.xinhui.gov.cn/attachment/0/336/336267/3281407.pdf .
-Primary drafting-team account: South China Normal University, 1 May 2025, https://news.scnu.edu.cn/71155/469 . English labels are concise translations. The official PDF cover downloads were unavailable; this slide uses native English text and links to the official notice, without recreated or invented document images. Policy is context, not a claim that Guangdong formally joined this particular research partnership or caused the earlier Shenzhen platform. The takeaway is our synthesis.
+Primary drafting-team account: South China Normal University, 1 May 2025, https://news.scnu.edu.cn/71155/469 . English labels are concise translations. Notice image: user-supplied 42030.png, an authentic screenshot of the Guangdong Department of Education website. The crop shows the department header, complete notice title and website publication date (10 April 2025). The signed document was issued on 9 April 2025. The original full screenshot is preserved in the online assets. Policy is context, not a claim that Guangdong formally joined this particular research partnership or caused the earlier Shenzhen platform. The takeaway is our synthesis.
 
 05. Shenzhen: access and chances to create
 素材2.pptx, slides 1–2. Institutional source supplied by the presenter as the Shenzhen Municipal Education Bureau material.
@@ -115,7 +116,7 @@ Partnership recommendations also draw on https://rpp.wtgrantfoundation.org/about
 
 16. You are welcome in Shenzhen.
 APEC dates and host city: Shenzhen Municipal Foreign Affairs Office, 12 August 2026, https://fao.sz.gov.cn/xxgk/zyxw/content/post_1961390.html (checked 8 September 2026). Also APEC Secretariat, 12 December 2025: https://www.apec.org/press/news-releases/2025/china-unveils-apec-2026-theme-and-priorities-in-shenzhen . The slide identifies the announced city, not an unconfirmed building or official school-visit programme.
-Photo: Shenzhen Education Bureau source deck, slide 2 (city-s2-img3.jpeg), teacher application-contest community. This photo is not an APEC venue or event.
+Official APEC China 2026 emblem: Xinhua, 12 December 2025, https://www.xinhuanet.com/20251212/1d1dad261ca34e259c55c672e8497cfe/c.html . Image: https://www.xinhuanet.com/20251212/1d1dad261ca34e259c55c672e8497cfe/202512121d1dad261ca34e259c55c672e8497cfe_912aa6ef9651489b8acd6054075d0fbb.jpg . Identity cross-checked against the official host-year website https://www.apec2026.cn/ and Shenzhen government announcement https://www.sz.gov.cn/en_szgov/news/latest/content/post_12546149.html (checked 8 September 2026). Emblem reproduced without alteration.
 
 17. Let’s keep learning together.
 Presenter-supplied contact: tony@cocorobo.cc. QR destinations: https://tonyxinvip.github.io/slides/teacher-agent-creators-10min/ and https://cocorobo.hk/unesco2026/teacher/. QR codes encode these exact URLs; they are not third-party tracking links.
