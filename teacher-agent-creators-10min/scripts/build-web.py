@@ -37,7 +37,8 @@ footer=footer.replace('</body>','  <script src="./fit-canvas.js"></script>\n</bo
 sections=[]
 for i,p in enumerate(talk['slides']):
     title=p['en']['title'].replace('\n',' ')
-    sections.append(f'<section class="slide {p["theme"]} visual-slide {"is-active" if i==0 else ""}" id="slide-{i+1}" data-title="{esc(title)}" data-seconds="{p["seconds"]}" aria-hidden="{str(i!=0).lower()}"><div class="slide-inner" style="background:{models["en"][i]["background"]}">{render(i,"en")}</div><aside class="speaker-note">{esc(p["note"])}</aside></section>')
+    visual_theme='dark' if models['en'][i]['background']=='#10283F' else 'paper'
+    sections.append(f'<section class="slide {visual_theme} visual-slide {"is-active" if i==0 else ""}" style="background:{models["en"][i]["background"]}" id="slide-{i+1}" data-title="{esc(title)}" data-seconds="{p["seconds"]}" aria-hidden="{str(i!=0).lower()}"><div class="slide-inner" style="background:{models["en"][i]["background"]}">{render(i,"en")}</div><aside class="speaker-note">{esc(p["note"])}</aside></section>')
 (ROOT/'index.html').write_text(header+'  <main class="deck" id="deck" aria-live="polite">\n'+'\n\n'.join(sections)+'\n  </main>\n\n'+footer)
 bundles=json.loads((ROOT/'i18n.js').read_text().removeprefix('window.deckTranslations = ').rstrip(';\n'))
 for lang,b in bundles.items():
