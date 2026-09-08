@@ -28,7 +28,7 @@ function model(p,lang){
    items.forEach((b,i)=>{tx(b.title,x,y+i*gap,w,70,titleSize,true,c.fg,'subheading');tx(b.body,x,y+i*gap+72,w,93,bodySize,false,c.muted);});
  }
  // Native file metadata is hidden by the web viewer, which has its own controls.
- function footer(){tx('CocoRobo · UNESCO Digital Learning Week 2026',64,686,950,19,13,false,c.muted,'offline-meta');tx(String(p.number).padStart(2,'0')+' / 15',1120,682,96,24,15,true,c.muted,'offline-meta',{align:'right'});}
+ function footer(){tx('CocoRobo · UNESCO Digital Learning Week 2026',64,686,950,19,13,false,c.muted,'offline-meta');tx(String(p.number).padStart(2,'0')+' / '+talk.slides.length,1120,682,96,24,15,true,c.muted,'offline-meta',{align:'right'});}
 
  if(p.layout==='cover'){
    img(p.assets[0],778,151,438,434,'cover');
@@ -50,6 +50,25 @@ function model(p,lang){
    d.blocks.forEach((b,i)=>{const x=64+i*596;rect(x,300,550,3,c.accent);tx(b.title,x,323,550,48,39,true);tx(b.body,x,385,530,114,29,false,c.muted);});
    tx(d.metric,64,531,290,86,74,true,c.accent,'metric');tx(d.metricLabel,378,537,780,69,28,false,c.fg);
    tx(d.takeaway,64,636,1152,34,22,false,c.muted,'caption');
+ }else if(p.layout==='province'){
+   header();tx(d.lead,64,192,1152,48,30,true,c.accent);
+   tx('2 + 1',64,302,360,134,106,true,c.accent,'metric');
+   tx(d.caption,64,468,335,116,23,false,c.muted,'caption',{link:'https://www.xinhui.gov.cn/gzjg/qzfgzbm/jmsxhqjyj/zcwj/content/post_3281407.html'});
+   d.blocks.forEach((b,i)=>{const y=283+i*109;tx(b.title,462,y,754,42,31,true);tx(b.body,462,y+47,740,64,27,false,c.muted);});takeaway(d.takeaway,637);
+ }else if(p.layout==='bridge'){
+   header();tx(d.lead,64,191,1152,78,29,false,c.muted);
+   img(p.assets[0],64,307,534,260,'cover');caption(d.caption,64,579,534);
+   d.blocks.forEach((b,i)=>{const y=296+i*101;tx(b.title,651,y,565,37,29,true);tx(b.body,651,y+40,565,62,25,false,c.muted);});takeaway(d.takeaway,638);
+ }else if(p.layout==='timeline'){
+   header();tx(d.lead,64,193,1152,48,30,true,c.accent);
+   // A dated native timeline distinguishes programme rounds from publication outputs.
+   rect(64,302,1152,3,c.line);
+   d.blocks.forEach((b,i)=>{const x=64+i*394;tx(b.title,x,257,367,40,27,true,c.accent);rect(x,298,10,10,c.accent);tx(b.body,x,325,350,78,28,true);});
+   tx(d.caption,64,420,1152,61,25,false,c.muted);
+   d.outputs.forEach((b,i)=>{const x=64+i*660;tx(b.title,x,505,i===0?626:492,45,i===0?32:28,true,c.accent);tx(b.body,x,555,i===0?626:492,54,26,false,c.fg);});takeaway(d.takeaway,638);
+ }else if(p.layout==='partnership'){
+   header();tx(d.lead,64,193,1152,79,29,false,c.muted);
+   d.blocks.forEach((b,i)=>{const y=293+i*78;rect(64,y-10,1152,1,c.line);tx(b.title,64,y,332,68,27,true,c.accent);tx(b.body,423,y,793,67,27,false,c.fg);});takeaway(d.takeaway,644);
  }else if(p.layout==='city'){
    header();blocks(d.blocks,64,248,552,166,31,27);
    img(p.assets[0],682,218,534,178,'contain');img(p.assets[1],682,410,534,151,'cover');

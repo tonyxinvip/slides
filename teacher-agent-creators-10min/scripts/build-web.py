@@ -28,8 +28,8 @@ current=(ROOT/'index.html').read_text()
 header=current.split('  <main class="deck"')[0]
 header=re.sub(r'  <link rel="stylesheet" href="\./(?:short|cases|visual)\.css">\n','',header)
 header=header.replace('</head>','  <link rel="stylesheet" href="./visual.css">\n</head>')
-header=re.sub(r'<meta name="description" content="[^"]*">','<meta name="description" content="What pedagogical AI agents are, four cases from Shenzhen, research on teacher learning, and an invitation to visit. 15 slides with a simple English script.">',header)
-header=re.sub(r'<title>.*?</title>','<title>From AI Tool Users to AI Agent Creators · 15-slide edition</title>',header)
+header=re.sub(r'<meta name="description" content="[^"]*">','<meta name="description" content="AI agents explained, Guangdong policy, Shenzhen practice, teacher learning and a four-partner research-practice model. 17 slides with a simple English script.">',header)
+header=re.sub(r'<title>.*?</title>','<title>From AI Tool Users to AI Agent Creators · 17-slide edition</title>',header)
 if 'class="download-link"' not in header:
     header=header.replace('      <div class="language-switcher"','      <a class="download-link" href="./downloads/UNESCO_Teacher_AI_Agents_EN.pptx" download>PowerPoint ↓</a>\n      <a class="download-link" href="./downloads/UNESCO_Teacher_AI_Agents_EN.pdf" download>PDF ↓</a>\n      <div class="language-switcher"')
 footer='  <div class="progress">'+current.split('  <div class="progress">',1)[1]
@@ -41,7 +41,8 @@ for i,p in enumerate(talk['slides']):
 (ROOT/'index.html').write_text(header+'  <main class="deck" id="deck" aria-live="polite">\n'+'\n\n'.join(sections)+'\n  </main>\n\n'+footer)
 bundles=json.loads((ROOT/'i18n.js').read_text().removeprefix('window.deckTranslations = ').rstrip(';\n'))
 for lang,b in bundles.items():
+    if 'title' in b['meta']: b['meta']['title']=b['meta']['title'].replace('15-slide','17-slide').replace('15页','17页').replace('15 diapositives','17 diapositives')
     b['slides']=[] if lang=='en' else [dict(title=p[lang]['title'].replace('\n',' '),html=render(i,lang),note=p['note']) for i,p in enumerate(talk['slides'])]
-    b['meta']['description']={'en':'15 slides: AI agents explained, practice, research and an invitation to Shenzhen.','zh':'15页：教学智能体入门、实践案例、研究与深圳参访邀请。','fr':'15 diapositives : agents pédagogiques, pratique, recherche et invitation à Shenzhen.'}[lang]
+    b['meta']['description']={'en':'17 slides: AI agents, provincial policy, classroom practice, research and partnership.','zh':'17页：教学智能体入门、实践案例、研究与深圳参访邀请。','fr':'17 diapositives : agents pédagogiques, pratique, recherche et invitation à Shenzhen.'}[lang]
 (ROOT/'i18n.js').write_text('window.deckTranslations = '+json.dumps(bundles,ensure_ascii=False,indent=2)+';\n')
-print('Built 15 slides in English, Chinese and French from the same layout source as the PowerPoint.')
+print('Built 17 slides in English, Chinese and French from the same layout source as the PowerPoint.')

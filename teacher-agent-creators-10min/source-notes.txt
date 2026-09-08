@@ -21,7 +21,13 @@ Original 18-slide presentation, slide(s) 4–6. https://tonyxinvip.github.io/sli
 Evidence and interpretation:
 Evidence scope follows the original deck. Design implications are not additional experimental findings.
 
-04. Shenzhen: access and chances to create
+04. Guangdong: shared goals for AI education
+Official Guangdong Department of Education notice, dated 9 April 2025, republished by Xinhui Education Bureau on 11 April 2025: https://www.xinhui.gov.cn/gzjg/qzfgzbm/jmsxhqjyj/zcwj/content/post_3281407.html .
+Exact titles: 广东省中小学教师人工智能素养框架（试行）; 广东省中小学学生人工智能素养框架（试行）; 广东省中小学人工智能课程指导纲要（试行）. The notice has a fourth attachment on integrating the national platform; this slide focuses on the requested 2+1 package. The third provincial document is a curriculum outline, not the separately issued national AI general-education guide.
+Official PDFs: https://www.xinhui.gov.cn/attachment/0/336/336265/3281407.pdf ; https://www.xinhui.gov.cn/attachment/0/336/336266/3281407.pdf ; https://www.xinhui.gov.cn/attachment/0/336/336267/3281407.pdf .
+Primary drafting-team account: South China Normal University, 1 May 2025, https://news.scnu.edu.cn/71155/469 . English labels are concise translations. The official PDF cover downloads were unavailable; this slide uses native English text and links to the official notice, without recreated or invented document images. Policy is context, not a claim that Guangdong formally joined this particular research partnership or caused the earlier Shenzhen platform. The takeaway is our synthesis.
+
+05. Shenzhen: access and chances to create
 素材2.pptx, slides 1–2. Institutional source supplied by the presenter as the Shenzhen Municipal Education Bureau material.
 
 Evidence and interpretation:
@@ -29,7 +35,7 @@ Slide 1 reports launch in August 2023, access for 1,191 primary and secondary sc
 The “Lesson to share” is our interpretation of the documented approach, not a measured causal finding.
 Images: Shenzhen Education Bureau source deck, slide 1 (city-s1-img1.png) and slide 2 (city-s2-img4.jpeg).
 
-05. Pingshan: help teachers lead AI use
+06. Pingshan: help teachers lead AI use
 AI-Empowered_Education（英文168）.pptx, slide 1. Supplied as the Pingshan District Education Bureau case. The existing programme timeline is documented in the original deck, slides 4–7.
 
 Evidence and interpretation:
@@ -37,7 +43,7 @@ The supplied slide describes three training cohorts, a progression from prompts 
 The “Lesson to share” is our interpretation of the documented approach, not a measured causal finding.
 Photo: pingshan-training.webp from the original presentation, programme context. It shows teachers discussing designs. The classroom image on slide 2 is the supplied Pingshan case.
 
-06. Liyuan: teachers shape the standards
+07. Liyuan: teachers shape the standards
 集团AI成果展示(1).zip → 荔园教育集团AI教育成果展示-英文版.pptx, slide 3; Chinese version, slide 3 embedded process graphic. Teacher support described in slide 2 and PPT稿件中英文版.docx.
 
 Evidence and interpretation:
@@ -45,42 +51,46 @@ The five-stage process describes expert drafting of a four-level indicator syste
 The “Lesson to share” is our interpretation of the documented approach, not a measured causal finding.
 Photo: Liyuan Education Group source deck, slide 2 (group-s2-img3.jpeg, teacher collaboration). The five-stage process is documented in slide 3.
 
-07. Bao’an: give each agent a clear job
+08. Bao’an: give each agent a clear job
 案例PPT（罗老师）.pptx, slides 1–2. User identifies this as the Bao’an English subject case. The workflow screenshot credits 罗敏 (Luo Min), 宝安小学（集团）红树林外国语小学.
 
 Evidence and interpretation:
 TASK means Tasksheets, Assessments, Standards and Key competences. The material describes an oral-assessment model and a CocoRobo workflow with four agents: T supports task design; A combines oral practice and assessment; S matches activities to standards; K provides feedback using data analysis. The figure documents four roles, not a verified linear routing sequence. The talk describes intended functions, not measured assessment accuracy, fairness or student gains.
 The “Lesson to share” is our interpretation of the documented approach, not a measured causal finding.
 
-08. AI supports the task. Students still think.
+09. Why does practice need research?
 Original 18-slide presentation, slide(s) 8. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/
 
 Evidence and interpretation:
 Evidence scope follows the original deck. Design implications are not additional experimental findings.
+This transition motivates systematic inquiry; transfer is a research purpose, not an established finding. RPP rationale: https://rpp.wtgrantfoundation.org/about/ .
 
-09. What did we study about teacher learning?
+10. A year of practice, evidence and revision
 Original 18-slide presentation, slide(s) 4, 9–10, 17. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/
 
 Evidence and interpretation:
 Evidence scope follows the original deck. Design implications are not additional experimental findings.
 The four practice cases are not four research cohorts. As reported in the original deck, the research programme includes four accepted conference papers and an ongoing Boundary Learning synthesis. Related preprints: https://arxiv.org/abs/2605.13906 and https://arxiv.org/abs/2605.12934 .
 Image: it-training.jpeg from the original presentation. It illustrates the programme setting, not a chart or additional research result.
+Verified against supporting page sections A Sustained Programme and Research Outputs: https://cocorobo.hk/unesco2026/teacher/ (checked 8 September 2026). Timeline dates describe programme rounds; they are not paper acceptance dates. Paper acceptance status is reported in the presenter’s submission materials.
+AERA 2026: Teachers’ Behavior in Building Agents Based on Hierarchical Clustering and Thematic Analysis (roundtable); Empowering Teachers as Creators of Pedagogical Agents: An Integrated Perspective of Constructionism, ICAP, and TPACK (poster).
+ISLS 2026: An Activity-Theoretical Approach to Teacher Professional Development in Pedagogical AI Agent Design (long paper, https://arxiv.org/abs/2605.12934); Modeling AI-TPACK in Practice: Insights from Teachers’ Multi-Agent Workflow Design (short paper, https://arxiv.org/abs/2605.13906). Boundary Learning is ongoing, not an accepted fifth paper. This slide does not claim every paper used all three cohorts or that acceptance dates followed the final round. Teacher evidence does not establish causal student learning gains.
 
-10. Building agents makes teaching choices visible
+11. Building agents makes teaching choices visible
 Original 18-slide presentation, slide(s) 11, 13. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/
 
 Evidence and interpretation:
 Evidence scope follows the original deck. Design implications are not additional experimental findings.
 Image: Shenzhen Education Bureau source deck, slide 2 (city-s2-img5.png). This teacher-made application is an illustration of a design artifact; it is not presented as part of the Pingshan research sample.
 
-11. Teachers need support to keep creating
+12. Teachers need support to keep creating
 Original 18-slide presentation, slide(s) 12–13. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/
 
 Evidence and interpretation:
 Evidence scope follows the original deck. Design implications are not additional experimental findings.
 Photo: english-assessment.webp from the original presentation, slide 9 classroom example.
 
-12. Boundary Learning: deciding where AI belongs
+13. Boundary Learning: deciding where AI belongs
 Original 18-slide presentation, slide(s) 3, 14. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/
 
 Evidence and interpretation:
@@ -90,16 +100,22 @@ Original 18-slide presentation, slide(s) 15. https://tonyxinvip.github.io/slides
 Evidence and interpretation:
 Evidence scope follows the original deck. Design implications are not additional experimental findings.
 
-13. Three ways to support teacher agency
+14. Four partners make the work possible
+Programme partnership and roles: https://cocorobo.hk/unesco2026/teacher/ , sections An RPP-informed Model and Collaboration note; presenter confirmation in this conversation. Partners include university research teams from CUHK, HKU and EdUHK, district education partners, schools and teachers; do not imply each university coauthored every paper or the provincial government is a formal partner in the specific research programme. CocoRobo’s documented role includes programme leadership, technical implementation, platform iteration, teacher training and PD redesign.
+RPP conceptual grounding: William T. Grant Foundation, About RPPs, https://rpp.wtgrantfoundation.org/about/ , drawing on Coburn, Penuel and Geil (2013): sustained collaboration, jointly defined problems, mutual benefit, research production and use. This deck interprets the documented programme through an RPP lens; four stakeholder types alone do not define an RPP.
+Complementarity and the value of enterprise participation are the presenter’s analysis of the mode of work, not a controlled comparison, a historical first or measured superiority over single-sector projects. Research independence, consent and teachers’ pedagogical judgment remain important to the model.
+
+15. Make the partnership useful in practice
 Original 18-slide presentation, slide(s) 16. https://tonyxinvip.github.io/slides/teacher-agent-creators/ ; supporting evidence: https://cocorobo.hk/unesco2026/teacher/
 
 Evidence and interpretation:
 Evidence scope follows the original deck. Design implications are not additional experimental findings.
 The three recommendations synthesize the four supplied practice cases and the reported teacher-learning studies. They are recommendations, not additional measured outcomes.
+Partnership recommendations also draw on https://rpp.wtgrantfoundation.org/about/ . They are recommendations based on this programme and RPP principles, not measured partnership effects.
 
-14. You are welcome in Shenzhen.
+16. You are welcome in Shenzhen.
 APEC dates and host city: Shenzhen Municipal Foreign Affairs Office, 12 August 2026, https://fao.sz.gov.cn/xxgk/zyxw/content/post_1961390.html (checked 8 September 2026). Also APEC Secretariat, 12 December 2025: https://www.apec.org/press/news-releases/2025/china-unveils-apec-2026-theme-and-priorities-in-shenzhen . The slide identifies the announced city, not an unconfirmed building or official school-visit programme.
 Photo: Shenzhen Education Bureau source deck, slide 2 (city-s2-img3.jpeg), teacher application-contest community. This photo is not an APEC venue or event.
 
-15. Let’s keep learning together.
+17. Let’s keep learning together.
 Presenter-supplied contact: tony@cocorobo.cc. QR destinations: https://tonyxinvip.github.io/slides/teacher-agent-creators-10min/ and https://cocorobo.hk/unesco2026/teacher/. QR codes encode these exact URLs; they are not third-party tracking links.
