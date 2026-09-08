@@ -1,9 +1,9 @@
 [
   {
     "slug": "teacher-agent-creators-10min",
-    "title": "From AI Tool Users to AI Agent Creators · 15-slide edition",
-    "eyebrow": "UNESCO · FOUR CASES & RESEARCH",
-    "summary": "15页，约9–10分钟。先解释教学AI智能体，再分享深圳市、坪山、荔园教育集团和宝安英语的实践及研究。真实案例图片、简单英文讲稿和中文提示；附深圳参访邀请、分享二维码及英文PPT/PDF下载。在线版支持英中法三语。",
+    "title": "From AI Tool Users to AI Agent Creators · 17-slide edition",
+    "eyebrow": "UNESCO · PRACTICE, RESEARCH & PARTNERSHIP",
+    "summary": "17页，约10分钟。广东省政策、深圳四个实践案例、实践为何需要研究、一年三轮时间轴和4篇会议论文；提炼企业—大学—政府—学校的RPP合作模式。附简单英文讲稿、真实案例图片、参访邀请、二维码及英文PPT/PDF下载。",
     "cover": "./assets/covers/teacher-agent-creators.svg",
     "author": "辛海洋",
     "publishedAt": "2026-09-08",
@@ -15,7 +15,7 @@
       "Research",
       "Teacher AI"
     ],
-    "slideCount": 15,
+    "slideCount": 17,
     "durationMinutes": 10,
     "access": "public",
     "featured": true
