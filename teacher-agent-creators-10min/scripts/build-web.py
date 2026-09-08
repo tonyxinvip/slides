@@ -11,7 +11,7 @@ def render(page,lang):
         if e.get('role')=='offline-meta':continue
         style=f'left:{e["x"]}px;top:{e["y"]}px;width:{e["w"]}px;height:{e["h"]}px;'
         if e['kind']=='image':
-            inner=f'<img src="./assets/{esc(e["asset"])}" alt="{esc(p[lang].get("caption") or p[lang]["title"])}" style="object-fit:{e["fit"]}">'
+            inner=f'<img src="./assets/{esc(e["asset"])}" alt="{esc(e.get("alt") or p[lang].get("caption") or p[lang]["title"])}" style="object-fit:{e["fit"]};object-position:{esc(e.get("objectPosition","center"))}">'
             if e.get('link'):inner=f'<a href="{esc(e["link"])}" target="_blank" rel="noopener" aria-label="{esc(p[lang]["blocks"][0 if e["asset"].startswith("current") else 1]["title"])}">{inner}</a>'
             rows.append(f'<div class="canvas-elt canvas-image" style="{style}">{inner}</div>')
         elif e['kind']=='rect':
