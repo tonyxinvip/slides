@@ -20,6 +20,8 @@ def render(page,lang):
             role=e.get('role','body');tag='h1' if p['layout']=='cover' and role=='title' else 'h2' if role=='title' else 'h3' if role=='subheading' else 'p'
             style+=f'font-size:{e["size"]}px;font-weight:{700 if e["bold"] else 400};color:{e["color"]};line-height:{e["line"]};text-align:{e.get("align","left")};'
             inner=esc(e['text'])
+            if e.get('highlight'):
+                inner=inner.replace(esc(e['highlight']),f'<span style="color:#64D2C4">{esc(e["highlight"])}</span>',1)
             if e.get('link'):inner=f'<a href="{esc(e["link"])}">{inner}</a>'
             rows.append(f'<{tag} class="canvas-elt canvas-text role-{role}" style="{style}">{inner}</{tag}>')
     return '\n'.join(rows)
@@ -30,14 +32,16 @@ header=re.sub(r'  <link rel="stylesheet" href="\./(?:short|cases|visual)\.css">\
 header=header.replace('</head>','  <link rel="stylesheet" href="./visual.css">\n</head>')
 header=re.sub(r'<meta name="description" content="[^"]*">','<meta name="description" content="AI agents explained, Guangdong policy, Shenzhen practice, teacher learning and a four-partner research-practice model. 17 slides with a simple English script.">',header)
 header=re.sub(r'<title>.*?</title>','<title>From AI Tool Users to AI Agent Creators · 17-slide edition</title>',header)
+header=re.sub(r'UNESCO_Teacher_AI_Agents_EN\.(pptx|pdf)',r'UNESCO_Teacher_AI_Agents_EN_Airier.\1',header)
 if 'class="download-link"' not in header:
     header=header.replace('      <div class="language-switcher"','      <a class="download-link" href="./downloads/UNESCO_Teacher_AI_Agents_EN.pptx" download>PowerPoint ↓</a>\n      <a class="download-link" href="./downloads/UNESCO_Teacher_AI_Agents_EN.pdf" download>PDF ↓</a>\n      <div class="language-switcher"')
 footer='  <div class="progress">'+current.split('  <div class="progress">',1)[1]
+footer=re.sub(r'src="\./i18n\.js(?:\?[^\"]*)?"','src="./i18n.js?v=20260908-cover"',footer)
 footer=footer.replace('</body>','  <script src="./fit-canvas.js"></script>\n</body>') if './fit-canvas.js' not in footer else footer
 sections=[]
 for i,p in enumerate(talk['slides']):
     title=p['en']['title'].replace('\n',' ')
-    visual_theme='dark' if models['en'][i]['background']=='#10283F' else 'paper'
+    visual_theme='dark' if models['en'][i]['background']!='#F8FAFC' else 'paper'
     sections.append(f'<section class="slide {visual_theme} visual-slide {"is-active" if i==0 else ""}" style="background:{models["en"][i]["background"]}" id="slide-{i+1}" data-title="{esc(title)}" data-seconds="{p["seconds"]}" aria-hidden="{str(i!=0).lower()}"><div class="slide-inner" style="background:{models["en"][i]["background"]}">{render(i,"en")}</div><aside class="speaker-note">{esc(p["note"])}</aside></section>')
 (ROOT/'index.html').write_text(header+'  <main class="deck" id="deck" aria-live="polite">\n'+'\n\n'.join(sections)+'\n  </main>\n\n'+footer)
 bundles=json.loads((ROOT/'i18n.js').read_text().removeprefix('window.deckTranslations = ').rstrip(';\n'))
