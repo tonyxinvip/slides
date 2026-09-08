@@ -1,0 +1,53 @@
+/* Four source-backed examples. These extend the approved short-deck style. */
+.short-deck .field-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.short-deck .field-layout>div,.short-deck .field-layout figure{min-width:0}
+.short-deck .field-layout img{display:block;width:100%;max-height:350px;object-fit:contain;background:#fff}
+.short-deck .field-district img{object-fit:cover;aspect-ratio:1.6}
+.short-deck .field-layout figcaption{font-size:clamp(.9rem,1.05vw,1rem);line-height:1.4;margin-top:12px}
+.short-deck .dark .field-layout figcaption{color:rgba(255,255,255,.7)}
+.short-deck .field-points{display:grid;gap:24px}
+.short-deck .field-points article{padding-top:15px;border-top:2px solid var(--blue)}
+.short-deck .dark .field-points article{border-color:var(--cyan)}
+.short-deck .field-points h3{font-size:clamp(1.25rem,1.9vw,1.8rem);line-height:1.2;margin:0 0 10px}
+.short-deck .field-points p{font-size:clamp(1.15rem,1.7vw,1.65rem);line-height:1.45;margin:0}
+.short-deck .dark .field-points p{color:rgba(255,255,255,.88)}
+.short-deck .field-subject{grid-template-columns:1.1fr .9fr}
+.short-deck .field-subject .field-points{grid-template-columns:1fr 1fr;gap:22px}
+.short-deck .field-subject .field-points h3{font-size:clamp(1.2rem,1.65vw,1.6rem)}
+.short-deck .field-subject .field-points p{font-size:clamp(1.1rem,1.55vw,1.5rem)}
+.short-deck .field-subject img{background:transparent}
+.short-deck .takeaway-label{display:block;font-size:.88rem;line-height:1.2;letter-spacing:.1em;text-transform:uppercase;font-weight:750;opacity:.75;margin-bottom:8px}
+.short-deck .field-slide h2{font-size:clamp(2.35rem,3.5vw,3.5rem);margin-bottom:30px;max-width:none}
+.short-deck .field-slide .kicker{font-size:clamp(.75rem,.94vw,.94rem);letter-spacing:.1em}
+.short-deck .field-slide .short-takeaway{margin-top:27px}
+.short-deck .short-making-slide .short-takeaway{font-size:clamp(1.1rem,1.65vw,1.5rem)}
+html[lang='fr'] .short-deck .field-slide h2{font-size:clamp(2.1rem,3.15vw,3.2rem)}
+@media(min-width:901px) and (max-height:740px){
+ .short-deck .field-layout img{max-height:260px}
+ .short-deck .field-points{gap:16px}
+ .short-deck .field-slide h2{margin-bottom:22px}
+ .short-deck .field-slide .short-takeaway{margin-top:18px}
+}
+@media(max-width:900px){
+ .short-deck .field-layout{grid-template-columns:1fr;gap:22px}
+ .short-deck .field-points{grid-template-columns:1fr 1fr;gap:22px}
+ .short-deck .field-layout img{max-height:260px}
+ .short-deck .field-district img{object-fit:contain;aspect-ratio:auto}
+ .short-deck .field-slide h2{font-size:clamp(2rem,5vw,3rem)}
+ .short-deck .field-layout figure{max-width:640px}
+ .short-deck .field-subject img{max-width:510px}
+}
+@media(max-width:620px){
+ .short-deck .field-points,.short-deck .field-subject .field-points{grid-template-columns:1fr}
+ .short-deck .field-slide .kicker{line-height:1.5}
+ .short-deck .field-slide h2{font-size:2.15rem}
+ .short-deck .field-points h3{font-size:1.35rem}
+ .short-deck .field-points p{font-size:1.2rem}
+ .short-deck .field-slide .short-takeaway{font-size:1.2rem}
+}
+@media print{
+ .short-deck .field-layout{grid-template-columns:1fr 1fr}
+ .short-deck .field-points{grid-template-columns:1fr}
+ .short-deck .field-subject .field-points{grid-template-columns:1fr 1fr}
+ .short-deck .field-layout img{max-height:270px}
+}
