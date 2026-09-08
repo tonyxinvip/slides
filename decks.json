@@ -1,5 +1,30 @@
 [
   {
+    "slug": "education-purpose-ai-2026",
+    "title": "AI时代，教育要成就什么？",
+    "eyebrow": "LEARNING · TEACHING · PROFESSIONAL JUDGEMENT",
+    "summary": "面向资深教师的一小时讲座：从用于教学研讨的科学实验情境出发，讨论AI如何改变学习机会、人机合作的安排与教师的专业判断。36页，含现场讨论、讲者备注与备课五问卡。",
+    "cover": "./education-purpose-ai-2026/assets/cover.png",
+    "author": "辛海洋 Tony Xin",
+    "publishedAt": "2026-09-08",
+    "eventKind": "教师讲座",
+    "tags": [
+      "Education",
+      "Research",
+      "Teacher AI"
+    ],
+    "searchAliases": [
+      "AI时代教育要成就什么",
+      "教师专业判断",
+      "人机合作",
+      "学习机会"
+    ],
+    "slideCount": 36,
+    "durationMinutes": 60,
+    "access": "public",
+    "featured": true
+  },
+  {
     "slug": "teacher-agent-creators-10min",
     "title": "From AI Tool Users to AI Agent Creators · 17-slide edition",
     "eyebrow": "UNESCO · PRACTICE, RESEARCH & PARTNERSHIP",
@@ -52,7 +77,11 @@
     "eventDate": "2026-09-08",
     "eventVenue": "UNESCO 总部，巴黎",
     "eventKind": "活动",
-    "tags": ["Education", "Research", "Teacher AI"],
+    "tags": [
+      "Education",
+      "Research",
+      "Teacher AI"
+    ],
     "slideCount": 18,
     "durationMinutes": 10,
     "access": "public",
@@ -71,7 +100,11 @@
     "eventDateLabel": "2027 · 日期待定",
     "eventVenue": "香港教育大学",
     "eventKind": "课程介绍",
-    "tags": ["AI Learning", "Education", "Robotics"],
+    "tags": [
+      "AI Learning",
+      "Education",
+      "Robotics"
+    ],
     "slideCount": 18,
     "durationMinutes": 15,
     "access": "public",
@@ -88,8 +121,16 @@
     "eventDate": "2026-09-02",
     "eventVenue": "可可乐博",
     "eventKind": "内部分享",
-    "tags": ["AI Native", "Capability Transfer", "FDE"],
-    "searchAliases": ["AI-native", "ainative", "AI Native 4"],
+    "tags": [
+      "AI Native",
+      "Capability Transfer",
+      "FDE"
+    ],
+    "searchAliases": [
+      "AI-native",
+      "ainative",
+      "AI Native 4"
+    ],
     "series": "AI Native Field Notes",
     "seriesId": "ai-native-field-notes",
     "episode": 4,
@@ -109,8 +150,16 @@
     "eventDate": "2026-08-31",
     "eventVenue": "可可乐博",
     "eventKind": "内部分享",
-    "tags": ["AI Native", "Organization Design", "Agentic Workflow"],
-    "searchAliases": ["AI-native", "ainative", "AI Native 3"],
+    "tags": [
+      "AI Native",
+      "Organization Design",
+      "Agentic Workflow"
+    ],
+    "searchAliases": [
+      "AI-native",
+      "ainative",
+      "AI Native 3"
+    ],
     "series": "AI Native Field Notes",
     "seriesId": "ai-native-field-notes",
     "episode": 3,
@@ -130,8 +179,14 @@
     "eventDate": "2026-08-29",
     "eventVenue": "深圳园丁学校",
     "eventKind": "教师讲座",
-    "tags": ["K12 Education", "AI Literacy", "Learning Sciences"],
-    "searchAliases": ["当人人都有一支AI团队"],
+    "tags": [
+      "K12 Education",
+      "AI Literacy",
+      "Learning Sciences"
+    ],
+    "searchAliases": [
+      "当人人都有一支AI团队"
+    ],
     "slideCount": 66,
     "durationMinutes": 90,
     "access": "public",
@@ -148,7 +203,11 @@
     "eventDate": "2026-08-28",
     "eventVenue": "深圳城市职业学院（深圳技师学院）",
     "eventKind": "分享",
-    "tags": ["Vocational Education", "AI Literacy", "AI Native"],
+    "tags": [
+      "Vocational Education",
+      "AI Literacy",
+      "AI Native"
+    ],
     "slideCount": 28,
     "durationMinutes": 30,
     "access": "public",
@@ -165,8 +224,14 @@
     "eventDate": "2026-08-27",
     "eventVenue": "深圳外国语学校",
     "eventKind": "教师培训",
-    "tags": ["K12 Education", "AI Literacy", "Learning Sciences"],
-    "searchAliases": ["当人人都有一支AI团队"],
+    "tags": [
+      "K12 Education",
+      "AI Literacy",
+      "Learning Sciences"
+    ],
+    "searchAliases": [
+      "当人人都有一支AI团队"
+    ],
     "slideCount": 53,
     "durationMinutes": 45,
     "access": "public",
@@ -183,7 +248,11 @@
     "eventDate": "2026-08-26",
     "eventVenue": "博汇集团",
     "eventKind": "培训",
-    "tags": ["Education Group", "Agentic AI", "Workflow Portfolio"],
+    "tags": [
+      "Education Group",
+      "Agentic AI",
+      "Workflow Portfolio"
+    ],
     "slideCount": 56,
     "durationMinutes": 180,
     "access": "public",
@@ -200,7 +269,11 @@
     "eventDate": "2026-08-25",
     "eventVenue": "深圳技术大学",
     "eventKind": "讲座",
-    "tags": ["Education", "Comprehensive Practice", "Teacher AI"],
+    "tags": [
+      "Education",
+      "Comprehensive Practice",
+      "Teacher AI"
+    ],
     "slideCount": 71,
     "durationMinutes": 90,
     "access": "public",
@@ -217,7 +290,11 @@
     "eventDate": "2026-08-21",
     "eventVenue": "深圳技术大学",
     "eventKind": "培训",
-    "tags": ["Education", "Science Education", "Teacher AI"],
+    "tags": [
+      "Education",
+      "Science Education",
+      "Teacher AI"
+    ],
     "slideCount": 47,
     "durationMinutes": 90,
     "access": "public",
@@ -234,8 +311,16 @@
     "eventDate": "2026-08-17",
     "eventVenue": "可可乐博",
     "eventKind": "分享",
-    "tags": ["AI Native", "Education System", "Practice"],
-    "searchAliases": ["AI-native", "ainative", "AI Native 2"],
+    "tags": [
+      "AI Native",
+      "Education System",
+      "Practice"
+    ],
+    "searchAliases": [
+      "AI-native",
+      "ainative",
+      "AI Native 2"
+    ],
     "series": "AI Native Field Notes",
     "seriesId": "ai-native-field-notes",
     "episode": 2,
@@ -255,8 +340,17 @@
     "eventDate": "2026-08-10",
     "eventVenue": "可可乐博",
     "eventKind": "技术讲座",
-    "tags": ["AI Native", "Agentic AI", "AI Worker", "Agent Engineering"],
-    "searchAliases": ["AI-native", "ainative", "AI Native 1"],
+    "tags": [
+      "AI Native",
+      "Agentic AI",
+      "AI Worker",
+      "Agent Engineering"
+    ],
+    "searchAliases": [
+      "AI-native",
+      "ainative",
+      "AI Native 1"
+    ],
     "series": "AI Native Field Notes",
     "seriesId": "ai-native-field-notes",
     "episode": 1,
@@ -276,7 +370,11 @@
     "eventDate": "2026-07-15",
     "eventVenue": "香港中文大学教育学院",
     "eventKind": "讲座",
-    "tags": ["AI Native", "Education", "Research"],
+    "tags": [
+      "AI Native",
+      "Education",
+      "Research"
+    ],
     "slideCount": 41,
     "durationMinutes": 30,
     "access": "public",
@@ -293,7 +391,10 @@
     "eventDate": "2026-07-10",
     "eventVenue": "深圳福田教育科学研究院",
     "eventKind": "讲座",
-    "tags": ["Education", "Research"],
+    "tags": [
+      "Education",
+      "Research"
+    ],
     "slideCount": 54,
     "durationMinutes": 70,
     "access": "public",
@@ -310,7 +411,10 @@
     "eventDate": "2026-06-27",
     "eventVenue": "华南师范大学教育技术学院",
     "eventKind": "讲座",
-    "tags": ["AI Native", "Education"],
+    "tags": [
+      "AI Native",
+      "Education"
+    ],
     "slideCount": 13,
     "durationMinutes": 20,
     "access": "public",
@@ -327,7 +431,11 @@
     "eventDate": "2026-06-26",
     "eventVenue": "佛山市高明区教师发展中心",
     "eventKind": "培训",
-    "tags": ["项目化学习", "教师培训", "研究证据"],
+    "tags": [
+      "项目化学习",
+      "教师培训",
+      "研究证据"
+    ],
     "slideCount": 65,
     "durationMinutes": 90,
     "access": "public",
@@ -344,7 +452,10 @@
     "eventDate": "2026-06-24",
     "eventVenue": "香港教育大学博士生论坛",
     "eventKind": "讲座",
-    "tags": ["Education", "Research"],
+    "tags": [
+      "Education",
+      "Research"
+    ],
     "slideCount": 45,
     "durationMinutes": 60,
     "access": "public",
