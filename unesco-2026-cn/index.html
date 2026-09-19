@@ -1,0 +1,1419 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23080d19'/%3E%3Ccircle cx='50' cy='50' r='34' fill='none' stroke='%2362d8dd' stroke-width='5'/%3E%3Ccircle cx='50' cy='50' r='13' fill='%23d3483f'/%3E%3C/svg%3E">
+<title>AI 时代，怎样学、怎样教、怎样治理？ · 2026 UNESCO 数字学习周现场观察</title>
+<style>
+@font-face{font-family:"Deck Sans";src:url(assets/fonts/deck-sans-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"Deck Sans";src:url(assets/fonts/deck-sans-600.woff2) format("woff2");font-weight:600;font-style:normal;font-display:block}
+@font-face{font-family:"Deck Sans";src:url(assets/fonts/deck-sans-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:block}
+@font-face{font-family:"Deck Sans";src:url(assets/fonts/deck-sans-800.woff2) format("woff2");font-weight:800;font-style:normal;font-display:block}
+@font-face{font-family:"Deck Han";src:url(assets/fonts/deck-han-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"Deck Han";src:url(assets/fonts/deck-han-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:block}
+:root{
+  --navy:#080d19; --ink:#11192a; --paper:#f4f0e7; --white:#fffdf8;
+  --muted:#677080; --line:#d7d2c7;
+  --blue:#3867ff; --cyan:#62d8dd; --orange:#ff9d4d; --red:#d3483f;
+  --green:#17865e; --violet:#5b46d8;
+  /* Deck Sans（Inter 子集）与 Deck Han（Noto Sans CJK **SC** 子集）都内嵌在本文件里，
+     所以版面不依赖对方装了什么字体——Windows 上不会落到宋体而整页重排。
+     SC 那一支是刻意选的：简体字形与港版 HK、台版 TC 都有差（内、直、骨…）。
+     后面的系统字体只是万一内嵌失败时的救生索，正常情况下用不到。 */
+  --font:"Deck Sans","Deck Han",Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",
+    "PingFang SC","Hiragino Sans GB","Microsoft YaHei",
+    "Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:var(--font); background:var(--navy); color:var(--ink);
+  -webkit-font-smoothing:antialiased; overflow:hidden;
+}
+
+/* ---------- 舞台：桌面按 16:9 等比缩放，字号跟着舞台走 ---------- */
+.deck{position:relative;width:100vw;height:100dvh;overflow:hidden}
+.slide{
+  position:absolute;inset:0;display:grid;place-items:center;
+  opacity:0;visibility:hidden;transition:opacity .32s ease;
+}
+.slide.is-active{opacity:1;visibility:visible}
+.stage{
+  position:relative;
+  width:min(100vw, calc(100dvh * 16 / 9));
+  height:min(100dvh, calc(100vw * 9 / 16));
+  font-size:calc(min(100vw, calc(100dvh * 16 / 9)) / 80);
+  padding:3.6em 5.4em 3.2em;
+  display:flex;flex-direction:column;
+  background:var(--paper);color:var(--ink);
+  overflow:hidden;
+}
+.stage.dark{background:var(--navy);color:var(--white)}
+.stage.dark .muted{color:rgba(255,253,248,.7)}
+.stage.dark .rule{background:rgba(255,253,248,.18)}
+
+/* ---------- 页眉页脚 ---------- */
+.eyebrow{
+  position:absolute;top:1.7em;left:5.4em;
+  font-size:.72em;font-weight:700;letter-spacing:.14em;color:var(--blue);
+}
+.stage.dark .eyebrow{color:var(--cyan)}
+.pageno{
+  position:absolute;top:1.7em;right:5.4em;
+  font-size:.72em;font-weight:600;letter-spacing:.08em;color:var(--muted);
+  font-variant-numeric:tabular-nums;
+}
+.stage.dark .pageno{color:rgba(255,253,248,.5)}
+.stamp{
+  position:absolute;bottom:1.5em;left:5.4em;
+  font-size:.72em;color:var(--muted);letter-spacing:.02em;
+}
+.stage.dark .stamp{color:rgba(255,253,248,.45)}
+
+/* ---------- 排版 ---------- */
+h1{font-size:4.4em;line-height:1.1;font-weight:800;letter-spacing:-.01em;padding-bottom:.06em}
+h2{font-size:2.6em;line-height:1.2;font-weight:750;letter-spacing:-.005em;max-width:32ch;text-wrap:balance;padding-bottom:.04em}
+h3{font-size:1.42em;line-height:1.34;font-weight:700}
+.deckline{font-size:1.5em;line-height:1.55;font-weight:500;color:var(--muted);max-width:44ch;text-wrap:pretty}
+.stage.dark .deckline{color:rgba(255,253,248,.75)}
+p,li{font-size:1.14em;line-height:1.66}
+.muted{color:var(--muted)}
+.small{font-size:.98em;line-height:1.6}
+.tag{font-size:.8em;font-weight:700;letter-spacing:.1em;color:var(--muted)}
+.stage.dark .tag{color:rgba(255,253,248,.6)}
+.mono{font-family:var(--mono);font-size:.92em;letter-spacing:.01em}
+.blue{color:var(--blue)} .cyan{color:var(--cyan)} .red{color:var(--red)}
+.orange{color:var(--orange)} .green{color:var(--green)}
+strong{font-weight:750}
+
+.head{margin-bottom:1.7em}
+.head .rule{margin-top:.85em}
+.rule{height:1px;background:var(--line);width:100%}
+/* center 而不是 flex-start / space-between。实测过三种：
+   flex-start 把余裕全丢到页脚上方，变成一条 30%+ 的死白；
+   space-between 把余裕堆进内容块之间的中缝，更难看；
+   center 让余裕平分到上下，由 .head 与 .foot 两条线框住，读起来是刻意留白。 */
+.body{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:1.9em}
+.foot{margin-top:auto;padding-top:1.2em;font-size:1.02em;line-height:1.6;color:var(--muted);max-width:76ch;text-wrap:pretty}
+.stage.dark .foot{color:rgba(255,253,248,.72)}
+.foot strong{color:var(--ink)}
+.stage.dark .foot strong{color:var(--white)}
+.foot.hair{border-top:1px solid var(--line)}
+.stage.dark .foot.hair{border-top-color:rgba(255,253,248,.18)}
+
+/* ---------- 版式原语 ---------- */
+.cols{display:grid;gap:2.2em}
+.c2{grid-template-columns:repeat(2,1fr)}
+.c3{grid-template-columns:repeat(3,1fr)}
+.c4{grid-template-columns:repeat(4,1fr)}
+
+/* 顶线栏：代替圆角卡 */
+.field{padding-top:1em;border-top:2px solid var(--ink)}
+.stage.dark .field{border-top-color:rgba(255,253,248,.85)}
+.field.thin{border-top-width:1px;border-top-color:var(--line)}
+.stage.dark .field.thin{border-top-color:rgba(255,253,248,.3)}
+.field .idx{font-size:.84em;font-weight:700;letter-spacing:.1em;color:var(--muted);display:block;margin-bottom:.45em;font-variant-numeric:tabular-nums}
+.stage.dark .field .idx{color:rgba(255,253,248,.55)}
+.field h3{margin-bottom:.3em}
+.field p{font-size:1.05em;line-height:1.6;color:var(--muted);text-wrap:pretty}
+.stage.dark .field p{color:rgba(255,253,248,.68)}
+.field.accent{border-top-color:var(--blue)}
+
+/* 扫码页：QR 一律放白底，纸色虽然够亮，但扫描器对纯白的容差最大。
+   max-width 11.5em ＝ 1280px 舞台上约 184px，占画面高度四分之一——
+   再小，坐后排的人就只能拍照回去再扫。 */
+.qr{width:100%;max-width:15em;margin:1em 0 .95em;background:#fff;
+  padding:.7em;border:1px solid var(--line)}
+.qr svg{display:block;width:100%;height:auto}
+.qurl{display:block;margin-top:.55em;font-size:.9em;line-height:1.5;
+  color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.field.warn{border-top-color:var(--red)}
+.field.ok{border-top-color:var(--green)}
+.field.sig{border-top-color:var(--cyan)}
+
+/* 阶梯 */
+.ladder{display:flex;flex-direction:column;gap:0;flex:1 1 auto;justify-content:space-evenly}
+.step{display:grid;grid-template-columns:2.4em 10.5em 1fr;align-items:baseline;gap:1.1em;padding:1.05em 0;border-bottom:1px solid var(--line)}
+.stage.dark .step{border-bottom-color:rgba(255,253,248,.16)}
+.step:last-child{border-bottom:0}
+.step .n{font-size:1.02em;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums}
+.stage.dark .step .n{color:var(--cyan)}
+.step .k{font-size:1.24em;font-weight:700}
+.step .v{font-size:1em;color:var(--muted);line-height:1.52;text-wrap:pretty}
+.stage.dark .step .v{color:rgba(255,253,248,.7)}
+.ladder.tight .step{padding:.62em 0;grid-template-columns:2.4em 12em 1fr}
+.ladder.tight .step .k{font-size:1.1em}
+.ladder.tight .step .v{font-size:.97em;line-height:1.45}
+
+/* 流程链 */
+.chain{display:flex;align-items:stretch;gap:0}
+.chain .node{flex:1;padding-right:1.4em}
+.chain .arrow{align-self:center;color:var(--muted);font-size:1.25em;padding-right:1.4em;flex:0 0 auto}
+.stage.dark .chain .arrow{color:rgba(255,253,248,.42)}
+.chain .node h3{margin-bottom:.28em;font-size:1.22em}
+.chain .node p{font-size:1em;color:var(--muted);line-height:1.5}
+.stage.dark .chain .node p{color:rgba(255,253,248,.68)}
+
+/* 对照双栏 */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:3em}
+.compare .side .tag{display:block;margin-bottom:.85em}
+.clist{list-style:none;display:flex;flex-direction:column;gap:.85em}
+.clist li{display:grid;grid-template-columns:1.5em 1fr;gap:.6em;align-items:baseline;font-size:1.06em;line-height:1.55;text-wrap:pretty}
+.clist .mk{font-weight:700}
+.clist.yes .mk{color:var(--green)}
+.clist.no .mk{color:var(--red)}
+.stage.dark .clist.yes .mk{color:var(--cyan)}
+.stage.dark .clist.no .mk{color:var(--orange)}
+
+/* 大字断言 */
+.assert{font-size:1.72em;line-height:1.42;font-weight:700;letter-spacing:-.005em;max-width:40ch}
+.assert .hi{color:var(--blue)}
+.stage.dark .assert .hi{color:var(--cyan)}
+
+/* 引述 */
+.quote{border-left:3px solid var(--blue);padding-left:1.4em;max-width:48ch}
+.stage.dark .quote{border-left-color:var(--cyan)}
+.quote p{font-size:1.3em;line-height:1.62}
+.quote .src{display:block;margin-top:.8em;font-size:.92em;color:var(--muted)}
+.stage.dark .quote .src{color:rgba(255,253,248,.6)}
+
+/* 数字行 */
+.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4em}
+.statrow .n{font-size:2.9em;font-weight:800;line-height:1.05;letter-spacing:-.01em}
+.statrow .l{margin-top:.5em;font-size:1em;color:var(--muted);line-height:1.45}
+.stage.dark .statrow .l{color:rgba(255,253,248,.66)}
+
+/* 图片：比例由原图量得，只给一边，另一边由 aspect-ratio 算，永不拉伸 */
+.photo{display:block;width:100%;height:auto;border:1px solid var(--line);background:#0b1220}
+.stage.dark .photo{border-color:rgba(255,253,248,.2)}
+figure{margin:0;display:flex;flex-direction:column;gap:.7em;min-width:0}
+figcaption{font-size:.88em;line-height:1.5;color:var(--muted)}
+.stage.dark figcaption{color:rgba(255,253,248,.55)}
+.split{display:grid;gap:2.6em;align-items:start}
+.split.pl{grid-template-columns:1.05fr 1fr}   /* 图左 */
+.split.pr{grid-template-columns:1fr 1.05fr}   /* 图右 */
+
+/* 效应量条：标签 | 轨道 | 读数，三栏，读数不再绝对定位（会撑破舞台） */
+.bars{display:grid;grid-template-columns:12.5em 1fr 11em;gap:1.15em 1.2em;align-items:center;flex:0 0 auto}
+.bars .blab{font-size:1.02em;line-height:1.35;font-weight:600}
+.bars .blab em{display:block;font-style:normal;font-weight:500;font-size:.85em;color:var(--muted);margin-top:.15em}
+.bars .btrack{position:relative;height:2.1em;background:rgba(103,112,128,.13);border-left:2px solid var(--ink)}
+.bars .bfill{position:absolute;left:0;top:0;bottom:0;background:var(--blue)}
+.bars .bhatch{position:absolute;inset:0;
+  background:repeating-linear-gradient(135deg,rgba(103,112,128,.24) 0 6px,transparent 6px 12px)}
+.bars .bval{font-size:1.04em;font-weight:750;line-height:1.3;font-variant-numeric:tabular-nums;color:var(--blue)}
+.bars .bval.null{color:var(--red)}
+.bars .bval.qual{color:var(--muted)}
+.bars .bval em{display:block;font-style:normal;font-weight:500;font-size:.78em;color:var(--muted);margin-top:.15em}
+.axis{grid-column:2;display:flex;justify-content:space-between;font-size:.84em;color:var(--muted);
+  padding-top:.4em;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+
+/* 八条方向：两栏紧排 */
+.eight{display:grid;grid-template-columns:1fr 1fr;gap:.55em 2.6em;flex:1 1 auto;align-content:space-evenly}
+.eight .it{display:grid;grid-template-columns:2em 1fr;gap:.75em;padding:.62em 0;border-bottom:1px solid var(--line)}
+.stage.dark .eight .it{border-bottom-color:rgba(255,253,248,.15)}
+.eight .it .n{font-size:.92em;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums;padding-top:.15em}
+.stage.dark .eight .it .n{color:var(--cyan)}
+.eight .it b{display:block;font-size:1.06em;font-weight:750;line-height:1.35}
+.eight .it span{display:block;font-size:.94em;line-height:1.45;color:var(--muted);margin-top:.12em}
+.stage.dark .eight .it span{color:rgba(255,253,248,.62)}
+
+/* 五问标签 */
+.pills{display:flex;flex-wrap:wrap;gap:.6em}
+.pills span{font-size:1em;font-weight:650;padding:.4em .9em;border:1px solid var(--line);border-radius:2px}
+.stage.dark .pills span{border-color:rgba(255,253,248,.28)}
+
+/* 封面标记 */
+.mark{position:absolute;right:5.4em;top:50%;transform:translateY(-50%);width:15em;height:15em}
+.mark svg{width:100%;height:100%;display:block}
+.marklabels{position:absolute;right:5.4em;bottom:4.6em;display:flex;gap:2.4em;font-size:.95em;color:rgba(255,253,248,.62)}
+
+/* 留底页的密排来源 */
+.refs{column-count:2;column-gap:3em;font-size:.92em;line-height:1.62;color:var(--muted);flex:1 1 auto}
+.refs p{font-size:1em;line-height:1.62;break-inside:avoid;margin-bottom:.5em}
+
+/* ---------- 控件 ---------- */
+.controls{
+  position:fixed;right:1.1rem;bottom:calc(1.1rem + env(safe-area-inset-bottom));
+  display:flex;gap:.4rem;align-items:center;z-index:40;
+}
+.btn{
+  width:44px;height:44px;display:grid;place-items:center;cursor:pointer;
+  background:rgba(244,240,231,.9);color:var(--ink);border:1px solid rgba(17,25,42,.14);
+  border-radius:3px;font-size:15px;font-family:var(--font);line-height:1;
+}
+.btn:hover{background:var(--white)}
+.btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.counter{
+  position:fixed;left:1.1rem;bottom:calc(1.1rem + env(safe-area-inset-bottom));
+  z-index:40;font-size:12px;letter-spacing:.1em;color:rgba(244,240,231,.75);
+  font-variant-numeric:tabular-nums;background:rgba(8,13,25,.55);
+  padding:.5rem .7rem;border-radius:3px;
+}
+.progress{position:fixed;left:0;top:0;height:2px;background:var(--cyan);z-index:41;transition:width .3s ease;width:0}
+
+.overview{
+  position:fixed;inset:0;z-index:50;background:rgba(8,13,25,.97);
+  padding:2rem;overflow:auto;display:none;
+}
+.overview.open{display:block}
+.ovgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.9rem;max-width:1400px;margin:0 auto}
+.ovcard{
+  text-align:left;cursor:pointer;padding:.85rem;border-radius:3px;
+  background:rgba(244,240,231,.07);border:1px solid rgba(244,240,231,.14);
+  color:rgba(244,240,231,.92);font-family:var(--font);font-size:13px;line-height:1.45;
+}
+.ovcard:hover,.ovcard:focus-visible{background:rgba(244,240,231,.16);outline:none}
+.ovcard .n{display:block;font-size:11px;letter-spacing:.1em;color:var(--cyan);margin-bottom:.35rem}
+.ovhead{color:rgba(244,240,231,.6);font-size:12px;letter-spacing:.1em;max-width:1400px;margin:0 auto 1.1rem}
+
+.notespanel{
+  position:fixed;left:0;right:0;bottom:0;z-index:45;max-height:46vh;overflow:auto;
+  background:rgba(8,13,25,.97);color:rgba(244,240,231,.9);
+  padding:1.1rem 1.3rem calc(1.1rem + env(safe-area-inset-bottom));
+  border-top:1px solid rgba(244,240,231,.2);display:none;
+  font-size:14px;line-height:1.66;
+}
+.notespanel.open{display:block}
+.notespanel h4{font-size:11px;letter-spacing:.12em;color:var(--cyan);margin-bottom:.5rem;font-weight:700}
+.notespanel b{color:var(--white)}
+
+/* ---------- 移动端：不缩画布，改为单栏纵向阅读 ---------- */
+@media (max-width:820px){
+  body{overflow:auto}
+  .deck{height:auto;overflow:visible}
+  .slide{position:static;opacity:1;visibility:visible;display:block;min-height:100dvh}
+  .slide+.slide{border-top:1px solid rgba(103,112,128,.3)}
+  .stage{
+    width:100%;height:auto;min-height:100dvh;font-size:15px;
+    padding:4.2em 1.5em 7.6em;
+  }
+  .eyebrow,.pageno{left:1.5em;right:1.5em;top:1.9em}
+  .pageno{left:auto}
+  .stamp{left:1.5em;bottom:6.2em}
+  h1{font-size:2em;line-height:1.16}
+  h2{font-size:1.72em;max-width:none}
+  .deckline{font-size:1.16em;max-width:none}
+  .cols,.compare,.split,.eight{grid-template-columns:1fr!important;gap:1.4em}
+  .statrow{grid-template-columns:1fr;gap:1.2em}
+  .statrow .n{font-size:2.2em}
+  .stage .body{max-width:none!important;justify-content:flex-start}
+  .ladder,.eight,.refs{flex:0 0 auto}
+  .ladder{justify-content:flex-start}
+  .eight{align-content:start}
+  .chain{flex-direction:column;gap:1em}
+  .chain .node{padding-right:0}
+  .chain .arrow{display:none}
+  .step{grid-template-columns:2.2em 1fr;gap:.5em .7em}
+  .step .v{grid-column:2}
+  .ladder.tight .step{grid-template-columns:2.2em 1fr}
+  .bars{grid-template-columns:1fr;gap:.4em}
+  .bars .blab{margin-top:.9em}
+  .bars .btrack{height:1.8em}
+  .axis{grid-column:1}
+  .assert{font-size:1.4em;max-width:none}
+  .quote p{font-size:1.12em}
+  .refs{column-count:1}
+  .mark{position:static;transform:none;width:8em;height:8em;margin-top:1.6em}
+  .marklabels{position:static;margin-top:1em;gap:1.6em}
+  .overview{padding:1rem}
+  .controls{right:.7rem;bottom:calc(.7rem + env(safe-area-inset-bottom))}
+  .counter{left:.7rem;bottom:calc(.7rem + env(safe-area-inset-bottom))}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .slide{transition:none}
+  .progress{transition:none}
+  *{scroll-behavior:auto!important}
+}
+
+/* ---------- 打印 / PDF ----------
+   页面定 13.333in × 7.5in（16:9，= PowerPoint 的 16:9 画布），
+   即 1280 × 720 CSS px。字级定 12pt = 16px，1280 / 80 = 16——
+   和屏幕版的 1440 / 80 = 18px 是同一个比例。padding 沿用同一组 em。
+   **所以 PDF 的版面与已验收的屏幕版面逐格等比，不是另一套没验过的排版。**
+   1280px 高于 820px 的手机断点，那套单栏规则在打印时不会误触发。 */
+@media print{
+  @page{size:13.333in 7.5in;margin:0}
+  html,body{height:auto;overflow:visible;background:#fff}
+  .deck{width:auto;height:auto;overflow:visible}
+  .slide{
+    position:static;opacity:1;visibility:visible;display:block;
+    width:13.333in;height:7.5in;overflow:hidden;
+    break-after:page;page-break-after:always;break-inside:avoid;
+  }
+  /* 少了这一条，最后一页的 page-break-after 会多印一张空白页 */
+  .slide:last-child{break-after:auto;page-break-after:auto}
+  .slide+.slide{border-top:0}
+  .stage{
+    width:13.333in;height:7.5in;font-size:12pt;
+    padding:3.6em 5.4em 3.2em;max-width:none;min-height:0;
+    print-color-adjust:exact;-webkit-print-color-adjust:exact;
+  }
+  .controls,.counter,.progress,.overview,.notespanel{display:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress" role="presentation"></div>
+
+<main class="deck" id="deck">
+
+<!-- 01 封面 -->
+<section class="slide" id="slide-1" data-title="AI 时代，怎样学、怎样教、怎样治理？" aria-label="第 1 页：AI 时代，怎样学、怎样教、怎样治理？">
+  <div class="stage dark">
+    <div class="eyebrow">UNESCO DIGITAL LEARNING WEEK 2026 · PARIS</div>
+    <div class="body" style="justify-content:center;max-width:58%">
+      <h1>AI 时代<br>怎样学、怎样教、<br>怎样治理？</h1>
+      <div class="deckline" style="margin-top:1.2em">2026 联合国教科文组织数字学习周 · 巴黎现场观察</div>
+      <p class="small" style="margin-top:1em;color:rgba(255,253,248,.6)">给内地教师的 20 分钟分享</p>
+    </div>
+    <div class="mark" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none">
+        <circle cx="100" cy="100" r="86" stroke="#62d8dd" stroke-width="1.2" opacity=".5"/>
+        <circle cx="100" cy="100" r="58" stroke="#62d8dd" stroke-width="1.2" opacity=".78"/>
+        <line x1="0" y1="100" x2="200" y2="100" stroke="#62d8dd" stroke-width="1" opacity=".28"/>
+        <circle cx="100" cy="100" r="21" fill="#d3483f"/>
+      </svg>
+    </div>
+    <div class="marklabels" aria-hidden="true"><span>学习</span><span>教学</span><span>治理</span></div>
+    <div class="stamp">辛海洋 · 可可乐博 · 2026 年 9 月</div>
+  </div>
+  <template class="notes"><b>0:00–0:30</b>　开场。一句话说明身份与立场：我是以与会者身份去的，这 20 分钟只报告现场所见，不涉及产品推介。<br>全程约 20 分钟，三个板块各约 5 分钟，最后 2 分钟落到学校。</template>
+</section>
+
+<!-- 02 这 20 分钟 -->
+<section class="slide" id="slide-2" data-title="三个问题，结论先行" aria-label="第 2 页：三个问题，结论先行">
+  <div class="stage dark">
+    <div class="eyebrow">开场</div><div class="pageno">02</div>
+    <div class="head">
+      <h2>三个问题，结论先行</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="cols c3">
+        <div class="field sig"><span class="idx">问题 01 · 学习</span><h3>AI 介入之后，<br>学生学到了什么？</h3></div>
+        <div class="field sig"><span class="idx">问题 02 · 教学</span><h3>AI 进入课堂，<br>教师需要哪些支持？</h3></div>
+        <div class="field sig"><span class="idx">问题 03 · 治理</span><h3>学校需要<br>哪些公共条件？</h3></div>
+      </div>
+      <div class="assert" style="max-width:52ch">四天的追问集中在三件事上：<span class="hi">课堂内留给学生多少应由其完成的工作、教师保有多少判断、学校具备多少检查与中止的能力</span>。</div>
+    </div>
+    <div class="foot">以下内容出自 9 月 8 至 11 日巴黎现场的报告、对话与会议文件。<strong>未经亲自核实的部分，页面上另有标注。</strong></div>
+  </div>
+  <template class="notes"><b>0:30–1:30</b>　把结论先放出来，后面三段都是为这一句话提供依据。<br>对老师说话的重点：这 20 分钟给的是判断方法，技术细节从简。</template>
+</section>
+
+<!-- 03 会议概况 -->
+<section class="slide" id="slide-3" data-title="四天，一个被反复追问的问题" aria-label="第 3 页：四天，一个被反复追问的问题">
+  <div class="stage">
+    <div class="eyebrow">开场</div><div class="pageno">03</div>
+    <div class="head">
+      <h2>四天，一个被反复追问的问题</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="split pl">
+        <figure>
+          <img class="photo" src="assets/p03-plenary.jpg" style="aspect-ratio:1500/844" alt="巴黎 UNESCO 总部全体会议现场，台上两位主持人与大屏幕上以视频连线参与的讲者。">
+          <figcaption>全体会议现场，讲者以视频连线参与。2026 年 9 月 9 日。照片由参会者提供。</figcaption>
+        </figure>
+        <div>
+          <div class="statrow" style="grid-template-columns:1fr 1fr;gap:1.6em 2em">
+            <div><div class="n">1500<span style="font-size:.6em">+</span></div><div class="l">巴黎现场参与者</div></div>
+            <div><div class="n">25<span style="font-size:.6em">+</span></div><div class="l">教育部长及指定代表<br>共同通过部长声明</div></div>
+          </div>
+          <div class="field accent" style="margin-top:1.8em">
+            <span class="idx">本届主题</span>
+            <h3>Facts ｜ Frictions ｜ Frontiers</h3>
+            <p style="margin-top:.5em"><b>事实</b>：问学习效果与技术主张的依据。<br><b>摩擦</b>：问 AI 与课程、评价、师生关系在哪些环节不相容。<br><b>前沿</b>：问哪些新的学习环境与公共安排正在出现。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot hair">另有数千人线上参加。<strong>三个词各自标示一种追问方式</strong>。概念说明没有把技术能力的增长等同于教育进步。</div>
+  </div>
+  <template class="notes"><b>1:30–2:30</b>　人数采用 UNESCO 会议同期官方报道。<br>可补一句：正式报告的入选与报名参会是两套安排，<b>入选议程不等于 UNESCO 对项目成效的认证</b>。这点在后面讲可可乐博那一页也要说清楚。</template>
+</section>
+
+<!-- 04 章节一 -->
+<section class="slide" id="slide-4" data-title="一、学习：AI 介入之后，学生学到了什么？" aria-label="第 4 页：一、学习：AI 介入之后，学生学到了什么？">
+  <div class="stage dark">
+    <div class="eyebrow">第一部分</div><div class="pageno">04</div>
+    <div class="body" style="justify-content:center">
+      <div class="tag">一 · 学习</div>
+      <h2 style="font-size:3.4em;margin-top:.4em">AI 介入之后，<br>学生学到了什么？</h2>
+      <div class="deckline" style="margin-top:1.2em">系统完成了哪些内容、学生实际做了什么、哪些表现足以说明学生已经掌握。三者可能一致，也可能分离。</div>
+    </div>
+    <div class="stamp">辛海洋 · 可可乐博 · 2026 年 9 月</div>
+  </div>
+  <template class="notes"><b>2:30–2:40</b>　章节页，快速过。</template>
+</section>
+
+<!-- 05 一堂写作课 -->
+<section class="slide" id="slide-5" data-title="文章流畅度提高，追问论证时未能回应" aria-label="第 5 页：文章流畅度提高，追问论证时未能回应">
+  <div class="stage">
+    <div class="eyebrow">一 · 学习</div><div class="pageno">05</div>
+    <div class="head">
+      <h2>文章流畅度提高，<br>追问论证时未能回应</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="split pr" style="grid-template-columns:1.22fr 1fr">
+        <div class="quote">
+          <p>她允许学生用 AI 梳理想法、组织论证。很快有学生发现，系统也能承担更多写作工作。<strong>交上来的文字更流畅，但当她追问论证时，并非所有学生都能解释。</strong></p>
+          <span class="src">开幕日圆桌讨论，一位与会教师的现场叙述</span>
+        </div>
+        <figure>
+          <img class="photo" src="assets/p05-panel.jpg" style="aspect-ratio:1200/900" alt="开幕日圆桌讨论现场，台上六位讲者就座，大屏幕上是正在发言的讲者。">
+          <figcaption>2026 年 9 月 8 日开幕日圆桌讨论现场。照片由参会者提供。</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="foot hair">她主张<strong>让教师和学生参与工具测试，观察工具在课堂中的实际使用</strong>；产品功能是否正常只是其中一项。</div>
+  </div>
+  <template class="notes"><b>2:40–3:40</b>　这是全场最好讲的一个故事，慢一点讲。<br>要点：成品从来不足以说明学习过程，生成式 AI 只是把这件事变得更难判断。一篇结构完整的文章，可能来自学生独立思考、人机共同修改，也可能主要由系统生成。<b>单看最终文本无法区分</b>。</template>
+</section>
+
+<!-- 06 两种卸载 -->
+<section class="slide" id="slide-6" data-title="两种“卸载”，只有一种可以移交" aria-label="第 6 页：两种“卸载”，只有一种可以移交">
+  <div class="stage">
+    <div class="eyebrow">一 · 学习</div><div class="pageno">06</div>
+    <div class="head">
+      <h2>两种“卸载”，<br>只有一种可以移交</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="compare">
+        <div class="side">
+          <span class="tag">可以移交的</span>
+          <div class="field ok">
+            <h3>认知卸载</h3>
+            <p style="font-size:.9em;letter-spacing:.04em;margin:.2em 0 .6em">Cognitive offloading</p>
+            <p style="font-size:1.1em;color:var(--ink)">让工具检查拼写、代算、代查资料。<br><strong>省去的是执行。</strong></p>
+          </div>
+        </div>
+        <div class="side">
+          <span class="tag">不可一并移交的</span>
+          <div class="field warn">
+            <h3>元认知卸载</h3>
+            <p style="font-size:.9em;letter-spacing:.04em;margin:.2em 0 .6em">Metacognitive offloading</p>
+            <p style="font-size:1.1em;color:var(--ink)">把“是否已经理解”这一判断一并移交。<br><strong>省去的是学习本身。</strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="assert" style="max-width:56ch;font-size:1.5em">学生写作时要判断论证是否充分、何处需要修改、何时可以收笔。生成句子只是其中一环。</div>
+    </div>
+    <div class="foot hair">Jason Lodge 与 Cristine Legare 在“能力错觉”对话中的提醒：<strong>表现顺利，不能自动说明学习者能够识别自己尚未理解的部分。</strong></div>
+  </div>
+  <template class="notes"><b>3:40–4:50</b>　这一页是整场的理论支点，值得停。<br>补一句避免误解：<b>这不表示困难越多越好。</b>含混指令、重复录入、繁琐操作只是额外负担；选择证据、解释理由、尝试后修正才构成学习。把所有过程都做得轻松，和把所有过程都留给学生独自承担，同样缺少教学判断。</template>
+</section>
+
+<!-- 07 三种证据 -->
+<section class="slide" id="slide-7" data-title="成品不足以说明学习，另需两项证据" aria-label="第 7 页：成品不足以说明学习，另需两项证据">
+  <div class="stage">
+    <div class="eyebrow">一 · 学习</div><div class="pageno">07</div>
+    <div class="head">
+      <h2>成品不足以说明学习，<br>另需两项证据</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="cols c3">
+        <div class="field thin"><span class="idx">01</span><h3>作品</h3><p style="margin-top:.5em">完成了哪些内容<br>表达是否清楚</p></div>
+        <div class="field accent"><span class="idx">02</span><h3>过程</h3><p style="margin-top:.5em">为何这样修改<br>怎样判断证据</p></div>
+        <div class="field accent"><span class="idx">03</span><h3>独立表现</h3><p style="margin-top:.5em">能否解释自己的选择<br>换一项任务是否仍能完成</p></div>
+      </div>
+      <div class="cols c3" style="gap:2.2em">
+        <div></div>
+        <div class="small muted" style="grid-column:2 / span 2">成绩、使用频率、教师信心、学生的独立能力，<strong style="color:var(--ink)">这四种材料测量的是不同的变化，不能互相替代</strong>。</div>
+      </div>
+    </div>
+    <div class="foot hair">根据学习目标选择需要检查的证据。依现场讨论作编辑归纳，<strong>不是一份统一的评价量表</strong>。</div>
+  </div>
+  <template class="notes"><b>4:50–5:40</b>　可略过的一页（赶时间时并入上一页讲）。<br>实务建议：在校本的科组会议上，把“这一课我们凭什么判断学生学到了”写成一句话，再回头看手上的材料属于哪一栏。</template>
+</section>
+
+<!-- 08 证据 -->
+<section class="slide" id="slide-8" data-title="同一个项目，两个科目，两个结论" aria-label="第 8 页：同一个项目，两个科目，两个结论">
+  <div class="stage">
+    <div class="eyebrow">一 · 学习</div><div class="pageno">08</div>
+    <div class="head">
+      <h2>同一个项目，两个科目，两个结论</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="bars">
+        <div class="blab">数学<em>班级层面估计</em></div>
+        <div class="btrack"><div class="bfill" style="width:57.5%"></div></div>
+        <div class="bval">＋0.23 个标准差</div>
+
+        <div class="blab">法语<em>班级层面估计</em></div>
+        <div class="btrack"></div>
+        <div class="bval null">没有显著效果</div>
+
+        <div class="blab">法语<em>实际使用者子样本</em></div>
+        <div class="btrack"><div class="bhatch"></div></div>
+        <div class="bval qual">出现改善<em>未给出效应量</em></div>
+
+        <div class="axis"><span>0</span><span>0.1</span><span>0.2</span><span>0.3</span><span>0.4 个标准差</span></div>
+      </div>
+      <div class="cols c2" style="gap:2.6em">
+        <div class="small muted"><strong style="color:var(--ink)">来源</strong><br>科特迪瓦与 EvidenceB 的基础能力补习项目（自适应练习）。数字取自世界银行 2026 年 2 月项目说明：25 所职业教育机构、22 周实施期、双重差分分析。</div>
+        <div class="small muted"><strong style="color:var(--red)">限制</strong><br>不是随机对照试验。实际使用者与未使用者本身可能存在差异，子样本的改善不能直接视为因果。</div>
+      </div>
+    </div>
+    <div class="foot hair">Sal Khan 与 Wayne Holmes 的对话提出同一件事的另一面：<strong>平台整体是否有益、AI 功能是否带来额外收益、学生是否按设计使用，是三个独立的问题</strong>。“提供了 AI 导师”一句无法同时回答它们。</div>
+  </div>
+  <template class="notes"><b>5:40–6:50</b>　全场唯一一组硬数字，讲慢。<br>结论句：换一个科目、换一个分析对象，结论就变。<b>“AI 提高成绩”这句话无法整句搬运。</b><br>Khan 自己也承认：早期版本里不少学生没有按预期参与，部分学生想直接要答案，面对引导式回应会失去耐心。</template>
+</section>
+
+<!-- 09 把选择与修订留给学生 -->
+<section class="slide" id="slide-9" data-title="支持充分，学习工作仍由学生承担" aria-label="第 9 页：支持充分，学习工作仍由学生承担">
+  <div class="stage">
+    <div class="eyebrow">一 · 学习</div><div class="pageno">09</div>
+    <div class="head">
+      <h2>支持充分，学习工作仍由学生承担</h2>
+      <div class="deckline" style="font-size:1.24em;margin-top:.7em">葡萄牙里斯本理工大学的新闻教育试验，<br>四步的顺序是刻意的。</div>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="chain">
+        <div class="node"><h3>自选文本</h3><p>学生自行选定一篇新闻</p></div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="node"><h3 class="blue">先独立写</h3><p>短视频改编脚本，AI 尚未介入</p></div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="node"><h3>再用 AI 修改</h3><p>小组讨论修改方向</p></div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="node"><h3 class="blue">AI 使用日记</h3><p>逐条记下采纳或拒绝的理由</p></div>
+      </div>
+      <div class="cols c2" style="gap:2.8em">
+        <div class="field thin"><span class="idx">教师因而能看到</span><p style="font-size:1.08em;color:var(--ink)"><strong>最终视频以外的编辑决定</strong>：事实怎样核实、建议为何被采用或拒绝、发布责任由谁承担。</p></div>
+        <div class="field thin"><span class="idx">同一个做法的另外三个版本</span><p style="font-size:1.08em;color:var(--ink)">毛里求斯的翻译课：先自行翻译，再与 AI 译文比对。北京王府的科学探究：学生重新决定研究问题、依实物实验修订方法。</p></div>
+      </div>
+    </div>
+    <div class="foot hair">形式不同，检查的是同一件事：<strong>实际安排是否保留了相应的学习工作。</strong>这是教学安排的介绍，不能据此断言该做法在所有课程中都有效。</div>
+  </div>
+  <template class="notes"><b>6:50–7:50</b>　“先独立写”和“使用日记”是两个可以直接借用的设计。<br>使用日记不需要平台支援，一张表格就够，老师周一就能用。</template>
+</section>
+
+<!-- 10 推广 -->
+<section class="slide" id="slide-10" data-title="设备随规模改善，学生的决定空间随之收窄" aria-label="第 10 页：设备随规模改善，学生的决定空间随之收窄">
+  <div class="stage dark">
+    <div class="eyebrow">一 · 学习</div><div class="pageno">10</div>
+    <div class="head">
+      <h2>设备随规模改善，<br>学生的决定空间随之收窄</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="compare">
+        <div class="side">
+          <span class="tag">起步时</span>
+          <ul class="clist yes">
+            <li><span class="mk">·</span><span>低成本、可拆解的环境传感器</span></li>
+            <li><span class="mk">·</span><span>学生要自己设计、制造、组装</span></li>
+            <li><span class="mk">·</span><span>损坏后须自行拆解、维修与调试</span></li>
+          </ul>
+        </div>
+        <div class="side">
+          <span class="tag">获得更大范围支持之后</span>
+          <ul class="clist no">
+            <li><span class="mk">·</span><span>设备更稳固、部署更方便</span></li>
+            <li><span class="mk">·</span><span>但学生拆开、修理、作决定的空间也可能缩小</span></li>
+            <li><span class="mk">·</span><span>器材得以保留，探究未必</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="assert" style="max-width:58ch;font-size:1.46em">若设计、制造和调试本身就是课程，<br>推广时须明确说明：<span class="hi">哪些决定仍然留给学生。</span></div>
+    </div>
+    <div class="foot hair">新加坡 Kenneth Y. T. Lim 与学生团队的分享。<strong>可靠设备与学生探究可以并存</strong>。扩大规模时，方案须写明哪些决定仍留给学生。</div>
+  </div>
+  <template class="notes"><b>7:50–8:40</b>　这一页是讲给正在考虑“全校推开”的学校管理层听的，老师现场可以拿它提问。<br>同场一个细节值得提：该团队里年龄较小、长期参与项目的学生，在指导刚接触项目的大学生。<b>专业经验在活动中形成，不应仅凭年龄预先分配谁能教谁</b>。</template>
+</section>
+
+<!-- 11 章节二 -->
+<section class="slide" id="slide-11" data-title="二、教学：AI 进了课堂，教师需要哪些支持？" aria-label="第 11 页：二、教学：AI 进了课堂，教师需要哪些支持？">
+  <div class="stage dark">
+    <div class="eyebrow">第二部分</div><div class="pageno">11</div>
+    <div class="body" style="justify-content:center">
+      <div class="tag">二 · 教学</div>
+      <h2 style="font-size:3.4em;margin-top:.4em">AI 进了课堂，<br>教师需要哪些支持？</h2>
+      <div class="deckline" style="margin-top:1.2em">三个层面：教师与 AI 如何分工，教师通过什么方式发展相关能力，以及学校如何让这些能力进入日常教学。</div>
+    </div>
+    <div class="stamp">辛海洋 · 可可乐博 · 2026 年 9 月</div>
+  </div>
+  <template class="notes"><b>8:40–8:50</b>　章节页，快速过。</template>
+</section>
+
+<!-- 12 争论 -->
+<section class="slide" id="slide-12" data-title="工作可以重新分配，专业判断的归属未有共识" aria-label="第 12 页：工作可以重新分配，专业判断的归属未有共识">
+  <div class="stage">
+    <div class="eyebrow">二 · 教学</div><div class="pageno">12</div>
+    <div class="head">
+      <h2>工作可以重新分配，<br>专业判断的归属未有共识</h2>
+      <div class="deckline" style="font-size:1.2em;margin-top:.7em">个性化学习专题上，一场没有收拢成共识的分歧。</div>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="compare">
+        <div class="side">
+          <span class="tag">一方 · 松鼠 AI，Joleen Liang</span>
+          <div class="field accent">
+            <p style="font-size:1.14em;color:var(--ink);line-height:1.6">让 AI 承担更多知识教学，<br>教师转向数据分析、个别指导与情感支持。</p>
+          </div>
+        </div>
+        <div class="side">
+          <span class="tag">另一方 · OECD，Lucia Dellagnelo</span>
+          <div class="field warn">
+            <p style="font-size:1.14em;color:var(--ink);line-height:1.6">教师仍需理解自己所教的学科，<br>才能引发学生对这一科的兴趣，并帮助他们理解知识。</p>
+          </div>
+        </div>
+      </div>
+      <div class="assert" style="max-width:56ch;font-size:1.5em">分歧的实质是：<span class="hi">教师还必须知道什么、承担什么</span>。</div>
+    </div>
+    <div class="foot hair">依现场发言转述，不是共同结论。MIT Open Learning 补充：<strong>减轻教师的情绪、行为与行政负担，与转移知识教学任务，是两项可以分别推进的改进</strong>，无须一次重写全部教师职责。</div>
+  </div>
+  <template class="notes"><b>8:50–9:50</b>　实务结论：<b>选系统之前先讲清楚要改变的是哪一种工作</b>，再用实际教学检查这些改变。系统之间谁更聪明，对这个决定没有帮助。<br>同场巴西学校的经验：平台无法取代教学组织的必要性：先授课还是先用平台、集体学习与个人练习怎样衔接、放到课后又会遇到家庭设备与网络差异。</template>
+</section>
+
+<!-- 13 培训与课堂之间 -->
+<section class="slide" id="slide-13" data-title="186 份问卷显示准备感提高，课堂行为未必随之改变" aria-label="第 13 页：186 份问卷显示准备感提高，课堂行为未必随之改变">
+  <div class="stage">
+    <div class="eyebrow">二 · 教学</div><div class="pageno">13</div>
+    <div class="head">
+      <h2>186 份问卷显示准备感提高，<br>课堂行为未必随之改变</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="split pl" style="grid-template-columns:1fr 1fr;gap:3em">
+        <div>
+          <span class="tag">德国 fobizz 与科隆大学</span>
+          <div class="field accent" style="margin-top:.8em">
+            <p style="font-size:1.1em;color:var(--ink)">培训前后配对问卷 <strong>186 份</strong>，参与者的自我准备感提高。</p>
+          </div>
+          <div class="field warn" style="margin-top:1.3em">
+            <span class="idx">报告者自己列出的限制</span>
+            <p style="font-size:1.04em;color:var(--ink);line-height:1.62">自愿参与　·　自我报告<br>没有对照组　·　缺少后续的学生数据</p>
+          </div>
+        </div>
+        <div>
+          <span class="tag">意大利 INDIRE 的观察</span>
+          <div class="field thin" style="margin-top:.8em">
+            <p style="font-size:1.08em;color:var(--ink);line-height:1.62">教师会用 AI 制作或简化教材，<br><strong>但更深入的教学重新设计，受组织条件限制。</strong></p>
+          </div>
+          <p class="small muted" style="margin-top:1.3em">西班牙团队的跨国需求调查也显示：小学与中学的关切不同，儿童保护、学术诚信和评价要分别回应，无法用同一份指引一并处理。</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot hair">更突出的问题出现在培训之后：<strong>教师回到学校，未必有明确规则、合适工具、时间和指导。</strong>“培训了多少人”无法代替这四项。</div>
+  </div>
+  <template class="notes"><b>9:50–10:50</b>　内地对得上的是《“人工智能＋教育”行动计划》里那一条：分层分类开展人工智能培训，把人工智能知识纳入教师培训与教师资格考试。<br>要说的重点：<b>自我准备感确实提高，但课堂是否改变仍缺证据</b>，报告者自己也这样讲。下一页是学校该补的部分。</template>
+</section>
+
+<!-- 14 四个条件 -->
+<section class="slide" id="slide-14" data-title="培训之后，四项条件须由学校补足" aria-label="第 14 页：培训之后，四项条件须由学校补足">
+  <div class="stage dark">
+    <div class="eyebrow">二 · 教学</div><div class="pageno">14</div>
+    <div class="head">
+      <h2>培训之后，四项条件须由学校补足</h2>
+      <div class="deckline" style="font-size:1.2em;margin-top:.7em">这四项超出教师个人能解决的范围，属于学校层面的决定。</div>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="cols c4">
+        <div class="field sig"><span class="idx">01</span><h3>规则</h3><p style="margin-top:.4em">哪些用途允许、哪些不允许、学术诚信如何处理，以文字明确写下，不依赖口头提醒。</p></div>
+        <div class="field sig"><span class="idx">02</span><h3>工具</h3><p style="margin-top:.4em">培训所用的工具回校后是否仍可使用：由谁付费、谁维护、谁开设账号。</p></div>
+        <div class="field sig"><span class="idx">03</span><h3>时间</h3><p style="margin-top:.4em">备课与试用的时间从何而来，不应全部落在课后与假期。</p></div>
+        <div class="field sig"><span class="idx">04</span><h3>指导</h3><p style="margin-top:.4em">出现问题时由谁处理，谁有权决定暂停使用。</p></div>
+      </div>
+      <div class="assert" style="max-width:60ch;font-size:1.46em">培训让教师认识自己的需要，<br>学校则要让教师<span class="hi">有条件检验并修改所学</span>。</div>
+    </div>
+  </div>
+  <template class="notes"><b>10:50–11:40</b>　全场对学校最直接的一页。可以在这里停下来问现场：这四件，贵校目前哪一件最弱？<br>（若时间紧，此页与上页合讲，砍掉第 7 页。）</template>
+</section>
+
+<!-- 15 香港教育大学 -->
+<section class="slide" id="slide-15" data-title="自评服务于教师反思，不作机构评分之用" aria-label="第 15 页：自评服务于教师反思，不作机构评分之用">
+  <div class="stage">
+    <div class="eyebrow">二 · 教学</div><div class="pageno">15</div>
+    <div class="head">
+      <h2>自评服务于教师反思，<br>不作机构评分之用</h2>
+      <div class="deckline" style="font-size:1.2em;margin-top:.7em">香港教育大学 Cher Ping Lim 及合作团队在会上介绍的框架与自评工具。</div>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="cols c4" style="gap:1.8em">
+        <div class="field thin"><span class="idx">面向 01</span><h3 style="font-size:1.2em">生成式 AI 素养</h3></div>
+        <div class="field thin"><span class="idx">面向 02</span><h3 style="font-size:1.2em">课程与学习设计</h3></div>
+        <div class="field thin"><span class="idx">面向 03</span><h3 style="font-size:1.2em">教学与学习</h3></div>
+        <div class="field thin"><span class="idx">面向 04</span><h3 style="font-size:1.2em">评估</h3></div>
+      </div>
+      <div class="cols c2" style="gap:2.8em">
+        <div class="field accent"><span class="idx">框架同时区分两件事</span><p style="font-size:1.08em;color:var(--ink)">教师<strong>本人如何使用 AI</strong>，和教师<strong>如何支持学生使用 AI</strong>。前者是工具熟练度，后者是教学责任。</p></div>
+        <div class="field warn"><span class="idx">团队自己承认的前提</span><p style="font-size:1.08em;color:var(--ink)">框架假设了学校已有一定的使用指引。<strong>自评工具无法代替学校自己建立的伦理与教学安排。</strong></p></div>
+      </div>
+    </div>
+    <div class="foot hair">团队明确说明：<strong>自评首先服务于教师的专业反思</strong>。教师通过任务与能力描述发现差距，再寻找相应的学习资源。</div>
+  </div>
+  <template class="notes"><b>11:40–12:30</b>　香港教育大学的团队，面对的问题与内地学校相同。<br>这一页最要紧的一句是“不是绩效考核”。如果学校把自评拿去做考绩，老师就会填漂亮的答案，工具当场失效。</template>
+</section>
+
+<!-- 16 深圳案例 -->
+<section class="slide" id="slide-16" data-title="省、市、校三级，各自提供不同条件" aria-label="第 16 页：省、市、校三级，各自提供不同条件">
+  <div class="stage">
+    <div class="eyebrow">二 · 教学</div><div class="pageno">16</div>
+    <div class="head">
+      <h2>省、市、校三级，各自提供不同条件</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="body" style="gap:1.4em">
+      <figure>
+        <img class="photo" src="assets/p16-cocorobo.jpg" style="aspect-ratio:1900/491;width:84%;margin:0 auto" alt="左：教师能动性专题会场，与会者围坐长桌，屏幕上是报告幻灯片；右：同一场报告的讲台留影，幻灯片标题为 From AI Tool Users to AI Agent Creators。">
+        <figcaption>可可乐博受邀在“教师能动性”专题分享深圳城市案例：会场（左）与同一次报告的讲台留影（右）。照片由参会者提供。</figcaption>
+      </figure>
+      <div class="cols c3" style="gap:2.2em">
+        <div class="field thin"><span class="idx">省级 · 依据</span><p style="font-size:1.02em">广东省 2025 年 4 月印发“2＋1”三份文件：教师素养框架、学生素养框架、课程指导纲要，分别规定教师素养、学习内容与课程组织。</p></div>
+        <div class="field thin"><span class="idx">市级 · 条件</span><p style="font-size:1.02em">“深教 AI”汇集 10 个经审核的学习平台；三届教师云端应用开发大赛吸引 2000 多名教师参与。</p></div>
+        <div class="field thin"><span class="idx">校级 · 判断</span><p style="font-size:1.02em">学校自己的评价标准与教学任务。<strong>报告介绍的是教师设计活动所需的各项条件。</strong></p></div>
+      </div>
+    </div>
+    <div class="foot hair">同场还有西班牙、德国、科特迪瓦和意大利的报告，75 分钟集中讨论教师从专业发展走向课堂实践的过程。市级的两个数字<strong>反映建设和参与情况，不是学习效果指标</strong>；入选议程说明的是分享的主题与位置，<strong>不构成 UNESCO 对项目成效的认证</strong>。</div>
+  </div>
+  <template class="notes"><b>12:30–13:20</b>　这是本场唯一涉及自家工作的一页，<b>语气要平实</b>：只讲合作结构，不介绍产品。<br>那两句免责（数字不是效果指标、入选不等于认证）一定要讲出口。内地的老师对这种分寸同样敏感，讲了反而更可信。</template>
+</section>
+
+<!-- 17 荔园 -->
+<section class="slide" id="slide-17" data-title="教师参与制定课堂观察的指标" aria-label="第 17 页：教师参与制定课堂观察的指标">
+  <div class="stage">
+    <div class="eyebrow">二 · 教学</div><div class="pageno">17</div>
+    <div class="head">
+      <h2>教师参与制定<br>课堂观察的指标</h2>
+      <div class="deckline" style="font-size:1.2em;margin-top:.7em">福田荔园教育集团的次序：先制定指标，再开发工具。</div>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="ladder tight">
+        <div class="step"><span class="n">01</span><span class="k">专家拟定</span><span class="v">先拟出四级指标体系</span></div>
+        <div class="step"><span class="n">02</span><span class="k">教师评分</span><span class="v">约 50 名教师参与评分</span></div>
+        <div class="step"><span class="n">03</span><span class="k">小组定案</span><span class="v">9 人研究小组确定指标</span></div>
+        <div class="step"><span class="n">04</span><span class="k">开发工具</span><span class="v">在确定的指标上开发 AI 课堂观察与分析工具</span></div>
+        <div class="step"><span class="n">05</span><span class="k">课堂试用</span><span class="v">进入课堂试用，依教师反馈修订</span></div>
+      </div>
+      <div class="field accent"><p style="font-size:1.1em;color:var(--ink)">教师既是使用者，也参与制定<strong>课堂观察所依据的指标</strong>。集团另以自学微课、集中培训、入校指导和技术支援协助使用与改进。</p></div>
+    </div>
+    <div class="foot hair">同一份报告里的荔园小学案例“设计与制作生态瓶”，把工具放回探究活动。<strong>教师仍要判断帮助的分量：哪些建议帮学生改进设计，哪些回应过早代替学生完成思考。</strong></div>
+  </div>
+  <template class="notes"><b>13:20–14:10</b>　次序本身就是重点：<b>先定指标，再开发工具</b>。倒过来做，老师永远在适应工具。<br>另一个可借用的例子：宝安红树林外国语小学的英语口语 TASK 实践，把任务设计、口语练习与评价、标准匹配、数据反馈分配给不同智能体（agent），但<b>由老师先确定教学任务，再安排 AI 的角色</b>。</template>
+</section>
+
+<!-- 18 三条做法 -->
+<section class="slide" id="slide-18" data-title="三项可直接沿用的合作做法" aria-label="第 18 页：三项可直接沿用的合作做法">
+  <div class="stage dark">
+    <div class="eyebrow">二 · 教学</div><div class="pageno">18</div>
+    <div class="head">
+      <h2>三项可直接沿用的合作做法</h2>
+      <div class="deckline" style="font-size:1.2em;margin-top:.7em">报告结尾提出的合作方式，不依赖特定产品。</div>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="cols c3">
+        <div class="field sig"><span class="idx">01</span><h3>从共同的教学问题出发</h3><p style="margin-top:.45em">由教师参与界定合作的目标与待回答的问题，使工具开发、研究和专业学习围绕同一个教学需要。</p></div>
+        <div class="field sig"><span class="idx">02</span><h3>连接创作、证据与重新设计</h3><p style="margin-top:.45em">教师创作和试用的过程要接上证据收集，研究发现再回到下一轮修改。作品完成之后，设计工作还要继续。</p></div>
+        <div class="field sig"><span class="idx">03</span><h3>为“两次活动之间”<br>提供经费</h3><p style="margin-top:.45em">资源须覆盖跨方协调、技术支援与教师的时间，支持集中交流之后的课堂试用与设计修订。</p></div>
+      </div>
+      <div class="assert" style="max-width:58ch;font-size:1.44em">判断合作成效的方向：是否带来<span class="hi">更好的教学选择</span>，以及<span class="hi">可供实践使用的知识</span>。</div>
+    </div>
+  </div>
+  <template class="notes"><b>14:10–15:00</b>　第三条最常被忽略：<b>经费通常只覆盖办会和工作坊，不覆盖两次活动之间的日常工作</b>，而课堂试用和设计修订恰恰发生在那段时间。<br>背景：对深圳坪山三个教师群体做了 12 个月跟踪，用设计作品、修订、平台记录、问卷和访谈分析持续参与的差异。可可乐博提供工具与技术支持，高校参与研究，教育部门组织地方支持，学校与老师提出需求并反馈课堂使用情况。</template>
+</section>
+
+<!-- 19 章节三 -->
+<section class="slide" id="slide-19" data-title="三、治理：AI 进了教育，需要哪些公共条件？" aria-label="第 19 页：三、治理：AI 进了教育，需要哪些公共条件？">
+  <div class="stage dark">
+    <div class="eyebrow">第三部分</div><div class="pageno">19</div>
+    <div class="body" style="justify-content:center">
+      <div class="tag">三 · 治理</div>
+      <h2 style="font-size:3.4em;margin-top:.4em">AI 进了教育，<br>需要哪些公共条件？</h2>
+      <div class="deckline" style="margin-top:1.2em">资源、数据和供应商责任超出教师个人能解决的范围，<br>属于学校管理层和教育行政部门。</div>
+    </div>
+    <div class="stamp">辛海洋 · 可可乐博 · 2026 年 9 月</div>
+  </div>
+  <template class="notes"><b>15:00–15:10</b>　章节页，快速过。</template>
+</section>
+
+<!-- 20 部长声明 -->
+<section class="slide" id="slide-20" data-title="八项行动方向，无法简化为“负责任地使用 AI”" aria-label="第 20 页：八项行动方向，无法简化为“负责任地使用 AI”">
+  <div class="stage">
+    <div class="eyebrow">三 · 治理</div><div class="pageno">20</div>
+    <div class="head">
+      <h2>八项行动方向，<br>无法简化为“负责任地使用 AI”</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="eight">
+        <div class="it"><span class="n">01</span><div><b>恢复公共利益条件</b><span>系统可审计、数据可携带、受公共监督</span></div></div>
+        <div class="it"><span class="n">05</span><div><b>公共利益导向的数据治理</b><span>收集所得与 AI 推断所得，同受治理</span></div></div>
+        <div class="it"><span class="n">02</span><div><b>保护批判性理解</b><span>不让流畅的输出遮盖理解</span></div></div>
+        <div class="it"><span class="n">06</span><div><b>把公平与包容纳入设计</b><span>评估不同语言、能力与情境下的表现</span></div></div>
+        <div class="it"><span class="n">03</span><div><b>培育教师能动性</b><span>由教师参与决定哪些系统进入课堂</span></div></div>
+        <div class="it"><span class="n">07</span><div><b>核算完整成本并保留退出</b><span>互通、可携、可更换</span></div></div>
+        <div class="it"><span class="n">04</span><div><b>年龄与发展适切性</b><span>必要时暂停或停止使用</span></div></div>
+        <div class="it"><span class="n">08</span><div><b>建设并共享治理能力</b><span>采购与评估的国家、区域层面的合作</span></div></div>
+      </div>
+    </div>
+    <div class="foot hair">《在 AI 时代维护教育作为共同利益》部长声明，逾 25 位教育部长及指定代表共同通过。声明也直接向供应商提要求：部署前提供安全性与教育收益的证据，系统可解释、可审计，并对伤害承担责任。<strong>这是共同承诺与行动呼吁，不是已经生效的全球法律。</strong></div>
+  </div>
+  <template class="notes"><b>15:10–15:55</b>　不要逐条念。挑三条讲：03（老师参与决定）、05（推断数据）、07（退出成本）。这三条最贴近学校的实际处境。<br>第 04 条里“必要时暂停或停止”是很硬的一句，通常被略过。</template>
+</section>
+
+<!-- 21 推断数据 -->
+<section class="slide" id="slide-21" data-title="系统推断所得的数据，同属学校治理范围" aria-label="第 21 页：系统推断所得的数据，同属学校治理范围">
+  <div class="stage">
+    <div class="eyebrow">三 · 治理</div><div class="pageno">21</div>
+    <div class="head">
+      <h2>系统推断所得的数据，<br>同属学校治理范围</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="compare" style="gap:3.4em">
+        <div class="side">
+          <span class="tag">已收集数据</span>
+          <div class="field thin"><p style="font-size:1.1em;color:var(--ink)">学生提交的答案、作业、登录记录。<br><strong>现行的个人信息保护制度主要针对这一类。</strong></p></div>
+        </div>
+        <div class="side">
+          <span class="tag">推断数据</span>
+          <div class="field warn"><p style="font-size:1.1em;color:var(--ink)">系统生成的、关于该名学生的<strong>能力判断、风险预测和学习画像</strong>。<br>部长声明特别指出：现行保护未必涵盖。</p></div>
+        </div>
+      </div>
+      <div class="field accent">
+        <span class="idx">一个具体情境</span>
+        <p style="font-size:1.12em;color:var(--ink)">一个“能力不足”的标签，若持续影响系统向该学生推送的任务，<strong>错误会被后续安排一层层放大</strong>。学生与家长可能始终不知悉该标签的存在。</p>
+      </div>
+    </div>
+    <div class="foot hair">当平台声称其较学校更了解这些学生时，学校仍须掌握三项信息：<strong>这个判断依据什么、怎样被使用、能否纠正。</strong>这是依据声明提出的检查情境，不是对任何一个参会产品的指控。</div>
+  </div>
+  <template class="notes"><b>15:55–16:40</b>　整场治理部分最值得停的一页。<br>学校可直接向供应商提出的三个问题：这个判断依据什么？它怎样影响学生接下来看到的内容？家长要求更正时流程是什么？</template>
+</section>
+
+<!-- 22 采购 -->
+<section class="slide" id="slide-22" data-title="采购时评估过的系统，数月后未必维持原状" aria-label="第 22 页：采购时评估过的系统，数月后未必维持原状">
+  <div class="stage">
+    <div class="eyebrow">三 · 治理</div><div class="pageno">22</div>
+    <div class="head">
+      <h2>采购时评估过的系统，<br>数月后未必维持原状</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="compare" style="gap:3.2em">
+        <div class="side">
+          <span class="tag">采购是一段持续关系</span>
+          <ul class="clist no">
+            <li><span class="mk">!</span><span>模型更新时<strong>界面可能不变，系统行为已经改变</strong></span></li>
+            <li><span class="mk">·</span><span>供应商应报告必要变化</span></li>
+            <li><span class="mk">·</span><span>学校要保留使用后复核、数据迁移与更换系统的条件</span></li>
+            <li><span class="mk">!</span><span>随平台升级加入的 AI 功能，<strong>即使未产生新的付款，同样须纳入检查</strong></span></li>
+          </ul>
+        </div>
+        <div class="side">
+          <span class="tag">软件价格以外的成本</span>
+          <ul class="clist no">
+            <li><span class="mk">·</span><span>网络、设备、本地化</span></li>
+            <li><span class="mk">·</span><span>教师发展、数据管理</span></li>
+            <li><span class="mk">·</span><span>网络安全、持续更新</span></li>
+            <li><span class="mk">!</span><span><strong>退出成本</strong>：停用之后，数据如何迁出，课程如何延续</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="assert" style="font-size:1.4em;max-width:64ch">免费试点不保证日后按同样方式运行；<br>早期低价也不能代替对长期成本的估算。</div>
+    </div>
+    <div class="foot hair">还有一条同样具体：AI 给作业评分，<strong>谁解释依据？学生提出异议，谁负责人工复核？</strong>系统自动生成一段理由，不等于那段理由准确反映了决策过程，也不等于学生获得了有效申诉。</div>
+  </div>
+  <template class="notes"><b>16:40–17:15</b>　来自全球咨询“1＋6”里的三份背景论文：AI 采购（Gulson 等）、总拥有成本（Krueger、Jackson）、解释权（Kralj）。<br>这六份是<b>公开咨询材料，不是已定案的法规</b>。<br>另一份（学习者安全，Asare）提出：禁止、暂缓、试点、附带保障地允许、支持、扩大、停止。<b>若试点不能限定范围、保护数据、支持老师、评估结果和受理问题，叫它“试点”并不能免除责任</b>。</template>
+</section>
+
+<!-- 23 裸露铜线 -->
+<section class="slide" id="slide-23" data-title="“我们还在裸露铜线的阶段”" aria-label="第 23 页：“我们还在裸露铜线的阶段”">
+  <div class="stage dark">
+    <div class="eyebrow">三 · 治理</div><div class="pageno">23</div>
+    <div class="head">
+      <h2>“我们还在裸露铜线的阶段”</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="split pl" style="grid-template-columns:1.02fr 1fr;gap:2.8em">
+        <figure>
+          <img class="photo" src="assets/p23-copper.jpg" style="aspect-ratio:1300/975" alt="会场大屏幕上的主旨演讲幻灯片，标题为 We are in the exposed copper wire phase，右侧列出五个问题：Education、Selection、Responsible Use、Verification、Consequence。">
+          <figcaption>Shingai Manjengwa 主旨演讲幻灯片。2026 年 9 月 8 日。照片由参会者提供。</figcaption>
+        </figure>
+        <div>
+          <p style="font-size:1.16em">用电和航空都经历过这个阶段。后来的安全<strong>由公共教育、专业训练、检验与责任安排共同建立</strong>；使用者对技术的信心本身不构成安全。</p>
+          <div class="tag" style="margin-top:1.6em;display:block">她提出的五个问题</div>
+          <div class="pills" style="margin-top:.8em">
+            <span>教育</span><span>选择</span><span>负责任使用</span><span>验证</span><span>后果</span>
+          </div>
+          <p class="small" style="margin-top:1.6em;color:rgba(255,253,248,.72)">她并将模型选择与本地能力关联：教育系统需要能理解、调整和评估模型的人。</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot hair">谈到航空事故之后的调查与暂停运行，她追问 AI 领域是否也具备同样条件：<strong>谁能检查，问题由谁处理，必要时谁有权停止。</strong></div>
+  </div>
+  <template class="notes"><b>17:15–17:45</b>　加拿大 Mila 魁北克人工智能研究所，Shingai Manjengwa，9 月 8 日主旨演讲。<br>这个比喻现场反应很好，可以直接引用英文原句：“We are in the exposed copper wire phase.”</template>
+</section>
+
+<!-- 24 国家与广东的要求 -->
+<section class="slide" id="slide-24" data-title="国家与广东已提出的要求" aria-label="第 24 页：国家与广东已提出的要求">
+  <div class="stage">
+    <div class="eyebrow">落到学校</div><div class="pageno">24</div>
+    <div class="head">
+      <h2>国家与广东已提出的要求</h2>
+      <div class="deckline" style="font-size:1.2em;margin-top:.7em">从 2024 年 11 月到 2026 年 4 月，四份国家文件加上广东的<span style="white-space:nowrap">“2＋1”</span>，课时、素养与使用边界都已写明。</div>
+      <div class="rule"></div>
+    </div>
+    <div class="body" style="gap:1em">
+      <div class="cols c4" style="gap:1.5em">
+        <div class="field accent"><span class="idx">国家 · 2024 年 11 月</span><h3 style="font-size:1.18em">加强中小学<br>人工智能教育的通知</h3><p style="margin-top:.4em">2030 年前在中小学基本普及人工智能教育。六项任务覆盖课程、教学评价、资源、环境与师资。</p></div>
+        <div class="field accent"><span class="idx">国家 · 2025 年 5 月</span><h3 style="font-size:1.18em">两份指南：<br>通识教育与生成式 AI</h3><p style="margin-top:.4em">通识教育按学段螺旋式安排；使用指南按学段规定学生可以怎样用生成式 AI。</p></div>
+        <div class="field thin"><span class="idx">国家 · 2026 年 4 月</span><h3 style="font-size:1.18em">“人工智能＋教育”<br>行动计划</h3><p style="margin-top:.4em">五部门印发，四项重点任务。分层分类开展培训，人工智能知识纳入教师培训与教师资格考试。</p></div>
+        <div class="field thin"><span class="idx">广东 · 2025 年 4 月</span><h3 style="font-size:1.18em">“2＋1”：<br>两份素养框架＋课程纲要</h3><p style="margin-top:.4em">教师素养、学生素养、课程组织三者配套，全国率先同时给出。</p></div>
+      </div>
+      <div class="cols c3" style="gap:1.8em">
+        <div class="field sig"><span class="idx">教师须对应的 01 · 课时底线</span><p style="font-size:1.06em;color:var(--ink)"><strong>小学 1–4 年级</strong>每学年 6 课时起；<strong>5–6 年级</strong>每学年 10 课时起；<strong>初中 7–8 年级</strong>每两周 1 课时起；高中在信息科技、通用技术等国家课程基础上，高一或高二每两周 1 课时起。</p></div>
+        <div class="field sig"><span class="idx">教师须对应的 02 · 素养五个维度</span><p style="font-size:1.06em;color:var(--ink)">意识理念、知识技能、实践应用、专业发展、<strong>社会责任</strong>。最后一项含数据安全与伦理规范。</p></div>
+        <div class="field sig"><span class="idx">教师须对应的 03 · 学生使用边界</span><p style="font-size:1.06em;color:var(--ink)"><strong>小学阶段禁止学生独自使用开放式内容生成功能</strong>，教师可在课内适当使用；初中可适度探索生成内容的逻辑性分析；高中可结合技术原理开展探究。</p></div>
+      </div>
+    </div>
+    <div class="foot hair">深圳另有《深圳市义务教育人工智能课程纲要（修订版）》与《深圳市推进中小学人工智能教育工作方案》。<strong>下一页把这些要求对照部长声明的八项方向。</strong></div>
+  </div>
+  <template class="notes"><b>17:45–18:15</b>　这一页给的是共同底稿。在座的老师手上都有这几份文件，先摆出来，后面的对照才有依据。<br>文号与出处：教育部办公厅《关于加强中小学人工智能教育的通知》（2024 年 11 月）；《中小学人工智能通识教育指南（2025 年版）》与《中小学生成式人工智能使用指南（2025 年版）》，教育部基础教育教学指导委员会 2025 年 5 月发布；《“人工智能＋教育”行动计划》，教科信〔2026〕1 号，2026 年 4 月；广东省教育厅 2025 年 4 月 10 日印发“2＋1”三份文件。<br><b>查证状况：本材料制作环境无法连上 moe.gov.cn、edu.gd.gov.cn、szeb.sz.gov.cn（出口代理封锁），以上据多家独立报道交叉核对；正式引用前请核对原文与文号。</b></template>
+</section>
+
+<!-- 25 对照 -->
+<section class="slide" id="slide-25" data-title="政策已覆盖的方向，与学校须自行补足的部分" aria-label="第 25 页：政策已覆盖的方向，与学校须自行补足的部分">
+  <div class="stage dark">
+    <div class="eyebrow">落到学校</div><div class="pageno">25</div>
+    <div class="head">
+      <h2>政策已覆盖的方向，<br>与学校须自行补足的部分</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="compare" style="gap:3.2em">
+        <div class="side">
+          <span class="tag">国家与广东的文件已经给的条件</span>
+          <ul class="clist yes" style="gap:.72em">
+            <li><span class="mk">✓</span><span><strong>课程与课时</strong>　广东课程指导纲要给出各学段课时底线，小学 1–4 年级每学年 6 课时起</span></li>
+            <li><span class="mk">✓</span><span><strong>学生素养</strong>　学生人工智能素养框架；通识教育指南的螺旋式课程安排</span></li>
+            <li><span class="mk">✓</span><span><strong>教师培训</strong>　分层分类开展培训，人工智能知识纳入教师培训与教师资格考试</span></li>
+            <li><span class="mk">✓</span><span><strong>使用边界</strong>　生成式 AI 使用指南按学段规定学生可以怎样使用</span></li>
+          </ul>
+        </div>
+        <div class="side">
+          <span class="tag">须写入校本方案与采购合同的</span>
+          <ul class="clist no" style="gap:.72em">
+            <li><span class="mk">·</span><span><strong>推断数据</strong>　平台对学生作了哪些预测与画像，谁可查阅、可否更正</span></li>
+            <li><span class="mk">·</span><span><strong>更新之后</strong>　模型更换时由谁通知学校，学校依据什么复核</span></li>
+            <li><span class="mk">·</span><span><strong>完整成本</strong>　项目期结束之后，由谁承担运行、维护与更新的费用</span></li>
+            <li><span class="mk">·</span><span><strong>可解释与申诉</strong>　AI 判分出错时，学生和家长向谁申诉</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot hair">左栏是政策已经给的条件，右栏<strong>只能由每一所学校在自己的采购合同与校本方案中解决</strong>。政策文件本来就不会替单一学校写进合同条款。政策资料的查证状况见上一页备注。</div>
+  </div>
+  <template class="notes"><b>18:15–18:50</b>　全场最需要落地的一页。上一页把文件摆出来，这一页做对照。<br>右栏那四条属于<b>采购合同与校本方案</b>的层面。合同不由老师签，但在科组提需求、在教研活动上提出，同样起作用：这四条只要没人问，就不会写进合同。</template>
+</section>
+
+<!-- 26 校本缺口 -->
+<section class="slide" id="slide-26" data-title="已有 AI 政策的学校，自查后仍发现四项缺口" aria-label="第 26 页：已有 AI 政策的学校，自查后仍发现四项缺口">
+  <div class="stage">
+    <div class="eyebrow">落到学校</div><div class="pageno">26</div>
+    <div class="head">
+      <h2>已有 AI 政策的学校，<br>自查后仍发现四项缺口</h2>
+      <div class="deckline" style="font-size:1.18em;margin-top:.7em">9 月 11 日 AI 准备度策略实验室：一所已制定 AI 政策并定期修订的学校，用成熟度矩阵自查后列出的四项。</div>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="ladder tight">
+        <div class="step"><span class="n">01</span><span class="k">数据治理</span><span class="v">收集与推断了哪些数据，保存多久，谁可查阅，怎样更正。</span></div>
+        <div class="step"><span class="n">02</span><span class="k">问责</span><span class="v">出现误判时由谁答复学生与家长，处理记录留在哪里。</span></div>
+        <div class="step"><span class="n">03</span><span class="k">影响评估</span><span class="v">引入之前评估什么，引入之后由谁复核，依据什么决定停用。</span></div>
+        <div class="step"><span class="n">04</span><span class="k">参与咨询</span><span class="v">教师、学生与家长在决定之前，以什么方式被征询。</span></div>
+      </div>
+    </div>
+    <div class="foot hair">同场另一位参与者的做法可以直接借用：<strong>让校内不同角色分别填同一份评估，再比较管理层的理解与教师的实际经验</strong>。差异本身就是发现。工具与三条前提见附录 B。</div>
+  </div>
+  <template class="notes"><b>18:50–19:15</b>　这一页把“制度有文本”和“学校有能力持续处理”分开。那所学校的政策是有的，而且定期修订，四项缺口仍在。<br>对老师最有用的一条是 02：出了错谁答复家长。多数学校的 AI 使用规则写了“可以用什么”，没写“出事找谁”。<br>时间紧时与上一页合讲，把四项只念名称。</template>
+</section>
+
+<!-- 27 七个问题 -->
+<section class="slide" id="slide-27" data-title="评估一个 AI 系统可先提出的七个问题" aria-label="第 27 页：评估一个 AI 系统可先提出的七个问题">
+  <div class="stage">
+    <div class="eyebrow">落到学校</div><div class="pageno">27</div>
+    <div class="head">
+      <h2>评估一个 AI 系统<br>可先提出的七个问题</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="ladder tight">
+        <div class="step"><span class="n">01</span><span class="k">学生做什么</span><span class="v">工具接手的是执行，还是“是否已经理解”的判断？</span></div>
+        <div class="step"><span class="n">02</span><span class="k">过程是否可见</span><span class="v">除了成品，能否看到修改、选择和理由？</span></div>
+        <div class="step"><span class="n">03</span><span class="k">与什么比较</span><span class="v">效果数字的对照是什么？哪一科、哪一个分析对象？</span></div>
+        <div class="step"><span class="n">04</span><span class="k">教师回校之后</span><span class="v">规则、工具、时间、指导，四项已具备几项？</span></div>
+        <div class="step"><span class="n">05</span><span class="k">推断数据</span><span class="v">系统对学生作了哪些预测？谁可查阅、可否更正？</span></div>
+        <div class="step"><span class="n">06</span><span class="k">更新之后</span><span class="v">模型更换时由谁通知学校？学校依据什么复核？</span></div>
+        <div class="step"><span class="n">07</span><span class="k">退出成本</span><span class="v">三年后停用，数据如何迁出，课程如何延续？</span></div>
+      </div>
+    </div>
+    <div class="foot hair">七题均不需要技术背景。<strong>无法回答的题目，即为此次采购的风险所在。</strong></div>
+  </div>
+  <template class="notes"><b>19:15–19:35</b>　收尾用。可以说：这一页可直接拍照，或会后向我索取文件。<br>若现场有 Q&A，用第 04 题开场最容易接上老师的实际处境。</template>
+</section>
+
+<!-- 28 结语 -->
+<section class="slide" id="slide-28" data-title="最后一项追问，指向教育自身" aria-label="第 28 页：最后一项追问，指向教育自身">
+  <div class="stage dark">
+    <div class="eyebrow">结语</div><div class="pageno">28</div>
+    <div class="head">
+      <h2>最后一项追问，<br>指向教育自身</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="split pr" style="grid-template-columns:1fr .82fr;gap:2.8em">
+        <div>
+          <div class="quote">
+            <p>AI 再生产了哪些偏见？<br><br>教育又把哪些偏见<strong>制度化</strong>成了知识、智力与功绩的判断标准？</p>
+            <span class="src">Vanessa Andreotti 闭幕主旨演讲“偏见”幻灯片。一位主讲人的反思，不是大会的共同结论。</span>
+          </div>
+          <p class="small" style="margin-top:1.5em;color:rgba(255,253,248,.78)">她同时提出“有意义的选择”：师生应能参与、退出或采用替代方式，<strong>而不因此受到污名或不利对待</strong>。若不使用某个平台便无法取得课程反馈、无法完成规定任务，这种选择并不成立。</p>
+        </div>
+        <figure>
+          <img class="photo" src="assets/p26-biases.jpg" style="aspect-ratio:1200/900" alt="会场屏幕上的闭幕主旨演讲幻灯片，标题 Biases，并列两个问题：Which biases does AI reproduce？与 Which biases has education institutionalized as knowledge, intelligence and merit？">
+          <figcaption>闭幕主旨演讲的“偏见”幻灯片。照片由参会者提供。</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="foot hair">本届会议没有给出一套适用于所有课堂的安排。值得继续比较的是：<strong>哪些支持有助学生理解，哪些条件让教师得以修改教学，哪些公共安排让技术选择可被解释、调整与承担。</strong></div>
+  </div>
+  <template class="notes"><b>19:35–20:00</b>　收。<br>可补一句：一个系统即使准确复制了现有的作文评分规则，也不能自动证明那套规则充分体现了学生的理解和思想。<b>技术执行的准确性与教育标准的合理性，要分开判断。</b><br>保留老师判断，也不等于所有人的判断都自然合理。专业意见同样要有依据，也要能被质疑和改进。</template>
+</section>
+
+<!-- 29 附录 A · IIEP 培训课程 -->
+<section class="slide" id="slide-29" data-title="附录 A · UNESCO 国际教育规划研究所的 AI 培训课程" aria-label="第 29 页：附录 A · UNESCO 国际教育规划研究所的 AI 培训课程">
+  <div class="stage">
+    <div class="eyebrow">附录 A</div><div class="pageno">29</div>
+    <div class="head" style="margin-bottom:1.15em">
+      <h2 style="font-size:2.1em">附录 A · UNESCO 国际教育规划<br>研究所的 AI 培训课程</h2>
+      <div class="deckline" style="font-size:1.16em;margin-top:.6em">IIEP（International Institute for Educational Planning）是 UNESCO 下设的教育规划研究与培训机构。本届会议的 AI 准备度策略实验室由该所团队引导。</div>
+      <div class="rule"></div>
+    </div>
+    <div class="body" style="gap:1em">
+      <div class="cols c2" style="gap:2.8em">
+        <div class="field accent">
+          <span class="idx">项目 · Prep-AI</span>
+          <h3 style="font-size:1.2em">为决策者与教育工作者准备 AI 与包容性数字转型</h3>
+          <p style="margin-top:.45em">UNESCO 的能力建设项目，工作重心由发布指南转向支持各国实施。配套的大规模开放课程与 IIEP 合作开发，托管在 IIEP Global Campus，2026 年 3 月 19 日国际数字学习日上线，面向教育决策者与教育领导者。</p>
+        </div>
+        <div class="field thin">
+          <span class="idx">在开发中的两门</span>
+          <h3 style="font-size:1.2em">把两份能力框架转成课程</h3>
+          <p style="margin-top:.45em">一门面向决策者、课程开发者与师范机构，用于落实 UNESCO 教师与学生人工智能能力框架；另一门把教师框架的能力与进阶层级转成教师专业学习的课程结构。</p>
+        </div>
+      </div>
+      <div class="cols c3" style="gap:1.9em">
+        <div class="field sig"><span class="idx">框架规模 · 教师</span><p style="font-size:1.05em;color:var(--ink)"><strong>5 个维度 15 项能力</strong>，每项分进阶层级。</p></div>
+        <div class="field sig"><span class="idx">框架规模 · 学生</span><p style="font-size:1.05em;color:var(--ink)"><strong>4 个维度 12 项能力</strong>，2024 年数字学习周发布。</p></div>
+        <div class="field sig"><span class="idx">对学校的用处</span><p style="font-size:1.05em;color:var(--ink)">进阶层级可直接作为校本培训的<strong>分层依据</strong>，不必另编一套标准。</p></div>
+      </div>
+    </div>
+    <div class="foot hair">IIEP 另与北京师范大学智慧学习研究院开展两年期研究项目，用 AI 与数字工具支持教育规划与管理。<br><strong style="color:var(--red)">查证状况：本材料制作环境无法连上 unesco.org 与 iiep.unesco.org，以上据公开检索结果交叉核对；报名方式、语言与费用未能核实，引用前请查两家官网。</strong></div>
+  </div>
+  <template class="notes">附录页，现场不宣讲，留给会后查阅与 Q&amp;A。<br>课程设技术参考组，由不同背景的专家与相关方参与大纲、内容、教学方式与教材的开发与修订。<br>如果有人问“我们能不能用国际标准”，这一页是答案的一半：框架有进阶层级，可以直接拿来分层；另一半在附录 B，说的是怎么查自己学校在哪一层。<br><b>课程的报名入口、语言与费用没能核实，现场不要替它做承诺。</b></template>
+</section>
+
+<!-- 30 附录 B · 成熟度矩阵 -->
+<section class="slide" id="slide-30" data-title="附录 B · AI 准备度成熟度矩阵" aria-label="第 30 页：附录 B · AI 准备度成熟度矩阵">
+  <div class="stage dark">
+    <div class="eyebrow">附录 B</div><div class="pageno">30</div>
+    <div class="head">
+      <h2 style="font-size:2.3em">附录 B · AI 准备度成熟度矩阵</h2>
+      <div class="deckline" style="font-size:1.16em;margin-top:.6em">9 月 11 日策略实验室 F，由 IIEP 团队引导。参与者用矩阵检查制度能力，再交流分歧与薄弱环节。</div>
+      <div class="rule"></div>
+    </div>
+    <div class="body" style="gap:1.4em">
+      <div class="cols c3" style="gap:2.2em">
+        <div class="field warn"><span class="idx">前提 01</span><h3 style="font-size:1.16em">衡量治理能力，<br>不衡量使用量</h3><p style="margin-top:.4em">团队明确说明：经过证据审查和明确程序之后决定不用某项应用，也可能体现成熟治理。</p></div>
+        <div class="field warn"><span class="idx">前提 02</span><h3 style="font-size:1.16em">工具仍在试用<br>和完善</h3><p style="margin-top:.4em">一次评分不能写成学校或国家的权威排名。</p></div>
+        <div class="field warn"><span class="idx">前提 03</span><h3 style="font-size:1.16em">填写只是起点</h3><p style="margin-top:.4em">这套方法原本嵌入持续数月的能力建设与政策规划过程，现场练习只是简要体验。证据核对、分歧讨论与后续行动仍须教育工作者共同完成。</p></div>
+      </div>
+      <div class="cols c3" style="gap:2.2em">
+        <div class="field ok"><span class="idx">可以现在借用的 01</span><p style="font-size:1.05em">分角色分别填，<strong>再比对差异</strong>。管理层的理解与教师的实际经验往往不同，差异本身就是发现。</p></div>
+        <div class="field ok"><span class="idx">可以现在借用的 02</span><p style="font-size:1.05em">每一格<strong>要求给证据</strong>，不要求给分数。给不出证据的格子就是下一步的工作。</p></div>
+        <div class="field ok"><span class="idx">可以现在借用的 03</span><p style="font-size:1.05em">把<strong>“决定不用”也记进去</strong>，连同当时依据的证据与程序。</p></div>
+      </div>
+    </div>
+    <div class="foot hair">UNESCO 另有已公开的准备度工具：AI 准备度评估方法（RAM，已在南部非洲试点），以及面向公共部门的 AI 成熟度框架。<strong style="color:var(--orange)">现场这套矩阵的正式名称与公开状况未能核实（unesco.org 与 iiep.unesco.org 被出口代理封锁）。</strong></div>
+  </div>
+  <template class="notes">附录页，现场不宣讲。<br>第 26 页那四项缺口就是从这套矩阵自查出来的，两页一起看。<br>会上一位土耳其学校的参与者说：学校已经制定 AI 政策并定期修订，用了矩阵之后仍发现数据治理、问责、影响评估和参与咨询四处缺口。<b>“有文本”与“有能力持续处理”，在那个现场被具体地分开了。</b></template>
+</section>
+
+<!-- 31 扫码取用 -->
+<section class="slide" id="slide-31" data-title="线上版与 PDF 下载" aria-label="第 31 页：线上版与 PDF 下载">
+  <div class="stage">
+    <div class="eyebrow">带回去</div><div class="pageno">31</div>
+    <div class="head">
+      <h2>线上版与 PDF 下载</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="body">
+      <div class="cols c2" style="gap:4.2em">
+        <div class="field">
+          <span class="idx">01 · 线上翻阅</span>
+          <div class="qr" role="img" aria-label="二维码，连向本场分享的线上版 tonyxinvip.github.io/slides/unesco-2026-cn/"><svg viewBox="0 0 41 41" class="segno"><path class="qrline" stroke="#080d19" d="M4 4.5h7m6 0h2m1 0h2m1 0h3m1 0h1m2 0h7m-33 1h1m5 0h1m5 0h6m2 0h2m2 0h1m1 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h1m2 0h3m2 0h1m2 0h1m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m2 0h1m3 0h1m2 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h2m1 0h2m2 0h1m2 0h1m3 0h3m1 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m1 0h2m2 0h2m1 0h2m4 0h1m2 0h1m1 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-25 1h4m2 0h2m2 0h1m2 0h4m-25 1h1m1 0h5m3 0h1m2 0h3m1 0h1m4 0h1m3 0h5m-29 1h1m1 0h1m3 0h1m1 0h3m5 0h4m1 0h1m2 0h2m1 0h2m1 0h1m-29 1h1m1 0h2m1 0h1m2 0h1m2 0h2m1 0h1m1 0h1m4 0h1m2 0h1m1 0h2m-31 1h2m1 0h1m3 0h2m2 0h1m1 0h1m1 0h1m2 0h3m2 0h2m2 0h3m-31 1h2m1 0h4m1 0h5m5 0h1m4 0h1m1 0h1m1 0h3m1 0h1m-32 1h3m1 0h2m1 0h1m2 0h8m4 0h5m2 0h4m-33 1h2m2 0h4m2 0h1m7 0h1m1 0h1m1 0h1m2 0h7m-30 1h2m1 0h1m1 0h1m1 0h3m2 0h1m1 0h1m1 0h4m3 0h2m1 0h3m-26 1h2m2 0h1m2 0h2m3 0h1m1 0h1m2 0h2m1 0h1m1 0h3m2 0h1m-33 1h2m2 0h1m2 0h4m1 0h1m1 0h1m1 0h2m1 0h5m1 0h3m1 0h2m1 0h1m-28 1h7m1 0h1m1 0h3m4 0h1m1 0h1m2 0h2m1 0h2m-32 1h1m2 0h2m3 0h1m4 0h1m1 0h1m1 0h5m1 0h1m1 0h7m-30 1h1m3 0h1m1 0h1m1 0h1m1 0h2m2 0h1m2 0h1m3 0h3m1 0h3m2 0h1m-33 1h1m2 0h3m1 0h1m1 0h3m1 0h3m2 0h2m1 0h1m1 0h2m1 0h1m3 0h1m1 0h1m-33 1h1m2 0h1m2 0h1m1 0h2m1 0h1m3 0h2m5 0h1m2 0h1m3 0h1m1 0h1m-32 1h1m2 0h1m4 0h1m5 0h2m3 0h3m1 0h1m6 0h3m-33 1h1m1 0h2m1 0h2m1 0h8m1 0h1m1 0h1m2 0h7m-21 1h2m6 0h1m1 0h2m4 0h1m3 0h1m1 0h1m1 0h1m-33 1h7m2 0h1m3 0h1m1 0h1m2 0h1m2 0h4m1 0h1m1 0h1m1 0h2m-32 1h1m5 0h1m1 0h4m1 0h1m2 0h1m4 0h4m3 0h3m-31 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m3 0h1m3 0h1m1 0h6m1 0h2m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m2 0h2m2 0h2m2 0h1m1 0h1m2 0h2m1 0h2m-33 1h1m1 0h3m1 0h1m1 0h1m3 0h1m4 0h2m1 0h2m1 0h1m2 0h2m1 0h1m-30 1h1m5 0h1m3 0h3m3 0h1m1 0h2m1 0h2m5 0h3m-31 1h7m1 0h4m1 0h2m2 0h2m1 0h1m1 0h6m1 0h1m1 0h1"/></svg></div>
+          <p>手机上可直接翻页，内容与现场这一份相同。<span class="qurl">tonyxinvip.github.io/slides/unesco-2026-cn/</span></p>
+        </div>
+        <div class="field">
+          <span class="idx">02 · 下载 PDF</span>
+          <div class="qr" role="img" aria-label="二维码，连向本场分享的 PDF 版下载链接"><svg viewBox="0 0 45 45" class="segno"><path class="qrline" stroke="#080d19" d="M4 4.5h7m3 0h1m1 0h2m1 0h2m1 0h1m1 0h2m1 0h1m4 0h1m1 0h7m-37 1h1m5 0h1m2 0h1m1 0h2m6 0h1m5 0h4m1 0h1m5 0h1m-37 1h1m1 0h3m1 0h1m1 0h4m2 0h1m4 0h3m1 0h2m2 0h2m1 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m1 0h1m1 0h3m1 0h1m2 0h1m1 0h1m4 0h3m1 0h1m1 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m1 0h1m4 0h1m2 0h1m2 0h2m2 0h1m4 0h1m1 0h1m1 0h3m1 0h1m-37 1h1m5 0h1m1 0h3m1 0h1m2 0h2m1 0h1m3 0h1m3 0h2m2 0h1m5 0h1m-37 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-29 1h4m1 0h2m5 0h2m6 0h1m-29 1h1m1 0h5m3 0h1m3 0h1m3 0h1m1 0h1m3 0h3m3 0h5m-34 1h1m3 0h1m2 0h1m1 0h1m1 0h1m1 0h3m6 0h1m1 0h1m3 0h1m1 0h1m1 0h1m1 0h1m-36 1h1m5 0h2m3 0h4m2 0h2m1 0h1m1 0h1m4 0h7m1 0h2m-37 1h2m10 0h3m1 0h1m4 0h1m4 0h1m1 0h1m1 0h4m2 0h1m-34 1h7m3 0h2m2 0h2m3 0h2m1 0h2m2 0h4m1 0h3m-37 1h2m1 0h2m2 0h3m3 0h2m1 0h5m2 0h1m1 0h2m1 0h1m2 0h1m3 0h1m-34 1h2m2 0h1m1 0h1m1 0h8m2 0h1m1 0h1m1 0h1m1 0h8m2 0h1m-36 1h3m4 0h1m1 0h2m1 0h1m3 0h2m2 0h1m2 0h1m2 0h1m1 0h4m-33 1h2m2 0h1m1 0h1m2 0h4m1 0h3m2 0h1m2 0h5m2 0h2m1 0h1m1 0h1m1 0h1m-35 1h1m4 0h1m2 0h2m2 0h2m1 0h2m1 0h1m1 0h3m1 0h1m1 0h1m4 0h1m1 0h1m-35 1h3m2 0h1m1 0h3m3 0h4m1 0h1m1 0h1m2 0h1m2 0h3m2 0h5m-37 1h1m1 0h1m1 0h2m2 0h2m2 0h1m1 0h2m3 0h5m5 0h1m1 0h3m2 0h1m-37 1h2m2 0h1m1 0h2m1 0h7m1 0h1m1 0h1m2 0h1m1 0h2m1 0h1m1 0h2m1 0h1m1 0h1m-35 1h2m3 0h1m1 0h1m2 0h1m3 0h1m1 0h1m2 0h3m1 0h1m4 0h1m4 0h1m1 0h1m-36 1h1m1 0h2m2 0h1m1 0h1m3 0h2m1 0h2m1 0h1m2 0h1m2 0h4m1 0h1m1 0h3m2 0h1m-36 1h3m1 0h1m2 0h3m1 0h1m1 0h1m5 0h2m4 0h2m3 0h2m2 0h2m-36 1h2m1 0h3m4 0h5m2 0h2m2 0h1m2 0h1m3 0h2m1 0h1m1 0h2m-36 1h3m1 0h1m4 0h4m2 0h2m6 0h4m1 0h1m2 0h1m-32 1h1m2 0h1m2 0h2m2 0h2m2 0h1m7 0h1m1 0h6m1 0h6m-37 1h1m1 0h2m1 0h1m2 0h2m1 0h3m2 0h1m4 0h4m8 0h1m2 0h1m-37 1h1m2 0h6m1 0h2m4 0h2m7 0h10m-27 1h1m2 0h1m4 0h6m1 0h1m4 0h1m3 0h2m-34 1h7m3 0h4m1 0h3m2 0h3m2 0h1m2 0h1m1 0h1m1 0h1m1 0h1m1 0h1m-37 1h1m5 0h1m1 0h3m3 0h6m1 0h1m2 0h1m3 0h1m3 0h2m1 0h1m-36 1h1m1 0h3m1 0h1m1 0h1m1 0h3m1 0h3m5 0h2m1 0h1m1 0h6m1 0h2m-36 1h1m1 0h3m1 0h1m1 0h3m1 0h2m1 0h1m1 0h2m4 0h2m1 0h1m2 0h2m1 0h1m1 0h1m1 0h1m-37 1h1m1 0h3m1 0h1m1 0h3m2 0h1m1 0h3m4 0h1m1 0h6m5 0h2m-37 1h1m5 0h1m2 0h1m1 0h1m3 0h1m2 0h5m1 0h1m1 0h1m1 0h3m1 0h1m3 0h1m-37 1h7m1 0h1m2 0h1m1 0h1m1 0h1m1 0h1m2 0h1m1 0h1m1 0h3m2 0h2m1 0h5"/></svg></div>
+          <p>32 页 · 16:9 · 约 2 MB，可转发、可打印。<span class="qurl">…/unesco-2026-cn/unesco-dlw2026-cn.pdf</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="foot hair">两个链接指向同一份内容，均含第 29、30 页的两份附录。下一页的资料来源与分寸说明，两个版本都保留。</div>
+  </div>
+  <template class="notes"><b>Q&amp;A 期间停在这一页。</b><br>讲完上一页的“谢谢各位”之后翻到这里，让它一直亮着。老师要扫码通常是在提问的空档，不是在讲的时候。<br>可以说一句：左边是线上版，手机上直接翻；右边是 PDF，可以转给同事。</template>
+</section>
+
+<!-- 32 留底 -->
+<section class="slide" id="slide-32" data-title="资料来源与说明（留底页，不宣讲）" aria-label="第 32 页：资料来源与说明（留底页，不宣讲）">
+  <div class="stage">
+    <div class="eyebrow">留底</div><div class="pageno">32</div>
+    <div class="head">
+      <h2 style="font-size:2em">资料来源与说明</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="body" style="gap:1.2em">
+      <div class="refs">
+        <p><strong style="color:var(--ink)">会议</strong>　第四届 UNESCO 数字学习周，2026 年 9 月 8–11 日，巴黎 UNESCO 总部。主题 Education in the age of AI: Facts ｜ Frictions ｜ Frontiers。人数采用会议同期官方报道。</p>
+        <p><strong style="color:var(--ink)">文件</strong>　部长声明《在 AI 时代维护教育作为共同利益》；全球咨询“1＋6”（一份治理讨论文件与六份受委托背景论文，属公开咨询材料，非已定案法规）；文集《房间里的算法》（26 篇多作者思考文章）。</p>
+        <p><strong style="color:var(--ink)">现场报告</strong>　教师能动性专题（西班牙、德国、科特迪瓦、意大利与可可乐博）；个性化学习专题；学习、认知与人类能动性专题；UNESCO AI 能力框架实践专题；国家政策专题；高等教育全体会议；AI 准备度策略实验室。</p>
+        <p><strong style="color:var(--ink)">会外核验</strong>　科特迪瓦项目的效应量取自世界银行 2026 年 2 月项目说明（25 所职业教育机构、22 周、双重差分），非随机对照试验。</p>
+        <p><strong style="color:var(--red)">内地政策（第 24–26 页）</strong>　教育部办公厅《关于加强中小学人工智能教育的通知》（2024 年 11 月）；《中小学人工智能通识教育指南（2025 年版）》与《中小学生成式人工智能使用指南（2025 年版）》（教育部基础教育教学指导委员会，2025 年 5 月）；《教育部等九部门关于加快推进教育数字化的意见》（2025 年 4 月）；《“人工智能＋教育”行动计划》（教科信〔2026〕1 号，五部门，2026 年 4 月）；广东省教育厅 2025 年 4 月 10 日印发的两份师生人工智能素养框架与人工智能课程指导纲要；《深圳市义务教育人工智能课程纲要（修订版）》与《深圳市推进中小学人工智能教育工作方案》。<strong style="color:var(--ink)">本材料制作环境无法连上 moe.gov.cn、edu.gd.gov.cn 与 szeb.sz.gov.cn，以上据多家独立报道交叉核对；正式引用前请核对原文与文号。</strong></p>
+        <p><strong style="color:var(--red)">两份附录（第 29–30 页）</strong>　IIEP 为 UNESCO 国际教育规划研究所。附录 A 的 Prep-AI 项目与课程信息据公开检索结果交叉核对，<strong style="color:var(--ink)">报名方式、语言与费用未能核实</strong>。附录 B 的矩阵为 9 月 11 日策略实验室 F 现场使用的工具，三条前提由引导团队当场说明；<strong style="color:var(--ink)">该矩阵的正式名称与公开状况未能核实（unesco.org 与 iiep.unesco.org 被出口代理封锁）</strong>。</p>
+        <p><strong style="color:var(--ink)">照片</strong>　由参会者现场拍摄提供。幻灯片内容版权属各报告者。</p>
+        <p><strong style="color:var(--ink)">分寸说明</strong>　正式报告的入选与报名参会是两套安排。入选议程说明的是分享的主题与位置，<strong style="color:var(--ink)">不构成 UNESCO 对任何项目、产品或成效的认证</strong>。本场分享中涉及建设规模与参与人次的数字，反映的是建设和参与情况，不是学习效果指标。</p>
+      </div>
+    </div>
+    <div class="stamp">辛海洋 · 可可乐博 · 2026 年 9 月 · 完整观察报告另见全文版</div>
+  </div>
+  <template class="notes">留底页，现场不宣讲。发出去时保留。<br>全文版（约 1.8 万字、17 图 3 表、40 条参考）为本 deck 的来源文件。第 29、30 页两份附录的内容不在全文版里，是另行检索与现场记录补上的。</template>
+</section>
+
+</main>
+
+<div class="counter" id="counter" aria-live="polite">01 / 32</div>
+
+<div class="controls">
+  <button class="btn" id="btn-prev" aria-label="上一页" title="上一页 ←">←</button>
+  <button class="btn" id="btn-next" aria-label="下一页" title="下一页 →">→</button>
+  <button class="btn" id="btn-ov" aria-label="总览" title="总览 O"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2.5 4h11M2.5 8h11M2.5 12h11"/></svg></button>
+  <button class="btn" id="btn-notes" aria-label="演讲者备注" title="备注 N">N</button>
+  <button class="btn" id="btn-fs" aria-label="全屏幕" title="全屏幕 F"><svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10"/></svg></button>
+</div>
+
+<div class="overview" id="overview" role="dialog" aria-modal="true" aria-label="幻灯片总览" hidden>
+  <div class="ovhead">总览 · 共 <span id="ov-total">32</span> 页 · Esc 关闭</div>
+  <div class="ovgrid" id="ovgrid"></div>
+</div>
+
+<div class="notespanel" id="notespanel" role="region" aria-label="演讲者备注" hidden>
+  <h4>演讲者备注 / 时间点 / 来源</h4>
+  <div id="notesbody"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var slides = Array.prototype.slice.call(document.querySelectorAll(".slide"));
+  var total  = slides.length;
+  var cur    = 0;
+  var deck   = document.getElementById("deck");
+  var counter= document.getElementById("counter");
+  var progress=document.getElementById("progress");
+  var overview=document.getElementById("overview");
+  var ovgrid = document.getElementById("ovgrid");
+  var notesPanel=document.getElementById("notespanel");
+  var notesBody =document.getElementById("notesbody");
+  var mqMobile = window.matchMedia("(max-width:820px)");
+  var FALLBACK = "（本页没有备注。）";
+
+  document.getElementById("ov-total").textContent = String(total);
+
+  function pad(n){ return (n<10?"0":"")+n; }
+
+  function noteFor(i){
+    var t = slides[i].querySelector("template.notes");
+    return t ? t.innerHTML.trim() : "";
+  }
+
+  function render(){
+    slides.forEach(function(s,i){
+      var on = (i===cur);
+      if(!mqMobile.matches){
+        s.classList.toggle("is-active", on);
+        s.setAttribute("aria-hidden", on ? "false" : "true");
+        if("inert" in s){ s.inert = !on; } else if(!on){ s.setAttribute("inert",""); } else { s.removeAttribute("inert"); }
+      }
+    });
+    counter.textContent = pad(cur+1)+" / "+pad(total);
+    progress.style.width = ((cur+1)/total*100)+"%";
+    notesBody.innerHTML = noteFor(cur) || FALLBACK;
+    if(location.hash !== "#slide-"+(cur+1)){
+      history.replaceState(null,"","#slide-"+(cur+1));
+    }
+  }
+
+  function go(i){
+    var n = Math.max(0, Math.min(total-1, i));
+    if(n===cur && document.querySelector(".slide.is-active")) return;
+    cur = n;
+    if(mqMobile.matches){
+      slides[cur].scrollIntoView({behavior: prefersReduced() ? "auto" : "smooth", block:"start"});
+      counter.textContent = pad(cur+1)+" / "+pad(total);
+      progress.style.width = ((cur+1)/total*100)+"%";
+      notesBody.innerHTML = noteFor(cur) || FALLBACK;
+      history.replaceState(null,"","#slide-"+(cur+1));
+    } else {
+      render();
+    }
+  }
+  function prefersReduced(){
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+  function next(){ go(cur+1); }
+  function prev(){ go(cur-1); }
+
+  // ---- 键盘 ----
+  document.addEventListener("keydown", function(e){
+    if(e.defaultPrevented) return;
+    var k = e.key;
+    if(overview.classList.contains("open")){
+      if(k==="Escape"){ closeOverview(); e.preventDefault(); }
+      return;
+    }
+    if(k==="ArrowRight"||k==="ArrowDown"||k==="PageDown"||k===" "||k==="Spacebar"){ next(); e.preventDefault(); }
+    else if(k==="ArrowLeft"||k==="ArrowUp"||k==="PageUp"){ prev(); e.preventDefault(); }
+    else if(k==="Home"){ go(0); e.preventDefault(); }
+    else if(k==="End"){ go(total-1); e.preventDefault(); }
+    else if(k==="o"||k==="O"){ openOverview(); e.preventDefault(); }
+    else if(k==="n"||k==="N"){ toggleNotes(); e.preventDefault(); }
+    else if(k==="f"||k==="F"){ toggleFs(); e.preventDefault(); }
+  });
+
+  // ---- 触控：横向滑动翻页，纵向留给阅读 ----
+  var tx=0, ty=0, tracking=false;
+  deck.addEventListener("touchstart", function(e){
+    if(e.touches.length!==1){ tracking=false; return; }
+    tx = e.touches[0].clientX; ty = e.touches[0].clientY; tracking=true;
+  }, {passive:true});
+  deck.addEventListener("touchend", function(e){
+    if(!tracking) return;
+    tracking=false;
+    var t = e.changedTouches[0];
+    var dx = t.clientX - tx, dy = t.clientY - ty;
+    if(Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy)*1.7){
+      if(dx < 0) next(); else prev();
+    }
+  }, {passive:true});
+
+  // ---- 控件 ----
+  document.getElementById("btn-next").addEventListener("click", next);
+  document.getElementById("btn-prev").addEventListener("click", prev);
+  document.getElementById("btn-ov").addEventListener("click", openOverview);
+  document.getElementById("btn-notes").addEventListener("click", toggleNotes);
+  document.getElementById("btn-fs").addEventListener("click", toggleFs);
+
+  function toggleNotes(){
+    var open = notesPanel.classList.toggle("open");
+    notesPanel.hidden = !open;
+  }
+
+  function toggleFs(){
+    try{
+      if(!document.fullscreenElement){
+        var p = document.documentElement.requestFullscreen && document.documentElement.requestFullscreen();
+        if(p && p.catch) p.catch(function(){ /* 浏览器拒绝时静默降级，不影响演示 */ });
+      } else if(document.exitFullscreen){
+        document.exitFullscreen();
+      }
+    }catch(err){ /* 不支援全屏幕时保持原状 */ }
+  }
+
+  // ---- 总览 ----
+  slides.forEach(function(s,i){
+    var b = document.createElement("button");
+    b.className="ovcard";
+    b.type="button";
+    b.innerHTML = '<span class="n">'+pad(i+1)+'</span>'+ (s.dataset.title||("第 "+(i+1)+" 页"));
+    b.addEventListener("click", function(){ closeOverview(); go(i); });
+    ovgrid.appendChild(b);
+  });
+  function openOverview(){
+    overview.hidden=false;
+    overview.classList.add("open");
+    var first = ovgrid.querySelector(".ovcard");
+    if(first) first.focus();
+  }
+  function closeOverview(){
+    overview.classList.remove("open");
+    overview.hidden=true;
+    document.getElementById("btn-ov").focus();
+  }
+  overview.addEventListener("click", function(e){ if(e.target===overview) closeOverview(); });
+
+  // ---- 深链接 ----
+  function fromHash(){
+    var m = /^#slide-(\d+)$/.exec(location.hash||"");
+    if(m){
+      var n = parseInt(m[1],10)-1;
+      if(n>=0 && n<total){ cur=n; }
+    }
+  }
+  window.addEventListener("hashchange", function(){ fromHash(); render(); });
+
+  // ---- 移动端：滚动同步计数 ----
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      if(!mqMobile.matches) return;
+      entries.forEach(function(en){
+        if(en.isIntersecting && en.intersectionRatio>0.5){
+          var i = slides.indexOf(en.target);
+          if(i>=0 && i!==cur){
+            cur=i;
+            counter.textContent = pad(cur+1)+" / "+pad(total);
+            progress.style.width = ((cur+1)/total*100)+"%";
+            notesBody.innerHTML = noteFor(cur) || FALLBACK;
+          }
+        }
+      });
+    }, {threshold:[0.5]});
+    slides.forEach(function(s){ io.observe(s); });
+  }
+
+  mqMobile.addEventListener("change", function(){
+    if(mqMobile.matches){
+      slides.forEach(function(s){
+        s.classList.remove("is-active");
+        s.removeAttribute("aria-hidden");
+        if("inert" in s) s.inert=false; else s.removeAttribute("inert");
+      });
+    } else {
+      render();
+    }
+  });
+
+  fromHash();
+  render();
+})();
+</script>
+</body>
+</html>
