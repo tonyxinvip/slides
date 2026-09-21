@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="./favicon.svg" type="image/svg+xml"><title>現場演示材料｜當表達成本降低後</title><style>
+body{margin:0;background:#f6f3ed;color:#0b1830;font:18px/1.8 'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif}main{max-width:900px;margin:auto;padding:45px 25px 100px}h1{font-size:38px;line-height:1.4}h2{margin-top:65px;font-size:29px}h3{margin-top:35px;font-size:22px}a{color:#315cf5}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#fff;border-left:4px solid #315cf5;padding:22px;font:inherit}button{font:inherit;background:#0b1830;color:#fff;border:0;border-radius:4px;padding:8px 18px;cursor:pointer}button:focus-visible{outline:3px solid #315cf5;outline-offset:3px}.notice{border-top:1px solid #ccd3df;border-bottom:1px solid #ccd3df;padding:20px 0;color:#52627a}.status{display:inline-block;margin-left:15px;font-size:15px;color:#315cf5}.nav{display:flex;flex-wrap:wrap;gap:22px}@media print{button,.nav,.status{display:none}main{padding:0}h2{break-before:page}pre{border:1px solid #aaa}}
+</style></head><body><main><nav class="nav"><a href="./index.html">返回講稿</a><a href="#demo-1">示範一</a><a href="#demo-2">示範二</a><a href="#demo-3">示範三</a><a href="./downloads/cuhk-ai-communication-2026-v3.pptx" download>下載 PPT</a></nav>
+<h1>現場演示材料</h1><p>當表達成本降低後：AI 時代的中文傳意與未來人才<br>辛海洋／香港中文大學</p>
+<p class="notice">短文、任務條件、回饋及離線對照稿均為講座示例。離線對照稿為本講座預先準備，並非模型實測或教學成效證據。現場輸出可能與示例不同。材料不含學生、教師或客戶的個人資料。</p>
+<h2 id="demo-1">示範一：同一短文，不同委託</h2><p>對應第 8–9 頁。兩輪使用同一短文，第二輪只增加任務情境與檢查條件。兩輪均建議用新的對話開始，以減少前一輪內容的影響。</p>
+<h3>第一輪提示</h3><pre id="prompt-1">請根據以下短文，做一份語文課前導讀。
+
+《窗邊的樹》
+早晨，小晴推開窗，看見樹葉上停着幾滴雨水。風一吹，雨水落在窗台。午後，陽光照進來，窗台乾了，樹影慢慢移到書桌旁。她把椅子挪近窗邊，繼續讀那本沒有讀完的書。</pre><button data-copy="prompt-1">複製第一輪提示</button><span class="status" aria-live="polite"></span>
+<h3>第二輪提示</h3><pre id="prompt-2">請根據以下短文，為小學三年級學生製作十分鐘的課前導讀。
+
+閱讀目的：辨認描寫景物變化的語句，並區分原文資訊與讀者推測。
+產出：三個簡短提問，以及一段給教師的使用說明。
+檢查條件：每個提問都能回到指定短文找到依據。不要新增情節，不要預先提供標準答案，也不要預設學生應得出某種人生感悟。
+
+《窗邊的樹》
+早晨，小晴推開窗，看見樹葉上停着幾滴雨水。風一吹，雨水落在窗台。午後，陽光照進來，窗台乾了，樹影慢慢移到書桌旁。她把椅子挪近窗邊，繼續讀那本沒有讀完的書。</pre><button data-copy="prompt-2">複製第二輪提示</button><span class="status" aria-live="polite"></span>
+<h3>觀察重點</h3><p>對比提問是否指向原文，是否適合指定對象，是否加入原文沒有的事實。不能只根據文字更流暢，就判定第二輪更好。這是單次示範，不是模型能力的對照研究。</p>
+<h3>離線對照稿</h3><p>條件不足的構擬示例：「談談這篇文章帶來的人生啟示。」</p><p>依委託修訂的構擬示例：</p><ol><li>找出早晨和午後描寫窗台的語句。兩處有甚麼不同？</li><li>哪一句寫到樹影的位置？原文直接交代了哪些變化？</li><li>短文有沒有交代小晴為甚麼移動椅子？哪些說法只能算讀者的推測？</li></ol><p>給教師的說明：此稿供辨認文本資訊與推論之用。教師仍需依學生閱讀程度調整用語和時間，不能據此宣稱閱讀能力已提升。</p>
+<h2 id="demo-2">示範二：新資料要求重新判斷</h2><p>對應第 12–13 頁。示範檢查「便利感」能否支持「學習成效」的主張。新資料不一定令結論轉向，需要先判斷它與原有依據的關係。</p>
+<h3>待審主張與新增資料</h3><pre id="prompt-3">以下是講座構擬材料，不是真實試驗。
+
+待審主張：「這份導讀能提升學生的閱讀理解。」
+已有回饋：「參與教師認為整理材料較方便。」
+新增資料：尚未收集學生作答，未設比較組，也沒有後續追蹤。
+
+請檢查已有回饋是否足以支持待審主張。重寫一段不超過100字、給教師閱讀的介紹，保留用途但避免超出證據。再說明下一步需要觀察甚麼。
+如果認為結論應維持，請說明理由。如果需要修訂，請修改主句，不要只在結尾加免責聲明。</pre><button data-copy="prompt-3">複製檢查提示</button><span class="status" aria-live="polite"></span>
+<h3>離線修訂稿</h3><pre>這份導讀可供教師備課時參考。構擬試用回饋提到整理材料較方便，但對學生閱讀理解的影響尚未評估。下一步需要觀察學生能否依據短文解釋自己的回答。</pre>
+<h3>觀察重點</h3><p>模型是否區分教師回饋與學生表現？是否把不確定性寫入主張？建議的下一步是否對應閱讀目的？若現場輸出未能區分，保留原稿並指出問題，不把示範包裝成成功案例。</p>
+<h2 id="demo-3">示範三：交回文件，也交代未完成項</h2><p>對應第31頁。沿用同一短文與導讀條件，觀察產物及缺項，再用材料缺失檢查停止行為。只在隔離文件或對話中示範，不對外發送。</p>
+<h3>工作委託</h3><pre id="prompt-4">本次是講座中的隔離示範。
+請以本頁《窗邊的樹》短文為唯一文本依據，準備三年級課前導讀。
+產出一份候選文件，包含：三個給學生的提問、教師使用說明、逐項文本依據，以及尚待教師確認的事項。
+學生頁不預先提供標準答案。文本依據另放教師核對頁。
+如果工具能建立文件，可以在當前隔離工作目錄保存。沒有建立文件的工具時，只交回完整內容，明確說明未建立文件。
+不得發送、發布或改寫任何既有共用正式版。不得新增短文沒有的情節。
+缺少必要短文或條件互相衝突時，先停止製作，指出需要確認之處。
+完成後交代：產物、實際完成的核對、仍未確認的條件。不要把自己的完成聲明當作驗收。</pre><button data-copy="prompt-4">複製工作委託</button><span class="status" aria-live="polite"></span>
+<h3>反例：開啟新的對話，不提供短文</h3><pre id="prompt-5">請依照以下工作條件製作三年級課前導讀：只能根據指定短文提出三個問題，不得新增情節。缺少必要材料時先停止，指出需要補充的內容。
+本輪尚未提供指定短文。請回報目前能否製作，以及下一步需要確認甚麼。</pre><button data-copy="prompt-5">複製缺失材料反例</button><span class="status" aria-live="polite"></span>
+<h3>離線預備示例</h3><p>可接受的停止回報示例：「尚未收到指定短文，無法核對文本依據。目前未製作導讀，也未發送任何材料。需要先提供短文。」這段文字是預先準備的示例，不是模型實測。若模型仍自行編造短文，保留輸出並說明該次沒有通過檢查。</p>
+<h2>現場與離線使用</h2><p>示範一、二各約三分鐘，示範三約四分鐘。若網絡、登入或工具不可用，可直接展示固定材料及預備對照稿，並明示其離線性質。示範不提供模型可靠性或教學成效證明。若複製按鈕不可用，文字可直接選取複製。</p>
+<script>document.addEventListener('click',async e=>{const b=e.target.closest('[data-copy]');if(!b)return;const t=document.getElementById(b.dataset.copy).textContent;const status=b.nextElementSibling;try{await navigator.clipboard.writeText(t);status.textContent='已複製';}catch{const range=document.createRange();range.selectNodeContents(document.getElementById(b.dataset.copy));const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);status.textContent='已選取文字，請手動複製';}});</script>
+</main></body></html>
