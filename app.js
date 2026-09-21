@@ -79,6 +79,7 @@ function renderCard(deck, index, section) {
   const tags = (deck.tags || []).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
   const published = escapeHtml(deck.publishedAt);
   const eventDate = escapeHtml(deck.eventDate || deck.publishedAt);
+  const eventDateAttribute = deck.eventDatePrecision === "unknown" ? "" : ` datetime="${eventDate}"`;
   return `<article class="deck-card" data-slug="${escapeHtml(deck.slug)}" data-section="${section}" data-search="${searchableText(deck)}">
     <a class="deck-cover" href="./${escapeHtml(deck.slug)}/" aria-label="打开 ${escapeHtml(deck.title)}">
       <img src="${escapeHtml(deck.cover)}" alt="${escapeHtml(deck.title)}封面" width="1600" height="900">
@@ -90,7 +91,7 @@ function renderCard(deck, index, section) {
       <div class="deck-title-row"><h3>${escapeHtml(deck.title)}</h3><i aria-hidden="true">↗</i></div>
       <p class="deck-summary">${escapeHtml(deck.summary)}</p>
       <div class="deck-event">
-        <time datetime="${eventDate}"><small>${escapeHtml(deck.eventKind)}日期</small><b>${escapeHtml(eventDateLabel(deck))}</b></time>
+        <time${eventDateAttribute}><small>${escapeHtml(deck.eventKind)}日期</small><b>${escapeHtml(eventDateLabel(deck))}</b></time>
         <span><small>举办地点</small><b>${escapeHtml(deck.eventVenue)}</b></span>
       </div>
       <div class="deck-meta"><span><b>${deck.slideCount}</b> 张</span><span><b>${deck.durationMinutes}</b> 分钟</span><span>${escapeHtml(deck.author)}</span><span><b>${published}</b> 发布</span></div>
@@ -154,8 +155,9 @@ function applyFilter() {
 function renderGallery() {
   const today = todayInShanghai();
   const entries = decks.map((deck, index) => ({ deck, index, date: dateKey(deck.eventDate || deck.publishedAt) }));
-  const upcoming = entries.filter((entry) => entry.date > today).sort((a, b) => a.date.localeCompare(b.date) || a.index - b.index);
-  const completed = entries.filter((entry) => entry.date <= today).sort((a, b) => b.date.localeCompare(a.date) || a.index - b.index);
+  const isUpcoming = (entry) => entry.deck.eventStatus === "upcoming" || entry.date > today;
+  const upcoming = entries.filter(isUpcoming).sort((a, b) => a.date.localeCompare(b.date) || a.index - b.index);
+  const completed = entries.filter((entry) => !isUpcoming(entry)).sort((a, b) => b.date.localeCompare(a.date) || a.index - b.index);
   const ordered = [...upcoming, ...completed];
   const position = new Map(ordered.map((entry, index) => [entry.deck.slug, index]));
   const section = (title, name, entriesInSection) => {
