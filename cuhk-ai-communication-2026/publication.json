@@ -1,19 +1,17 @@
 {
   "slug": "cuhk-ai-communication-2026",
   "title": "當表達成本降低後：AI 時代的中文傳意與未來人才",
-  "summary": "從中文傳意中的委託、證據與承諾出發，以同一份課前導讀貫穿 AI Native 四篇連載：AI Worker、組織記憶、團隊責任及現場接管。結合講者的企業經營視角，討論大學生的專業判斷、協作與能力成長。",
+  "summary": "從中文傳意中的委託、證據與承諾出發，以一份課前導讀串連 AI Native 四篇連載。從企業的投入取捨，走到小組的專業分工、錯誤修訂與交接，討論本科生如何用作品呈現判斷和能力成長。",
   "author": "辛海洋",
   "organization": "可可樂博",
   "venue": "香港中文大學",
   "eventDate": "待確認",
-  "updatedAt": "2026-09-22",
-  "publishedAt": "2026-09-22",
-  "cover": "./cover.svg",
+  "updatedAt": "2026-09-23",
   "durationMinutes": 90,
   "presentationMinutes": 75,
   "qaMinutes": 15,
   "slideCount": 66,
-  "version": "3.0",
+  "version": "3.1",
   "parts": [
     {
       "start": 1,
@@ -37,7 +35,13 @@
   "downloads": [
     {
       "label": "可編輯 PowerPoint（66頁）",
-      "path": "downloads/cuhk-ai-communication-2026-v3.pptx"
+      "path": "downloads/cuhk-ai-communication-2026-v3-1-final.pptx"
+    },
+    {
+      "label": "逐頁演講稿（繁體 TXT，66頁對應）",
+      "path": "downloads/cuhk-ai-communication-2026-v3-1-speech.txt"
     }
-  ]
+  ],
+  "publishedAt": "2026-09-22",
+  "cover": "./cover.svg"
 }

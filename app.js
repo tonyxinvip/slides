@@ -169,7 +169,7 @@ function renderGallery() {
 }
 
 function updatePublicationDate() {
-  const latest = decks.map((deck) => deck.publishedAt).filter(Boolean).sort().at(-1);
+  const latest = decks.flatMap((deck) => [deck.publishedAt, deck.updatedAt]).filter(Boolean).sort().at(-1);
   updated.textContent = latest || "—";
   if (latest) updated.setAttribute("datetime", latest);
 }
