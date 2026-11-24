@@ -78,13 +78,16 @@ function searchableText(deck) {
 function renderCard(deck, index, section) {
   const tags = (deck.tags || []).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
   const published = escapeHtml(deck.publishedAt);
+  const recordOnly = deck.format === "event-record";
+  const slideInfo = Number.isFinite(deck.slideCount) ? `<span><b>${deck.slideCount}</b> 张</span>` : "";
+  const durationInfo = Number.isFinite(deck.durationMinutes) ? `<span><b>${deck.durationMinutes}</b> 分钟</span>` : "";
   const eventDate = escapeHtml(deck.eventDate || deck.publishedAt);
   const eventDateAttribute = deck.eventDatePrecision === "unknown" ? "" : ` datetime="${eventDate}"`;
   return `<article class="deck-card" data-slug="${escapeHtml(deck.slug)}" data-section="${section}" data-search="${searchableText(deck)}">
     <a class="deck-cover" href="./${escapeHtml(deck.slug)}/" aria-label="打开 ${escapeHtml(deck.title)}">
       <img src="${escapeHtml(deck.cover)}" alt="${escapeHtml(deck.title)}封面" width="1600" height="900">
       <span class="deck-number">${String(index + 1).padStart(2, "0")} / ${String(decks.length).padStart(2, "0")}</span>
-      <span class="access-badge">${accessLabel(deck.access)}</span>
+      <span class="access-badge">${recordOnly ? "场次简介" : accessLabel(deck.access)}</span>
     </a>
     <div class="deck-content">
       <p class="deck-eyebrow">${escapeHtml(deck.eyebrow)}</p>
@@ -94,7 +97,7 @@ function renderCard(deck, index, section) {
         <time${eventDateAttribute}><small>${escapeHtml(deck.eventKind)}日期</small><b>${escapeHtml(eventDateLabel(deck))}</b></time>
         <span><small>举办地点</small><b>${escapeHtml(deck.eventVenue)}</b></span>
       </div>
-      <div class="deck-meta"><span><b>${deck.slideCount}</b> 张</span><span><b>${deck.durationMinutes}</b> 分钟</span><span>${escapeHtml(deck.author)}</span><span><b>${published}</b> 发布</span></div>
+      <div class="deck-meta">${slideInfo}${durationInfo}<span>${escapeHtml(deck.author)}</span><span><b>${published}</b> 发布</span></div>
       <div class="deck-tags">${tags}</div>
     </div>
   </article>`;
