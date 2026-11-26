@@ -157,8 +157,8 @@ function applyFilter() {
 
 function renderGallery() {
   const today = todayInShanghai();
-  const entries = decks.map((deck, index) => ({ deck, index, date: dateKey(deck.eventDate || deck.publishedAt) }));
-  const isUpcoming = (entry) => entry.deck.eventStatus === "upcoming" || entry.date > today;
+  const entries = decks.map((deck, index) => ({ deck, index, date: dateKey(deck.eventDate || (deck.eventDatePrecision === "unknown" ? "" : deck.publishedAt)) }));
+  const isUpcoming = (entry) => entry.deck.eventStatus !== "completed" && entry.date > today;
   const upcoming = entries.filter(isUpcoming).sort((a, b) => a.date.localeCompare(b.date) || a.index - b.index);
   const completed = entries.filter((entry) => !isUpcoming(entry)).sort((a, b) => b.date.localeCompare(a.date) || a.index - b.index);
   const ordered = [...upcoming, ...completed];
